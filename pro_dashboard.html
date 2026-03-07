@@ -571,7 +571,7 @@
                         <h2 class="text-3xl font-bold text-slate-800 mb-2">إدارة المتاجر</h2>
                         <p class="text-slate-500 text-sm">عرض وتعديل بيانات جميع المتاجر المسجلة</p>
                     </div>
-                    <button
+                    <button onclick="toggleModal('addNewRestaurantModal')"
                         class="px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-xl shadow-lg shadow-emerald-200 hover:shadow-xl hover:-translate-y-0.5 transition-all text-sm font-bold flex items-center gap-2">
                         <i class="fa-solid fa-plus"></i> إضافة متجر جديد
                     </button>
@@ -604,14 +604,14 @@
                         <table class="w-full text-right text-sm" id="storesDatatable" width="100%">
                             <thead class="bg-slate-50/80 text-slate-500">
                                 <tr>
-                                    <th class="p-4 font-semibold">المعرف</th>
-                                    <th class="p-4 font-semibold">صوره</th>
-                                    <th class="p-4 font-semibold text-left">الاسم</th>
-                                    <th class="p-4 font-semibold text-left">مناطق التشغيل</th>
-                                    <th class="p-4 font-semibold text-left">المالك</th>
-                                    <th class="p-4 font-semibold">تاريخ الإنضمام</th>
-                                    <th class="p-4 font-semibold">حص المهزون</th>
-                                    <th class="p-4 font-semibold">تاريخ اخر فصل</th>
+                                    <th class="p-4 font-semibold text-right">المعرف</th>
+                                    <th class="p-4 font-semibold text-right">الصورة</th>
+                                    <th class="p-4 font-semibold text-right">الاسم</th>
+                                    <th class="p-4 font-semibold text-right">مناطق التشغيل</th>
+                                    <th class="p-4 font-semibold text-right">المالك</th>
+                                    <th class="p-4 font-semibold text-right">تاريخ الانضمام</th>
+                                    <th class="p-4 font-semibold text-right">حالة المخزون</th>
+                                    <th class="p-4 font-semibold text-center">أخر جرد</th>
                                     <th class="p-4 font-semibold text-center"><i class="fa-solid fa-chevron-down"></i>
                                     </th>
                                 </tr>
@@ -620,6 +620,311 @@
                                 <!-- DataTables will populate this -->
                             </tbody>
                         </table>
+                    </div>
+                </div>
+
+                <!-- Add New Store Modal -->
+                <div id="addNewRestaurantModal"
+                    class="fixed inset-0 z-[100] hidden items-center justify-center overflow-y-auto bg-slate-900/50 backdrop-blur-sm">
+                    <div
+                        class="bg-white rounded-2xl w-full max-w-5xl m-4 shadow-2xl overflow-hidden transform transition-all flex flex-col max-h-[90vh]">
+                        <div
+                            class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50 shrink-0">
+                            <div>
+                                <h5 class="text-xl font-bold text-slate-800 text-right">إضافة متجر جديد</h5>
+                                <p class="text-xs text-slate-500 mt-1 text-right">يرجى ملء جميع الحقول المطلوبة بدقة</p>
+                            </div>
+                            <button type="button" onclick="toggleModal('addNewRestaurantModal')"
+                                class="text-slate-400 hover:text-rose-500 transition-colors w-8 h-8 flex items-center justify-center rounded-lg hover:bg-rose-50">
+                                <i class="fa-solid fa-xmark text-xl"></i>
+                            </button>
+                        </div>
+                        <div class="p-6 overflow-y-auto custom-scrollbar grow">
+                            <form id="addNewStoreFormLocal" action="#" method="POST" enctype="multipart/form-data"
+                                class="space-y-8 text-right">
+                                <input type="hidden" name="_token" value="ucbJq4xGkm90vAfmmTBZC6ONcC8dSNU7ArCYf3Jv">
+                                <!-- القسم الأساسي -->
+                                <div>
+                                    <h6 class="text-slate-800 font-bold mb-4 border-b border-slate-100 pb-2"><i
+                                            class="fa-solid fa-store text-indigo-500 mr-2 ml-2"></i>البيانات الأساسية
+                                    </h6>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                                        <div>
+                                            <label class="block text-sm font-semibold text-slate-700 mb-2">اسم المتجر
+                                                <span class="text-rose-500">*</span></label>
+                                            <input type="text" name="name"
+                                                class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50"
+                                                placeholder="مثال: بيتزا روما" required>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-semibold text-slate-700 mb-2">الاسم المختصر
+                                                <span class="text-rose-500">*</span></label>
+                                            <input type="text" name="short_name"
+                                                class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 short_name"
+                                                placeholder="مثال: روما" required>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-semibold text-slate-700 mb-2">مالك المتجر
+                                                <span class="text-rose-500">*</span></label>
+                                            <select
+                                                class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 select-search"
+                                                name="user_id" required>
+                                                <option value="">اختر المالك</option>
+                                                <option value="36">متجر الحمدانية</option>
+                                                <option value="54">متجر الصفا</option>
+                                                <option value="55">متجر السامر</option>
+                                            </select>
+                                        </div>
+                                        <div class="md:col-span-2 lg:col-span-3">
+                                            <label class="block text-sm font-semibold text-slate-700 mb-2">الوصف <span
+                                                    class="text-rose-500">*</span></label>
+                                            <input type="text" name="description"
+                                                class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50"
+                                                placeholder="وصف قصير للمتجر" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- القسم التشغيلي -->
+                                <div>
+                                    <h6 class="text-slate-800 font-bold mb-4 border-b border-slate-100 pb-2"><i
+                                            class="fa-solid fa-gears text-indigo-500 mr-2 ml-2"></i>العمليات والإعدادات
+                                    </h6>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                                        <div>
+                                            <label class="block text-sm font-semibold text-slate-700 mb-2">مفتاح الموقع
+                                                <span class="text-rose-500">*</span></label>
+                                            <input type="text" name="location_key"
+                                                class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 location_key"
+                                                required>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-semibold text-slate-700 mb-2">التقييم
+                                                الافتراضي <span class="text-rose-500">*</span></label>
+                                            <input type="text" name="rating"
+                                                class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 rating"
+                                                placeholder="1-5" required>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-semibold text-slate-700 mb-2">وقت التوصيل
+                                                (دقائق) <span class="text-rose-500">*</span></label>
+                                            <input type="text" name="delivery_time"
+                                                class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 delivery_time"
+                                                placeholder="مثال: 30" required>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-semibold text-slate-700 mb-2">سعر تقريبي
+                                                لشخصين <span class="text-rose-500">*</span></label>
+                                            <input type="text" name="price_range"
+                                                class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 price_range"
+                                                required>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-semibold text-slate-700 mb-2">الحد الأدنى
+                                                للطلب</label>
+                                            <input type="text" name="min_order_price"
+                                                class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 min_order_price"
+                                                value="0" required>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-semibold text-slate-700 mb-2">نسبة العمولة
+                                                % <span class="text-rose-500">*</span></label>
+                                            <input type="text" name="commission_rate"
+                                                class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 commission_rate"
+                                                value="0.00" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- العنوان والموقع -->
+                                <div>
+                                    <h6 class="text-slate-800 font-bold mb-4 border-b border-slate-100 pb-2"><i
+                                            class="fa-solid fa-map-location-dot text-indigo-500 mr-2 ml-2"></i>العنوان
+                                        والمكان</h6>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                                        <div class="md:col-span-2">
+                                            <label class="block text-sm font-semibold text-slate-700 mb-2">العنوان
+                                                الكامل <span class="text-rose-500">*</span></label>
+                                            <input type="text" name="address"
+                                                class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50"
+                                                required>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-semibold text-slate-700 mb-2">المنطقة
+                                                (Zone) <span class="text-rose-500">*</span></label>
+                                            <select name="zone_id"
+                                                class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 select-zone"
+                                                required>
+                                                <option value="1">الحمدانية</option>
+                                                <option value="2">الصفا</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-semibold text-slate-700 mb-2">خط العرض
+                                                (Lat) <span class="text-rose-500">*</span></label>
+                                            <input type="text" name="latitude"
+                                                class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 latitude"
+                                                value="21.4858" required>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-semibold text-slate-700 mb-2">خط الطول
+                                                (Long) <span class="text-rose-500">*</span></label>
+                                            <input type="text" name="longitude"
+                                                class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 longitude"
+                                                value="39.1925" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- تفاصيل التوصيل -->
+                                <div class="bg-indigo-50/50 p-5 rounded-2xl border border-indigo-100">
+                                    <h6 class="text-slate-800 font-bold mb-4 flex items-center gap-2"><i
+                                            class="fa-solid fa-truck-fast text-indigo-500"></i> خيارات التوصيل</h6>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                                        <div>
+                                            <label class="block text-sm font-semibold text-slate-700 mb-2">نوع التوصيل
+                                                <span class="text-rose-500">*</span></label>
+                                            <select
+                                                class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-white"
+                                                name="delivery_type" required>
+                                                <option value="1">توصيل فقط</option>
+                                                <option value="2">استلام ذاتي</option>
+                                                <option value="3">استلام ذاتي وتوصيل</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-semibold text-slate-700 mb-2">نطاق التوصيل
+                                                (كم)</label>
+                                            <input type="text" name="delivery_radius"
+                                                class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-white"
+                                                placeholder="مثال: 10">
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-semibold text-slate-700 mb-2">نوع الرسوم
+                                                <span class="text-rose-500">*</span></label>
+                                            <select
+                                                class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-white"
+                                                name="delivery_charge_type" id="delivery_charge_type_select"
+                                                onchange="toggleDeliveryChargeDivs()" required>
+                                                <option value="FIXED">رسوم ثابتة</option>
+                                                <option value="DYNAMIC">رسوم ديناميكية</option>
+                                            </select>
+                                        </div>
+                                        <div id="fixedDeliveryTypeDiv">
+                                            <label class="block text-sm font-semibold text-slate-700 mb-2">رسوم التوصيل
+                                                الثابتة (ر.س)</label>
+                                            <input type="text" name="delivery_charges"
+                                                class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-white">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- الصورة والترخيص -->
+                                <div>
+                                    <h6 class="text-slate-800 font-bold mb-4 border-b border-slate-100 pb-2"><i
+                                            class="fa-solid fa-image text-indigo-500 mr-2 ml-2"></i>ملفات وصور</h6>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 items-start">
+                                        <div>
+                                            <label class="block text-sm font-semibold text-slate-700 mb-2">صورة المتجر
+                                                <span class="text-rose-500">*</span></label>
+                                            <div class="flex items-center gap-4">
+                                                <div
+                                                    class="w-20 h-20 bg-slate-100 rounded-xl border border-slate-200 flex items-center justify-center shrink-0 overflow-hidden">
+                                                    <img id="newStoreImagePreview"
+                                                        class="hidden w-full h-full object-cover" />
+                                                    <i class="fa-solid fa-image text-slate-300 text-2xl"
+                                                        id="newStoreImagePlaceholder"></i>
+                                                </div>
+                                                <input type="file" name="image"
+                                                    class="w-full px-4 py-2.5 border border-slate-200 rounded-xl text-sm"
+                                                    accept="image/x-png,image/gif,image/jpeg" required
+                                                    onchange="previewImageCat(this, 'newStoreImagePreview'); document.getElementById('newStoreImagePlaceholder').classList.add('hidden');">
+                                            </div>
+                                        </div>
+                                        <div class="space-y-4">
+                                            <div>
+                                                <label class="block text-sm font-semibold text-slate-700 mb-2">كود
+                                                    الترخيص</label>
+                                                <input type="text" name="certificate"
+                                                    class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50">
+                                            </div>
+                                            <div class="flex gap-6 mt-4">
+                                                <label class="flex items-center gap-2 cursor-pointer">
+                                                    <input type="checkbox" name="is_pureveg" value="true"
+                                                        class="w-4 h-4 text-indigo-600 rounded border-slate-300 focus:ring-indigo-500"
+                                                        checked>
+                                                    <span class="text-sm font-semibold text-slate-700">دعم
+                                                        النباتيين</span>
+                                                </label>
+                                                <label class="flex items-center gap-2 cursor-pointer">
+                                                    <input type="checkbox" name="is_featured" value="true"
+                                                        class="w-4 h-4 text-indigo-600 rounded border-slate-300 focus:ring-indigo-500">
+                                                    <span class="text-sm font-semibold text-slate-700">متجر مميز</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- أزرار الإرسال -->
+                                <div class="flex justify-start pt-6 border-t border-slate-100 gap-3 shrink-0">
+                                    <button type="submit"
+                                        class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 text-white font-semibold hover:shadow-lg transition-all flex items-center gap-2">
+                                        <i class="fa-solid fa-save border-l border-white/20 pl-2"></i> حفظ المتجر
+                                    </button>
+                                    <button type="button" onclick="toggleModal('addNewRestaurantModal')"
+                                        class="px-6 py-2.5 rounded-xl border border-slate-200 text-slate-600 font-semibold hover:bg-slate-50 transition-colors">إلغاء</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CSV Bulk Upload Modal -->
+                <div id="addBulkRestaurantModal"
+                    class="fixed inset-0 z-[100] hidden items-center justify-center overflow-y-auto bg-slate-900/50 backdrop-blur-sm">
+                    <div
+                        class="bg-white rounded-2xl w-full max-w-lg m-4 shadow-2xl overflow-hidden transform transition-all">
+                        <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50">
+                            <h5 class="text-xl font-bold text-slate-800 text-right w-full">تحميل متاجر عبر ملف CSV</h5>
+                            <button type="button" onclick="toggleModal('addBulkRestaurantModal')"
+                                class="text-slate-400 hover:text-rose-500 transition-colors w-8 h-8 flex items-center justify-center rounded-lg hover:bg-rose-50 shrink-0">
+                                <i class="fa-solid fa-xmark text-xl"></i>
+                            </button>
+                        </div>
+                        <div class="p-6 text-right">
+                            <form action="https://montana-sa.amir-adel.com/admin/public/admin/store/bulk/save"
+                                method="POST" enctype="multipart/form-data" class="space-y-6">
+                                <input type="hidden" name="_token" value="ucbJq4xGkm90vAfmmTBZC6ONcC8dSNU7ArCYf3Jv">
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-2">اختر ملف CSV <span
+                                            class="text-rose-500">*</span></label>
+                                    <div class="flex items-center justify-center w-full">
+                                        <label for="dropzone-file"
+                                            class="flex flex-col items-center justify-center w-full h-40 border-2 border-indigo-200 border-dashed rounded-xl cursor-pointer bg-indigo-50/30 hover:bg-indigo-50 transition-colors">
+                                            <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                                <i class="fa-solid fa-cloud-arrow-up text-4xl text-indigo-400 mb-3"></i>
+                                                <p class="mb-2 text-sm text-slate-600 font-bold">انقر للرفع أو اسحب
+                                                    الملف هنا</p>
+                                                <p class="text-xs text-slate-400">فقط ملفات بصيغة CSV مدعومة</p>
+                                            </div>
+                                            <input id="dropzone-file" type="file" name="restaurant_csv" accept=".csv"
+                                                class="hidden" required
+                                                onchange="this.parentElement.querySelector('p').innerText = this.files[0].name" />
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between items-center pt-4 border-t border-slate-100">
+                                    <a href="https://montana-sa.amir-adel.com/admin/assets/docs/restaurants-sample-csv.csv"
+                                        class="text-sm font-bold text-indigo-600 hover:text-indigo-700 flex items-center gap-2">
+                                        <i class="fa-solid fa-download"></i> تحميل عينة معتمدة
+                                    </a>
+                                    <div class="flex gap-2">
+                                        <button type="submit"
+                                            class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-indigo-600 text-white font-semibold hover:shadow-lg transition-all flex items-center gap-2 text-sm">
+                                            <i class="fa-solid fa-upload border-l border-white/20 pl-2"></i> رفع الملف
+                                        </button>
+                                        <button type="button" onclick="toggleModal('addBulkRestaurantModal')"
+                                            class="px-5 py-2.5 rounded-xl border border-slate-200 text-slate-600 font-semibold hover:bg-slate-50 transition-colors text-sm">إلغاء</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1762,10 +2067,6 @@
 
     <script>
         function switchTab(tabId) {
-            // Un-init DataTables specific rendering that might glitch when hidden
-            if (tabId === 'items' && window.itemsDatatableVar) {
-                setTimeout(() => window.itemsDatatableVar.columns.adjust().draw(), 50);
-            }
             // Hide all tabs
             document.querySelectorAll('.tab-content').forEach(el => {
                 el.classList.remove('active');
@@ -1778,6 +2079,11 @@
                 el.classList.remove('active');
             });
             document.getElementById('nav-' + tabId).classList.add('active');
+
+            // Un-init DataTables specific rendering that might glitch when hidden (0px width issue)
+            setTimeout(() => {
+                $.fn.dataTable.tables({ visible: true, api: true }).columns.adjust().draw();
+            }, 50);
         }
 
         function toggleModal(modalId) {
@@ -1839,6 +2145,12 @@
 
     <!-- Core Dependencies -->
     <script src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/main/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" />
+    <script
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/visualization/d3/d3.min.js"></script>
+    <script
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/visualization/d3/d3_tooltip.js"></script>
     <script
         src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/ui/moment/moment.min.js"></script>
     <script
@@ -1867,12 +2179,7 @@
     <!-- Charts Dependencies -->
     <script
         src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/visualization/echarts/echarts.js"></script>
-    <script
-        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/visualization/d3/d3.min.js"></script>
-    <script
-        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/visualization/d3/d3_tooltip.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" />
+
 
     <!-- Dashboard Initialization -->
     <script>
@@ -1997,16 +2304,94 @@
         // Stores DataTables Setup
         var datatable;
         function initStoresDatatable() {
-            if ($.fn.DataTable.isDataTable('#storesDatatable')) return;
+            if ($.fn.DataTable.isDataTable('#storesDatatable')) {
+                $('#storesDatatable').DataTable().destroy();
+            }
+
+            let mockStoresData = [];
+            let localStores = localStorage.getItem('mockStoresData');
+
+            if (localStores) {
+                mockStoresData = JSON.parse(localStores);
+            } else {
+                mockStoresData = [
+                    {
+                        id: 1,
+                        image: '<img src="https://montana-sa.amir-adel.com/admin/public/assets/items-categories/Du6jyCLyP2xGTxEjEzV55jAazYO72z6iQyEX1aHy.png" class="w-12 h-12 rounded-lg object-cover shadow-sm border border-slate-100" />',
+                        name: '<div class="font-bold text-slate-700 text-left">متجر الحمدانية (نشط)</div><div class="text-xs text-slate-500 text-left">Alhamdaniah Store</div>',
+                        areas: '<span class="px-2 py-1 bg-indigo-50 text-indigo-600 rounded text-xs font-semibold whitespace-nowrap">الحمدانية</span>',
+                        owner: '<span class="text-slate-600 font-semibold whitespace-nowrap">أحمد محمد</span>',
+                        created_at: '<span class="text-slate-500 text-xs whitespace-nowrap">2023-01-15</span>',
+                        oddo_stock: '<span class="px-2 py-1 bg-emerald-50 text-emerald-600 rounded-full text-xs font-bold whitespace-nowrap shadow-sm border border-emerald-100"><i class="fa-solid fa-check-circle mr-1"></i> متوفر</span>',
+                        updated_stock: '<span class="text-slate-500 text-xs whitespace-nowrap text-center block">منذ سـاعتين</span>',
+                        action: `
+                            <div class="flex items-center justify-center gap-2">
+                                <input value="true" type="checkbox" class="action-switch inline-block" checked="checked" data-id="1">
+                                <button class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 hover:bg-indigo-600 hover:text-white transition-colors flex items-center justify-center shadow-sm" title="تعديل"><i class="fa-solid fa-pen"></i></button>
+                            </div>
+                        `
+                    },
+                    {
+                        id: 2,
+                        image: '<div class="w-12 h-12 rounded-lg bg-slate-50 flex items-center justify-center border border-slate-100 shadow-sm"><i class="fa-solid fa-store text-slate-300 text-xl"></i></div>',
+                        name: '<div class="font-bold text-slate-700 text-left">متجر الصفا (مغلق)</div><div class="text-xs text-slate-500 text-left">Alsafa Store</div>',
+                        areas: '<div class="flex gap-1 flex-wrap"><span class="px-2 py-1 bg-indigo-50 text-indigo-600 rounded text-xs font-semibold whitespace-nowrap">الصفا</span><span class="px-2 py-1 bg-indigo-50 text-indigo-600 rounded text-xs font-semibold whitespace-nowrap">المروة</span></div>',
+                        owner: '<span class="text-slate-600 font-semibold whitespace-nowrap">سعيد خالد</span>',
+                        created_at: '<span class="text-slate-500 text-xs whitespace-nowrap">2023-05-22</span>',
+                        oddo_stock: '<span class="px-2 py-1 bg-rose-50 text-rose-600 rounded-full text-xs font-bold whitespace-nowrap shadow-sm border border-rose-100"><i class="fa-solid fa-circle-exclamation mr-1"></i> نفد الكمية</span>',
+                        updated_stock: '<span class="text-slate-500 text-xs whitespace-nowrap text-center block">منذ يومين</span>',
+                        action: `
+                            <div class="flex items-center justify-center gap-2">
+                                <input value="true" type="checkbox" class="action-switch inline-block" data-id="2">
+                                <button class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 hover:bg-indigo-600 hover:text-white transition-colors flex items-center justify-center shadow-sm" title="تعديل"><i class="fa-solid fa-pen"></i></button>
+                            </div>
+                        `
+                    },
+                    {
+                        id: 3,
+                        image: '<img src="https://montana-sa.amir-adel.com/admin/public/assets/items-categories/14maF7VghkycluDxbrRlJhwKEaogXqXooOvlXHFW.png" class="w-12 h-12 rounded-lg object-cover shadow-sm border border-slate-100 ring-2 ring-amber-400 ring-offset-1" />',
+                        name: '<div class="font-bold text-slate-700 text-left flex items-center gap-1">فرع التحلية <i class="fa-solid fa-crown text-amber-500 text-xs" title="متجر مميز"></i></div><div class="text-xs text-slate-500 text-left">Tahlia Branch</div>',
+                        areas: '<span class="px-2 py-1 bg-indigo-50 text-indigo-600 rounded text-xs font-semibold whitespace-nowrap">التحلية</span>',
+                        owner: '<span class="text-slate-600 font-semibold whitespace-nowrap">مؤسسة الأطعمة</span>',
+                        created_at: '<span class="text-slate-500 text-xs whitespace-nowrap">2023-11-10</span>',
+                        oddo_stock: '<span class="px-2 py-1 bg-emerald-50 text-emerald-600 rounded-full text-xs font-bold whitespace-nowrap shadow-sm border border-emerald-100"><i class="fa-solid fa-check-circle mr-1"></i> متوفر (150)</span>',
+                        updated_stock: '<span class="text-slate-500 text-xs whitespace-nowrap text-center block">منذ 5 دقائق</span>',
+                        action: `
+                            <div class="flex items-center justify-center gap-2">
+                                <input value="true" type="checkbox" class="action-switch inline-block" checked="checked" data-id="3">
+                                <button class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 hover:bg-indigo-600 hover:text-white transition-colors flex items-center justify-center shadow-sm" title="تعديل"><i class="fa-solid fa-pen"></i></button>
+                            </div>
+                        `
+                    },
+                    {
+                        id: 4,
+                        image: '<div class="w-12 h-12 rounded-lg bg-slate-50 flex items-center justify-center border border-slate-100 shadow-sm"><i class="fa-solid fa-store text-slate-300 text-xl"></i></div>',
+                        name: '<div class="font-bold text-slate-700 text-left">متجر العزيزية (قيد التجهيز)</div><div class="text-xs text-slate-500 text-left">Aziziya Store</div>',
+                        areas: '<span class="px-2 py-1 bg-indigo-50 text-indigo-600 rounded text-xs font-semibold whitespace-nowrap">العزيزية</span>',
+                        owner: '<span class="text-slate-600 font-semibold whitespace-nowrap">فهد عبدالله</span>',
+                        created_at: '<span class="text-slate-500 text-xs whitespace-nowrap">2024-02-01</span>',
+                        oddo_stock: '<span class="px-2 py-1 bg-amber-50 text-amber-600 rounded-full text-xs font-bold whitespace-nowrap shadow-sm border border-amber-100"><i class="fa-solid fa-clock-rotate-left mr-1"></i> بانتظار الجرد</span>',
+                        updated_stock: '<span class="text-slate-400 text-xs whitespace-nowrap text-center block font-bold">--:--</span>',
+                        action: `
+                            <div class="flex items-center justify-center gap-2">
+                                <input value="true" type="checkbox" class="action-switch inline-block" data-id="4">
+                                <button class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 hover:bg-indigo-600 hover:text-white transition-colors flex items-center justify-center shadow-sm" title="تعديل"><i class="fa-solid fa-pen"></i></button>
+                            </div>
+                        `
+                    }
+                ];
+                localStorage.setItem('mockStoresData', JSON.stringify(mockStoresData));
+            }
 
             datatable = $('#storesDatatable').DataTable({
+                bDestroy: true,
                 searchDelay: 1000,
-                processing: true,
-                serverSide: true,
-                stateSave: true,
+                processing: false,
+                serverSide: false, // Changed to false to load static array
+                stateSave: false, // Turned off state saving so it doesnt try to load previous AJAX cache
                 lengthMenu: [10, 25, 50, 100, 200, 500],
                 order: [[0, "desc"]],
-                ajax: 'https://montana-sa.amir-adel.com/admin/public/admin/storesDatatable?pending=false',
+                data: mockStoresData,
                 columns: [
                     { data: 'id', visible: false, searchable: false, sortable: false },
                     { data: 'image', searchable: false, sortable: false },
@@ -2022,7 +2407,9 @@
                 drawCallback: function (settings) {
                     var elems = Array.prototype.slice.call(document.querySelectorAll('.action-switch'));
                     elems.forEach(function (html) {
-                        var switchery = new Switchery(html, { color: '#10b981' });
+                        if (!html.getAttribute('data-switchery')) {
+                            new Switchery(html, { color: '#10b981', size: 'small' });
+                        }
                     });
                 },
                 scrollX: true,
@@ -2044,6 +2431,56 @@
                     datatable.state.clear();
                     window.location.reload();
                 }
+            });
+
+            // Numeric input validations for Add Store Modal
+            $('.rating').numeric({ allowThouSep: false, min: 1, max: 5, maxDecimalPlaces: 1 });
+            $('.delivery_time').numeric({ allowThouSep: false });
+            $('.price_range').numeric({ allowThouSep: false });
+            $('.latitude').numeric({ allowThouSep: false });
+            $('.longitude').numeric({ allowThouSep: false });
+            $('.delivery_charges').numeric({ allowThouSep: false, maxDecimalPlaces: 2, allowMinus: false });
+            $('.commission_rate').numeric({ allowThouSep: false, maxDecimalPlaces: 2, max: 100, allowMinus: false });
+            $('.delivery_radius').numeric({ allowThouSep: false, maxDecimalPlaces: 2, allowMinus: false });
+            $('.min_order_price').numeric({ allowThouSep: false, maxDecimalPlaces: 2, allowMinus: false });
+
+            // Intercept local form submission to inject data directly into DataTables without page reload
+            $('#addNewStoreFormLocal').on('submit', function (e) {
+                e.preventDefault(); // Stop normal HTTP submission
+                let formData = $(this).serializeArray();
+                let dataObj = {};
+                formData.forEach(item => dataObj[item.name] = item.value);
+
+                let newId = mockStoresData.length + 1;
+                let newRow = {
+                    id: newId,
+                    image: '<div class="w-12 h-12 rounded-lg bg-indigo-50 flex items-center justify-center border border-indigo-100 shadow-sm"><i class="fa-solid fa-store text-indigo-400 text-xl"></i></div>',
+                    name: '<div class="font-bold text-slate-700 text-left">' + dataObj.name + ' <span class="text-[10px] text-emerald-500 bg-emerald-50 px-1 rounded">جديد</span></div><div class="text-xs text-slate-500 text-left">' + (dataObj.short_name || '') + '</div>',
+                    areas: '<span class="px-2 py-1 bg-indigo-50 text-indigo-600 rounded text-xs font-semibold whitespace-nowrap">تم التعيين حديثاً</span>',
+                    owner: '<span class="text-slate-600 font-semibold whitespace-nowrap">' + (dataObj.user_id ? "المالك #" + dataObj.user_id : "غير محدد") + '</span>',
+                    created_at: '<span class="text-slate-500 text-xs whitespace-nowrap">الآن</span>',
+                    oddo_stock: '<span class="px-2 py-1 bg-amber-50 text-amber-600 rounded-full text-xs font-bold whitespace-nowrap shadow-sm border border-amber-100"><i class="fa-solid fa-clock-rotate-left mr-1"></i> بانتظار الجرد</span>',
+                    updated_stock: '<span class="text-slate-400 text-xs whitespace-nowrap text-center block font-bold">--:--</span>',
+                    action: `
+                        <div class="flex items-center justify-center gap-2">
+                            <input value="true" type="checkbox" class="action-switch inline-block" checked="checked" data-id="${newId}">
+                            <button class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 hover:bg-indigo-600 hover:text-white transition-colors flex items-center justify-center shadow-sm" title="تعديل"><i class="fa-solid fa-pen"></i></button>
+                        </div>
+                    `
+                };
+
+                mockStoresData.unshift(newRow);
+                localStorage.setItem('mockStoresData', JSON.stringify(mockStoresData));
+                datatable.clear().rows.add(mockStoresData).draw(false);
+
+                // Reset and close
+                this.reset();
+                toggleModal('addNewRestaurantModal');
+
+                // Show success message inside table temporarily or globally if desired
+                let tip = d3.select("body").append("div").attr("class", "fixed bottom-5 left-1/2 transform -translate-x-1/2 px-6 py-3 bg-slate-800 text-white rounded-xl shadow-2xl z-[9999] opacity-0 transition-opacity flex items-center gap-3").html('<i class="fa-solid fa-check-circle text-emerald-400 text-xl"></i> <div><h4 class="font-bold text-sm">تم إضافة المتجر بنجاح</h4><p class="text-xs text-slate-300">يظهر المتجر الآن في أول القائمة محلياً.</p></div>');
+                tip.transition().duration(300).style("opacity", 1);
+                setTimeout(() => { tip.transition().duration(300).style("opacity", 0).remove(); }, 3500);
             });
         }
 
