@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل الطلب - Elite Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Cairo', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#4f46e5',
+                        secondary: '#10b981',
+                        dark: '#0f172a',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+        }
+
+        .glass-sidebar {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: white;
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-item.active {
+            background: linear-gradient(90deg, rgba(79, 70, 229, 0.1), transparent);
+            border-right: 3px solid #4f46e5;
+            color: #818cf8;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body class="flex h-screen overflow-hidden text-slate-800">
+
+    <!-- Sidebar -->
+    <aside class="glass-sidebar w-72 flex flex-col transition-all duration-300 z-20">
+        <div class="h-20 flex items-center justify-center border-b border-slate-700/50">
+            <h1
+                class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-emerald-400">
+                <i class="fa-solid fa-gem mr-2"></i> Elite Admin
+            </h1>
+        </div>
+        <div class="p-6 flex items-center gap-4 border-b border-slate-700/50">
+            <img src="https://ui-avatars.com/api/?name=Admin&background=4f46e5&color=fff"
+                class="w-12 h-12 rounded-xl shadow-lg border-2 border-indigo-500/30">
+            <div>
+                <h3 class="font-bold text-slate-100">مدير النظام</h3>
+                <p class="text-xs text-emerald-400"><i class="fa-solid fa-circle text-[8px] mr-1"></i> متصل حالياً</p>
+            </div>
+        </div>
+        <nav class="flex-1 overflow-y-auto custom-scrollbar p-4 space-y-2">
+            <a href="../pro_dashboard.html"
+                class="nav-item w-full flex items-center gap-3 px-4 py-3 text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all">
+                <i class="fa-solid fa-chart-pie w-5"></i>
+                <span class="font-semibold text-sm">الرئيسية (Dashboard)</span>
+            </a>
+            <a href="../pro_dashboard.html?tab=stores"
+                class="nav-item w-full flex items-center gap-3 px-4 py-3 text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all">
+                <i class="fa-solid fa-store w-5"></i>
+                <span class="font-semibold text-sm">المتاجر (Stores)</span>
+            </a>
+            <div class="pt-4 pb-2 px-4 text-xs font-bold text-slate-500 uppercase tracking-wider">العمليات</div>
+            <a href="../pro_dashboard.html?tab=orders"
+                class="nav-item active w-full flex items-center gap-3 px-4 py-3 text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all">
+                <i class="fa-solid fa-cart-shopping w-5"></i>
+                <span class="font-semibold text-sm">الطلبات (Orders)</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col relative overflow-hidden bg-slate-50">
+        <!-- Top Header -->
+        <header
+            class="h-20 glass-panel border-b border-slate-200 px-8 flex justify-between items-center z-10 sticky top-0 shadow-sm">
+            <div class="flex items-center gap-4 text-slate-600 font-semibold text-lg">
+                <a href="../pro_dashboard.html"
+                    class="flex items-center gap-2 hover:text-indigo-600 px-4 py-2 bg-white rounded-xl shadow-sm border border-slate-100 transition-colors">
+                    <i class="fa-solid fa-arrow-right"></i>
+                    العودة لصفحة الطلبات
+                </a>
+            </div>
+            <div class="flex items-center gap-5">
+                <button class="flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-slate-900">
+                    <span>خروج</span>
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                </button>
+            </div>
+        </header>
+
+        <div class="flex-1 overflow-y-auto custom-scrollbar p-8">
+            <div class="max-w-7xl mx-auto">
+                <!-- Head title -->
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 mt-2">
+                    <div>
+                        <h2 class="text-3xl font-bold text-slate-800 mb-2">#NUZ-2140 <span
+                                class="text-slate-400 font-normal">/ حي النزهة</span></h2>
+                        <div class="flex flex-wrap items-center gap-3">
+                            <span
+                                class="text-slate-500 font-bold text-sm bg-white px-3 py-1 rounded-lg border border-slate-200 shadow-sm"><i
+                                    class="fa-regular fa-clock mr-1 text-slate-400"></i> 2026-03-04 / 01:34 AM</span>
+                            <span
+                                class="px-3 py-1 bg-amber-50 border border-amber-200 text-amber-600 rounded-lg text-sm font-bold shadow-sm whitespace-nowrap"><i
+                                    class="fa-solid fa-spinner fa-spin mr-1"></i> بانتظار الدفع (Awaiting
+                                Payment)</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-3">
+                        <button
+                            class="px-5 py-2.5 bg-white text-slate-700 border border-slate-200 rounded-xl shadow-sm hover:bg-slate-50 hover:text-indigo-600 transition-all font-bold flex items-center gap-2">
+                            <i class="fa-solid fa-print"></i> طباعة الفاتورة
+                        </button>
+                        <button
+                            class="px-5 py-2.5 bg-white text-slate-700 border border-slate-200 rounded-xl shadow-sm hover:bg-slate-50 hover:text-indigo-600 transition-all font-bold flex items-center gap-2">
+                            <i class="fa-solid fa-receipt"></i> الفواتير الحرارية
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Grid layout Start -->
+                <div class="grid grid-cols-1 xl:grid-cols-12 gap-6">
+
+                    <!-- Right Column (Customer & Basic Info) -->
+                    <div class="xl:col-span-3 space-y-6">
+                        <!-- Order Summary Box -->
+                        <div class="glass-panel rounded-2xl p-6">
+                            <h6 class="font-bold text-slate-800 mb-5 pb-3 border-b border-slate-100 flex items-center">
+                                <i class="fa-solid fa-circle-info text-indigo-500 ml-2"></i>معلومات أساسية</h6>
+                            <div class="space-y-4 text-sm">
+                                <div class="flex justify-between">
+                                    <span class="text-slate-500">نوع الطلب</span>
+                                    <span
+                                        class="font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-100">استلام
+                                        ذاتي</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-slate-500">اسم المتجر</span>
+                                    <span class="font-bold text-slate-800">حي النزهة</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-slate-500">طريقة الدفع</span>
+                                    <span class="font-bold text-slate-800">MyFatoorah</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-slate-500">طلب خاص</span>
+                                    <span class="font-bold text-emerald-600">نعم</span>
+                                </div>
+                                <div
+                                    class="mt-4 pt-4 border-t border-slate-100 flex flex-col justify-center items-center">
+                                    <span class="text-slate-500 mb-1 text-xs">وقت الطلب المستغرق (Live Tracker)</span>
+                                    <span class="font-bold text-3xl text-rose-500 tracking-wider font-mono">12<span
+                                            class="opacity-50">:</span>05</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PIN -->
+                        <div
+                            class="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl p-6 text-white text-center shadow-lg shadow-indigo-200/50 hover:-translate-y-1 transition-transform">
+                            <h6 class="text-indigo-100 mb-2 text-sm font-semibold tracking-wide">رمز التسليم (PIN)</h6>
+                            <h2 class="text-4xl font-black tracking-[0.25em] drop-shadow-md">16985</h2>
+                        </div>
+
+                        <!-- Customer Box -->
+                        <div class="glass-panel rounded-2xl p-6">
+                            <h6 class="font-bold text-slate-800 mb-5 pb-3 border-b border-slate-100 flex items-center">
+                                <i class="fa-solid fa-user text-indigo-500 ml-2"></i>بيانات العميل</h6>
+                            <div class="space-y-4 text-sm">
+                                <div class="flex items-center gap-3">
+                                    <div
+                                        class="w-12 h-12 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center font-bold border border-slate-200">
+                                        أ</div>
+                                    <div>
+                                        <div class="font-bold text-slate-800 text-base">Amir Adel</div>
+                                        <div class="text-slate-400 text-xs mt-0.5"
+                                            style="direction: ltr; text-align: right;">amer.adel.mohamed.aid@gmail.com
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between items-center pt-3 border-t border-slate-100">
+                                    <span class="text-slate-500">الهاتف</span>
+                                    <span
+                                        class="font-bold text-slate-800 border px-2 py-0.5 rounded bg-slate-50 border-slate-200 tracking-wider">553399596</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- /Right col -->
+
+                    <!-- Center Column (Items & Pricing) -->
+                    <div class="xl:col-span-6 space-y-6">
+                        <div class="glass-panel rounded-2xl p-6 shadow-sm border border-slate-100 h-full">
+                            <div class="flex justify-between items-center mb-6 pb-4 border-b border-slate-100">
+                                <h5 class="font-bold text-lg text-slate-800">ملخص وعناصر الطلب</h5>
+                                <span
+                                    class="bg-indigo-50 text-indigo-600 font-bold px-3 py-1 rounded-lg text-sm border border-indigo-100">1
+                                    عنصر</span>
+                            </div>
+
+                            <!-- List of items -->
+                            <div class="space-y-4 mb-8">
+                                <!-- single item -->
+                                <div
+                                    class="flex items-center gap-4 p-4 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-slate-50 transition-colors">
+                                    <img src="https://ui-avatars.com/api/?name=Cake&background=e2e8f0&color=475569"
+                                        alt="Cake"
+                                        class="w-20 h-20 rounded-xl object-cover shadow-sm border border-slate-200">
+                                    <div class="flex-1">
+                                        <h6 class="font-bold text-slate-800 mb-2 text-base">كيكة اليوم الوطني</h6>
+                                        <div class="flex justify-between items-end">
+                                            <div>
+                                                <span
+                                                    class="text-slate-400 text-[11px] font-bold tracking-wider block mb-0.5">سعر
+                                                    الوحدة</span>
+                                                <span class="font-bold text-slate-800 text-lg">265.00 ر.س</span>
+                                            </div>
+                                            <div
+                                                class="bg-white border border-slate-200 text-slate-600 px-3 py-1.5 rounded-lg flex items-center gap-2 shadow-sm">
+                                                <span class="text-xs font-bold text-slate-400">الكمية</span>
+                                                <b class="font-black text-indigo-600 text-lg">1x</b>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Calculations Section -->
+                            <div
+                                class="bg-gradient-to-br from-slate-50 to-slate-100 rounded-xl p-6 border border-slate-200/60 shadow-inner">
+                                <div class="space-y-4 text-sm">
+                                    <div class="flex justify-between">
+                                        <span class="text-slate-600 font-semibold">المجموع الفرعي (SubTotal)</span>
+                                        <span class="font-bold text-slate-800 text-base">265.00 ر.س</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-slate-500">محفظة المستخدم</span>
+                                        <span class="font-semibold text-slate-600">0.00 ر.س</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-slate-500">رسوم التوصيل</span>
+                                        <span class="font-semibold text-emerald-600 text-base">0.00 ر.س</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-slate-500">الضريبة (15%)</span>
+                                        <span class="font-bold text-slate-700">39.75 ر.س</span>
+                                    </div>
+                                    <hr class="border-slate-200/80 my-2">
+                                    <div class="flex justify-between items-end">
+                                        <div>
+                                            <span
+                                                class="text-lg font-black text-slate-800 block text-indigo-900">الإجمالي
+                                                النهائي</span>
+                                            <span class="text-xs text-slate-500 font-semibold">شامل ضريبة القيمة
+                                                المضافة</span>
+                                        </div>
+                                        <span class="text-3xl font-black text-indigo-600">304.75 ر.س</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div> <!-- /Center col -->
+
+                    <!-- Left Column (Actions & Timeline) -->
+                    <div class="xl:col-span-3 space-y-6">
+                        <!-- Actions Box -->
+                        <div class="glass-panel rounded-2xl p-6">
+                            <h6 class="font-bold text-slate-800 mb-5 pb-3 border-b border-slate-100 flex items-center">
+                                <i class="fa-solid fa-wand-magic-sparkles text-indigo-500 ml-2"></i>الإجراءات المتاحة
+                            </h6>
+
+                            <div class="space-y-3">
+                                <button
+                                    class="w-full flex justify-between items-center px-4 py-3 bg-emerald-50 text-emerald-700 border border-emerald-200 hover:bg-emerald-600 hover:text-white rounded-xl shadow-sm transition-all group font-bold">
+                                    <div class="flex items-center gap-2">
+                                        <i
+                                            class="fa-solid fa-check-double text-emerald-500 group-hover:text-emerald-200"></i>
+                                        القبول
+                                    </div>
+                                    <span class="text-xs font-normal opacity-70">Approve</span>
+                                </button>
+
+                                <button
+                                    class="w-full flex justify-between items-center px-4 py-3 bg-indigo-50 text-indigo-700 border border-indigo-200 hover:bg-indigo-600 hover:text-white rounded-xl shadow-sm transition-all group font-bold">
+                                    <div class="flex items-center gap-2">
+                                        <i
+                                            class="fa-solid fa-clipboard-check text-indigo-500 group-hover:text-indigo-200"></i>
+                                        تحديد كمكتمل
+                                    </div>
+                                    <span class="text-xs font-normal opacity-70">Complete</span>
+                                </button>
+
+                                <div class="relative group cursor-pointer w-full mt-2">
+                                    <button
+                                        class="w-full flex justify-between items-center px-4 py-3 bg-rose-50 text-rose-700 border border-rose-200 hover:bg-rose-100 rounded-xl transition-all font-bold">
+                                        <div class="flex items-center gap-2">
+                                            <i class="fa-solid fa-xmark text-rose-500"></i> إلغاء الطلب
+                                        </div>
+                                        <i class="fa-solid fa-chevron-down text-xs opacity-60"></i>
+                                    </button>
+                                    <!-- Dropdown logic placeholder visually via CSS group-hover for demo -->
+                                    <div
+                                        class="absolute left-0 right-0 top-full mt-1 bg-white border border-slate-200 shadow-xl rounded-xl z-10 p-2 hidden group-hover:block transition-all">
+                                        <a href="#"
+                                            class="block px-3 py-2 text-sm text-slate-600 hover:bg-rose-50 hover:text-rose-600 rounded-lg font-semibold">إلغاء
+                                            بدون رسوم تأخير</a>
+                                        <a href="#"
+                                            class="block px-3 py-2 text-sm text-slate-600 hover:bg-rose-50 hover:text-rose-600 rounded-lg font-semibold">إلغاء
+                                            - استرجاع كامل</a>
+                                        <a href="#"
+                                            class="block px-3 py-2 text-sm text-slate-600 hover:bg-rose-50 hover:text-rose-600 rounded-lg font-semibold">إلغاء
+                                            - استرجاع النصف</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Timeline / State tracker -->
+                        <div class="glass-panel rounded-2xl p-6">
+                            <h6 class="font-bold text-slate-800 mb-5 pb-3 border-b border-slate-100 flex items-center">
+                                <i class="fa-solid fa-list-check text-indigo-500 ml-2"></i>خط سير الطلب</h6>
+
+                            <div class="pr-[15px] border-r-2 border-indigo-100/60 relative space-y-6 mt-6">
+
+                                <div class="relative">
+                                    <div
+                                        class="absolute -right-[24px] top-1 w-4 h-4 rounded-full bg-indigo-500 ring-4 ring-indigo-50 shadow-sm border-2 border-white">
+                                    </div>
+                                    <h5 class="text-sm font-bold text-indigo-900 mb-1">تمت الموافقة التلقائية للطلب</h5>
+                                    <p class="text-[11px] text-slate-400 font-bold tracking-wider">01:34:33 AM <span
+                                            class="mx-1">•</span> مارس 04, 2026</p>
+                                </div>
+
+                                <div class="relative">
+                                    <div
+                                        class="absolute -right-[24px] top-1 w-4 h-4 rounded-full bg-emerald-500 ring-4 ring-emerald-50 shadow-sm border-2 border-white">
+                                    </div>
+                                    <h5 class="text-sm font-bold text-emerald-900">تم إنشاء الطلب في النظام</h5>
+                                    <div
+                                        class="text-xs text-slate-500 mt-1.5 flex items-center gap-1.5 bg-slate-50 w-fit px-2 py-1 rounded-md border border-slate-100">
+                                        بواسطة: <span class="font-bold text-slate-800">Amir Adel</span>
+                                    </div>
+                                    <p class="text-[11px] text-slate-400 font-bold tracking-wider mt-1.5">01:34:33 AM
+                                        <span class="mx-1">•</span> مارس 04, 2026</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div> <!-- /Left col -->
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>
