@@ -99,6 +99,19 @@
             background: #cbd5e1;
             border-radius: 10px;
         }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .user-subtab.active {
+            transform: scale(1.02);
+        }
     </style>
 </head>
 
@@ -162,6 +175,11 @@
                 class="nav-item w-full flex items-center gap-3 px-4 py-3 text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all">
                 <i class="fa-solid fa-users w-5"></i>
                 <span class="font-semibold text-sm">العملاء والموظفون</span>
+            </button>
+            <button onclick="switchTab('roles')" id="nav-roles"
+                class="nav-item w-full flex items-center gap-3 px-4 py-3 text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all">
+                <i class="fa-solid fa-shield-halved w-5"></i>
+                <span class="font-semibold text-sm">الأدوار والصلاحيات</span>
             </button>
 
             <!-- Orders Section -->
@@ -328,7 +346,8 @@
                             <div
                                 class="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition-colors border border-slate-100">
                                 <div class="flex items-center gap-4">
-                                    <img src="https://montana-sa.amir-adel.com/admin/assets/img/restaurants/1764266644uqoLX5amfZ.jpg"
+                                    <img src="https://ui-avatars.com/api/?name=St&background=f1f5f9&color=6366f1"
+                                        onerror="this.src='https://placehold.co/100x100?text=Store'"
                                         class="w-12 h-12 rounded-lg object-cover shadow-sm">
                                     <div>
                                         <h4 class="font-bold text-slate-800 text-sm">حي النزهة</h4>
@@ -347,7 +366,8 @@
                             <div
                                 class="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition-colors border border-slate-100">
                                 <div class="flex items-center gap-4">
-                                    <img src="https://montana-sa.amir-adel.com/admin/assets/img/restaurants/1764266659rLsW9R8owM.jpg"
+                                    <img src="https://ui-avatars.com/api/?name=Jd&background=f1f5f9&color=6366f1"
+                                        onerror="this.src='https://placehold.co/100x100?text=Store'"
                                         class="w-12 h-12 rounded-lg object-cover shadow-sm">
                                     <div>
                                         <h4 class="font-bold text-slate-800 text-sm">حي الصفا</h4>
@@ -365,7 +385,8 @@
                             <div
                                 class="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition-colors border border-slate-100">
                                 <div class="flex items-center gap-4">
-                                    <img src="https://montana-sa.amir-adel.com/admin/assets/img/restaurants/176426650405i7ZH1TzQ.jpg"
+                                    <img src="https://ui-avatars.com/api/?name=As&background=f1f5f9&color=6366f1"
+                                        onerror="this.src='https://placehold.co/100x100?text=Store'"
                                         class="w-12 h-12 rounded-lg object-cover shadow-sm">
                                     <div>
                                         <h4 class="font-bold text-slate-800 text-sm">حى السلامة</h4>
@@ -1794,6 +1815,128 @@
                 </div>
             </div>
 
+            <!-- Add User Modal -->
+            <div id="addNewUserModal"
+                class="fixed inset-0 z-50 hidden items-center justify-center overflow-y-auto bg-slate-900/50 backdrop-blur-sm">
+                <div
+                    class="bg-white rounded-2xl w-full max-w-2xl m-4 shadow-2xl overflow-hidden transform transition-all">
+                    <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50">
+                        <h5 class="text-xl font-bold text-slate-800">إضافة مستخدم جديد</h5>
+                        <button type="button" onclick="toggleModal('addNewUserModal')"
+                            class="text-slate-400 hover:text-rose-500 transition-colors">
+                            <i class="fa-solid fa-xmark text-xl"></i>
+                        </button>
+                    </div>
+                    <div class="p-6 max-h-[80vh] overflow-y-auto custom-scrollbar">
+                        <form action="https://montana-sa.amir-adel.com/admin/public/admin/saveNewUser" method="POST"
+                            enctype="multipart/form-data" class="space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-2">الاسم <span
+                                            class="text-rose-500">*</span></label>
+                                    <input type="text" name="name"
+                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none"
+                                        placeholder="الاسم الكامل" required autocomplete="new-name">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-2">البريد
+                                        الإلكتروني</label>
+                                    <input type="email" name="email"
+                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none"
+                                        placeholder="example@domain.com" autocomplete="new-email">
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-2">الجوال <span
+                                            class="text-rose-500">*</span></label>
+                                    <input type="text" name="phone"
+                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none"
+                                        placeholder="رقم الجوال" required autocomplete="new-phone">
+                                </div>
+                                <div class="relative">
+                                    <label class="block text-sm font-semibold text-slate-700 mb-2">كلمة المرور <span
+                                            class="text-rose-500">*</span></label>
+                                    <div class="relative">
+                                        <input name="password" type="password" id="newUserPassword"
+                                            class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-left"
+                                            dir="ltr" placeholder="6 أحرف على الأقل" required
+                                            autocomplete="new-password">
+                                        <button type="button"
+                                            onclick="const p = document.getElementById('newUserPassword'); p.type = p.type === 'password' ? 'text' : 'password';"
+                                            class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600">
+                                            <i class="fa-solid fa-eye text-sm"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">الدور (Role) <span
+                                        class="text-rose-500">*</span></label>
+                                <select name="role"
+                                    class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none bg-white"
+                                    onchange="const d = document.getElementById('deliveryGuyDetailsBlock'); if(this.value === 'Delivery Guy') d.classList.remove('hidden'); else d.classList.add('hidden');">
+                                    <option value="Factory">Factory</option>
+                                    <option value="Customer">Customer</option>
+                                    <option value="Store Owner">Store Owner</option>
+                                    <option value="Delivery Guy">Delivery Guy</option>
+                                </select>
+                            </div>
+
+                            <div id="deliveryGuyDetailsBlock" class="hidden space-y-4 pt-4 border-t border-slate-100">
+                                <h6
+                                    class="text-sm font-bold text-slate-800 uppercase tracking-wider flex items-center gap-2">
+                                    <i class="fa-solid fa-truck text-indigo-500"></i> تفاصيل عامل التوصيل
+                                </h6>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-semibold text-slate-700 mb-1">الاسم
+                                            المستعار</label>
+                                        <input type="text" name="delivery_name"
+                                            class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:border-indigo-500 outline-none text-sm"
+                                            placeholder="يظهر للعميل">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-semibold text-slate-700 mb-1">العمر</label>
+                                        <input type="text" name="delivery_age"
+                                            class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:border-indigo-500 outline-none text-sm">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-1">صورة العامل</label>
+                                    <input type="file" name="delivery_photo"
+                                        class="w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100">
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-semibold text-slate-700 mb-1">نسبة العموله
+                                            %</label>
+                                        <input type="text" name="delivery_commission_rate"
+                                            class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:border-indigo-500 outline-none text-sm"
+                                            value="5">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-semibold text-slate-700 mb-1">حد الكاش
+                                            (ر.س)</label>
+                                        <input type="text" name="cash_limit"
+                                            class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:border-indigo-500 outline-none text-sm"
+                                            value="0.00">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex justify-end pt-6 border-t border-slate-100 gap-3">
+                                <button type="button" onclick="toggleModal('addNewUserModal')"
+                                    class="px-6 py-2.5 rounded-xl border border-slate-200 text-slate-600 font-semibold hover:bg-slate-50 transition-colors">إلغاء</button>
+                                <button type="submit"
+                                    class="px-6 py-2.5 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700 shadow-md shadow-indigo-200 transition-all flex items-center gap-2"><i
+                                        class="fa-solid fa-save"></i> حفظ المستخدم</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
             <!-- Users Tab -->
             <div id="tab-users" class="tab-content">
                 <div class="mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
@@ -1802,96 +1945,159 @@
                         <p class="text-sm text-slate-500 mt-1">العملاء، أصحاب المتاجر، الموظفون وعمال التوصيل</p>
                     </div>
                     <div class="flex flex-wrap items-center gap-3">
-                        <button
+                        <button onclick="switchTab('roles')"
+                            class="px-4 py-2.5 bg-white text-slate-600 font-semibold rounded-xl border border-slate-200 hover:bg-slate-50 transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-shield-halved"></i> الأدوار والصلاحيات
+                        </button>
+                        <button id="clearUserFilters"
+                            class="px-4 py-2.5 bg-white text-slate-600 font-semibold rounded-xl border border-slate-200 hover:bg-slate-50 transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-rotate-left"></i> إعادة تعيين الفلاتر
+                        </button>
+                        <button onclick="toggleModal('addNewUserModal')"
                             class="px-4 py-2.5 bg-indigo-600 text-white font-semibold rounded-xl hover:bg-indigo-700 shadow-lg shadow-indigo-200 transition-all flex items-center gap-2">
                             <i class="fa-solid fa-user-plus"></i> إضافة مستخدم جديد
                         </button>
                     </div>
                 </div>
 
-                <div class="glass-panel rounded-2xl p-6">
-                    <div class="flex flex-wrap justify-between items-center mb-6 gap-4">
-                        <div class="flex gap-2">
-                            <button
-                                class="px-4 py-2 bg-indigo-50 text-indigo-600 rounded-lg text-sm font-bold border border-indigo-100">الكل</button>
-                            <button
-                                class="px-4 py-2 bg-slate-50 hover:bg-slate-100 text-slate-600 rounded-lg text-sm font-semibold transition-colors">العملاء</button>
-                            <button
-                                class="px-4 py-2 bg-slate-50 hover:bg-slate-100 text-slate-600 rounded-lg text-sm font-semibold transition-colors">الموظفون</button>
-                            <button
-                                class="px-4 py-2 bg-slate-50 hover:bg-slate-100 text-slate-600 rounded-lg text-sm font-semibold transition-colors">أصحاب
-                                المتاجر</button>
-                        </div>
-                        <div class="relative">
-                            <i class="fa-solid fa-search absolute right-3 top-1/2 -translate-y-1/2 text-slate-400"></i>
-                            <input type="text" placeholder="ابحث عن مستخدم..."
-                                class="pl-4 pr-10 py-2 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-indigo-400 outline-none w-64 text-sm">
+                <!-- Slider Tabs for User Types -->
+                <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-2 no-scrollbar border-b border-slate-100">
+                    <button onclick="switchUserSubTab('all')" id="user-subtab-all"
+                        class="user-subtab active whitespace-nowrap px-4 py-2 rounded-xl text-sm font-bold transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-100">
+                        <i class="fa-solid fa-users mr-1"></i> الكل
+                    </button>
+                    <button onclick="switchUserSubTab('customers')" id="user-subtab-customers"
+                        class="user-subtab whitespace-nowrap px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-100 hover:bg-slate-50">
+                        <i class="fa-solid fa-user-tag mr-1"></i> العملاء
+                    </button>
+                    <button onclick="switchUserSubTab('store_owners')" id="user-subtab-store_owners"
+                        class="user-subtab whitespace-nowrap px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-100 hover:bg-slate-50">
+                        <i class="fa-solid fa-user-tie mr-1"></i> أصحاب المتاجر
+                    </button>
+                    <button onclick="switchUserSubTab('delivery_guys')" id="user-subtab-delivery_guys"
+                        class="user-subtab whitespace-nowrap px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-100 hover:bg-slate-50">
+                        <i class="fa-solid fa-truck-fast mr-1"></i> عمال التوصيل
+                    </button>
+                    <button onclick="switchUserSubTab('staff')" id="user-subtab-staff"
+                        class="user-subtab whitespace-nowrap px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-100 hover:bg-slate-50">
+                        <i class="fa-solid fa-users-gear mr-1"></i> الموظفون
+                    </button>
+                </div>
+
+                <!-- All Users Sub-tab -->
+                <div id="user-content-all" class="user-subtab-content active mt-4">
+                    <div class="glass-panel rounded-2xl p-6">
+                        <div class="overflow-x-auto custom-scrollbar">
+                            <table class="w-full text-right" id="usersDataTableAll">
+                                <thead>
+                                    <tr class="text-slate-500 text-sm border-b border-slate-100">
+                                        <th class="pb-3 font-semibold">ID</th>
+                                        <th class="pb-3 font-semibold">المستخدم</th>
+                                        <th class="pb-3 font-semibold">البريد الإلكتروني</th>
+                                        <th class="pb-3 font-semibold">الجوال</th>
+                                        <th class="pb-3 font-semibold">الدور</th>
+                                        <th class="pb-3 font-semibold">المحفظة</th>
+                                        <th class="pb-3 font-semibold">تاريخ الانضمام</th>
+                                        <th class="pb-3 font-semibold text-center"><i
+                                                class="fa-solid fa-ellipsis-vertical"></i></th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
                         </div>
                     </div>
-                    <div class="overflow-x-auto custom-scrollbar">
-                        <table class="w-full text-right" id="usersDataTable">
-                            <thead>
-                                <tr class="bg-slate-50/80 text-slate-500 text-sm border-b border-slate-100">
-                                    <th class="p-4 font-semibold rounded-tr-xl">المستخدم</th>
-                                    <th class="p-4 font-semibold">الدور (Role)</th>
-                                    <th class="p-4 font-semibold">تاريخ الانضمام</th>
-                                    <th class="p-4 font-semibold">الحالة</th>
-                                    <th class="p-4 font-semibold text-center rounded-tl-xl"><i
-                                            class="fa-solid fa-sliders"></i></th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-slate-100 text-sm">
-                                <tr class="hover:bg-slate-50/50 transition-colors">
-                                    <td class="p-4">
-                                        <div class="flex items-center gap-3">
-                                            <div
-                                                class="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-400 to-purple-500 text-white flex items-center justify-center font-bold shadow-sm">
-                                                ع</div>
-                                            <div>
-                                                <h4 class="font-bold text-slate-800">عبدالله محمد</h4>
-                                                <p class="text-xs text-slate-500">abdullah@example.com</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-4"><span
-                                            class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-bold">عميل</span>
-                                    </td>
-                                    <td class="p-4 text-slate-500">منذ شهرين</td>
-                                    <td class="p-4"><span
-                                            class="flex items-center gap-1.5 text-emerald-600 font-semibold"><i
-                                                class="fa-solid fa-circle text-[8px]"></i> نشط</span></td>
-                                    <td class="p-4 text-center">
-                                        <button
-                                            class="w-8 h-8 rounded-lg bg-slate-50 text-slate-600 hover:bg-slate-200 hover:text-indigo-600 transition-colors shadow-sm"><i
-                                                class="fa-solid fa-pen"></i></button>
-                                    </td>
-                                </tr>
-                                <tr class="hover:bg-slate-50/50 transition-colors">
-                                    <td class="p-4">
-                                        <div class="flex items-center gap-3">
-                                            <img src="https://ui-avatars.com/api/?name=Admin&background=10b981&color=fff"
-                                                class="w-10 h-10 rounded-full shadow-sm">
-                                            <div>
-                                                <h4 class="font-bold text-slate-800">مدير النظام</h4>
-                                                <p class="text-xs text-slate-500">admin@montana.sa</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="p-4"><span
-                                            class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-xs font-bold">مدير</span>
-                                    </td>
-                                    <td class="p-4 text-slate-500">منذ سنة</td>
-                                    <td class="p-4"><span
-                                            class="flex items-center gap-1.5 text-emerald-600 font-semibold"><i
-                                                class="fa-solid fa-circle text-[8px]"></i> نشط</span></td>
-                                    <td class="p-4 text-center">
-                                        <button
-                                            class="w-8 h-8 rounded-lg bg-slate-50 text-slate-600 hover:bg-slate-200 hover:text-indigo-600 transition-colors shadow-sm"><i
-                                                class="fa-solid fa-pen"></i></button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                </div>
+
+                <!-- Customers Sub-tab -->
+                <div id="user-content-customers" class="user-subtab-content hidden mt-4">
+                    <div class="glass-panel rounded-2xl p-6">
+                        <div class="overflow-x-auto custom-scrollbar">
+                            <table class="w-full text-right" id="usersDataTableCustomers">
+                                <thead>
+                                    <tr class="text-slate-500 text-sm border-b border-slate-100">
+                                        <th class="pb-3 font-semibold">ID</th>
+                                        <th class="pb-3 font-semibold">المستخدم</th>
+                                        <th class="pb-3 font-semibold">البريد الإلكتروني</th>
+                                        <th class="pb-3 font-semibold">الجوال</th>
+                                        <th class="pb-3 font-semibold">الدور</th>
+                                        <th class="pb-3 font-semibold">المحفظة</th>
+                                        <th class="pb-3 font-semibold">تاريخ الانضمام</th>
+                                        <th class="pb-3 font-semibold text-center"><i
+                                                class="fa-solid fa-ellipsis-vertical"></i></th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Store Owners Sub-tab -->
+                <div id="user-content-store_owners" class="user-subtab-content hidden mt-4">
+                    <div class="glass-panel rounded-2xl p-6">
+                        <div class="overflow-x-auto custom-scrollbar">
+                            <table class="w-full text-right" id="usersDataTableStoreOwners">
+                                <thead>
+                                    <tr class="text-slate-500 text-sm border-b border-slate-100">
+                                        <th class="pb-3 font-semibold">ID</th>
+                                        <th class="pb-3 font-semibold">المستخدم</th>
+                                        <th class="pb-3 font-semibold">البريد الإلكتروني</th>
+                                        <th class="pb-3 font-semibold">الجوال</th>
+                                        <th class="pb-3 font-semibold">تاريخ الانضمام</th>
+                                        <th class="pb-3 font-semibold text-center"><i
+                                                class="fa-solid fa-ellipsis-vertical"></i></th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Delivery Guys Sub-tab -->
+                <div id="user-content-delivery_guys" class="user-subtab-content hidden mt-4">
+                    <div class="glass-panel rounded-2xl p-6">
+                        <div class="overflow-x-auto custom-scrollbar">
+                            <table class="w-full text-right" id="usersDataTableDeliveryGuys">
+                                <thead>
+                                    <tr class="text-slate-500 text-sm border-b border-slate-100">
+                                        <th class="pb-3 font-semibold">ID</th>
+                                        <th class="pb-3 font-semibold">المستخدم</th>
+                                        <th class="pb-3 font-semibold">البريد الإلكتروني</th>
+                                        <th class="pb-3 font-semibold">الجوال</th>
+                                        <th class="pb-3 font-semibold">المحفظة</th>
+                                        <th class="pb-3 font-semibold">الحالة</th>
+                                        <th class="pb-3 font-semibold">تاريخ الانضمام</th>
+                                        <th class="pb-3 font-semibold text-center"><i
+                                                class="fa-solid fa-ellipsis-vertical"></i></th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Staff Sub-tab -->
+                <div id="user-content-staff" class="user-subtab-content hidden mt-4">
+                    <div class="glass-panel rounded-2xl p-6">
+                        <div class="overflow-x-auto custom-scrollbar">
+                            <table class="w-full text-right" id="usersDataTableStaff">
+                                <thead>
+                                    <tr class="text-slate-500 text-sm border-b border-slate-100">
+                                        <th class="pb-3 font-semibold">ID</th>
+                                        <th class="pb-3 font-semibold">المستخدم</th>
+                                        <th class="pb-3 font-semibold">البريد الإلكتروني</th>
+                                        <th class="pb-3 font-semibold">الجوال</th>
+                                        <th class="pb-3 font-semibold">الدور</th>
+                                        <th class="pb-3 font-semibold">تاريخ الانضمام</th>
+                                        <th class="pb-3 font-semibold text-center"><i
+                                                class="fa-solid fa-ellipsis-vertical"></i></th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2042,26 +2248,292 @@
                 </div>
             </div>
 
-            <!-- Promotions Placeholder Tab -->
-            <div id="tab-promotions" class="tab-content">
+            <!-- Roles & Permissions Tab -->
+            <div id="tab-roles" class="tab-content">
                 <div class="mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div>
-                        <h2 class="text-2xl font-bold text-slate-800">العروض الترويجية</h2>
-                        <p class="text-sm text-slate-500 mt-1">إدارة كوبونات الخصم والشرائح الترويجية</p>
+                        <h2 class="text-2xl font-bold text-slate-800">الأدوار والصلاحيات</h2>
+                        <p class="text-sm text-slate-500 mt-1">إدارة مستويات الوصول وصلاحيات الموظفين (Roles &
+                            Permissions)</p>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-3">
+                        <button onclick="toggleModal('addNewRoleModal')"
+                            class="px-4 py-2.5 bg-indigo-600 text-white font-semibold rounded-xl hover:bg-indigo-700 shadow-lg shadow-indigo-200 transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-shield-halved"></i> إضافة دور جديد
+                        </button>
                     </div>
                 </div>
-                <!-- Placeholder Content -->
-                <div
-                    class="glass-panel rounded-2xl p-12 flex flex-col items-center justify-center text-center min-h-[400px]">
-                    <div
-                        class="w-20 h-20 bg-rose-50 text-rose-500 rounded-full flex items-center justify-center text-3xl mb-6 shadow-sm">
-                        <i class="fa-solid fa-ticket"></i>
+
+                <div class="glass-panel rounded-2xl p-6">
+                    <div class="overflow-x-auto custom-scrollbar">
+                        <table class="w-full text-right" id="rolesDataTable">
+                            <thead>
+                                <tr class="text-slate-500 text-sm border-b border-slate-100">
+                                    <th class="pb-3 font-semibold px-4">اسم الدور</th>
+                                    <th class="pb-3 font-semibold px-4">الصلاحيات الممنوحة</th>
+                                    <th class="pb-3 font-semibold text-center w-32 px-4 whitespace-nowrap">الإجراءات
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="hover:bg-slate-50/50 transition-colors border-b border-slate-50">
+                                    <td class="p-4 font-bold text-slate-700 px-4">مدير النظام <span
+                                            class="text-xs font-medium text-slate-400 font-mono">(Admin)</span></td>
+                                    <td class="p-4 px-4">
+                                        <div class="flex flex-wrap gap-1.5 max-w-2xl">
+                                            <span
+                                                class="px-2 py-0.5 bg-indigo-50 text-indigo-600 rounded-lg text-[10px] font-bold border border-indigo-100">صلاحيات
+                                                كاملة (+)</span>
+                                            <span
+                                                class="px-2 py-0.5 bg-indigo-50 text-indigo-600 rounded-lg text-[10px] font-bold border border-indigo-100">وصول
+                                                مطلق</span>
+                                        </div>
+                                    </td>
+                                    <td class="p-4 px-4 text-center">
+                                        <div class="flex items-center justify-center gap-2">
+                                            <button
+                                                class="w-8 h-8 rounded-lg bg-slate-50 text-slate-300 cursor-not-allowed flex items-center justify-center border border-slate-100"
+                                                title="لا يمكن تعديل المدير الرئيسي"><i
+                                                    class="fa-solid fa-lock"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/50 transition-colors border-b border-slate-50">
+                                    <td class="p-4 font-bold text-slate-700 px-4">المصنع <span
+                                            class="text-xs font-medium text-slate-400 font-mono">(Factory)</span></td>
+                                    <td class="p-4 px-4">
+                                        <div class="flex flex-wrap gap-1.5 max-w-2xl">
+                                            <span
+                                                class="px-2 py-0.5 bg-slate-50 text-slate-600 rounded-lg text-[10px] font-bold border border-slate-100">عرض
+                                                الطلبات</span>
+                                            <span
+                                                class="px-2 py-0.5 bg-slate-50 text-slate-600 rounded-lg text-[10px] font-bold border border-slate-100">إجراءات
+                                                الطلبات</span>
+                                            <span
+                                                class="px-2 py-0.5 bg-slate-50 text-slate-600 rounded-lg text-[10px] font-bold border border-slate-100">عرض
+                                                الطلبات الخاصة</span>
+                                        </div>
+                                    </td>
+                                    <td class="p-4 px-4 text-center">
+                                        <div class="flex items-center justify-center gap-2">
+                                            <button onclick="toggleModal('addNewRoleModal')"
+                                                class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 hover:bg-indigo-600 hover:text-white transition-colors flex items-center justify-center shadow-sm"
+                                                title="تعديل"><i class="fa-solid fa-pen"></i></button>
+                                            <button
+                                                class="w-8 h-8 rounded-lg bg-rose-50 text-rose-500 hover:bg-rose-500 hover:text-white transition-colors flex items-center justify-center shadow-sm"
+                                                title="حذف"><i class="fa-solid fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">قسم العروض الترويجية قيد التطوير</h3>
-                    <p class="text-slate-500 max-w-md">يمكنك من هنا إضافة أو تعديل الشرائح، إضافة كوبونات الخصم الجديدة
-                        للمتجر، وإدارة الحملات.</p>
                 </div>
             </div>
+
+    </main>
+
+    <!-- Add/Edit Role Modal -->
+    <div id="addNewRoleModal"
+        class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[9999] hidden items-center justify-center p-4">
+        <div
+            class="bg-white rounded-3xl w-full max-w-4xl shadow-2xl animate-in fade-in zoom-in duration-300 max-h-[90vh] flex flex-col">
+            <div class="p-6 border-b border-slate-100 flex items-center justify-between bg-white rounded-t-3xl">
+                <div class="flex items-center gap-3">
+                    <div
+                        class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-800">إدارة الدور والصلاحيات</h3>
+                        <p class="text-sm text-slate-500">تخصيص مستويات الوصول للموظفين والمدراء</p>
+                    </div>
+                </div>
+                <button onclick="toggleModal('addNewRoleModal')"
+                    class="w-10 h-10 rounded-xl bg-slate-50 text-slate-400 hover:bg-rose-50 hover:text-rose-500 transition-all flex items-center justify-center">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <div class="p-6 overflow-y-auto custom-scrollbar flex-grow">
+                <div class="space-y-6">
+                    <!-- Role Name -->
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">اسم الدور (Role Name)</label>
+                        <input type="text" name="role_name" placeholder="مثلاً: مدير مالي، موظف لوجستيك..."
+                            class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 transition-all text-slate-700 font-semibold">
+                    </div>
+
+                    <!-- Permissions Section -->
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <label
+                                class="block text-sm font-bold text-slate-700 underline decoration-indigo-200 decoration-4 underline-offset-4">تحديد
+                                الصلاحيات المتاحة</label>
+                            <div class="flex gap-2">
+                                <button type="button" onclick="checkAllPerms(true)"
+                                    class="text-[11px] font-bold text-indigo-600 bg-indigo-50 px-3 py-1.5 rounded-lg hover:bg-indigo-100 transition-colors">تحديد
+                                    الكل</button>
+                                <button type="button" onclick="checkAllPerms(false)"
+                                    class="text-[11px] font-bold text-slate-500 bg-slate-100 px-3 py-1.5 rounded-lg hover:bg-slate-200 transition-colors">إلغاء
+                                    الكل</button>
+                            </div>
+                        </div>
+
+                        <!-- Search Filter -->
+                        <div class="relative mb-4">
+                            <i class="fa-solid fa-search absolute right-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                            <input type="text" id="permSearch" placeholder="ابحث عن صلاحية معينة..."
+                                class="w-full pr-11 pl-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm outline-none focus:border-indigo-500 transition-all">
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3" id="permsGrid">
+                            <label
+                                class="perm-item flex items-center gap-3 p-3 bg-white border border-slate-100 rounded-xl hover:border-indigo-200 hover:bg-indigo-50/30 transition-all cursor-pointer group">
+                                <input type="checkbox"
+                                    class="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500/20 perms-checkbox">
+                                <span
+                                    class="text-sm font-semibold text-slate-600 group-hover:text-indigo-700 transition-colors"
+                                    data-name="عرض لوحة التحكم الرئيسية">عرض لوحة التحكم</span>
+                            </label>
+                            <label
+                                class="perm-item flex items-center gap-3 p-3 bg-white border border-slate-100 rounded-xl hover:border-indigo-200 hover:bg-indigo-50/30 transition-all cursor-pointer group">
+                                <input type="checkbox"
+                                    class="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500/20 perms-checkbox">
+                                <span
+                                    class="text-sm font-semibold text-slate-600 group-hover:text-indigo-700 transition-colors"
+                                    data-name="عرض المتاجر">عرض المتاجر</span>
+                            </label>
+                            <label
+                                class="perm-item flex items-center gap-3 p-3 bg-white border border-slate-100 rounded-xl hover:border-indigo-200 hover:bg-indigo-50/30 transition-all cursor-pointer group">
+                                <input type="checkbox"
+                                    class="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500/20 perms-checkbox">
+                                <span
+                                    class="text-sm font-semibold text-slate-600 group-hover:text-indigo-700 transition-colors"
+                                    data-name="تعديل المتاجر">تعديل المتاجر</span>
+                            </label>
+                            <label
+                                class="perm-item flex items-center gap-3 p-3 bg-white border border-slate-100 rounded-xl hover:border-indigo-200 hover:bg-indigo-50/30 transition-all cursor-pointer group">
+                                <input type="checkbox"
+                                    class="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500/20 perms-checkbox">
+                                <span
+                                    class="text-sm font-semibold text-slate-600 group-hover:text-indigo-700 transition-colors"
+                                    data-name="إدارة الطلبات">إدارة الطلبات</span>
+                            </label>
+                            <label
+                                class="perm-item flex items-center gap-3 p-3 bg-white border border-slate-100 rounded-xl hover:border-indigo-200 hover:bg-indigo-50/30 transition-all cursor-pointer group">
+                                <input type="checkbox"
+                                    class="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500/20 perms-checkbox">
+                                <span
+                                    class="text-sm font-semibold text-slate-600 group-hover:text-indigo-700 transition-colors"
+                                    data-name="عرض التقارير">عرض التقارير</span>
+                            </label>
+                            <label
+                                class="perm-item flex items-center gap-3 p-3 bg-white border border-slate-100 rounded-xl hover:border-indigo-200 hover:bg-indigo-50/30 transition-all cursor-pointer group">
+                                <input type="checkbox"
+                                    class="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500/20 perms-checkbox">
+                                <span
+                                    class="text-sm font-semibold text-slate-600 group-hover:text-indigo-700 transition-colors"
+                                    data-name="إعدادات النظام">إعدادات النظام</span>
+                            </label>
+                            <label
+                                class="perm-item flex items-center gap-3 p-3 bg-white border border-slate-100 rounded-xl hover:border-indigo-200 hover:bg-indigo-50/30 transition-all cursor-pointer group">
+                                <input type="checkbox"
+                                    class="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500/20 perms-checkbox">
+                                <span
+                                    class="text-sm font-semibold text-slate-600 group-hover:text-indigo-700 transition-colors"
+                                    data-name="إدارة الموظفين">إدارة الموظفين</span>
+                            </label>
+                            <label
+                                class="perm-item flex items-center gap-3 p-3 bg-white border border-slate-100 rounded-xl hover:border-indigo-200 hover:bg-indigo-50/30 transition-all cursor-pointer group">
+                                <input type="checkbox"
+                                    class="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500/20 perms-checkbox">
+                                <span
+                                    class="text-sm font-semibold text-slate-600 group-hover:text-indigo-700 transition-colors"
+                                    data-name="إدارة الإعلانات">إدارة الإعلانات</span>
+                            </label>
+                            <label
+                                class="perm-item flex items-center gap-3 p-3 bg-white border border-slate-100 rounded-xl hover:border-indigo-200 hover:bg-indigo-50/30 transition-all cursor-pointer group">
+                                <input type="checkbox"
+                                    class="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500/20 perms-checkbox">
+                                <span
+                                    class="text-sm font-semibold text-slate-600 group-hover:text-indigo-700 transition-colors"
+                                    data-name="إرسال إشعارات">إرسال إشعارات</span>
+                            </label>
+                            <!-- Extra Detailed Permissions -->
+                            <label
+                                class="perm-item flex items-center gap-3 p-3 bg-white border border-slate-100 rounded-xl hover:border-indigo-200 hover:bg-indigo-50/30 transition-all cursor-pointer group">
+                                <input type="checkbox"
+                                    class="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500/20 perms-checkbox">
+                                <span
+                                    class="text-sm font-semibold text-slate-600 group-hover:text-indigo-700 transition-colors"
+                                    data-name="إدارة الإضافات">إدارة الإضافات</span>
+                            </label>
+                            <label
+                                class="perm-item flex items-center gap-3 p-3 bg-white border border-slate-100 rounded-xl hover:border-indigo-200 hover:bg-indigo-50/30 transition-all cursor-pointer group">
+                                <input type="checkbox"
+                                    class="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500/20 perms-checkbox">
+                                <span
+                                    class="text-sm font-semibold text-slate-600 group-hover:text-indigo-700 transition-colors"
+                                    data-name="إدارة تصنيفات المنيو">تصنيفات المنيو</span>
+                            </label>
+                            <label
+                                class="perm-item flex items-center gap-3 p-3 bg-white border border-slate-100 rounded-xl hover:border-indigo-200 hover:bg-indigo-50/30 transition-all cursor-pointer group">
+                                <input type="checkbox"
+                                    class="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500/20 perms-checkbox">
+                                <span
+                                    class="text-sm font-semibold text-slate-600 group-hover:text-indigo-700 transition-colors"
+                                    data-name="سجلات التحصيل">سجلات التحصيل</span>
+                            </label>
+                            <label
+                                class="perm-item flex items-center gap-3 p-3 bg-white border border-slate-100 rounded-xl hover:border-indigo-200 hover:bg-indigo-50/30 transition-all cursor-pointer group">
+                                <input type="checkbox"
+                                    class="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500/20 perms-checkbox">
+                                <span
+                                    class="text-sm font-semibold text-slate-600 group-hover:text-indigo-700 transition-colors"
+                                    data-name="مدفوعات المتاجر">مدفوعات المتاجر</span>
+                            </label>
+                            <label
+                                class="perm-item flex items-center gap-3 p-3 bg-white border border-slate-100 rounded-xl hover:border-indigo-200 hover:bg-indigo-50/30 transition-all cursor-pointer group">
+                                <input type="checkbox"
+                                    class="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500/20 perms-checkbox">
+                                <span
+                                    class="text-sm font-semibold text-slate-600 group-hover:text-indigo-700 transition-colors"
+                                    data-name="حركات المحفظة">حركات المحفظة</span>
+                            </label>
+                            <label
+                                class="perm-item flex items-center gap-3 p-3 bg-white border border-slate-100 rounded-xl hover:border-indigo-200 hover:bg-indigo-50/30 transition-all cursor-pointer group">
+                                <input type="checkbox"
+                                    class="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500/20 perms-checkbox">
+                                <span
+                                    class="text-sm font-semibold text-slate-600 group-hover:text-indigo-700 transition-colors"
+                                    data-name="عرض الطلبات الخاصة">الطلبات الخاصة</span>
+                            </label>
+                            <label
+                                class="perm-item flex items-center gap-3 p-3 bg-white border border-slate-100 rounded-xl hover:border-indigo-200 hover:bg-indigo-50/30 transition-all cursor-pointer group">
+                                <input type="checkbox"
+                                    class="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500/20 perms-checkbox">
+                                <span
+                                    class="text-sm font-semibold text-slate-600 group-hover:text-indigo-700 transition-colors"
+                                    data-name="ترجمة النصوص">إدارة الترجمة</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-6 border-t border-slate-100 flex items-center justify-end gap-3 bg-slate-50 rounded-b-3xl">
+                <button type="button" onclick="toggleModal('addNewRoleModal')"
+                    class="px-6 py-2.5 bg-white text-slate-600 font-bold rounded-xl hover:bg-slate-100 border border-slate-200 transition-all">
+                    إلغاء
+                </button>
+                <button type="button" onclick="toggleModal('addNewRoleModal')"
+                    class="px-8 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 shadow-lg shadow-indigo-200 transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-save"></i> حفظ التغييرات
+                </button>
+            </div>
+        </div>
+    </div>
 
     </main>
 
@@ -2166,8 +2638,7 @@
         src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/forms/styling/switchery.min.js"></script>
     <script
         src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/tables/datatables/extensions/buttons.min.js"></script>
-    <script
-        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/forms/inputs/jquery.alphanum.js"></script>
+    <script src="https://montana-sa.amir-adel.com/admin/assets/backend/js/jquery-alphanum.js"></script>
 
     <!-- Summernote Editor -->
     <script
@@ -2183,6 +2654,19 @@
 
     <!-- Dashboard Initialization -->
     <script>
+        window.ELITE_MOCK = {
+            users: [
+                { id: 101, name: 'عبد الله محمد', email: 'abdullah@example.com', phone: '0501234567', role: 'عميل', wallet: 250.75, created_at: '2024-03-01 10:00:00', action: '<div class="flex gap-2"><button class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center"><i class="fa-solid fa-pen"></i></button></div>' },
+                { id: 102, name: 'سارة أحمد', email: 'sara@example.com', phone: '0559876543', role: 'صاحب متجر', wallet: 1540.00, created_at: '2024-02-15 14:30:00', action: '<div class="flex gap-2"><button class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center"><i class="fa-solid fa-pen"></i></button></div>' },
+                { id: 103, name: 'فهد العتيبي', email: 'fahad@delivery.com', phone: '0561122334', role: 'مندوب', wallet: 45.00, status: 'Active', created_at: '2024-01-20 09:15:00', action: '<div class="flex gap-2"><button class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center"><i class="fa-solid fa-pen"></i></button></div>' },
+                { id: 104, name: 'نورة الدوسري', email: 'noura@staff.com', phone: '0544455667', role: 'موظف', wallet: 0, created_at: '2024-03-05 12:00:00', action: '<div class="flex gap-2"><button class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center"><i class="fa-solid fa-pen"></i></button></div>' }
+            ],
+            items: [
+                { id: 201, image: '<img src="https://ui-avatars.com/api/?name=P1&background=f1f5f9&color=6366f1" class="w-12 h-12 rounded-lg">', name: 'بيزا مارجريتا', name_ar: 'Margherita Pizza', restaurant_name: '<div>بيتزا هت</div>', category_name: 'بيتزا', price: '45.00', attributes: 'حجم متوسط', created_at: '2024-03-01', action: '<button class="p-2 text-indigo-600"><i class="fa-solid fa-pen"></i></button>' },
+                { id: 202, image: '<img src="https://ui-avatars.com/api/?name=B1&background=f1f5f9&color=6366f1" class="w-12 h-12 rounded-lg">', name: 'برجر كلاسيك', name_ar: 'Classic Burger', restaurant_name: '<div>هرفي</div>', category_name: 'برجر', price: '25.00', attributes: 'وجبة كاملة', created_at: '2024-03-02', action: '<button class="p-2 text-indigo-600"><i class="fa-solid fa-pen"></i></button>' }
+            ]
+        };
+
         NProgress.configure({ showSpinner: true, minimum: 0.2 });
 
         function initDashboard() {
@@ -2281,22 +2765,25 @@
             }
 
             // Dashboard Stats AJAX Loading
+            // Note: When running locally (127.0.0.1), this may fail due to CORS.
+            // We handle this by keeping the premium placeholder data visible.
             $.ajax({
                 url: 'https://montana-sa.amir-adel.com/admin/public/admin/get-dashboard-stats',
                 type: 'GET',
                 dataType: 'JSON',
+                timeout: 5000, // 5 seconds timeout
                 data: {
                     from: moment().startOf('month').format('YYYY-MM-DD'),
                     to: moment().format('YYYY-MM-DD'),
                 },
             }).done(function (data) {
-                // To maintain premium design, only populate elements if we wish to overwrite,
-                // but the original logic is preserved:
-                // $('#dashboardStatsBlock').html(data.dashboardStats);
-                // $('#topStoresDynamicList').html(data.topStores);
-                console.log("Dashboard stats loaded successfully.");
-            }).fail(function () {
-                console.log("Stats loading failed, showing placeholders.");
+                console.log("Dashboard stats loaded successfully from remote API.");
+                // Overwrite placeholders if data is available
+                if (data && data.dashboardStats) {
+                    // Update logic here if needed
+                }
+            }).fail(function (jqXHR, textStatus, errorThrown) {
+                console.warn("Dashboard Stats: Remote API unreachable (CORS or Network). Using premium demo placeholders.");
             });
         }
 
@@ -2317,7 +2804,7 @@
                 mockStoresData = [
                     {
                         id: 1,
-                        image: '<img src="https://montana-sa.amir-adel.com/admin/public/assets/items-categories/Du6jyCLyP2xGTxEjEzV55jAazYO72z6iQyEX1aHy.png" class="w-12 h-12 rounded-lg object-cover shadow-sm border border-slate-100" />',
+                        image: '<img src="https://montana-sa.amir-adel.com/admin/public/assets/items-categories/Du6jyCLyP2xGTxEjEzV55jAazYO72z6iQyEX1aHy.png" onerror="this.src=\'https://ui-avatars.com/api/?name=S1&background=f1f5f9&color=6366f1\'" class="w-12 h-12 rounded-lg object-cover shadow-sm border border-slate-100" />',
                         name: '<div class="font-bold text-slate-700 text-left">متجر الحمدانية (نشط)</div><div class="text-xs text-slate-500 text-left">Alhamdaniah Store</div>',
                         areas: '<span class="px-2 py-1 bg-indigo-50 text-indigo-600 rounded text-xs font-semibold whitespace-nowrap">الحمدانية</span>',
                         owner: '<span class="text-slate-600 font-semibold whitespace-nowrap">أحمد محمد</span>',
@@ -2349,7 +2836,7 @@
                     },
                     {
                         id: 3,
-                        image: '<img src="https://montana-sa.amir-adel.com/admin/public/assets/items-categories/14maF7VghkycluDxbrRlJhwKEaogXqXooOvlXHFW.png" class="w-12 h-12 rounded-lg object-cover shadow-sm border border-slate-100 ring-2 ring-amber-400 ring-offset-1" />',
+                        image: '<img src="https://montana-sa.amir-adel.com/admin/public/assets/items-categories/14maF7VghkycluDxbrRlJhwKEaogXqXooOvlXHFW.png" onerror="this.src=\'https://ui-avatars.com/api/?name=S3&background=f1f5f9&color=6366f1\'" class="w-12 h-12 rounded-lg object-cover shadow-sm border border-slate-100 ring-2 ring-amber-400 ring-offset-1" />',
                         name: '<div class="font-bold text-slate-700 text-left flex items-center gap-1">فرع التحلية <i class="fa-solid fa-crown text-amber-500 text-xs" title="متجر مميز"></i></div><div class="text-xs text-slate-500 text-left">Tahlia Branch</div>',
                         areas: '<span class="px-2 py-1 bg-indigo-50 text-indigo-600 rounded text-xs font-semibold whitespace-nowrap">التحلية</span>',
                         owner: '<span class="text-slate-600 font-semibold whitespace-nowrap">مؤسسة الأطعمة</span>',
@@ -2552,10 +3039,19 @@
                 order: [[0, "desc"]],
                 ajax: {
                     url: 'https://montana-sa.amir-adel.com/admin/public/admin/adminItemsDatatable',
+                    error: function (xhr, error, thrown) {
+                        console.warn("Items API unreachable, using MOCK data.");
+                        let settings = $('#itemsDatatable').DataTable().settings()[0];
+                        let mockData = { data: window.ELITE_MOCK.items };
+                        // Manually trigger the drawing with mock data
+                        settings.jqXHR = { responseJSON: mockData };
+                        $('#itemsDatatable').DataTable().clear().rows.add(mockData.data).draw();
+                    },
                     dataSrc: function (json) {
+                        if (!json || !json.data) return [];
                         const result = json.data.filter(i => {
                             categories.all.add(i.category_name);
-                            categories.imgSrc[i.category_name] = i.image.match(/src="([^"]+)"/)?.[1] || ""; // simplistic extraction if it's an image tag
+                            categories.imgSrc[i.category_name] = i.image ? (i.image.match(/src="([^"]+)"/)?.[1] || "") : "";
                             i.name = i.name.replace("text-left", "") + '<br><span class="text-xs text-slate-400">' + i.name_ar + '</span>';
                             frag.innerHTML = i.restaurant_name;
                             const stores = Array.from(frag.children).map(e => e.textContent);
@@ -2757,6 +3253,155 @@
             }
         }
 
+        function switchUserSubTab(subTabId) {
+            // Update buttons
+            document.querySelectorAll('.user-subtab').forEach(btn => {
+                btn.classList.remove('active', 'bg-indigo-600', 'text-white', 'shadow-lg', 'shadow-indigo-100');
+                btn.classList.add('bg-white', 'text-slate-600', 'border', 'border-slate-100', 'hover:bg-slate-50');
+            });
+            const activeBtn = document.getElementById('user-subtab-' + subTabId);
+            activeBtn.classList.add('active', 'bg-indigo-600', 'text-white', 'shadow-lg', 'shadow-indigo-100');
+            activeBtn.classList.remove('bg-white', 'text-slate-600', 'border', 'border-slate-100', 'hover:bg-slate-50');
+
+            // Toggle content
+            document.querySelectorAll('.user-subtab-content').forEach(el => {
+                el.classList.add('hidden');
+                el.classList.remove('active');
+            });
+            document.getElementById('user-content-' + subTabId).classList.remove('hidden');
+            document.getElementById('user-content-' + subTabId).classList.add('active');
+
+            // Adjust table columns
+            setTimeout(() => {
+                $.fn.dataTable.tables({ visible: true, api: true }).columns.adjust();
+            }, 100);
+        }
+
+        function confirmDelete() {
+            return confirm('هل أنت متأكد من رغبتك في حذف هذا المستخدم؟');
+        }
+
+        let userDataTables = {};
+
+        function initUsers() {
+            if ($.fn.DataTable.isDataTable('#usersDataTableAll')) return;
+
+            const tableConfigs = [
+                { id: '#usersDataTableAll', ajax: 'https://montana-sa.amir-adel.com/admin/public/admin/usersDatatable', cols: [{ data: 'id' }, { data: 'name' }, { data: 'email' }, { data: 'phone' }, { data: 'role' }, { data: 'wallet' }, { data: 'created_at' }, { data: 'action' }] },
+                { id: '#usersDataTableCustomers', ajax: 'https://montana-sa.amir-adel.com/admin/public/admin/customerDatatable', cols: [{ data: 'id' }, { data: 'name' }, { data: 'email' }, { data: 'phone' }, { data: 'role' }, { data: 'wallet' }, { data: 'created_at' }, { data: 'action' }] },
+                { id: '#usersDataTableStoreOwners', ajax: 'https://montana-sa.amir-adel.com/admin/public/admin/storeOwnerUsersDatatable', cols: [{ data: 'id' }, { data: 'name' }, { data: 'email' }, { data: 'phone' }, { data: 'created_at' }, { data: 'action' }] },
+                { id: '#usersDataTableDeliveryGuys', ajax: 'https://montana-sa.amir-adel.com/admin/public/admin/deliveryGuyUsersDatatable', cols: [{ data: 'id' }, { data: 'name' }, { data: 'email' }, { data: 'phone' }, { data: 'wallet' }, { data: 'status' }, { data: 'created_at' }, { data: 'action' }] },
+                { id: '#usersDataTableStaff', ajax: 'https://montana-sa.amir-adel.com/admin/public/admin/managerDatatable', cols: [{ data: 'id' }, { data: 'name' }, { data: 'email' }, { data: 'phone' }, { data: 'role' }, { data: 'created_at' }, { data: 'action' }] }
+            ];
+
+            const commonConfig = {
+                processing: true,
+                serverSide: true,
+                stateSave: true,
+                lengthMenu: [10, 25, 50, 100],
+                order: [[0, "desc"]],
+                scrollX: true,
+                scrollCollapse: true,
+                dom: '<"flex flex-col md:flex-row justify-between items-center bg-white p-4 border-b border-slate-100 rounded-t-xl gap-4"lBf>rt<"flex justify-between items-center bg-white p-4 border-t border-slate-100 rounded-b-xl"ip>',
+                buttons: [
+                    {
+                        extend: 'csv',
+                        text: '<i class="fa-solid fa-file-export mr-2"></i> تصدير CSV',
+                        className: 'px-4 py-2 bg-indigo-50 text-indigo-600 rounded-xl text-sm font-bold border border-indigo-100 hover:bg-indigo-100 transition-all'
+                    }
+                ],
+                language: {
+                    search: '',
+                    searchPlaceholder: 'بحث...',
+                    sEmptyTable: "لا توجد بيانات",
+                    lengthMenu: 'عرض _MENU_',
+                    info: "عرض _START_ إلى _END_ من _TOTAL_ مدخلات",
+                    paginate: { 'first': 'الأول', 'last': 'الأخير', 'next': '&larr;', 'previous': '&rarr;' },
+                    processing: '<i class="fa-solid fa-spinner fa-spin mr-2"></i> جار التحميل...'
+                },
+                columnDefs: [
+                    { targets: 0, visible: false },
+                    {
+                        targets: '_all',
+                        className: 'p-4 text-sm align-middle'
+                    }
+                ],
+                drawCallback: function () {
+                    $('.action-switch').each(function () {
+                        if (!this.getAttribute('data-switchery')) {
+                            new Switchery(this, { color: '#6366f1', size: 'small' });
+                        }
+                    });
+                }
+            };
+
+            tableConfigs.forEach(config => {
+                userDataTables[config.id] = $(config.id).DataTable({
+                    ...commonConfig,
+                    ajax: function (data, callback, settings) {
+                        $.ajax({
+                            url: config.ajax,
+                            data: data,
+                            dataType: 'json',
+                            timeout: 5000,
+                            success: function (res) {
+                                callback(res);
+                            },
+                            error: function () {
+                                console.warn("User API (" + config.id + ") unreachable, using MOCK data.");
+                                callback({
+                                    draw: data.draw,
+                                    recordsTotal: window.ELITE_MOCK.users.length,
+                                    recordsFiltered: window.ELITE_MOCK.users.length,
+                                    data: window.ELITE_MOCK.users
+                                });
+                            }
+                        });
+                    },
+                    columns: config.cols.map(c => {
+                        if (c.data === 'name') return { ...c, className: 'font-bold text-slate-800' };
+                        if (c.data === 'email' || c.data === 'phone') return { ...c, className: 'text-slate-500 text-xs font-medium' };
+                        if (c.data === 'role') return {
+                            ...c, render: function (d) {
+                                if (!d) return '--';
+                                return `<span class="px-2 py-1 bg-indigo-50 text-indigo-700 rounded-md text-[10px] font-bold border border-indigo-100">${d}</span>`;
+                            }
+                        };
+                        if (c.data === 'wallet') return { ...c, className: 'font-bold text-emerald-600', render: d => (d || 0) + ' ر.س' };
+                        if (c.data === 'status') return {
+                            ...c, render: function (d) {
+                                if (!d) return '--';
+                                let isActive = d.toString().toLowerCase().includes('active') || d === '1' || d === 1;
+                                return isActive ? '<span class="text-emerald-500 flex items-center gap-1 font-bold text-xs"><i class="fa-solid fa-circle text-[6px]"></i> نشط</span>' : '<span class="text-rose-500 flex items-center gap-1 font-bold text-xs"><i class="fa-solid fa-circle text-[6px]"></i> غير نشط</span>';
+                            }
+                        };
+                        return c;
+                    })
+                });
+            });
+
+            $('#clearUserFilters').click(function () {
+                Object.values(userDataTables).forEach(dt => dt.state.clear());
+                window.location.reload();
+            });
+        }
+
+        function checkAllPerms(status) {
+            $('.perms-checkbox').prop('checked', status);
+        }
+
+        $(document).on('keyup', '#permSearch', function () {
+            let val = $(this).val().toLowerCase();
+            $('.perm-item').each(function () {
+                let name = $(this).find('span').attr('data-name') || '';
+                if (name.toLowerCase().indexOf(val) > -1) {
+                    !$(this).css('display', 'flex');
+                } else {
+                    !$(this).css('display', 'none');
+                }
+            });
+        });
+
         $(document).ready(function () {
             initDashboard();
             initStoresDatatable();
@@ -2764,6 +3409,7 @@
             initItems();
             initAddonCategories();
             initAddons();
+            initUsers();
         });
     </script>
 </body>

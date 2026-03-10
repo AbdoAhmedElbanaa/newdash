@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="txq4lOEloCdQNzEoRhoCsC0GCXJSknvhkIkHOfEZ">
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/images/favicons/favicon-16x16.png">
+    <title> Staffs - Dashboard
+    </title>
+    <!-- Global stylesheets -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet"
+        type="text/css">
+    <link href="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/css/icons/icomoon/styles.min.css"
+        rel="stylesheet" type="text/css">
+    <link href="https://montana-sa.amir-adel.com/admin/assets/backend/css/bootstrap.min.css?v=3.5.0-BUILD-02"
+        rel="stylesheet" type="text/css">
+    <link href="https://montana-sa.amir-adel.com/admin/assets/backend/css/combined.min.css?v=3.5.0-BUILD-02"
+        rel="stylesheet" type="text/css">
+    <link href="https://montana-sa.amir-adel.com/admin/assets/backend/css/layout.min.css?v=3.5.0-BUILD-02"
+        rel="stylesheet" type="text/css">
+    <link href="https://montana-sa.amir-adel.com/admin/assets/backend/css/components.min.css?v=3.5.0-BUILD-02"
+        rel="stylesheet" type="text/css">
+    <link href="https://montana-sa.amir-adel.com/admin/assets/backend/css/colors.min.css" rel="stylesheet"
+        type="text/css">
+    <link href="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/css/extras/animate.min.css"
+        rel="stylesheet" type="text/css">
+    <link href="https://montana-sa.amir-adel.com/admin/assets/backend/css/backend-custom.css?v=3.5.0-BUILD-02"
+        rel="stylesheet" type="text/css">
+    <link type="text/css" href="https://montana-sa.amir-adel.com/admin/assets/backend/css/OverlayScrollbars.min.css"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.9.0/css/ol.css">
+    <!-- /global stylesheets -->
+
+
+    <!-- Core JS files -->
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/main/jquery.min.js">
+        </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.10.2/Sortable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-sortablejs@latest/jquery-sortable.js"></script>
+
+
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/js/jquery.overlayScrollbars.min.js">
+        </script>
+
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets//js/plugins/ui/moment/moment.min.js">
+        </script>
+
+
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/main/bootstrap.bundle.min.js">
+        </script>
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/loaders/blockui.min.js">
+        </script>
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/ui/slinky.min.js">
+        </script>
+    <!-- /core JS files -->
+    <!-- Theme JS files -->
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/ui/sticky.min.js">
+        </script>
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/buttons/spin.min.js">
+        </script>
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/buttons/ladda.min.js">
+        </script>
+
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/notifications/jgrowl.min.js">
+        </script>
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/forms/selects/select2.min.js">
+        </script>
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/forms/styling/uniform.min.js">
+        </script>
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/forms/styling/switchery.min.js">
+        </script>
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/pickers/color/spectrum.js">
+        </script>
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/editors/summernote/summernote.js">
+        </script>
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/pickers/daterangepicker.js">
+        </script>
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/uploaders/dropzone.min.js">
+        </script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106310733-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'UA-106310733-1'); gtag('evaluation', window.location.hostname);
+    </script>
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/tables/datatables/datatables.min.js">
+        </script>
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/tables/datatables/extensions/fixed_columns.min.js">
+        </script>
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/tables/datatables/extensions/col_reorder.min.js">
+        </script>
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/tables/datatables/extensions/buttons.min.js">
+        </script>
+
+
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/visualization/echarts/echarts.js"
+        defer></script>
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/visualization/d3/d3.min.js">
+        </script>
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/visualization/d3/d3_tooltip.js">
+        </script>
+
+    <script type="text/javascript" src="https://montana-sa.amir-adel.com/admin/assets/backend/js/app.js">
+    </script>
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/js/navbar-sticky.js"></script>
+    <script type="text/javascript" src="https://montana-sa.amir-adel.com/admin/assets/backend/js/printThis.js">
+    </script>
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/js/jquery-alphanum.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.js"></script>
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/pickers/daterangepicker.js">
+        </script>
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.9.0/build/ol.js"></script>
+
+    <!-- /theme JS files -->
+    <style>
+        #nprogress .bar {
+            background: #fff !important;
+        }
+
+        #nprogress .peg {
+            box-shadow: 0 0 10px #fff, 0 0 5px #fff;
+        }
+
+        #nprogress .spinner-icon {
+            border-top-color: #fff;
+            border-left-color: #fff;
+        }
+    </style>
+
+    <style>
+        #settings &gt;
+        ul &gt;
+
+        li {
+            text-align: center;
+        }
+
+        #settings &gt;
+        ul &gt;
+
+        li+li {
+            margin-left: .6rem;
+        }
+
+        #settings &gt;
+        ul &gt;
+        li &gt;
+
+        a {
+            display: grid;
+        }
+    </style>
+
+</head>
+
+<body>
+    <link href="/assets/css/amir.css" rel="stylesheet" type="text/css">
+
+    <style>
+        #dark-nav .dropdown-item.active {
+            background-color: #0a4368;
+        }
+
+        .extra-menu {
+            min-width: 500px
+        }
+
+        @media screen and (max-width:767px) {
+            .extra-menu {
+                min-width: auto
+            }
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+            margin-top: 0;
+        }
+
+        /* MG CODE */
+        #mg-nav {
+            flex-wrap: nowrap;
+            background: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 300;
+        }
+
+        #mg-nav>div:first-child {
+            justify-content: space-between;
+        }
+
+        #mg-nav>ul {
+            position: fixed;
+            background: #fff;
+            gap: 0.3rem;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1;
+            transform: translateY(100%);
+            transition: 0.3s ease-out;
+        }
+
+        #mg-nav>ul.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0%);
+        }
+
+        #mg-nav li>a {
+            color: #0b4368;
+            border-radius: 4px;
+            padding: 0.6rem 1.2rem;
+            /*justify-content: center;*/
+        }
+
+        #mg-nav li:not(.dropdown-user).active>a {
+            background: #0b4368;
+            color: #fff;
+        }
+
+        #mg-nav li:not(.dropdown-user):has(div) {
+            border-bottom: 1px solid #eee;
+        }
+
+        #mg-nav li:not(.dropdown-user).active>a,
+        #mg-nav li:hover>a {
+            color: #fff;
+            background-color: #0b4368;
+        }
+
+        #mg-nav li:not(.dropdown-user):has(div).active>a {
+            background-color: #ffcd00;
+        }
+
+        #mg-nav li:not(.dropdown-user):has(div)>div {
+            border-left: 1px solid #eee;
+            max-height: 0;
+            --margin-y: 0;
+            margin: var(--margin-y) 2rem;
+            overflow: hidden;
+            transition: 0.3s ease-out;
+        }
+
+        #mg-nav li:not(.dropdown-user).active>div {
+            max-height: var(--sh, 25vh);
+            --margin-y: 0.3rem;
+            /*overflow: auto;*/
+        }
+
+        #mg-nav a.dropdown-toggle::after {
+            margin-left: auto;
+        }
+
+        #mg-nav ul.active+.dismisser {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #0002;
+        }
+
+        #mg-nav .dropdown-item:hover {
+            background-color: #0001;
+        }
+
+        #mg-nav .dropdown-item.active {
+            background-color: #0b4368;
+        }
+
+
+        body>.page-content {
+            border-top: 1px solid #eee;
+            border-left: 1px solid #ddd;
+        }
+
+        .dashboard-display,
+        .dashboard-block-movable>div {
+            border: 1px solid #eee;
+        }
+
+        @media (min-width: 1407px) {
+            body {
+                display: grid;
+                grid-template-columns: 300px calc(-315px + 100vw);
+                grid-template-rows: max-content 1fr;
+            }
+
+            .navbar-dark .navbar-nav-link {
+                color: #18181B !important;
+            }
+
+            #dark-nav {
+                background-color: #fff;
+                border-left: 1px solid #ddd;
+            }
+
+            #mg-nav {
+                grid-row: 1 / span 2;
+                background: transparent;
+                display: flex;
+                flex-direction: column;
+                justify-content: start;
+                gap: 1.5rem;
+                max-height: 100vh;
+            }
+
+            #mg-nav>div:first-child {
+                background: transparent;
+            }
+
+            #mg-nav>div:first-child>button {
+                display: none;
+            }
+
+            #mg-nav>ul {
+                height: -webkit-fill-available;
+                position: static;
+                transform: none;
+                opacity: 1;
+                visibility: visible;
+                background: transparent;
+                padding: 0 !important;
+                max-width: 100%;
+            }
+
+            #mg-nav li:not(.dropdown-user) {
+                border-bottom: 1px solid #eee;
+            }
+
+            #mg-nav .li.active>a {
+                background-color: #0b4368;
+            }
+        }
+    </style>
+
+
+    <div id="dark-nav" class="navbar navbar-expand-md m-xl-0">
+        <div class="d-lg-flex d-none">
+            <button class="navbar-toggler dropdown-toggle" type="button" data-toggle="collapse"
+                data-target="#navbar-mobile">
+                <span>admin</span>
+
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" id="navbar-mobile">
+
+                <a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown" style="color: #184369">
+                    <span><i class="icon-earth"></i></span>
+                </a>
+                <div class="dropdown-menu">
+                    <a href="https://montana-sa.amir-adel.com/admin/public/locale/ar" class="dropdown-item "
+                        style="text-transform: uppercase;"> ar</a>
+                    <a href="https://montana-sa.amir-adel.com/admin/public/locale/en" class="dropdown-item  active "
+                        style="text-transform: uppercase;"> en</a>
+                </div>
+
+                <a href="https://montana-sa.amir-adel.com/admin/public/auth/logout" class="dropdown-item"><i
+                        class="icon-switch2"></i>
+                    Logout</a>
+
+            </div>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item nav-zone-selection">
+                    <select name="nav_select_zone" class="nav-select-zone">
+                        <option value="0"> All Zones
+                        </option>
+                        <option value="1">
+                            Alhamdaniah</option>
+                        <option value="2">
+                            Alsafa</option>
+                        <option value="3">
+                            Alsamer</option>
+                        <option value="4">
+                            Alrehab</option>
+                        <option value="5">
+                            Alsanabel</option>
+                        <option value="6">
+                            AlWaha</option>
+                        <option value="7">
+                            Alsulaimaniyah</option>
+                        <option value="8">
+                            AlNuzha</option>
+                        <option value="9">
+                            Al Salama</option>
+                        <option value="10">
+                            Alyagoot</option>
+                    </select>
+                </li>
+
+                <script>
+                    $('.nav-select-zone').select2();
+                    $('select[name="nav_select_zone"]').on('change', (event) => {
+                        let url = "https://montana-sa.amir-adel.com/admin/public/change-zone-scope/" + event.target.value;
+                        //delete datatable filters
+                        var savedDatatables = findLocalItems("DataTables_");
+                        if (savedDatatables.length > 0) {
+                            console.log("Cleaning keys");
+                            $.each(savedDatatables, function (indexInArray, valueOfElement) {
+                                localStorage.removeItem(valueOfElement.key);
+                            });
+                        }
+                        setTimeout(() => {
+                            window.location.href = url;
+                        }, 500);
+                    });
+                </script>
+
+                <li class="nav-item dropdown-user">
+                    <a href="#" class="navbar-nav-link d-flex align-items-center dropdown-toggle" data-toggle="dropdown"
+                        style="color: #184369">
+                        <span><i class="icon-earth mx-2"></i></span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a href="https://montana-sa.amir-adel.com/admin/public/locale/ar" class="dropdown-item "
+                            style="text-transform: uppercase;"> ar</a>
+                        <a href="https://montana-sa.amir-adel.com/admin/public/locale/en" class="dropdown-item  active "
+                            style="text-transform: uppercase;"> en</a>
+                    </div>
+                </li>
+
+
+
+                <li class="nav-item dropdown-user">
+                    <a href="#" class="navbar-nav-link d-flex align-items-center dropdown-toggle" data-toggle="dropdown"
+                        style="color: #184369">
+                        <span>admin</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a href="https://montana-sa.amir-adel.com/admin/public/profile" class="dropdown-item"><i
+                                class="icon-users2"></i>
+                            profile</a>
+                        <a href="https://montana-sa.amir-adel.com/admin/public/auth/logout" class="dropdown-item"><i
+                                class="icon-switch2"></i>
+                            Logout</a>
+
+                    </div>
+                </li>
+
+
+
+            </ul>
+        </div>
+    </div>
+
+
+    <div id="mg-nav" class="navbar py-2" style="">
+        <div class="d-flex w-100">
+            <a href="https://montana-sa.amir-adel.com/admin/public"
+                style="height: 48px;flex-grow: 1;text-align: center;">
+                <img src="https://montana-sa.amir-adel.com/admin/assets/home/logo.svg"
+                    style="max-height: 48px; margin: 0 auto;" alt="logo" />
+            </a>
+            <button type="button" class="btn navbar-brand-md">
+                <i class="icon-unfold mr-2"></i>
+                Navigation
+            </button>
+        </div>
+
+        <ul class="d-flex flex-column list-unstyled m-0 p-3 px-md-5">
+            <li class="nav-item">
+                <a href="https://montana-sa.amir-adel.com/admin/public/admin/dashboard" class="navbar-nav-link">
+                    <i class="icon-equalizer mr-2"></i>
+                    Dashboard
+                    <!--<img src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/images/dashboard-logo.png"-->
+                    <!--    alt="Dashboard">-->
+                </a>
+
+            </li>
+
+            <li class="nav-item">
+                <a href="https://montana-sa.amir-adel.com/admin/public/admin/stores" class="navbar-nav-link ">
+                    <i class="icon-store2 mr-2"></i>
+                    Stores
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="navbar-nav-link  dropdown-toggle">
+                    <i class="icon-stack-star mr-2"></i>
+                    Items &amp; Menu
+                </a>
+                <div class="">
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/addoncategories"
+                        class="dropdown-item ">
+                        <i class="icon-tree6 mr-2"></i>
+                        Addon Categories
+                    </a>
+
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/addons" class="dropdown-item ">
+                        <i class="icon-list2 mr-2"></i>
+                        Addons
+                    </a>
+
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/itemcategories" class="dropdown-item ">
+                        <i class="icon-grid52 mr-2"></i>
+                        Menu Categories
+                    </a>
+
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/items" class="dropdown-item ">
+                        <i class="icon-grid mr-2"></i>
+                        Items
+                    </a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="navbar-nav-link dropdown-toggle  active">
+                    <i class="icon-users2 mr-2"></i>
+                    Users
+                </a>
+
+                <div class="">
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/users" class="dropdown-item "> <i
+                            class="icon-users4 mr-2"></i> All Users</a>
+
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/customers" class="dropdown-item "> <i
+                            class="icon-user mr-2"></i> Customers</a>
+
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/manage-store-owners"
+                        class="dropdown-item "> <i class="icon-user-tie mr-2"></i> Store Owners</a>
+
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/manage-delivery-guys"
+                        class="dropdown-item "> <i class="icon-truck mr-2"></i> Delivery Guys</a>
+
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/staffs" class="dropdown-item active">
+                        <i class="icon-collaboration mr-2"></i> Staff</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a href="https://montana-sa.amir-adel.com/admin/public/admin/orders" class="navbar-nav-link ">
+                    <i class="icon-basket mr-2"></i>
+                    Orders
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="navbar-nav-link dropdown-toggle  ">
+                    <i class="icon-percent mr-2"></i>
+                    Promotions
+                </a>
+                <div class="">
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/sliders" class="dropdown-item ">
+                        <i class="icon-image2 mr-2"></i>
+                        Promo Sliders
+                    </a>
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/store-category-slider"
+                        class="dropdown-item ">
+                        <i class="icon-grid52 mr-2"></i>
+                        Store Category Slider
+                    </a>
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/coupons" class="dropdown-item ">
+                        <i class="icon-price-tags2 mr-2"></i>
+                        Coupons
+                    </a>
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/cash-back" class="dropdown-item ">
+                        <i class="icon-price-tags2 mr-2"></i>
+                        Cash back
+                    </a>
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/pages" class="dropdown-item ">
+                        <i class="icon-files-empty mr-2"></i>
+                        Pages
+                    </a>
+
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/notifications" class="dropdown-item ">
+                        <i class="icon-bubble-dots4 mr-2"></i>
+                        Send Push Notifications
+                    </a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="navbar-nav-link dropdown-toggle  ">
+                    <i class="icon-books mr-2"></i>
+                    Transactions
+                </a>
+                <div class="">
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/store-payouts" class="dropdown-item ">
+                        <i class="icon-piggy-bank mr-2"></i>
+                        Store Payouts
+                    </a>
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/delivery-collections"
+                        class="dropdown-item ">
+                        <i class="icon-cash3 mr-2"></i>
+                        Delivery Collections
+                    </a>
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/delivery-collection-logs"
+                        class="dropdown-item ">
+                        <i class="icon-database-time2 mr-2"></i>
+                        Delivery Collection Logs
+                    </a>
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/wallet/transactions"
+                        class="dropdown-item ">
+                        <i class="icon-transmission mr-2"></i>
+                        Wallet Transactions
+                    </a>
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/reports/top-items"
+                        class="dropdown-item ">
+                        <i class="icon-graph mr-2"></i>
+                        Reports
+                    </a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a href="https://montana-sa.amir-adel.com/admin/public/admin/modules" class="navbar-nav-link ">
+                    <i class="icon-stars mr-2"></i>
+                    Modules
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="navbar-nav-link dropdown-toggle ">
+                    <i class="icon-briefcase mr-2"></i>
+                    Job List
+                </a>
+
+                <div>
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/jobs" class="dropdown-item  ">
+                        <i class="icon-user-tie mr-2"></i>
+                        Jobs
+                    </a>
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/applay-job" class="dropdown-item  ">
+                        <i class="icon-vcard mr-2"></i>
+                        Apply Jobs
+                    </a>
+                </div>
+            </li>
+            <!--<li class="nav-item">-->
+            <!--            <a href="https://montana-sa.amir-adel.com/admin/public/admin/applay-job"-->
+            <!--                class="navbar-nav-link ">-->
+            <!--                <i class="icon-basket mr-2"></i>-->
+            <!--                admin.-->
+            <!--            </a>-->
+            <!--        </li>-->
+
+
+            <li class="nav-item">
+                <a class="navbar-nav-link dropdown-toggle  ">
+                    <i class="icon-cog3 mr-2"></i>
+                    Settings
+                </a>
+                <div class="">
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/zones" class="dropdown-item ">
+                        <i class="icon-location4 mr-2"></i>
+                        Zones <span
+                            class="badge badge-flat border-grey-800 text-danger text-capitalize ml-1 float-right">NEW</span>
+                    </a>
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/popular-geo-locations"
+                        class="dropdown-item ">
+                        <i class="icon-location3 mr-2"></i>
+                        Popular Geo Locations
+                    </a>
+                    <hr class="my-2">
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/settings?#generalSettings"
+                        class="dropdown-item ">
+                        <i class="icon-gear mr-2"></i>
+                        All Settings
+                    </a>
+                    <hr class="my-2">
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/store/schedule" class="dropdown-item ">
+                        <i class="icon-gear mr-2"></i>
+                        Restaurant schedule
+                    </a>
+                </div>
+            </li>
+
+
+            <!-- MG ===========-->
+            <li class="dropdown-user nav-item position-relative mt-3 mt-xl-auto">
+                <a href="#" data-toggle="dropdown" class="navbar-nav-link d-flex align-items-center dropdown-toggle"
+                    style="border-radius: 6px; border: 1px solid #eee; text-transform: capitalize; gap: 1rem;">
+
+                    <i class="icon-user" style="font-size: large;"></i>
+
+                    <div class="d-flex flex-column" style="font-size: smaller; line-height: 1.4;">
+                        <span class="p-0" style="font-weight: bolder;">admin</span>
+                        <span class="p-0 text-muted">admin@montana.sa</span>
+                    </div>
+                </a>
+                <div class="dropdown-menu" style="left: 1rem;right: 1rem;top: unset;bottom: 100%;">
+                    <a href="https://montana-sa.amir-adel.com/admin/public/profile" class="dropdown-item"><i
+                            class="icon-users2"></i>
+                        profile</a>
+                    <a href="https://montana-sa.amir-adel.com/admin/public/auth/logout" class="dropdown-item"><i
+                            class="icon-switch2"></i>
+                        Logout</a>
+                </div>
+            </li>
+
+            <li class="dropdown-user nav-item position-relative d-xl-none" style="margin-top: auto">
+                <a href="#" data-toggle="dropdown" class="navbar-nav-link d-flex align-items-center dropdown-toggle"
+                    style="border-radius: 6px; border: 1px solid #eee; text-transform: capitalize; gap: 1rem;">
+
+                    <span><i class="icon-earth"></i></span>
+
+                    <div class="d-flex flex-column" style="font-size: smaller; line-height: 1.4;">
+                        <span class="p-0" style="font-weight: bolder;">Languages</span>
+                        <span class="p-0 text-muted">en</span>
+                    </div>
+                </a>
+                <div class="dropdown-menu" style="left: 1rem;right: 1rem;top: unset;bottom: 100%;">
+                    <a href="https://montana-sa.amir-adel.com/admin/public/locale/ar" class="dropdown-item "
+                        style="text-transform: uppercase;"> ar</a>
+                    <a href="https://montana-sa.amir-adel.com/admin/public/locale/en" class="dropdown-item  active "
+                        style="text-transform: uppercase;"> en</a>
+                </div>
+            </li>
+            <!---->
+        </ul>
+
+        <div class="dismisser position-fixed"></div>
+    </div>
+
+
+
+    <script>
+        const body = document.body;
+        const navbar = document.getElementById("mg-nav"),
+            navList = navbar.querySelector("ul"),
+            dismisser = navbar.querySelector(".dismisser"),
+            toggleBtn = navbar.querySelector("button");
+
+
+        dismisser.onclick = () => navList.classList.remove("active");
+        toggleBtn.onclick = () => navList.classList.toggle("active");
+
+        try {
+            navbar.querySelector("li:has(.navbar-nav-link.active)").classList.add("active");
+        } catch { }
+
+
+
+        navbar.querySelectorAll("li").forEach(btn => {
+            const dropdownList = btn.querySelector("div");
+
+            dropdownList && dropdownList.style.setProperty("--sh", dropdownList.scrollHeight + "px");
+
+            btn.addEventListener("click", () => {
+                const wasActive = dropdownList && btn.classList.contains("active");
+                navbar.querySelectorAll("li.active").forEach(li => li.classList.remove("active"));
+                wasActive || btn.classList.add("active");
+            }, true)
+        })
+
+        window.addEventListener("DOMContentLoaded", () => {
+            document.querySelector(".page-content").classList.remove("container");
+        })
+    </script>
+
+    <script type="text/text">
+
+const body = document.body,
+    navbarParent = document.querySelector(".navbar-sticky");
+
+  
+    
+    if (window.innerWidth <= 1407) navbarParent.classList.remove("d-none");
+    
+
+window.addEventListener("DOMContentLoaded", ()=> {
+    const targetLink = document.querySelector("#navbar-navigation li:has(.navbar-nav-link.active)");
+    targetLink && targetLink.classList.add("active");
+
+    const headNavbar = document.querySelector("#dark-nav"),
+        navbar = document.getElementById("navbar-navigation"),
+        navLogo = navbar.querySelector(".nav-logo"),
+        pageContent = document.querySelector(".page-content"),
+        pageTitle = document.querySelector(".page-content h3"),
+        titlePlaceholder = document.getElementById("page-title");
+        
+        pageContent.classList.remove("container");
+        
+    if (window.innerWidth < 1407) return;
+        headNavbar.style = "background: #fff; border-left: 1px solid #ddd";
+        
+        if (pageTitle && titlePlaceholder) {
+            titlePlaceholder.textContent = pageTitle.textContent;
+            pageTitle.textContent = "";
+        }
+        
+        navLogo && navLogo.classList.remove("d-none");
+        
+        
+        headNavbar.style.gridColumnStart = 2;
+        document.querySelectorAll("#navbar-navigation > ul > .dropdown > .dropdown-menu").forEach(e=> (e.className = "_dropdown-menu"));
+        body.replaceChild(navbar, navbarParent);
+        Object.assign(body.style, {display: 'grid', gridTemplateColumns: '250px calc(-265px + 100vw)', gridTemplateRows: 'max-content 1fr'});
+        
+        navbar.className = "align-items-start collapse d-flex flex-column m-0 navbar-collapse p-2"
+        Object.assign(navbar.style, {
+            position: 'sticky',
+            top: '0px',
+            gridRow: '1 / span 2',
+            gap: "1rem"
+        });
+        
+        // 2024/9/23
+        function removeActive (){
+        const activeLis = document.querySelectorAll("#navbar-navigation .nav-item");
+            Array.from(activeLis).forEach(a => a.classList.remove("active"));
+        }
+        
+        navbar.querySelectorAll("ul > li").forEach(li => {
+          const hr = document.createElement("hr"),
+            dropdownMenu = li.querySelector("._dropdown-menu");
+            
+            li.after(hr);
+            
+            if (dropdownMenu) {
+                li.after(dropdownMenu);
+                dropdownMenu.style = "--SH:" + dropdownMenu.scrollHeight +"px;"
+                li.addEventListener("click", ()=> {
+                    const isActive = li.classList.contains("active");
+                    removeActive();
+                    isActive || li.classList.add("active");
+                });
+            }
+            
+        })
+});
+</script>
+
+    <div class="page-content container pt-0">
+        <div class="content-wrapper">
+            <style>
+                #showPassword {
+                    cursor: pointer;
+                    padding: 5px;
+                    border: 1px solid #E0E0E0;
+                    border-radius: 0.275rem;
+                    color: #9E9E9E;
+                }
+
+                #showPassword:hover {
+                    color: #616161;
+                }
+            </style>
+
+
+            <div class="content mt-3">
+                <div class="d-flex justify-content-between my-2">
+                    <h3><strong>Staffs</strong></h3>
+                    <div>
+
+
+
+                        <button type="button" class="btn btn-secondary btn-labeled btn-labeled-left"
+                            id="clearFilterAndState"> <b><i class=" icon-reload-alt"></i></b> Reset All Filters</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped" id="usersDatatable" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Role</th>
+                                        <th>Created Date</th>
+                                        <th class="text-center"><i class="
+                                    icon-circle-down2"></i></th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <script>
+                function confirmDelete() {
+                    return confirm('Are you sure you want to delete this Staf?');
+                }
+                $(function () {
+                    $('.form-control-uniform').uniform();
+
+                    $("#showPassword").click(function (e) {
+                        $("#newUserPassword").attr("type", "text");
+                    });
+
+                    $('.select').select2({
+                        minimumResultsForSearch: Infinity,
+                        placeholder: 'Select Role/s (Old roles will be revoked and these roles will be applied)',
+                    });
+
+                    $("[name='role']").change(function (event) {
+                        if ($(this).val() == "Delivery Guy") {
+                            $('#deliveryGuyDetails').removeClass('hidden');
+                            $("[name='delivery_name']").attr('required', 'required');
+                        }
+                        else {
+                            $('#deliveryGuyDetails').addClass('hidden');
+                            $("[name='delivery_name']").removeAttr('required')
+                        }
+                    });
+
+                    $('.commission_rate').numeric({ allowThouSep: false, maxDecimalPlaces: 2, max: 100, allowMinus: false });
+                    $('.cash_limit').numeric({ allowThouSep: false, maxDecimalPlaces: 2, allowMinus: false });
+
+                    $('body').tooltip({ selector: '[data-popup="tooltip"]' });
+                    var datatable = $('#usersDatatable').DataTable({
+                        processing: true,
+                        serverSide: true,
+                        stateSave: true,
+                        lengthMenu: [10, 25, 50, 100, 200, 500],
+                        order: [[0, "desc"]],
+                        ajax: 'https://montana-sa.amir-adel.com/admin/public/admin/managerDatatable',
+                        columns: [
+                            { data: 'id', visible: false, searchable: false },
+                            { data: 'name' },
+                            { data: 'email' },
+                            { data: 'phone' },
+                            { data: 'role', sortable: false },
+                            { data: 'created_at' },
+                            { data: 'action', sortable: false, searchable: false },
+                        ],
+                        colReorder: true,
+                        drawCallback: function (settings) {
+                            $('select').select2({
+                                minimumResultsForSearch: Infinity,
+                                width: 'auto'
+                            });
+                        },
+                        scrollX: true,
+                        scrollCollapse: true,
+                        dom: '<"custom-processing-banner"r>flBtip',
+                        language: {
+                            search: '_INPUT_',
+                            searchPlaceholder: 'Search with anything...',
+                            lengthMenu: '_MENU_',
+                            paginate: { 'first': 'First', 'last': 'Last', 'next': '&rarr;', 'previous': '&larr;' },
+                            processing: '<i class="icon-spinner10 spinner position-left mr-1"></i>Waiting for server response...'
+                        },
+
+                        buttons: {
+                            dom: {
+                                button: {
+                                    className: 'btn btn-default'
+                                }
+                            },
+                            buttons: [
+                                { extend: 'csv', filename: 'users-' + new Date().toISOString().slice(0, 10), text: 'Export as CSV' },
+                            ]
+                        }
+                    });
+
+                    $('#clearFilterAndState').click(function (event) {
+                        if (datatable) {
+                            datatable.state.clear();
+                            window.location.reload();
+                        }
+                    });
+                });
+            </script>
+
+
+        </div>
+    </div>
+    <script>
+        NProgress.configure({ showSpinner: true, minimum: 0.2 });
+        NProgress.start();
+        window.onload = function () { NProgress.done(); }
+    </script>
+    <script>
+        function findLocalItems(query) {
+            var i, results = [];
+            for (i in localStorage) {
+                if (localStorage.hasOwnProperty(i)) {
+                    if (i.match(query) || (!query && typeof i === 'string')) {
+                        value = JSON.parse(localStorage.getItem(i));
+                        results.push({ key: i, val: value });
+                    }
+                }
+            }
+            return results;
+        }
+        $(function () {
+            $('form').submit(function () {
+                $(this).find(':input[type=submit]').prop('disabled', true);
+            });
+            $('.note-codable').on('blur', function () {
+                var codeviewHtml = $(this).val();
+                var $summernoteTextarea = $(this).closest('.note-editor').siblings('textarea');
+                $summernoteTextarea.val(codeviewHtml);
+            });
+        });
+    </script>
+</body>
+
+</html>
