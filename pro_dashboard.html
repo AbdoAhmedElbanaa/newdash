@@ -1663,6 +1663,96 @@
         </div>
 
 
+
+        <!-- Standalone Addon Categories Section (Restored) -->
+        <div id="tab-addoncategories" class="tab-content">
+            <div class="mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                    <h2 class="text-3xl font-bold text-slate-800 mb-2">تصنيفات الإضافات</h2>
+                    <p class="text-slate-500 text-sm">إدارة فئات الإضافات المتاحة للمنتجات</p>
+                </div>
+                <button onclick="toggleModal('addNewAddonCatModal')"
+                    class="px-5 py-2.5 bg-indigo-600 text-white rounded-xl shadow-lg shadow-indigo-200 hover:shadow-xl transition-all text-sm font-bold flex items-center gap-2">
+                    <i class="fa-solid fa-plus"></i> إضافة فئة جديدة
+                </button>
+            </div>
+            <div class="glass-panel rounded-2xl p-6">
+                <div class="overflow-x-auto custom-scrollbar">
+                    <table class="w-full text-right" id="addonCatDatatable_standalone">
+                        <thead>
+                            <tr class="text-slate-500 text-sm border-b border-slate-100">
+                                <th class="pb-3 font-semibold">الاسم</th>
+                                <th class="pb-3 font-semibold">النوع</th>
+                                <th class="pb-3 font-semibold">الحد الأقصى</th>
+                                <th class="pb-3 font-semibold">تاريخ الإنشاء</th>
+                                <th class="pb-3 font-semibold text-center">إجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Standalone Addons Section (Restored) -->
+        <div id="tab-addons" class="tab-content">
+            <div class="mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                    <h2 class="text-3xl font-bold text-slate-800 mb-2">إدارة الإضافات (Addons)</h2>
+                    <p class="text-slate-500 text-sm">عرض وتعديل جميع الإضافات المسجلة في النظام</p>
+                </div>
+                <button onclick="toggleModal('addNewAddonModal')"
+                    class="px-5 py-2.5 bg-indigo-600 text-white rounded-xl shadow-lg shadow-indigo-200 hover:shadow-xl transition-all text-sm font-bold flex items-center gap-2">
+                    <i class="fa-solid fa-plus-circle"></i> إضافة إضافة جديدة
+                </button>
+            </div>
+            <div class="glass-panel rounded-2xl p-6">
+                <div class="overflow-x-auto custom-scrollbar">
+                    <table class="w-full text-right" id="addonsDatatable_standalone">
+                        <thead>
+                            <tr class="text-slate-500 text-sm border-b border-slate-100">
+                                <th class="pb-3 font-semibold">الاسم</th>
+                                <th class="pb-3 font-semibold">السعر</th>
+                                <th class="pb-3 font-semibold">الفئة</th>
+                                <th class="pb-3 font-semibold">التاريخ</th>
+                                <th class="pb-3 font-semibold text-center">إجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Promotions Tab (Restored) -->
+        <div id="tab-promotions" class="tab-content">
+            <div class="mb-8 flex justify-between items-end">
+                <div>
+                    <h2 class="text-3xl font-bold text-slate-800 mb-2">العروض الترويجية</h2>
+                    <p class="text-slate-500 text-sm">إدارة الكوبونات، الخصومات، وحملات التسويق</p>
+                </div>
+                <button
+                    class="px-5 py-2.5 bg-gradient-to-r from-orange-500 to-rose-500 text-white rounded-xl shadow-lg shadow-orange-100 hover:shadow-xl hover:-translate-y-0.5 transition-all text-sm font-bold flex items-center gap-2">
+                    <i class="fa-solid fa-plus"></i> إنشاء عرض جديد
+                </button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div class="glass-panel p-6 rounded-3xl border-l-4 border-orange-500">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-orange-50 text-orange-600 rounded-2xl">
+                            <i class="fa-solid ticket text-xl"></i>
+                        </div>
+                        <span class="text-xs font-bold text-emerald-500 bg-emerald-50 px-2 py-1 rounded-lg">نشط</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-800 mb-1">خصم الربيع</h3>
+                    <p class="text-slate-500 text-xs mb-4">كوبون خصم 15% لموسم الربيع الجديد</p>
+                    <div class="flex justify-between items-center text-sm font-mono bg-slate-100 px-3 py-1 rounded-lg">
+                        <span>SPRING15</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Addon Categories Modal -->
         <div id="addNewAddonCatModal"
             class="fixed inset-0 z-50 hidden items-center justify-center overflow-y-auto bg-slate-900/50 backdrop-blur-sm">
@@ -2576,8 +2666,8 @@
 
     <script>
         function switchTab(tabId) {
-            // Handle legacy product tab IDs by redirecting to products sub-tabs
-            const legacyProductTabs = ['itemcategories', 'items', 'addoncategories', 'addons'];
+            // Handle legacy product tab IDs by redirecting to products sub-tabs ONLY IF standalone tabs don't exist
+            const legacyProductTabs = ['itemcategories', 'items'];
             if (legacyProductTabs.includes(tabId)) {
                 switchTab('products');
                 setTimeout(() => switchProductSubTab(tabId), 50);
