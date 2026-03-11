@@ -1199,779 +1199,789 @@
             </div>
             <!-- End tab-products -->
 
-        <!-- Add New Store Modal -->
-        <div id="addNewRestaurantModal"
-            class="fixed inset-0 z-50 hidden items-center justify-center overflow-y-auto bg-slate-900/50 backdrop-blur-sm">
-            <div
-                class="bg-white rounded-2xl w-full max-w-4xl m-4 shadow-2xl overflow-hidden transform transition-all flex flex-col max-h-[90vh]">
-                <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50">
-                    <h5 class="text-xl font-bold text-slate-800">إضافة متجر جديد</h5>
-                    <button type="button" onclick="toggleModal('addNewRestaurantModal')"
-                        class="text-slate-400 hover:text-rose-500 transition-colors">
-                        <i class="fa-solid fa-xmark text-xl"></i>
-                    </button>
-                </div>
-                <div class="p-6 overflow-y-auto custom-scrollbar">
-                    <form action="https://montana-sa.amir-adel.com/admin/public/admin/store/new/save" method="POST"
-                        enctype="multipart/form-data" class="space-y-6">
-                        <input type="hidden" name="_token" value="rvik8UG5BAsv0qy9NHSD1cs8eBgXcb60fUjO7g2b">
+            <!-- Add New Store Modal -->
+            <div id="addNewRestaurantModal"
+                class="fixed inset-0 z-50 hidden items-center justify-center overflow-y-auto bg-slate-900/50 backdrop-blur-sm">
+                <div
+                    class="bg-white rounded-2xl w-full max-w-4xl m-4 shadow-2xl overflow-hidden transform transition-all flex flex-col max-h-[90vh]">
+                    <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50">
+                        <h5 class="text-xl font-bold text-slate-800">إضافة متجر جديد</h5>
+                        <button type="button" onclick="toggleModal('addNewRestaurantModal')"
+                            class="text-slate-400 hover:text-rose-500 transition-colors">
+                            <i class="fa-solid fa-xmark text-xl"></i>
+                        </button>
+                    </div>
+                    <div class="p-6 overflow-y-auto custom-scrollbar">
+                        <form action="https://montana-sa.amir-adel.com/admin/public/admin/store/new/save" method="POST"
+                            enctype="multipart/form-data" class="space-y-6">
+                            <input type="hidden" name="_token" value="rvik8UG5BAsv0qy9NHSD1cs8eBgXcb60fUjO7g2b">
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-sm font-semibold text-slate-700 mb-2">اسم المتجر <span
-                                        class="text-rose-500">*</span></label>
-                                <input type="text" name="name"
-                                    class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
-                                    placeholder="اسم المتجر" required>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-semibold text-slate-700 mb-2">اسم المالك <span
-                                        class="text-rose-500">*</span></label>
-                                <select name="user_id"
-                                    class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
-                                    required>
-                                    <option value="">اختر</option>
-                                    <option value="36">Alhamdaniah Store</option>
-                                    <option value="54">Alsafa Store</option>
-                                </select>
-                            </div>
-                            <div class="md:col-span-2">
-                                <label class="block text-sm font-semibold text-slate-700 mb-2">الوصف <span
-                                        class="text-rose-500">*</span></label>
-                                <input type="text" name="description"
-                                    class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
-                                    placeholder="وصف مختصر للمتجر" required>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-semibold text-slate-700 mb-2">صوره <span
-                                        class="text-rose-500">*</span></label>
-                                <input type="file" name="image" accept="image/x-png,image/gif,image/jpeg"
-                                    class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"
-                                    required onchange="previewImage(this)">
-                                <img id="imagePreview"
-                                    class="mt-3 hidden rounded-lg shadow-sm border border-slate-100 max-h-32 object-cover" />
-                                <p class="text-xs text-slate-400 mt-1">أبعاد الصورة 160x117</p>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-semibold text-slate-700 mb-2">اسم قصير <span
-                                        class="text-rose-500">*</span></label>
-                                <input type="text" name="short_name"
-                                    class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
-                                    placeholder="اسم قصير" required>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-semibold text-slate-700 mb-2">Location key <span
-                                        class="text-rose-500">*</span></label>
-                                <input type="text" name="location_key"
-                                    class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none transition-all"
-                                    placeholder="Location key" required>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-semibold text-slate-700 mb-2">التقييم الإفتراضي
-                                    <span class="text-rose-500">*</span></label>
-                                <input type="text" name="rating"
-                                    class="rating w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none transition-all"
-                                    placeholder="تقييم من 1-5" required>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-semibold text-slate-700 mb-2">المنطقة</label>
-                                <select name="zone_id"
-                                    class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none transition-all"
-                                    required>
-                                    <option value="1">Alhamdaniah</option>
-                                    <option value="2">Alsafa</option>
-                                    <option value="3">Alsamer</option>
-                                </select>
-                            </div>
-                            <div class="md:col-span-2">
-                                <label class="block text-sm font-semibold text-slate-700 mb-2">العنوان الكامل <span
-                                        class="text-rose-500">*</span></label>
-                                <input type="text" name="address"
-                                    class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none transition-all"
-                                    placeholder="العنوان الكامل للمتجر" required>
-                            </div>
-                        </div>
-
-                        <div class="bg-indigo-50 p-4 rounded-xl border border-indigo-100 mt-6">
-                            <h6 class="font-bold text-indigo-800 mb-4"><i class="fa-solid fa-location-dot mr-2"></i>
-                                بيانات الموقع والتوصيل</h6>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
-                                    <label class="block text-xs font-semibold text-slate-600 mb-1">خط العرض <span
+                                    <label class="block text-sm font-semibold text-slate-700 mb-2">اسم المتجر <span
                                             class="text-rose-500">*</span></label>
-                                    <input type="text" name="latitude"
-                                        class="latitude w-full px-3 py-2 rounded-lg border border-slate-200 focus:border-indigo-500 outline-none"
-                                        value="40.6976701" required>
+                                    <input type="text" name="name"
+                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
+                                        placeholder="اسم المتجر" required>
                                 </div>
                                 <div>
-                                    <label class="block text-xs font-semibold text-slate-600 mb-1">خط الطول <span
+                                    <label class="block text-sm font-semibold text-slate-700 mb-2">اسم المالك <span
                                             class="text-rose-500">*</span></label>
-                                    <input type="text" name="longitude"
-                                        class="longitude w-full px-3 py-2 rounded-lg border border-slate-200 focus:border-indigo-500 outline-none"
-                                        value="-74.2598672" required>
-                                </div>
-                                <div>
-                                    <label class="block text-xs font-semibold text-slate-600 mb-1">نوع التسليم <span
-                                            class="text-rose-500">*</span></label>
-                                    <select name="delivery_type"
-                                        class="w-full px-3 py-2 rounded-lg border border-slate-200 focus:border-indigo-500 outline-none"
+                                    <select name="user_id"
+                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
                                         required>
-                                        <option value="1">التوصيل</option>
-                                        <option value="2">الاستلام الذاتي</option>
-                                        <option value="3">التوصيل والاستلام الذاتي</option>
+                                        <option value="">اختر</option>
+                                        <option value="36">Alhamdaniah Store</option>
+                                        <option value="54">Alsafa Store</option>
                                     </select>
                                 </div>
-                                <div>
-                                    <label class="block text-xs font-semibold text-slate-600 mb-1">نوع رسوم التوصيل
-                                        <span class="text-rose-500">*</span></label>
-                                    <select name="delivery_charge_type" id="delivery_charge_type_select"
-                                        class="w-full px-3 py-2 rounded-lg border border-slate-200 focus:border-indigo-500 outline-none"
-                                        required onchange="toggleDeliveryChargeDivs()">
-                                        <option value="FIXED">رسوم ثابتة</option>
-                                        <option value="DYNAMIC">رسوم متغيره</option>
-                                    </select>
-                                </div>
-
-                                <div id="fixedDeliveryTypeDiv">
-                                    <label class="block text-xs font-semibold text-slate-600 mb-1">رسوم
-                                        التوصيل</label>
-                                    <input type="text" name="delivery_charges"
-                                        class="delivery_charges w-full px-3 py-2 rounded-lg border border-slate-200 focus:border-indigo-500 outline-none"
-                                        placeholder="رسوم التسليم في ر.س">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="flex justify-end gap-3 pt-6 border-t border-slate-100">
-                            <button type="button" onclick="toggleModal('addNewRestaurantModal')"
-                                class="px-6 py-2.5 rounded-xl border border-slate-200 text-slate-600 font-semibold hover:bg-slate-50 transition-colors">إلغاء</button>
-                            <button type="submit"
-                                class="px-6 py-2.5 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700 shadow-md shadow-indigo-200 transition-all">حفظ
-                                المتجر</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <!-- Bulk Upload Modal -->
-        <div id="addBulkRestaurantModal"
-            class="fixed inset-0 z-50 hidden items-center justify-center overflow-y-auto bg-slate-900/50 backdrop-blur-sm">
-            <div class="bg-white rounded-2xl w-full max-w-lg m-4 shadow-2xl overflow-hidden transform transition-all">
-                <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50">
-                    <h5 class="text-xl font-bold text-slate-800">تحميل ملفات CSV</h5>
-                    <button type="button" onclick="toggleModal('addBulkRestaurantModal')"
-                        class="text-slate-400 hover:text-rose-500 transition-colors">
-                        <i class="fa-solid fa-xmark text-xl"></i>
-                    </button>
-                </div>
-                <div class="p-6">
-                    <form action="https://montana-sa.amir-adel.com/admin/public/admin/store/bulk/save" method="POST"
-                        enctype="multipart/form-data" class="space-y-6">
-                        <input type="hidden" name="_token" value="rvik8UG5BAsv0qy9NHSD1cs8eBgXcb60fUjO7g2b">
-                        <div>
-                            <label class="block text-sm font-semibold text-slate-700 mb-2">ملف CSV <span
-                                    class="text-rose-500">*</span></label>
-                            <input type="file" accept=".csv" name="restaurant_csv"
-                                class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-slate-50 file:text-slate-700 hover:file:bg-slate-100"
-                                required>
-                        </div>
-                        <div class="flex justify-between items-center pt-4">
-                            <a href="https://montana-sa.amir-adel.com/admin/assets/docs/restaurants-sample-csv.csv"
-                                class="text-indigo-600 text-sm font-semibold hover:underline flex items-center gap-1"><i
-                                    class="fa-solid fa-download"></i> عينة CSV</a>
-                            <button type="submit"
-                                class="px-6 py-2.5 rounded-xl bg-emerald-600 text-white font-semibold hover:bg-emerald-700 shadow-md shadow-emerald-200 transition-all flex items-center gap-2">رفع
-                                <i class="fa-solid fa-upload"></i></button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <!-- Add New Item Category Modal -->
-        <div id="addNewItemCategoryModal"
-            class="fixed inset-0 z-50 hidden items-center justify-center overflow-y-auto bg-slate-900/50 backdrop-blur-sm">
-            <div class="bg-white rounded-2xl w-full max-w-lg m-4 shadow-2xl overflow-hidden transform transition-all">
-                <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50">
-                    <h5 class="text-xl font-bold text-slate-800">إضافة فئة عنصر جديدة</h5>
-                    <button type="button" onclick="toggleModal('addNewItemCategoryModal')"
-                        class="text-slate-400 hover:text-rose-500 transition-colors">
-                        <i class="fa-solid fa-xmark text-xl"></i>
-                    </button>
-                </div>
-                <div class="p-6">
-                    <form action="https://montana-sa.amir-adel.com/admin/public/admin/itemcategories/new/save"
-                        method="POST" enctype="multipart/form-data" class="space-y-6">
-                        <input type="hidden" name="_token" value="rvik8UG5BAsv0qy9NHSD1cs8eBgXcb60fUjO7g2b">
-                        <div>
-                            <label class="block text-sm font-semibold text-slate-700 mb-2">الاسم <span
-                                    class="text-rose-500">*</span></label>
-                            <input type="text" name="name"
-                                class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
-                                placeholder="أدخل اسم الفئة" required>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-semibold text-slate-700 mb-2">صوره</label>
-                            <input type="file" name="image" accept="image/x-png,image/gif,image/jpeg"
-                                class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"
-                                onchange="previewImageCat(this, 'imgPreviewCatNew')">
-                            <img id="imgPreviewCatNew"
-                                class="mt-3 hidden rounded-lg shadow-sm border border-slate-100 w-32 object-cover" />
-                            <p class="text-xs text-slate-400 mt-1">أبعاد الصورة 250*250</p>
-                        </div>
-                        <div class="flex justify-end pt-4">
-                            <button type="submit"
-                                class="px-6 py-2.5 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700 shadow-md shadow-indigo-200 transition-all flex items-center gap-2"><i
-                                    class="fa-solid fa-save"></i> حفظ</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <!-- Edit Item Category Modal -->
-        <div id="editItemCategoryModal"
-            class="fixed inset-0 z-50 hidden items-center justify-center overflow-y-auto bg-slate-900/50 backdrop-blur-sm">
-            <div class="bg-white rounded-2xl w-full max-w-lg m-4 shadow-2xl overflow-hidden transform transition-all">
-                <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50">
-                    <h5 class="text-xl font-bold text-slate-800">تعديل اسم فئة العنصر</h5>
-                    <button type="button" onclick="toggleModal('editItemCategoryModal')"
-                        class="text-slate-400 hover:text-rose-500 transition-colors">
-                        <i class="fa-solid fa-xmark text-xl"></i>
-                    </button>
-                </div>
-                <div class="p-6">
-                    <form action="https://montana-sa.amir-adel.com/admin/public/admin/itemcategory/edit/save"
-                        method="POST" enctype="multipart/form-data" class="space-y-6">
-                        <input type="hidden" name="_token" value="rvik8UG5BAsv0qy9NHSD1cs8eBgXcb60fUjO7g2b">
-                        <input type="hidden" name="id" id="itemCatId">
-                        <div>
-                            <label class="block text-sm font-semibold text-slate-700 mb-2">الاسم <span
-                                    class="text-rose-500">*</span></label>
-                            <input type="text" name="name" id="itemCatName"
-                                class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
-                                placeholder="أدخل اسم الفئة" required>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-semibold text-slate-700 mb-2">صوره</label>
-                            <input type="file" name="image" accept="image/x-png,image/gif,image/jpeg"
-                                class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"
-                                onchange="previewImageCat(this, 'imgPreviewCatEdit')">
-                            <img id="imgPreviewCatEdit"
-                                class="mt-3 hidden rounded-lg shadow-sm border border-slate-100 w-32 object-cover" />
-                            <p class="text-xs text-slate-400 mt-1">أبعاد الصورة 250*250</p>
-                        </div>
-                        <div class="flex justify-end pt-4">
-                            <button type="submit"
-                                class="px-6 py-2.5 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700 shadow-md shadow-indigo-200 transition-all flex items-center gap-2"><i
-                                    class="fa-solid fa-save"></i> حفظ التعديل</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <!-- Add Bulk Item Modal -->
-        <div id="addBulkItemModal"
-            class="fixed inset-0 z-50 hidden items-center justify-center overflow-y-auto bg-slate-900/50 backdrop-blur-sm">
-            <div class="bg-white rounded-2xl w-full max-w-lg m-4 shadow-2xl overflow-hidden transform transition-all">
-                <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50">
-                    <h5 class="text-xl font-bold text-slate-800">تحميل كميات كبيرة من العناصر بتنسيق CSV</h5>
-                    <button type="button" onclick="toggleModal('addBulkItemModal')"
-                        class="text-slate-400 hover:text-rose-500 transition-colors">
-                        <i class="fa-solid fa-xmark text-xl"></i>
-                    </button>
-                </div>
-                <div class="p-6">
-                    <form action="https://montana-sa.amir-adel.com/admin/public/admin/item/bulk/save" method="POST"
-                        enctype="multipart/form-data" class="space-y-6">
-                        <input type="hidden" name="_token" value="rvik8UG5BAsv0qy9NHSD1cs8eBgXcb60fUjO7g2b">
-                        <div>
-                            <label class="block text-sm font-semibold text-slate-700 mb-2">ملف CSV <span
-                                    class="text-rose-500">*</span></label>
-                            <input type="file" accept=".csv" name="item_csv"
-                                class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-slate-50 file:text-slate-700 hover:file:bg-slate-100"
-                                required>
-                        </div>
-                        <div class="flex justify-between items-center pt-4 border-t border-slate-100">
-                            <a href="https://montana-sa.amir-adel.com/admin/assets/docs/items-sample-csv.csv"
-                                class="text-indigo-600 text-sm font-semibold hover:underline flex items-center gap-1"><i
-                                    class="fa-solid fa-download"></i> تنزيل عينة CSV</a>
-                            <button type="submit"
-                                class="px-6 py-2.5 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 shadow-md shadow-blue-200 transition-all flex items-center gap-2"><i
-                                    class="fa-solid fa-upload"></i> رفع</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <!-- Add New Item Modal -->
-        <div id="addNewItemModal"
-            class="fixed inset-0 z-50 hidden items-center justify-center overflow-y-auto bg-slate-900/50 backdrop-blur-sm">
-            <div
-                class="bg-white rounded-2xl w-full max-w-5xl m-4 shadow-2xl overflow-hidden transform transition-all flex flex-col max-h-[90vh]">
-                <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50">
-                    <h5 class="text-xl font-bold text-slate-800">إضافة عنصر جديد</h5>
-                    <button type="button" onclick="toggleModal('addNewItemModal')"
-                        class="text-slate-400 hover:text-rose-500 transition-colors">
-                        <i class="fa-solid fa-xmark text-xl"></i>
-                    </button>
-                </div>
-                <div class="p-6 overflow-y-auto custom-scrollbar">
-                    <form action="https://montana-sa.amir-adel.com/admin/public/admin/item/new/save" method="POST"
-                        enctype="multipart/form-data" class="space-y-6">
-                        <input type="hidden" name="_token" value="rvik8UG5BAsv0qy9NHSD1cs8eBgXcb60fUjO7g2b">
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-sm font-semibold text-slate-700 mb-2">اسم العنصر <span
-                                        class="text-rose-500">*</span></label>
-                                <input type="text" name="name"
-                                    class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none"
-                                    placeholder="اسم العنصر" required>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-semibold text-slate-700 mb-2">اسم العنصر بالعربي
-                                    <span class="text-rose-500">*</span></label>
-                                <input type="text" name="name_ar"
-                                    class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none"
-                                    placeholder="اسم العنصر بالعربي" required>
-                            </div>
-                            <div class="md:col-span-2">
-                                <label class="block text-sm font-semibold text-slate-700 mb-2">وصف العنصر</label>
-                                <textarea name="desc"
-                                    class="summernote-editor w-full border border-slate-200 rounded-xl px-4 py-2"
-                                    rows="3" placeholder="وصف العنصر"></textarea>
-                            </div>
-                            <div class="md:col-span-2">
-                                <label class="block text-sm font-semibold text-slate-700 mb-2">وصف العنصر
-                                    بالعربي</label>
-                                <textarea name="desc_ar"
-                                    class="summernote-editor w-full border border-slate-200 rounded-xl px-4 py-2"
-                                    rows="3" placeholder="وصف العنصر بالعربي"></textarea>
-                            </div>
-                        </div>
-
-                        <!-- Price Section -->
-                        <div class="bg-blue-50/50 p-5 rounded-xl border border-blue-100">
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-end" id="singlePriceItem">
                                 <div class="md:col-span-2">
-                                    <label class="block text-sm font-semibold text-slate-700 mb-2">السعر <span
+                                    <label class="block text-sm font-semibold text-slate-700 mb-2">الوصف <span
                                             class="text-rose-500">*</span></label>
-                                    <input type="number" step="0.01" name="price" id="oldSPItem"
-                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none"
-                                        placeholder="سعر العنصر في ر.س" required>
+                                    <input type="text" name="description"
+                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
+                                        placeholder="وصف مختصر للمتجر" required>
                                 </div>
                                 <div>
-                                    <button type="button" onclick="addDiscountItem()"
-                                        class="px-4 py-2.5 w-full bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 rounded-xl text-sm font-semibold transition-colors flex items-center justify-center gap-2">
-                                        <i class="fa-solid fa-percent text-blue-500"></i> إضافة سعر مخفض
-                                    </button>
-                                </div>
-                            </div>
-
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 hidden" id="discountedTwoPriceItem">
-                                <div>
-                                    <label class="block text-sm font-semibold text-slate-700 mb-2">سعر العلامة <span
-                                            class="text-xs text-slate-400 font-normal">(اختياري)</span></label>
-                                    <input type="number" step="0.01" name="old_price"
-                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none"
-                                        placeholder="سعر قبل الخصم">
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-semibold text-slate-700 mb-2">سعر البيع <span
+                                    <label class="block text-sm font-semibold text-slate-700 mb-2">صوره <span
                                             class="text-rose-500">*</span></label>
-                                    <input type="number" step="0.01" name="price" id="newSPItem"
-                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none"
-                                        placeholder="سعر بعد الخصم">
+                                    <input type="file" name="image" accept="image/x-png,image/gif,image/jpeg"
+                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"
+                                        required onchange="previewImage(this)">
+                                    <img id="imagePreview"
+                                        class="mt-3 hidden rounded-lg shadow-sm border border-slate-100 max-h-32 object-cover" />
+                                    <p class="text-xs text-slate-400 mt-1">أبعاد الصورة 160x117</p>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-2">اسم قصير <span
+                                            class="text-rose-500">*</span></label>
+                                    <input type="text" name="short_name"
+                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
+                                        placeholder="اسم قصير" required>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-2">Location key <span
+                                            class="text-rose-500">*</span></label>
+                                    <input type="text" name="location_key"
+                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none transition-all"
+                                        placeholder="Location key" required>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-2">التقييم الإفتراضي
+                                        <span class="text-rose-500">*</span></label>
+                                    <input type="text" name="rating"
+                                        class="rating w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none transition-all"
+                                        placeholder="تقييم من 1-5" required>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-2">المنطقة</label>
+                                    <select name="zone_id"
+                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none transition-all"
+                                        required>
+                                        <option value="1">Alhamdaniah</option>
+                                        <option value="2">Alsafa</option>
+                                        <option value="3">Alsamer</option>
+                                    </select>
+                                </div>
+                                <div class="md:col-span-2">
+                                    <label class="block text-sm font-semibold text-slate-700 mb-2">العنوان الكامل <span
+                                            class="text-rose-500">*</span></label>
+                                    <input type="text" name="address"
+                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none transition-all"
+                                        placeholder="العنوان الكامل للمتجر" required>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-sm font-semibold text-slate-700 mb-2">نوع السعر <span
-                                        class="text-rose-500">*</span></label>
-                                <select name="price_type"
-                                    class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none"
-                                    required>
-                                    <option value="piece">للقطعة</option>
-                                    <option value="one_kilo">كيلو</option>
-                                    <option value="quarter_kilo">للربع كيلو</option>
-                                    <option value="half_kilo">للنصف كيلو</option>
-                                </select>
+                            <div class="bg-indigo-50 p-4 rounded-xl border border-indigo-100 mt-6">
+                                <h6 class="font-bold text-indigo-800 mb-4"><i class="fa-solid fa-location-dot mr-2"></i>
+                                    بيانات الموقع والتوصيل</h6>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-600 mb-1">خط العرض <span
+                                                class="text-rose-500">*</span></label>
+                                        <input type="text" name="latitude"
+                                            class="latitude w-full px-3 py-2 rounded-lg border border-slate-200 focus:border-indigo-500 outline-none"
+                                            value="40.6976701" required>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-600 mb-1">خط الطول <span
+                                                class="text-rose-500">*</span></label>
+                                        <input type="text" name="longitude"
+                                            class="longitude w-full px-3 py-2 rounded-lg border border-slate-200 focus:border-indigo-500 outline-none"
+                                            value="-74.2598672" required>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-600 mb-1">نوع التسليم <span
+                                                class="text-rose-500">*</span></label>
+                                        <select name="delivery_type"
+                                            class="w-full px-3 py-2 rounded-lg border border-slate-200 focus:border-indigo-500 outline-none"
+                                            required>
+                                            <option value="1">التوصيل</option>
+                                            <option value="2">الاستلام الذاتي</option>
+                                            <option value="3">التوصيل والاستلام الذاتي</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-600 mb-1">نوع رسوم التوصيل
+                                            <span class="text-rose-500">*</span></label>
+                                        <select name="delivery_charge_type" id="delivery_charge_type_select"
+                                            class="w-full px-3 py-2 rounded-lg border border-slate-200 focus:border-indigo-500 outline-none"
+                                            required onchange="toggleDeliveryChargeDivs()">
+                                            <option value="FIXED">رسوم ثابتة</option>
+                                            <option value="DYNAMIC">رسوم متغيره</option>
+                                        </select>
+                                    </div>
+
+                                    <div id="fixedDeliveryTypeDiv">
+                                        <label class="block text-xs font-semibold text-slate-600 mb-1">رسوم
+                                            التوصيل</label>
+                                        <input type="text" name="delivery_charges"
+                                            class="delivery_charges w-full px-3 py-2 rounded-lg border border-slate-200 focus:border-indigo-500 outline-none"
+                                            placeholder="رسوم التسليم في ر.س">
+                                    </div>
+                                </div>
                             </div>
-                            <div>
-                                <label class="block text-sm font-semibold text-slate-700 mb-2">SKU <span
-                                        class="text-rose-500">*</span></label>
-                                <input type="text" name="sku"
-                                    class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none"
-                                    required placeholder="SKU">
+
+                            <div class="flex justify-end gap-3 pt-6 border-t border-slate-100">
+                                <button type="button" onclick="toggleModal('addNewRestaurantModal')"
+                                    class="px-6 py-2.5 rounded-xl border border-slate-200 text-slate-600 font-semibold hover:bg-slate-50 transition-colors">إلغاء</button>
+                                <button type="submit"
+                                    class="px-6 py-2.5 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700 shadow-md shadow-indigo-200 transition-all">حفظ
+                                    المتجر</button>
                             </div>
-
-                            <div>
-                                <label class="block text-sm font-semibold text-slate-700 mb-2">متجر العنصر <span
-                                        class="text-rose-500">*</span></label>
-                                <select name="restaurant_id[]" id="itemRestaurantSelect" class="itemSelect2 w-full"
-                                    multiple required>
-                                    <option value="all">اختار الكل</option>
-                                    <option value="2">حى السلامة</option>
-                                    <option value="3">حي الصفا</option>
-                                    <option value="4">حي النزهة</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-semibold text-slate-700 mb-2">فئة العنصر <span
-                                        class="text-rose-500">*</span></label>
-                                <select name="item_category_id"
-                                    class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none"
-                                    required>
-                                    <option value="3">التورته</option>
-                                    <option value="4">البيتيفور</option>
-                                    <option value="5">المعجنات</option>
-                                    <option value="17">مناسبات أعياد</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <!-- Dynamic Stock Container -->
-                        <div id="itemStockContainer"
-                            class="bg-slate-50 p-4 rounded-xl border border-slate-200 grid grid-cols-1 md:grid-cols-2 gap-4 empty:hidden">
-                        </div>
-
-                        <div>
-                            <label class="block text-sm font-semibold text-slate-700 mb-2">صوره</label>
-                            <input type="file" name="image" accept="image/x-png,image/gif,image/jpeg"
-                                class="w-full border border-slate-200 rounded-xl px-4 py-2 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700"
-                                onchange="previewImageCat(this, 'imgPreviewItemNew')">
-                            <img id="imgPreviewItemNew"
-                                class="mt-3 hidden rounded-lg object-cover w-32 shadow-sm border border-slate-200">
-                        </div>
-
-                        <div class="flex justify-end pt-6 border-t border-slate-100 gap-3">
-                            <button type="button" onclick="toggleModal('addNewItemModal')"
-                                class="px-6 py-2.5 rounded-xl border border-slate-200 text-slate-600 font-semibold hover:bg-slate-50 transition-colors">إلغاء</button>
-                            <button type="submit"
-                                class="px-6 py-2.5 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 shadow-md shadow-blue-200 transition-all flex items-center gap-2"><i
-                                    class="fa-solid fa-save"></i> حفظ العنصر</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-
-
-        <!-- Standalone Addon Categories Section (Restored) -->
-        <div id="tab-addoncategories" class="tab-content">
-            <div class="mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
-                <div>
-                    <h2 class="text-3xl font-bold text-slate-800 mb-2">تصنيفات الإضافات</h2>
-                    <p class="text-slate-500 text-sm">إدارة فئات الإضافات المتاحة للمنتجات</p>
-                </div>
-                <button onclick="toggleModal('addNewAddonCatModal')"
-                    class="px-5 py-2.5 bg-indigo-600 text-white rounded-xl shadow-lg shadow-indigo-200 hover:shadow-xl transition-all text-sm font-bold flex items-center gap-2">
-                    <i class="fa-solid fa-plus"></i> إضافة فئة جديدة
-                </button>
-            </div>
-            <div class="glass-panel rounded-2xl p-6">
-                <div class="overflow-x-auto custom-scrollbar">
-                    <table class="w-full text-right" id="addonCatDatatable_standalone">
-                        <thead>
-                            <tr class="text-slate-500 text-sm border-b border-slate-100">
-                                <th class="pb-3 font-semibold">الاسم</th>
-                                <th class="pb-3 font-semibold">النوع</th>
-                                <th class="pb-3 font-semibold">الحد الأقصى</th>
-                                <th class="pb-3 font-semibold">تاريخ الإنشاء</th>
-                                <th class="pb-3 font-semibold text-center">إجراءات</th>
-                            </tr>
-                        </thead>
-                        <tbody></tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <!-- Standalone Addons Section (Restored) -->
-        <div id="tab-addons" class="tab-content">
-            <div class="mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
-                <div>
-                    <h2 class="text-3xl font-bold text-slate-800 mb-2">إدارة الإضافات (Addons)</h2>
-                    <p class="text-slate-500 text-sm">عرض وتعديل جميع الإضافات المسجلة في النظام</p>
-                </div>
-                <button onclick="toggleModal('addNewAddonModal')"
-                    class="px-5 py-2.5 bg-indigo-600 text-white rounded-xl shadow-lg shadow-indigo-200 hover:shadow-xl transition-all text-sm font-bold flex items-center gap-2">
-                    <i class="fa-solid fa-plus-circle"></i> إضافة إضافة جديدة
-                </button>
-            </div>
-            <div class="glass-panel rounded-2xl p-6">
-                <div class="overflow-x-auto custom-scrollbar">
-                    <table class="w-full text-right" id="addonsDatatable_standalone">
-                        <thead>
-                            <tr class="text-slate-500 text-sm border-b border-slate-100">
-                                <th class="pb-3 font-semibold">الاسم</th>
-                                <th class="pb-3 font-semibold">السعر</th>
-                                <th class="pb-3 font-semibold">الفئة</th>
-                                <th class="pb-3 font-semibold">التاريخ</th>
-                                <th class="pb-3 font-semibold text-center">إجراءات</th>
-                            </tr>
-                        </thead>
-                        <tbody></tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <!-- Promotions Tab (Restored) -->
-        <div id="tab-promotions" class="tab-content">
-            <div class="mb-8 flex justify-between items-end">
-                <div>
-                    <h2 class="text-3xl font-bold text-slate-800 mb-2">العروض الترويجية</h2>
-                    <p class="text-slate-500 text-sm">إدارة الكوبونات، الخصومات، وحملات التسويق</p>
-                </div>
-                <button
-                    class="px-5 py-2.5 bg-gradient-to-r from-orange-500 to-rose-500 text-white rounded-xl shadow-lg shadow-orange-100 hover:shadow-xl hover:-translate-y-0.5 transition-all text-sm font-bold flex items-center gap-2">
-                    <i class="fa-solid fa-plus"></i> إنشاء عرض جديد
-                </button>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                <div class="glass-panel p-6 rounded-3xl border-l-4 border-orange-500">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="p-3 bg-orange-50 text-orange-600 rounded-2xl">
-                            <i class="fa-solid ticket text-xl"></i>
-                        </div>
-                        <span class="text-xs font-bold text-emerald-500 bg-emerald-50 px-2 py-1 rounded-lg">نشط</span>
-                    </div>
-                    <h3 class="text-lg font-bold text-slate-800 mb-1">خصم الربيع</h3>
-                    <p class="text-slate-500 text-xs mb-4">كوبون خصم 15% لموسم الربيع الجديد</p>
-                    <div class="flex justify-between items-center text-sm font-mono bg-slate-100 px-3 py-1 rounded-lg">
-                        <span>SPRING15</span>
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Addon Categories Modal -->
-        <div id="addNewAddonCatModal"
-            class="fixed inset-0 z-50 hidden items-center justify-center overflow-y-auto bg-slate-900/50 backdrop-blur-sm">
-            <div class="bg-white rounded-2xl w-full max-w-2xl m-4 shadow-2xl overflow-hidden transform transition-all">
-                <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50">
-                    <h5 class="text-xl font-bold text-slate-800">إضافة فئة إضافية جديدة</h5>
-                    <button type="button" onclick="toggleModal('addNewAddonCatModal')"
-                        class="text-slate-400 hover:text-rose-500 transition-colors">
-                        <i class="fa-solid fa-xmark text-xl"></i>
-                    </button>
-                </div>
-                <div class="p-6">
-                    <form class="space-y-6">
-                        <div>
-                            <label class="block text-sm font-semibold text-slate-700 mb-2">الاسم باللغة العربية
-                                <span class="text-rose-500">*</span></label>
-                            <input type="text"
-                                class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none"
-                                required>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Bulk Upload Modal -->
+            <div id="addBulkRestaurantModal"
+                class="fixed inset-0 z-50 hidden items-center justify-center overflow-y-auto bg-slate-900/50 backdrop-blur-sm">
+                <div
+                    class="bg-white rounded-2xl w-full max-w-lg m-4 shadow-2xl overflow-hidden transform transition-all">
+                    <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50">
+                        <h5 class="text-xl font-bold text-slate-800">تحميل ملفات CSV</h5>
+                        <button type="button" onclick="toggleModal('addBulkRestaurantModal')"
+                            class="text-slate-400 hover:text-rose-500 transition-colors">
+                            <i class="fa-solid fa-xmark text-xl"></i>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <form action="https://montana-sa.amir-adel.com/admin/public/admin/store/bulk/save" method="POST"
+                            enctype="multipart/form-data" class="space-y-6">
+                            <input type="hidden" name="_token" value="rvik8UG5BAsv0qy9NHSD1cs8eBgXcb60fUjO7g2b">
                             <div>
-                                <label class="block text-sm font-semibold text-slate-700 mb-2">النوع <span
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">ملف CSV <span
                                         class="text-rose-500">*</span></label>
-                                <select
-                                    class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none"
+                                <input type="file" accept=".csv" name="restaurant_csv"
+                                    class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-slate-50 file:text-slate-700 hover:file:bg-slate-100"
                                     required>
-                                    <option value="SINGLE">اختيار واحد</option>
-                                    <option value="MULTI">اختيار متعدد</option>
-                                </select>
                             </div>
-                            <div>
-                                <label class="block text-sm font-semibold text-slate-700 mb-2">الحد الأقصى
-                                    للإضافات</label>
-                                <input type="number"
-                                    class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none"
-                                    placeholder="مثال: 0 غير محدود">
+                            <div class="flex justify-between items-center pt-4">
+                                <a href="https://montana-sa.amir-adel.com/admin/assets/docs/restaurants-sample-csv.csv"
+                                    class="text-indigo-600 text-sm font-semibold hover:underline flex items-center gap-1"><i
+                                        class="fa-solid fa-download"></i> عينة CSV</a>
+                                <button type="submit"
+                                    class="px-6 py-2.5 rounded-xl bg-emerald-600 text-white font-semibold hover:bg-emerald-700 shadow-md shadow-emerald-200 transition-all flex items-center gap-2">رفع
+                                    <i class="fa-solid fa-upload"></i></button>
                             </div>
-                        </div>
-                        <div class="flex justify-end pt-6 border-t border-slate-100 gap-3">
-                            <button type="button" onclick="toggleModal('addNewAddonCatModal')"
-                                class="px-6 py-2.5 rounded-xl border border-slate-200 text-slate-600 font-semibold hover:bg-slate-50 transition-colors">إلغاء</button>
-                            <button type="submit"
-                                class="px-6 py-2.5 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 shadow-md shadow-blue-200 transition-all flex items-center gap-2"><i
-                                    class="fa-solid fa-save"></i> حفظ</button>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
 
-
-        <!-- Addons Modal -->
-        <div id="addNewAddonModal"
-            class="fixed inset-0 z-50 hidden items-center justify-center overflow-y-auto bg-slate-900/50 backdrop-blur-sm">
-            <div class="bg-white rounded-2xl w-full max-w-2xl m-4 shadow-2xl overflow-hidden transform transition-all">
-                <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50">
-                    <h5 class="text-xl font-bold text-slate-800">إضافة إضافة جديدة</h5>
-                    <button type="button" onclick="toggleModal('addNewAddonModal')"
-                        class="text-slate-400 hover:text-rose-500 transition-colors">
-                        <i class="fa-solid fa-xmark text-xl"></i>
-                    </button>
-                </div>
-                <div class="p-6">
-                    <form class="space-y-6">
-                        <div>
-                            <label class="block text-sm font-semibold text-slate-700 mb-2">اسم الاضافة <span
-                                    class="text-rose-500">*</span></label>
-                            <input type="text"
-                                class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none"
-                                required>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-semibold text-slate-700 mb-2">السعر <span
-                                    class="text-rose-500">*</span></label>
-                            <input type="number" step="0.01"
-                                class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none"
-                                placeholder="سعر الإضافة في ر.س" required>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-semibold text-slate-700 mb-2">فئة الإضافات <span
-                                    class="text-rose-500">*</span></label>
-                            <select class="itemSelect2 w-full" required>
-                                <option value="1">Cake</option>
-                                <option value="3">عدد الاشخاص</option>
-                                <option value="5">مربع</option>
-                            </select>
-                        </div>
-                        <div class="flex justify-end pt-6 border-t border-slate-100 gap-3">
-                            <button type="button" onclick="toggleModal('addNewAddonModal')"
-                                class="px-6 py-2.5 rounded-xl border border-slate-200 text-slate-600 font-semibold hover:bg-slate-50 transition-colors">إلغاء</button>
-                            <button type="submit"
-                                class="px-6 py-2.5 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 shadow-md shadow-blue-200 transition-all flex items-center gap-2"><i
-                                    class="fa-solid fa-save"></i> حفظ</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <!-- Add User Modal -->
-        <div id="addNewUserModal"
-            class="fixed inset-0 z-50 hidden items-center justify-center overflow-y-auto bg-slate-900/50 backdrop-blur-sm">
-            <div class="bg-white rounded-2xl w-full max-w-2xl m-4 shadow-2xl overflow-hidden transform transition-all">
-                <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50">
-                    <h5 class="text-xl font-bold text-slate-800">إضافة مستخدم جديد</h5>
-                    <button type="button" onclick="toggleModal('addNewUserModal')"
-                        class="text-slate-400 hover:text-rose-500 transition-colors">
-                        <i class="fa-solid fa-xmark text-xl"></i>
-                    </button>
-                </div>
-                <div class="p-6 max-h-[80vh] overflow-y-auto custom-scrollbar">
-                    <form action="https://montana-sa.amir-adel.com/admin/public/admin/saveNewUser" method="POST"
-                        enctype="multipart/form-data" class="space-y-4">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Add New Item Category Modal -->
+            <div id="addNewItemCategoryModal"
+                class="fixed inset-0 z-50 hidden items-center justify-center overflow-y-auto bg-slate-900/50 backdrop-blur-sm">
+                <div
+                    class="bg-white rounded-2xl w-full max-w-lg m-4 shadow-2xl overflow-hidden transform transition-all">
+                    <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50">
+                        <h5 class="text-xl font-bold text-slate-800">إضافة فئة عنصر جديدة</h5>
+                        <button type="button" onclick="toggleModal('addNewItemCategoryModal')"
+                            class="text-slate-400 hover:text-rose-500 transition-colors">
+                            <i class="fa-solid fa-xmark text-xl"></i>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <form action="https://montana-sa.amir-adel.com/admin/public/admin/itemcategories/new/save"
+                            method="POST" enctype="multipart/form-data" class="space-y-6">
+                            <input type="hidden" name="_token" value="rvik8UG5BAsv0qy9NHSD1cs8eBgXcb60fUjO7g2b">
                             <div>
                                 <label class="block text-sm font-semibold text-slate-700 mb-2">الاسم <span
                                         class="text-rose-500">*</span></label>
                                 <input type="text" name="name"
-                                    class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none"
-                                    placeholder="الاسم الكامل" required autocomplete="new-name">
+                                    class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
+                                    placeholder="أدخل اسم الفئة" required>
                             </div>
                             <div>
-                                <label class="block text-sm font-semibold text-slate-700 mb-2">البريد
-                                    الإلكتروني</label>
-                                <input type="email" name="email"
-                                    class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none"
-                                    placeholder="example@domain.com" autocomplete="new-email">
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">صوره</label>
+                                <input type="file" name="image" accept="image/x-png,image/gif,image/jpeg"
+                                    class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"
+                                    onchange="previewImageCat(this, 'imgPreviewCatNew')">
+                                <img id="imgPreviewCatNew"
+                                    class="mt-3 hidden rounded-lg shadow-sm border border-slate-100 w-32 object-cover" />
+                                <p class="text-xs text-slate-400 mt-1">أبعاد الصورة 250*250</p>
                             </div>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-sm font-semibold text-slate-700 mb-2">الجوال <span
-                                        class="text-rose-500">*</span></label>
-                                <input type="text" name="phone"
-                                    class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none"
-                                    placeholder="رقم الجوال" required autocomplete="new-phone">
+                            <div class="flex justify-end pt-4">
+                                <button type="submit"
+                                    class="px-6 py-2.5 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700 shadow-md shadow-indigo-200 transition-all flex items-center gap-2"><i
+                                        class="fa-solid fa-save"></i> حفظ</button>
                             </div>
-                            <div class="relative">
-                                <label class="block text-sm font-semibold text-slate-700 mb-2">كلمة المرور <span
-                                        class="text-rose-500">*</span></label>
-                                <div class="relative">
-                                    <input name="password" type="password" id="newUserPassword"
-                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-left"
-                                        dir="ltr" placeholder="6 أحرف على الأقل" required autocomplete="new-password">
-                                    <button type="button"
-                                        onclick="const p = document.getElementById('newUserPassword'); p.type = p.type === 'password' ? 'text' : 'password';"
-                                        class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600">
-                                        <i class="fa-solid fa-eye text-sm"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-semibold text-slate-700 mb-2">الدور (Role) <span
-                                    class="text-rose-500">*</span></label>
-                            <select name="role"
-                                class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none bg-white"
-                                onchange="const d = document.getElementById('deliveryGuyDetailsBlock'); if(this.value === 'Delivery Guy') d.classList.remove('hidden'); else d.classList.add('hidden');">
-                                <option value="Factory">Factory</option>
-                                <option value="Customer">Customer</option>
-                                <option value="Store Owner">Store Owner</option>
-                                <option value="Delivery Guy">Delivery Guy</option>
-                            </select>
-                        </div>
-
-                        <div id="deliveryGuyDetailsBlock" class="hidden space-y-4 pt-4 border-t border-slate-100">
-                            <h6
-                                class="text-sm font-bold text-slate-800 uppercase tracking-wider flex items-center gap-2">
-                                <i class="fa-solid fa-truck text-indigo-500"></i> تفاصيل عامل التوصيل
-                            </h6>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div>
-                                    <label class="block text-sm font-semibold text-slate-700 mb-1">الاسم
-                                        المستعار</label>
-                                    <input type="text" name="delivery_name"
-                                        class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:border-indigo-500 outline-none text-sm"
-                                        placeholder="يظهر للعميل">
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-semibold text-slate-700 mb-1">العمر</label>
-                                    <input type="text" name="delivery_age"
-                                        class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:border-indigo-500 outline-none text-sm">
-                                </div>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-semibold text-slate-700 mb-1">صورة العامل</label>
-                                <input type="file" name="delivery_photo"
-                                    class="w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100">
-                            </div>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div>
-                                    <label class="block text-sm font-semibold text-slate-700 mb-1">نسبة العموله
-                                        %</label>
-                                    <input type="text" name="delivery_commission_rate"
-                                        class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:border-indigo-500 outline-none text-sm"
-                                        value="5">
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-semibold text-slate-700 mb-1">حد الكاش
-                                        (ر.س)</label>
-                                    <input type="text" name="cash_limit"
-                                        class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:border-indigo-500 outline-none text-sm"
-                                        value="0.00">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="flex justify-end pt-6 border-t border-slate-100 gap-3">
-                            <button type="button" onclick="toggleModal('addNewUserModal')"
-                                class="px-6 py-2.5 rounded-xl border border-slate-200 text-slate-600 font-semibold hover:bg-slate-50 transition-colors">إلغاء</button>
-                            <button type="submit"
-                                class="px-6 py-2.5 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700 shadow-md shadow-indigo-200 transition-all flex items-center gap-2"><i
-                                    class="fa-solid fa-save"></i> حفظ المستخدم</button>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
+
+            <!-- Edit Item Category Modal -->
+            <div id="editItemCategoryModal"
+                class="fixed inset-0 z-50 hidden items-center justify-center overflow-y-auto bg-slate-900/50 backdrop-blur-sm">
+                <div
+                    class="bg-white rounded-2xl w-full max-w-lg m-4 shadow-2xl overflow-hidden transform transition-all">
+                    <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50">
+                        <h5 class="text-xl font-bold text-slate-800">تعديل اسم فئة العنصر</h5>
+                        <button type="button" onclick="toggleModal('editItemCategoryModal')"
+                            class="text-slate-400 hover:text-rose-500 transition-colors">
+                            <i class="fa-solid fa-xmark text-xl"></i>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <form action="https://montana-sa.amir-adel.com/admin/public/admin/itemcategory/edit/save"
+                            method="POST" enctype="multipart/form-data" class="space-y-6">
+                            <input type="hidden" name="_token" value="rvik8UG5BAsv0qy9NHSD1cs8eBgXcb60fUjO7g2b">
+                            <input type="hidden" name="id" id="itemCatId">
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">الاسم <span
+                                        class="text-rose-500">*</span></label>
+                                <input type="text" name="name" id="itemCatName"
+                                    class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all"
+                                    placeholder="أدخل اسم الفئة" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">صوره</label>
+                                <input type="file" name="image" accept="image/x-png,image/gif,image/jpeg"
+                                    class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"
+                                    onchange="previewImageCat(this, 'imgPreviewCatEdit')">
+                                <img id="imgPreviewCatEdit"
+                                    class="mt-3 hidden rounded-lg shadow-sm border border-slate-100 w-32 object-cover" />
+                                <p class="text-xs text-slate-400 mt-1">أبعاد الصورة 250*250</p>
+                            </div>
+                            <div class="flex justify-end pt-4">
+                                <button type="submit"
+                                    class="px-6 py-2.5 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700 shadow-md shadow-indigo-200 transition-all flex items-center gap-2"><i
+                                        class="fa-solid fa-save"></i> حفظ التعديل</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Bulk Item Modal -->
+            <div id="addBulkItemModal"
+                class="fixed inset-0 z-50 hidden items-center justify-center overflow-y-auto bg-slate-900/50 backdrop-blur-sm">
+                <div
+                    class="bg-white rounded-2xl w-full max-w-lg m-4 shadow-2xl overflow-hidden transform transition-all">
+                    <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50">
+                        <h5 class="text-xl font-bold text-slate-800">تحميل كميات كبيرة من العناصر بتنسيق CSV</h5>
+                        <button type="button" onclick="toggleModal('addBulkItemModal')"
+                            class="text-slate-400 hover:text-rose-500 transition-colors">
+                            <i class="fa-solid fa-xmark text-xl"></i>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <form action="https://montana-sa.amir-adel.com/admin/public/admin/item/bulk/save" method="POST"
+                            enctype="multipart/form-data" class="space-y-6">
+                            <input type="hidden" name="_token" value="rvik8UG5BAsv0qy9NHSD1cs8eBgXcb60fUjO7g2b">
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">ملف CSV <span
+                                        class="text-rose-500">*</span></label>
+                                <input type="file" accept=".csv" name="item_csv"
+                                    class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-slate-50 file:text-slate-700 hover:file:bg-slate-100"
+                                    required>
+                            </div>
+                            <div class="flex justify-between items-center pt-4 border-t border-slate-100">
+                                <a href="https://montana-sa.amir-adel.com/admin/assets/docs/items-sample-csv.csv"
+                                    class="text-indigo-600 text-sm font-semibold hover:underline flex items-center gap-1"><i
+                                        class="fa-solid fa-download"></i> تنزيل عينة CSV</a>
+                                <button type="submit"
+                                    class="px-6 py-2.5 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 shadow-md shadow-blue-200 transition-all flex items-center gap-2"><i
+                                        class="fa-solid fa-upload"></i> رفع</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add New Item Modal -->
+            <div id="addNewItemModal"
+                class="fixed inset-0 z-50 hidden items-center justify-center overflow-y-auto bg-slate-900/50 backdrop-blur-sm">
+                <div
+                    class="bg-white rounded-2xl w-full max-w-5xl m-4 shadow-2xl overflow-hidden transform transition-all flex flex-col max-h-[90vh]">
+                    <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50">
+                        <h5 class="text-xl font-bold text-slate-800">إضافة عنصر جديد</h5>
+                        <button type="button" onclick="toggleModal('addNewItemModal')"
+                            class="text-slate-400 hover:text-rose-500 transition-colors">
+                            <i class="fa-solid fa-xmark text-xl"></i>
+                        </button>
+                    </div>
+                    <div class="p-6 overflow-y-auto custom-scrollbar">
+                        <form action="https://montana-sa.amir-adel.com/admin/public/admin/item/new/save" method="POST"
+                            enctype="multipart/form-data" class="space-y-6">
+                            <input type="hidden" name="_token" value="rvik8UG5BAsv0qy9NHSD1cs8eBgXcb60fUjO7g2b">
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-2">اسم العنصر <span
+                                            class="text-rose-500">*</span></label>
+                                    <input type="text" name="name"
+                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none"
+                                        placeholder="اسم العنصر" required>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-2">اسم العنصر بالعربي
+                                        <span class="text-rose-500">*</span></label>
+                                    <input type="text" name="name_ar"
+                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none"
+                                        placeholder="اسم العنصر بالعربي" required>
+                                </div>
+                                <div class="md:col-span-2">
+                                    <label class="block text-sm font-semibold text-slate-700 mb-2">وصف العنصر</label>
+                                    <textarea name="desc"
+                                        class="summernote-editor w-full border border-slate-200 rounded-xl px-4 py-2"
+                                        rows="3" placeholder="وصف العنصر"></textarea>
+                                </div>
+                                <div class="md:col-span-2">
+                                    <label class="block text-sm font-semibold text-slate-700 mb-2">وصف العنصر
+                                        بالعربي</label>
+                                    <textarea name="desc_ar"
+                                        class="summernote-editor w-full border border-slate-200 rounded-xl px-4 py-2"
+                                        rows="3" placeholder="وصف العنصر بالعربي"></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Price Section -->
+                            <div class="bg-blue-50/50 p-5 rounded-xl border border-blue-100">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-end" id="singlePriceItem">
+                                    <div class="md:col-span-2">
+                                        <label class="block text-sm font-semibold text-slate-700 mb-2">السعر <span
+                                                class="text-rose-500">*</span></label>
+                                        <input type="number" step="0.01" name="price" id="oldSPItem"
+                                            class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none"
+                                            placeholder="سعر العنصر في ر.س" required>
+                                    </div>
+                                    <div>
+                                        <button type="button" onclick="addDiscountItem()"
+                                            class="px-4 py-2.5 w-full bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 rounded-xl text-sm font-semibold transition-colors flex items-center justify-center gap-2">
+                                            <i class="fa-solid fa-percent text-blue-500"></i> إضافة سعر مخفض
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 hidden" id="discountedTwoPriceItem">
+                                    <div>
+                                        <label class="block text-sm font-semibold text-slate-700 mb-2">سعر العلامة <span
+                                                class="text-xs text-slate-400 font-normal">(اختياري)</span></label>
+                                        <input type="number" step="0.01" name="old_price"
+                                            class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none"
+                                            placeholder="سعر قبل الخصم">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-semibold text-slate-700 mb-2">سعر البيع <span
+                                                class="text-rose-500">*</span></label>
+                                        <input type="number" step="0.01" name="price" id="newSPItem"
+                                            class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none"
+                                            placeholder="سعر بعد الخصم">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-2">نوع السعر <span
+                                            class="text-rose-500">*</span></label>
+                                    <select name="price_type"
+                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none"
+                                        required>
+                                        <option value="piece">للقطعة</option>
+                                        <option value="one_kilo">كيلو</option>
+                                        <option value="quarter_kilo">للربع كيلو</option>
+                                        <option value="half_kilo">للنصف كيلو</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-2">SKU <span
+                                            class="text-rose-500">*</span></label>
+                                    <input type="text" name="sku"
+                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none"
+                                        required placeholder="SKU">
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-2">متجر العنصر <span
+                                            class="text-rose-500">*</span></label>
+                                    <select name="restaurant_id[]" id="itemRestaurantSelect" class="itemSelect2 w-full"
+                                        multiple required>
+                                        <option value="all">اختار الكل</option>
+                                        <option value="2">حى السلامة</option>
+                                        <option value="3">حي الصفا</option>
+                                        <option value="4">حي النزهة</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-2">فئة العنصر <span
+                                            class="text-rose-500">*</span></label>
+                                    <select name="item_category_id"
+                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none"
+                                        required>
+                                        <option value="3">التورته</option>
+                                        <option value="4">البيتيفور</option>
+                                        <option value="5">المعجنات</option>
+                                        <option value="17">مناسبات أعياد</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Dynamic Stock Container -->
+                            <div id="itemStockContainer"
+                                class="bg-slate-50 p-4 rounded-xl border border-slate-200 grid grid-cols-1 md:grid-cols-2 gap-4 empty:hidden">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">صوره</label>
+                                <input type="file" name="image" accept="image/x-png,image/gif,image/jpeg"
+                                    class="w-full border border-slate-200 rounded-xl px-4 py-2 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700"
+                                    onchange="previewImageCat(this, 'imgPreviewItemNew')">
+                                <img id="imgPreviewItemNew"
+                                    class="mt-3 hidden rounded-lg object-cover w-32 shadow-sm border border-slate-200">
+                            </div>
+
+                            <div class="flex justify-end pt-6 border-t border-slate-100 gap-3">
+                                <button type="button" onclick="toggleModal('addNewItemModal')"
+                                    class="px-6 py-2.5 rounded-xl border border-slate-200 text-slate-600 font-semibold hover:bg-slate-50 transition-colors">إلغاء</button>
+                                <button type="submit"
+                                    class="px-6 py-2.5 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 shadow-md shadow-blue-200 transition-all flex items-center gap-2"><i
+                                        class="fa-solid fa-save"></i> حفظ العنصر</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- Standalone Addon Categories Section (Restored) -->
+            <div id="tab-addoncategories" class="tab-content">
+                <div class="mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div>
+                        <h2 class="text-3xl font-bold text-slate-800 mb-2">تصنيفات الإضافات</h2>
+                        <p class="text-slate-500 text-sm">إدارة فئات الإضافات المتاحة للمنتجات</p>
+                    </div>
+                    <button onclick="toggleModal('addNewAddonCatModal')"
+                        class="px-5 py-2.5 bg-indigo-600 text-white rounded-xl shadow-lg shadow-indigo-200 hover:shadow-xl transition-all text-sm font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-plus"></i> إضافة فئة جديدة
+                    </button>
+                </div>
+                <div class="glass-panel rounded-2xl p-6">
+                    <div class="overflow-x-auto custom-scrollbar">
+                        <table class="w-full text-right" id="addonCatDatatable_standalone">
+                            <thead>
+                                <tr class="text-slate-500 text-sm border-b border-slate-100">
+                                    <th class="pb-3 font-semibold">الاسم</th>
+                                    <th class="pb-3 font-semibold">النوع</th>
+                                    <th class="pb-3 font-semibold">الحد الأقصى</th>
+                                    <th class="pb-3 font-semibold">تاريخ الإنشاء</th>
+                                    <th class="pb-3 font-semibold text-center">إجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Standalone Addons Section (Restored) -->
+            <div id="tab-addons" class="tab-content">
+                <div class="mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div>
+                        <h2 class="text-3xl font-bold text-slate-800 mb-2">إدارة الإضافات (Addons)</h2>
+                        <p class="text-slate-500 text-sm">عرض وتعديل جميع الإضافات المسجلة في النظام</p>
+                    </div>
+                    <button onclick="toggleModal('addNewAddonModal')"
+                        class="px-5 py-2.5 bg-indigo-600 text-white rounded-xl shadow-lg shadow-indigo-200 hover:shadow-xl transition-all text-sm font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-plus-circle"></i> إضافة إضافة جديدة
+                    </button>
+                </div>
+                <div class="glass-panel rounded-2xl p-6">
+                    <div class="overflow-x-auto custom-scrollbar">
+                        <table class="w-full text-right" id="addonsDatatable_standalone">
+                            <thead>
+                                <tr class="text-slate-500 text-sm border-b border-slate-100">
+                                    <th class="pb-3 font-semibold">الاسم</th>
+                                    <th class="pb-3 font-semibold">السعر</th>
+                                    <th class="pb-3 font-semibold">الفئة</th>
+                                    <th class="pb-3 font-semibold">التاريخ</th>
+                                    <th class="pb-3 font-semibold text-center">إجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Promotions Tab (Restored) -->
+            <div id="tab-promotions" class="tab-content">
+                <div class="mb-8 flex justify-between items-end">
+                    <div>
+                        <h2 class="text-3xl font-bold text-slate-800 mb-2">العروض الترويجية</h2>
+                        <p class="text-slate-500 text-sm">إدارة الكوبونات، الخصومات، وحملات التسويق</p>
+                    </div>
+                    <button
+                        class="px-5 py-2.5 bg-gradient-to-r from-orange-500 to-rose-500 text-white rounded-xl shadow-lg shadow-orange-100 hover:shadow-xl hover:-translate-y-0.5 transition-all text-sm font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-plus"></i> إنشاء عرض جديد
+                    </button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="glass-panel p-6 rounded-3xl border-l-4 border-orange-500">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="p-3 bg-orange-50 text-orange-600 rounded-2xl">
+                                <i class="fa-solid ticket text-xl"></i>
+                            </div>
+                            <span
+                                class="text-xs font-bold text-emerald-500 bg-emerald-50 px-2 py-1 rounded-lg">نشط</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-800 mb-1">خصم الربيع</h3>
+                        <p class="text-slate-500 text-xs mb-4">كوبون خصم 15% لموسم الربيع الجديد</p>
+                        <div
+                            class="flex justify-between items-center text-sm font-mono bg-slate-100 px-3 py-1 rounded-lg">
+                            <span>SPRING15</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Addon Categories Modal -->
+            <div id="addNewAddonCatModal"
+                class="fixed inset-0 z-50 hidden items-center justify-center overflow-y-auto bg-slate-900/50 backdrop-blur-sm">
+                <div
+                    class="bg-white rounded-2xl w-full max-w-2xl m-4 shadow-2xl overflow-hidden transform transition-all">
+                    <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50">
+                        <h5 class="text-xl font-bold text-slate-800">إضافة فئة إضافية جديدة</h5>
+                        <button type="button" onclick="toggleModal('addNewAddonCatModal')"
+                            class="text-slate-400 hover:text-rose-500 transition-colors">
+                            <i class="fa-solid fa-xmark text-xl"></i>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <form class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">الاسم باللغة العربية
+                                    <span class="text-rose-500">*</span></label>
+                                <input type="text"
+                                    class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none"
+                                    required>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-2">النوع <span
+                                            class="text-rose-500">*</span></label>
+                                    <select
+                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none"
+                                        required>
+                                        <option value="SINGLE">اختيار واحد</option>
+                                        <option value="MULTI">اختيار متعدد</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-2">الحد الأقصى
+                                        للإضافات</label>
+                                    <input type="number"
+                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none"
+                                        placeholder="مثال: 0 غير محدود">
+                                </div>
+                            </div>
+                            <div class="flex justify-end pt-6 border-t border-slate-100 gap-3">
+                                <button type="button" onclick="toggleModal('addNewAddonCatModal')"
+                                    class="px-6 py-2.5 rounded-xl border border-slate-200 text-slate-600 font-semibold hover:bg-slate-50 transition-colors">إلغاء</button>
+                                <button type="submit"
+                                    class="px-6 py-2.5 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 shadow-md shadow-blue-200 transition-all flex items-center gap-2"><i
+                                        class="fa-solid fa-save"></i> حفظ</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Addons Modal -->
+            <div id="addNewAddonModal"
+                class="fixed inset-0 z-50 hidden items-center justify-center overflow-y-auto bg-slate-900/50 backdrop-blur-sm">
+                <div
+                    class="bg-white rounded-2xl w-full max-w-2xl m-4 shadow-2xl overflow-hidden transform transition-all">
+                    <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50">
+                        <h5 class="text-xl font-bold text-slate-800">إضافة إضافة جديدة</h5>
+                        <button type="button" onclick="toggleModal('addNewAddonModal')"
+                            class="text-slate-400 hover:text-rose-500 transition-colors">
+                            <i class="fa-solid fa-xmark text-xl"></i>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <form class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">اسم الاضافة <span
+                                        class="text-rose-500">*</span></label>
+                                <input type="text"
+                                    class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none"
+                                    required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">السعر <span
+                                        class="text-rose-500">*</span></label>
+                                <input type="number" step="0.01"
+                                    class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none"
+                                    placeholder="سعر الإضافة في ر.س" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">فئة الإضافات <span
+                                        class="text-rose-500">*</span></label>
+                                <select class="itemSelect2 w-full" required>
+                                    <option value="1">Cake</option>
+                                    <option value="3">عدد الاشخاص</option>
+                                    <option value="5">مربع</option>
+                                </select>
+                            </div>
+                            <div class="flex justify-end pt-6 border-t border-slate-100 gap-3">
+                                <button type="button" onclick="toggleModal('addNewAddonModal')"
+                                    class="px-6 py-2.5 rounded-xl border border-slate-200 text-slate-600 font-semibold hover:bg-slate-50 transition-colors">إلغاء</button>
+                                <button type="submit"
+                                    class="px-6 py-2.5 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 shadow-md shadow-blue-200 transition-all flex items-center gap-2"><i
+                                        class="fa-solid fa-save"></i> حفظ</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add User Modal -->
+            <div id="addNewUserModal"
+                class="fixed inset-0 z-50 hidden items-center justify-center overflow-y-auto bg-slate-900/50 backdrop-blur-sm">
+                <div
+                    class="bg-white rounded-2xl w-full max-w-2xl m-4 shadow-2xl overflow-hidden transform transition-all">
+                    <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50">
+                        <h5 class="text-xl font-bold text-slate-800">إضافة مستخدم جديد</h5>
+                        <button type="button" onclick="toggleModal('addNewUserModal')"
+                            class="text-slate-400 hover:text-rose-500 transition-colors">
+                            <i class="fa-solid fa-xmark text-xl"></i>
+                        </button>
+                    </div>
+                    <div class="p-6 max-h-[80vh] overflow-y-auto custom-scrollbar">
+                        <form action="https://montana-sa.amir-adel.com/admin/public/admin/saveNewUser" method="POST"
+                            enctype="multipart/form-data" class="space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-2">الاسم <span
+                                            class="text-rose-500">*</span></label>
+                                    <input type="text" name="name"
+                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none"
+                                        placeholder="الاسم الكامل" required autocomplete="new-name">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-2">البريد
+                                        الإلكتروني</label>
+                                    <input type="email" name="email"
+                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none"
+                                        placeholder="example@domain.com" autocomplete="new-email">
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-2">الجوال <span
+                                            class="text-rose-500">*</span></label>
+                                    <input type="text" name="phone"
+                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none"
+                                        placeholder="رقم الجوال" required autocomplete="new-phone">
+                                </div>
+                                <div class="relative">
+                                    <label class="block text-sm font-semibold text-slate-700 mb-2">كلمة المرور <span
+                                            class="text-rose-500">*</span></label>
+                                    <div class="relative">
+                                        <input name="password" type="password" id="newUserPassword"
+                                            class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-left"
+                                            dir="ltr" placeholder="6 أحرف على الأقل" required
+                                            autocomplete="new-password">
+                                        <button type="button"
+                                            onclick="const p = document.getElementById('newUserPassword'); p.type = p.type === 'password' ? 'text' : 'password';"
+                                            class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600">
+                                            <i class="fa-solid fa-eye text-sm"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">الدور (Role) <span
+                                        class="text-rose-500">*</span></label>
+                                <select name="role"
+                                    class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none bg-white"
+                                    onchange="const d = document.getElementById('deliveryGuyDetailsBlock'); if(this.value === 'Delivery Guy') d.classList.remove('hidden'); else d.classList.add('hidden');">
+                                    <option value="Factory">Factory</option>
+                                    <option value="Customer">Customer</option>
+                                    <option value="Store Owner">Store Owner</option>
+                                    <option value="Delivery Guy">Delivery Guy</option>
+                                </select>
+                            </div>
+
+                            <div id="deliveryGuyDetailsBlock" class="hidden space-y-4 pt-4 border-t border-slate-100">
+                                <h6
+                                    class="text-sm font-bold text-slate-800 uppercase tracking-wider flex items-center gap-2">
+                                    <i class="fa-solid fa-truck text-indigo-500"></i> تفاصيل عامل التوصيل
+                                </h6>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-semibold text-slate-700 mb-1">الاسم
+                                            المستعار</label>
+                                        <input type="text" name="delivery_name"
+                                            class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:border-indigo-500 outline-none text-sm"
+                                            placeholder="يظهر للعميل">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-semibold text-slate-700 mb-1">العمر</label>
+                                        <input type="text" name="delivery_age"
+                                            class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:border-indigo-500 outline-none text-sm">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-1">صورة العامل</label>
+                                    <input type="file" name="delivery_photo"
+                                        class="w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100">
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-semibold text-slate-700 mb-1">نسبة العموله
+                                            %</label>
+                                        <input type="text" name="delivery_commission_rate"
+                                            class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:border-indigo-500 outline-none text-sm"
+                                            value="5">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-semibold text-slate-700 mb-1">حد الكاش
+                                            (ر.س)</label>
+                                        <input type="text" name="cash_limit"
+                                            class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:border-indigo-500 outline-none text-sm"
+                                            value="0.00">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex justify-end pt-6 border-t border-slate-100 gap-3">
+                                <button type="button" onclick="toggleModal('addNewUserModal')"
+                                    class="px-6 py-2.5 rounded-xl border border-slate-200 text-slate-600 font-semibold hover:bg-slate-50 transition-colors">إلغاء</button>
+                                <button type="submit"
+                                    class="px-6 py-2.5 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700 shadow-md shadow-indigo-200 transition-all flex items-center gap-2"><i
+                                        class="fa-solid fa-save"></i> حفظ المستخدم</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
             <div id="tab-users" class="tab-content">
                 <div class="flex justify-between items-end mb-8">
@@ -1980,390 +1990,553 @@
                         <p class="text-slate-500 text-sm">العملاء، أصحاب المتاجر، الموظفون وعمال التوصيل</p>
                     </div>
                     <div class="flex flex-wrap items-center gap-3">
-                    <button onclick="switchUserSubTab('roles')"
-                        class="px-4 py-2.5 bg-white text-slate-600 font-semibold rounded-xl border border-slate-200 hover:bg-slate-50 transition-all flex items-center gap-2">
-                        <i class="fa-solid fa-shield-halved"></i> الأدوار والصلاحيات
-                    </button>
-                    <button id="clearUserFilters"
-                        class="px-4 py-2.5 bg-white text-slate-600 font-semibold rounded-xl border border-slate-200 hover:bg-slate-50 transition-all flex items-center gap-2">
-                        <i class="fa-solid fa-rotate-left"></i> إعادة تعيين الفلاتر
-                    </button>
-                    <button onclick="toggleModal('addNewUserModal')"
-                        class="px-4 py-2.5 bg-indigo-600 text-white font-semibold rounded-xl hover:bg-indigo-700 shadow-lg shadow-indigo-200 transition-all flex items-center gap-2">
-                        <i class="fa-solid fa-user-plus"></i> إضافة مستخدم جديد
-                    </button>
-                </div>
-            </div>
-
-            <!-- Slider Tabs for User Types -->
-            <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-2 no-scrollbar border-b border-slate-100">
-                <button onclick="switchUserSubTab('all')" id="user-subtab-all"
-                    class="user-subtab active whitespace-nowrap px-4 py-2 rounded-xl text-sm font-bold transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-100">
-                    <i class="fa-solid fa-users mr-1"></i> الكل
-                </button>
-                <button onclick="switchUserSubTab('customers')" id="user-subtab-customers"
-                    class="user-subtab whitespace-nowrap px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-100 hover:bg-slate-50">
-                    <i class="fa-solid fa-user-tag mr-1"></i> العملاء
-                </button>
-                <button onclick="switchUserSubTab('store_owners')" id="user-subtab-store_owners"
-                    class="user-subtab whitespace-nowrap px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-100 hover:bg-slate-50">
-                    <i class="fa-solid fa-user-tie mr-1"></i> أصحاب المتاجر
-                </button>
-                <button onclick="switchUserSubTab('delivery_guys')" id="user-subtab-delivery_guys"
-                    class="user-subtab whitespace-nowrap px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-100 hover:bg-slate-50">
-                    <i class="fa-solid fa-truck-fast mr-1"></i> عمال التوصيل
-                </button>
-                <button onclick="switchUserSubTab('staff')" id="user-subtab-staff"
-                    class="user-subtab whitespace-nowrap px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-100 hover:bg-slate-50">
-                    <i class="fa-solid fa-users-gear mr-1"></i> الموظفون
-                </button>
-                <button onclick="switchUserSubTab('roles')" id="user-subtab-roles"
-                    class="user-subtab whitespace-nowrap px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-100 hover:bg-slate-50">
-                    <i class="fa-solid fa-shield-halved mr-1"></i> الأدوار والصلاحيات
-                </button>
-            </div>
-
-            <!-- All Users Sub-tab -->
-            <div id="user-content-all" class="user-subtab-content active mt-4">
-                <div class="glass-panel rounded-2xl p-6">
-                    <div class="overflow-x-auto custom-scrollbar">
-                        <table class="w-full text-right" id="usersDataTableAll">
-                            <thead>
-                                <tr class="text-slate-500 text-sm border-b border-slate-100">
-                                    <th class="pb-3 font-semibold">ID</th>
-                                    <th class="pb-3 font-semibold">المستخدم</th>
-                                    <th class="pb-3 font-semibold">البريد الإلكتروني</th>
-                                    <th class="pb-3 font-semibold">الجوال</th>
-                                    <th class="pb-3 font-semibold">الدور</th>
-                                    <th class="pb-3 font-semibold">المحفظة</th>
-                                    <th class="pb-3 font-semibold">تاريخ الانضمام</th>
-                                    <th class="pb-3 font-semibold text-center"><i
-                                            class="fa-solid fa-ellipsis-vertical"></i></th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Customers Sub-tab -->
-            <div id="user-content-customers" class="user-subtab-content hidden mt-4">
-                <div class="glass-panel rounded-2xl p-6">
-                    <div class="overflow-x-auto custom-scrollbar">
-                        <table class="w-full text-right" id="usersDataTableCustomers">
-                            <thead>
-                                <tr class="text-slate-500 text-sm border-b border-slate-100">
-                                    <th class="pb-3 font-semibold">ID</th>
-                                    <th class="pb-3 font-semibold">المستخدم</th>
-                                    <th class="pb-3 font-semibold">البريد الإلكتروني</th>
-                                    <th class="pb-3 font-semibold">الجوال</th>
-                                    <th class="pb-3 font-semibold">الدور</th>
-                                    <th class="pb-3 font-semibold">المحفظة</th>
-                                    <th class="pb-3 font-semibold">تاريخ الانضمام</th>
-                                    <th class="pb-3 font-semibold text-center"><i
-                                            class="fa-solid fa-ellipsis-vertical"></i></th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Store Owners Sub-tab -->
-            <div id="user-content-store_owners" class="user-subtab-content hidden mt-4">
-                <div class="glass-panel rounded-2xl p-6">
-                    <div class="overflow-x-auto custom-scrollbar">
-                        <table class="w-full text-right" id="usersDataTableStoreOwners">
-                            <thead>
-                                <tr class="text-slate-500 text-sm border-b border-slate-100">
-                                    <th class="pb-3 font-semibold">ID</th>
-                                    <th class="pb-3 font-semibold">المستخدم</th>
-                                    <th class="pb-3 font-semibold">البريد الإلكتروني</th>
-                                    <th class="pb-3 font-semibold">الجوال</th>
-                                    <th class="pb-3 font-semibold">تاريخ الانضمام</th>
-                                    <th class="pb-3 font-semibold text-center"><i
-                                            class="fa-solid fa-ellipsis-vertical"></i></th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Delivery Guys Sub-tab -->
-            <div id="user-content-delivery_guys" class="user-subtab-content hidden mt-4">
-                <div class="glass-panel rounded-2xl p-6">
-                    <div class="overflow-x-auto custom-scrollbar">
-                        <table class="w-full text-right" id="usersDataTableDeliveryGuys">
-                            <thead>
-                                <tr class="text-slate-500 text-sm border-b border-slate-100">
-                                    <th class="pb-3 font-semibold">ID</th>
-                                    <th class="pb-3 font-semibold">المستخدم</th>
-                                    <th class="pb-3 font-semibold">البريد الإلكتروني</th>
-                                    <th class="pb-3 font-semibold">الجوال</th>
-                                    <th class="pb-3 font-semibold">المحفظة</th>
-                                    <th class="pb-3 font-semibold">الحالة</th>
-                                    <th class="pb-3 font-semibold">تاريخ الانضمام</th>
-                                    <th class="pb-3 font-semibold text-center"><i
-                                            class="fa-solid fa-ellipsis-vertical"></i></th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Staff Sub-tab -->
-            <div id="user-content-staff" class="user-subtab-content hidden mt-4">
-                <div class="glass-panel rounded-2xl p-6">
-                    <div class="overflow-x-auto custom-scrollbar">
-                        <table class="w-full text-right" id="usersDataTableStaff">
-                            <thead>
-                                <tr class="text-slate-500 text-sm border-b border-slate-100">
-                                    <th class="pb-3 font-semibold">ID</th>
-                                    <th class="pb-3 font-semibold">المستخدم</th>
-                                    <th class="pb-3 font-semibold">البريد الإلكتروني</th>
-                                    <th class="pb-3 font-semibold">الجوال</th>
-                                    <th class="pb-3 font-semibold">الدور</th>
-                                    <th class="pb-3 font-semibold">تاريخ الانضمام</th>
-                                    <th class="pb-3 font-semibold text-center"><i
-                                            class="fa-solid fa-ellipsis-vertical"></i></th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <!-- Roles Sub-tab -->
-            <div id="user-content-roles" class="user-subtab-content hidden mt-4">
-                <div class="glass-panel rounded-2xl p-6">
-                    <div class="flex justify-between items-center mb-6">
-                        <h3 class="text-xl font-bold text-slate-800">قائمة الأدوار والصلاحيات</h3>
-                        <button onclick="toggleModal('addNewRoleModal')"
-                            class="px-4 py-2 bg-indigo-600 text-white rounded-lg text-xs font-bold hover:bg-indigo-700 transition-all shadow-md shadow-indigo-100">
-                            <i class="fa-solid fa-plus mr-1"></i> إضافة دور جديد
+                        <button onclick="switchUserSubTab('roles')"
+                            class="px-4 py-2.5 bg-white text-slate-600 font-semibold rounded-xl border border-slate-200 hover:bg-slate-50 transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-shield-halved"></i> الأدوار والصلاحيات
+                        </button>
+                        <button id="clearUserFilters"
+                            class="px-4 py-2.5 bg-white text-slate-600 font-semibold rounded-xl border border-slate-200 hover:bg-slate-50 transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-rotate-left"></i> إعادة تعيين الفلاتر
+                        </button>
+                        <button onclick="toggleModal('addNewUserModal')"
+                            class="px-4 py-2.5 bg-indigo-600 text-white font-semibold rounded-xl hover:bg-indigo-700 shadow-lg shadow-indigo-200 transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-user-plus"></i> إضافة مستخدم جديد
                         </button>
                     </div>
-                    <div class="overflow-x-auto custom-scrollbar">
-                        <table class="w-full text-right" id="rolesDataTable">
-                            <thead>
-                                <tr class="text-slate-500 text-sm border-b border-slate-100">
-                                    <th class="pb-3 font-semibold px-4">اسم الدور</th>
-                                    <th class="pb-3 font-semibold px-4">الصلاحيات الممنوحة</th>
-                                    <th class="pb-3 font-semibold text-center w-32 px-4 whitespace-nowrap">الإجراءات
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="hover:bg-slate-50/50 transition-colors border-b border-slate-50">
-                                    <td class="p-4 font-bold text-slate-700 px-4">مدير النظام <span
-                                            class="text-xs font-medium text-slate-400 font-mono">(Admin)</span></td>
-                                    <td class="p-4 px-4">
-                                        <div class="flex flex-wrap gap-1.5 max-w-2xl">
-                                            <span
-                                                class="px-2 py-0.5 bg-indigo-50 text-indigo-600 rounded-lg text-[10px] font-bold border border-indigo-100">صلاحيات
-                                                كاملة (+)</span>
-                                            <span
-                                                class="px-2 py-0.5 bg-indigo-50 text-indigo-600 rounded-lg text-[10px] font-bold border border-indigo-100">وصول
-                                                مطلق</span>
-                                        </div>
-                                    </td>
-                                    <td class="p-4 px-4 text-center">
-                                        <div class="flex items-center justify-center gap-2">
-                                            <button
-                                                class="w-8 h-8 rounded-lg bg-slate-50 text-slate-300 cursor-not-allowed flex items-center justify-center border border-slate-100"
-                                                title="لا يمكن تعديل المدير الرئيسي"><i
-                                                    class="fa-solid fa-lock"></i></button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr class="hover:bg-slate-50/50 transition-colors border-b border-slate-50">
-                                    <td class="p-4 font-bold text-slate-700 px-4">المصنع <span
-                                            class="text-xs font-medium text-slate-400 font-mono">(Factory)</span>
-                                    </td>
-                                    <td class="p-4 px-4">
-                                        <div class="flex flex-wrap gap-1.5 max-w-2xl">
-                                            <span
-                                                class="px-2 py-0.5 bg-slate-50 text-slate-600 rounded-lg text-[10px] font-bold border border-slate-100">عرض
-                                                الطلبات</span>
-                                            <span
-                                                class="px-2 py-0.5 bg-slate-50 text-slate-600 rounded-lg text-[10px] font-bold border border-slate-100">إجراءات
-                                                الطلبات</span>
-                                            <span
-                                                class="px-2 py-0.5 bg-slate-50 text-slate-600 rounded-lg text-[10px] font-bold border border-slate-100">عرض
-                                                الطلبات الخاصة</span>
-                                        </div>
-                                    </td>
-                                    <td class="p-4 px-4 text-center">
-                                        <div class="flex items-center justify-center gap-2">
-                                            <button onclick="toggleModal('addNewRoleModal')"
-                                                class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 hover:bg-indigo-600 hover:text-white transition-colors flex items-center justify-center shadow-sm"
-                                                title="تعديل"><i class="fa-solid fa-pen"></i></button>
-                                            <button
-                                                class="w-8 h-8 rounded-lg bg-rose-50 text-rose-500 hover:bg-rose-500 hover:text-white transition-colors flex items-center justify-center shadow-sm"
-                                                title="حذف"><i class="fa-solid fa-trash"></i></button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                </div>
+
+                <!-- Slider Tabs for User Types -->
+                <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-2 no-scrollbar border-b border-slate-100">
+                    <button onclick="switchUserSubTab('all')" id="user-subtab-all"
+                        class="user-subtab active whitespace-nowrap px-4 py-2 rounded-xl text-sm font-bold transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-100">
+                        <i class="fa-solid fa-users mr-1"></i> الكل
+                    </button>
+                    <button onclick="switchUserSubTab('customers')" id="user-subtab-customers"
+                        class="user-subtab whitespace-nowrap px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-100 hover:bg-slate-50">
+                        <i class="fa-solid fa-user-tag mr-1"></i> العملاء
+                    </button>
+                    <button onclick="switchUserSubTab('store_owners')" id="user-subtab-store_owners"
+                        class="user-subtab whitespace-nowrap px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-100 hover:bg-slate-50">
+                        <i class="fa-solid fa-user-tie mr-1"></i> أصحاب المتاجر
+                    </button>
+                    <button onclick="switchUserSubTab('delivery_guys')" id="user-subtab-delivery_guys"
+                        class="user-subtab whitespace-nowrap px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-100 hover:bg-slate-50">
+                        <i class="fa-solid fa-truck-fast mr-1"></i> عمال التوصيل
+                    </button>
+                    <button onclick="switchUserSubTab('staff')" id="user-subtab-staff"
+                        class="user-subtab whitespace-nowrap px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-100 hover:bg-slate-50">
+                        <i class="fa-solid fa-users-gear mr-1"></i> الموظفون
+                    </button>
+                    <button onclick="switchUserSubTab('roles')" id="user-subtab-roles"
+                        class="user-subtab whitespace-nowrap px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-100 hover:bg-slate-50">
+                        <i class="fa-solid fa-shield-halved mr-1"></i> الأدوار والصلاحيات
+                    </button>
+                </div>
+
+                <!-- All Users Sub-tab -->
+                <div id="user-content-all" class="user-subtab-content active mt-4">
+                    <div class="glass-panel rounded-2xl p-6">
+                        <div class="overflow-x-auto custom-scrollbar">
+                            <table class="w-full text-right" id="usersDataTableAll">
+                                <thead>
+                                    <tr class="text-slate-500 text-sm border-b border-slate-100">
+                                        <th class="pb-3 font-semibold">ID</th>
+                                        <th class="pb-3 font-semibold">المستخدم</th>
+                                        <th class="pb-3 font-semibold">البريد الإلكتروني</th>
+                                        <th class="pb-3 font-semibold">الجوال</th>
+                                        <th class="pb-3 font-semibold">الدور</th>
+                                        <th class="pb-3 font-semibold">المحفظة</th>
+                                        <th class="pb-3 font-semibold">تاريخ الانضمام</th>
+                                        <th class="pb-3 font-semibold text-center"><i
+                                                class="fa-solid fa-ellipsis-vertical"></i></th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Customers Sub-tab -->
+                <div id="user-content-customers" class="user-subtab-content hidden mt-4">
+                    <div class="glass-panel rounded-2xl p-6">
+                        <div class="overflow-x-auto custom-scrollbar">
+                            <table class="w-full text-right" id="usersDataTableCustomers">
+                                <thead>
+                                    <tr class="text-slate-500 text-sm border-b border-slate-100">
+                                        <th class="pb-3 font-semibold">ID</th>
+                                        <th class="pb-3 font-semibold">المستخدم</th>
+                                        <th class="pb-3 font-semibold">البريد الإلكتروني</th>
+                                        <th class="pb-3 font-semibold">الجوال</th>
+                                        <th class="pb-3 font-semibold">الدور</th>
+                                        <th class="pb-3 font-semibold">المحفظة</th>
+                                        <th class="pb-3 font-semibold">تاريخ الانضمام</th>
+                                        <th class="pb-3 font-semibold text-center"><i
+                                                class="fa-solid fa-ellipsis-vertical"></i></th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Store Owners Sub-tab -->
+                <div id="user-content-store_owners" class="user-subtab-content hidden mt-4">
+                    <div class="glass-panel rounded-2xl p-6">
+                        <div class="overflow-x-auto custom-scrollbar">
+                            <table class="w-full text-right" id="usersDataTableStoreOwners">
+                                <thead>
+                                    <tr class="text-slate-500 text-sm border-b border-slate-100">
+                                        <th class="pb-3 font-semibold">ID</th>
+                                        <th class="pb-3 font-semibold">المستخدم</th>
+                                        <th class="pb-3 font-semibold">البريد الإلكتروني</th>
+                                        <th class="pb-3 font-semibold">الجوال</th>
+                                        <th class="pb-3 font-semibold">تاريخ الانضمام</th>
+                                        <th class="pb-3 font-semibold text-center"><i
+                                                class="fa-solid fa-ellipsis-vertical"></i></th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Delivery Guys Sub-tab -->
+                <div id="user-content-delivery_guys" class="user-subtab-content hidden mt-4">
+                    <div class="glass-panel rounded-2xl p-6">
+                        <div class="overflow-x-auto custom-scrollbar">
+                            <table class="w-full text-right" id="usersDataTableDeliveryGuys">
+                                <thead>
+                                    <tr class="text-slate-500 text-sm border-b border-slate-100">
+                                        <th class="pb-3 font-semibold">ID</th>
+                                        <th class="pb-3 font-semibold">المستخدم</th>
+                                        <th class="pb-3 font-semibold">البريد الإلكتروني</th>
+                                        <th class="pb-3 font-semibold">الجوال</th>
+                                        <th class="pb-3 font-semibold">المحفظة</th>
+                                        <th class="pb-3 font-semibold">الحالة</th>
+                                        <th class="pb-3 font-semibold">تاريخ الانضمام</th>
+                                        <th class="pb-3 font-semibold text-center"><i
+                                                class="fa-solid fa-ellipsis-vertical"></i></th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Staff Sub-tab -->
+                <div id="user-content-staff" class="user-subtab-content hidden mt-4">
+                    <div class="glass-panel rounded-2xl p-6">
+                        <div class="overflow-x-auto custom-scrollbar">
+                            <table class="w-full text-right" id="usersDataTableStaff">
+                                <thead>
+                                    <tr class="text-slate-500 text-sm border-b border-slate-100">
+                                        <th class="pb-3 font-semibold">ID</th>
+                                        <th class="pb-3 font-semibold">المستخدم</th>
+                                        <th class="pb-3 font-semibold">البريد الإلكتروني</th>
+                                        <th class="pb-3 font-semibold">الجوال</th>
+                                        <th class="pb-3 font-semibold">الدور</th>
+                                        <th class="pb-3 font-semibold">تاريخ الانضمام</th>
+                                        <th class="pb-3 font-semibold text-center"><i
+                                                class="fa-solid fa-ellipsis-vertical"></i></th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- Roles Sub-tab -->
+                <div id="user-content-roles" class="user-subtab-content hidden mt-4">
+                    <div class="glass-panel rounded-2xl p-6">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-xl font-bold text-slate-800">قائمة الأدوار والصلاحيات</h3>
+                            <button onclick="toggleModal('addNewRoleModal')"
+                                class="px-4 py-2 bg-indigo-600 text-white rounded-lg text-xs font-bold hover:bg-indigo-700 transition-all shadow-md shadow-indigo-100">
+                                <i class="fa-solid fa-plus mr-1"></i> إضافة دور جديد
+                            </button>
+                        </div>
+                        <div class="overflow-x-auto custom-scrollbar">
+                            <table class="w-full text-right" id="rolesDataTable">
+                                <thead>
+                                    <tr class="text-slate-500 text-sm border-b border-slate-100">
+                                        <th class="pb-3 font-semibold px-4">اسم الدور</th>
+                                        <th class="pb-3 font-semibold px-4">الصلاحيات الممنوحة</th>
+                                        <th class="pb-3 font-semibold text-center w-32 px-4 whitespace-nowrap">الإجراءات
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="hover:bg-slate-50/50 transition-colors border-b border-slate-50">
+                                        <td class="p-4 font-bold text-slate-700 px-4">مدير النظام <span
+                                                class="text-xs font-medium text-slate-400 font-mono">(Admin)</span></td>
+                                        <td class="p-4 px-4">
+                                            <div class="flex flex-wrap gap-1.5 max-w-2xl">
+                                                <span
+                                                    class="px-2 py-0.5 bg-indigo-50 text-indigo-600 rounded-lg text-[10px] font-bold border border-indigo-100">صلاحيات
+                                                    كاملة (+)</span>
+                                                <span
+                                                    class="px-2 py-0.5 bg-indigo-50 text-indigo-600 rounded-lg text-[10px] font-bold border border-indigo-100">وصول
+                                                    مطلق</span>
+                                            </div>
+                                        </td>
+                                        <td class="p-4 px-4 text-center">
+                                            <div class="flex items-center justify-center gap-2">
+                                                <button
+                                                    class="w-8 h-8 rounded-lg bg-slate-50 text-slate-300 cursor-not-allowed flex items-center justify-center border border-slate-100"
+                                                    title="لا يمكن تعديل المدير الرئيسي"><i
+                                                        class="fa-solid fa-lock"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50 transition-colors border-b border-slate-50">
+                                        <td class="p-4 font-bold text-slate-700 px-4">المصنع <span
+                                                class="text-xs font-medium text-slate-400 font-mono">(Factory)</span>
+                                        </td>
+                                        <td class="p-4 px-4">
+                                            <div class="flex flex-wrap gap-1.5 max-w-2xl">
+                                                <span
+                                                    class="px-2 py-0.5 bg-slate-50 text-slate-600 rounded-lg text-[10px] font-bold border border-slate-100">عرض
+                                                    الطلبات</span>
+                                                <span
+                                                    class="px-2 py-0.5 bg-slate-50 text-slate-600 rounded-lg text-[10px] font-bold border border-slate-100">إجراءات
+                                                    الطلبات</span>
+                                                <span
+                                                    class="px-2 py-0.5 bg-slate-50 text-slate-600 rounded-lg text-[10px] font-bold border border-slate-100">عرض
+                                                    الطلبات الخاصة</span>
+                                            </div>
+                                        </td>
+                                        <td class="p-4 px-4 text-center">
+                                            <div class="flex items-center justify-center gap-2">
+                                                <button onclick="toggleModal('addNewRoleModal')"
+                                                    class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 hover:bg-indigo-600 hover:text-white transition-colors flex items-center justify-center shadow-sm"
+                                                    title="تعديل"><i class="fa-solid fa-pen"></i></button>
+                                                <button
+                                                    class="w-8 h-8 rounded-lg bg-rose-50 text-rose-500 hover:bg-rose-500 hover:text-white transition-colors flex items-center justify-center shadow-sm"
+                                                    title="حذف"><i class="fa-solid fa-trash"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div><!-- End user-content-roles -->
             </div><!-- End tab-users (fixed) -->
 
             <div id="tab-orders" class="tab-content">
-                <div class="flex justify-between items-end mb-8">
-                    <div>
-                        <h2 class="text-3xl font-bold text-slate-800 mb-2">إدارة الطلبات</h2>
-                        <p class="text-slate-500 text-sm">متابعة وإدارة جميع طلبات النظام (Order Management)</p>
-                    </div>
-                    <div class="flex flex-wrap items-center gap-3">
-                        <button type="button" id="clearFilterAndStateBtn"
-                            class="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-xl transition-colors flex items-center gap-2 shadow-sm border border-slate-200">
-                            <i class="fa-solid fa-rotate-right"></i> إعادة تعيين सभी المرشحات
-                        </button>
-                        <button
-                            class="px-4 py-2.5 bg-emerald-600 text-white font-semibold rounded-xl hover:bg-emerald-700 shadow-lg shadow-emerald-200 transition-all flex items-center gap-2">
-                            <i class="fa-solid fa-file-export"></i> تصدير الطلبات
-                        </button>
-                    </div>
-                </div>
-
-                <div class="glass-panel rounded-2xl p-6">
-                    <div class="flex justify-between items-center mb-6">
-                        <h3 class="font-bold text-lg text-slate-700">الطلبات الأخيرة</h3>
-                        <div class="flex gap-2">
-                            <select
-                                class="px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm outline-none focus:border-indigo-500 text-slate-700">
-                                <option>جميع المتاجر</option>
-                                <option>متجر بيتزا روما</option>
-                                <option>برجر كينج</option>
-                            </select>
-                            <select
-                                class="px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm outline-none focus:border-indigo-500 text-slate-700">
-                                <option>جميع الحالات</option>
-                                <option>قيد التحضير</option>
-                                <option>مكتمل</option>
-                            </select>
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                        <div>
+                            <h2 class="text-3xl font-bold text-slate-800 mb-2">إدارة الطلبات</h2>
+                            <p class="text-slate-500 text-sm">متابعة وإدارة جميع طلبات النظام (Order Management)</p>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-3">
+                            <button type="button" id="clearFilterAndStateBtn"
+                                class="px-4 py-2.5 bg-white text-slate-600 font-semibold rounded-xl border border-slate-200 hover:bg-slate-50 transition-all flex items-center gap-2">
+                                <i class="fa-solid fa-filter-circle-xmark"></i> مسح الفلاتر
+                            </button>
+                            <button
+                                class="px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 shadow-lg shadow-indigo-100 transition-all flex items-center gap-2">
+                                <i class="fa-solid fa-file-export"></i> تصدير الطلبات
+                            </button>
                         </div>
                     </div>
-                    <div class="overflow-x-auto custom-scrollbar">
-                        <table class="w-full text-right" id="ordersDataTable">
-                            <thead>
-                                <tr class="bg-slate-50/80 text-slate-500 text-sm border-b border-slate-100">
-                                    <th class="hidden p-4 font-semibold text-center">ID</th>
-                                    <th class="p-4 font-semibold rounded-tr-xl">رقم الطلب</th>
-                                    <th class="p-4 font-semibold">الحالة</th>
-                                    <th class="p-4 font-semibold">اسم المتجر</th>
-                                    <th class="p-4 font-semibold">طريقة الطلب</th>
-                                    <th class="p-4 font-semibold">الإجمالي</th>
-                                    <th class="p-4 font-semibold">وقت الطلب</th>
-                                    <th class="p-4 font-semibold text-center">المؤقت</th>
-                                    <th class="p-4 font-semibold text-center rounded-tl-xl"><i
-                                            class="fa-solid fa-chevron-down"></i></th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-slate-100 text-sm">
-                                <tr class="hover:bg-slate-50/50 transition-colors">
-                                    <td class="hidden">1</td>
-                                    <td class="p-4">
-                                        <span class="font-bold text-slate-800 block">#ORD-5021</span>
-                                    </td>
-                                    <td class="p-4">
-                                        <span
-                                            class="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-[11px] font-bold shadow-sm whitespace-nowrap">قيد
-                                            التحضير (Awaiting)</span>
-                                    </td>
-                                    <td class="p-4 font-semibold text-slate-600">متجر بيتزا روما</td>
-                                    <td class="p-4">
-                                        <span
-                                            class="flex items-center gap-1.5 text-slate-500 bg-slate-100 px-2 py-1 rounded inline-flex text-xs font-semibold">
-                                            <i class="fa-solid fa-motorcycle text-indigo-400"></i> توصيل
-                                        </span>
-                                    </td>
-                                    <td class="p-4 font-bold text-emerald-600">125.50 ر.س</td>
-                                    <td class="p-4 text-slate-500 text-xs">اليوم، 14:30</td>
-                                    <td class="p-4 text-center">
-                                        <span
-                                            class="inline-block px-2 py-1 bg-rose-50 border border-rose-100 text-rose-500 font-bold rounded shadow-sm tracking-wider">12:05</span>
-                                    </td>
-                                    <td class="p-4 text-center">
-                                        <a href="orders/details.html"
-                                            class="w-8 h-8 rounded-lg bg-slate-50 text-slate-600 hover:bg-slate-200 hover:text-indigo-600 transition-colors flex items-center justify-center shadow-sm m-auto">
-                                            <i class="fa-solid fa-eye"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr class="hover:bg-slate-50/50 transition-colors">
-                                    <td class="hidden">2</td>
-                                    <td class="p-4">
-                                        <span class="font-bold text-slate-800 block">#ORD-5022</span>
-                                    </td>
-                                    <td class="p-4">
-                                        <span
-                                            class="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-[11px] font-bold shadow-sm whitespace-nowrap">مكتمل
-                                            (Delivered)</span>
-                                    </td>
-                                    <td class="p-4 font-semibold text-slate-600">برجر كينج</td>
-                                    <td class="p-4">
-                                        <span
-                                            class="flex items-center gap-1.5 text-slate-500 bg-slate-100 px-2 py-1 rounded inline-flex text-xs font-semibold">
-                                            <i class="fa-solid fa-box text-blue-400"></i> استلام ذاتي
-                                        </span>
-                                    </td>
-                                    <td class="p-4 font-bold text-emerald-600">85.00 ر.س</td>
-                                    <td class="p-4 text-slate-500 text-xs">اليوم، 14:15</td>
-                                    <td class="p-4 text-center text-slate-400 font-bold tracking-widest text-xs">
-                                        --:--
-                                    </td>
-                                    <td class="p-4 text-center">
-                                        <a href="orders/details.html"
-                                            class="w-8 h-8 rounded-lg bg-slate-50 text-slate-600 hover:bg-slate-200 hover:text-indigo-600 transition-colors flex items-center justify-center shadow-sm m-auto">
-                                            <i class="fa-solid fa-eye"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr class="hover:bg-slate-50/50 transition-colors">
-                                    <td class="hidden">3</td>
-                                    <td class="p-4">
-                                        <span class="font-bold text-slate-800 block">#ORD-5023</span>
-                                    </td>
-                                    <td class="p-4">
-                                        <span
-                                            class="px-3 py-1 bg-rose-100 text-rose-700 rounded-full text-[11px] font-bold shadow-sm whitespace-nowrap">ملغي
-                                            (Canceled)</span>
-                                    </td>
-                                    <td class="p-4 font-semibold text-slate-600">شاورما كلاسيك</td>
-                                    <td class="p-4">
-                                        <span
-                                            class="flex items-center gap-1.5 text-slate-500 bg-slate-100 px-2 py-1 rounded inline-flex text-xs font-semibold">
-                                            <i class="fa-solid fa-motorcycle text-indigo-400"></i> توصيل
-                                        </span>
-                                    </td>
-                                    <td class="p-4 font-bold text-emerald-600">45.00 ر.س</td>
-                                    <td class="p-4 text-slate-500 text-xs">اليوم، 14:00</td>
-                                    <td class="p-4 text-center text-slate-400 font-bold tracking-widest text-xs">
-                                        --:--
-                                    </td>
-                                    <td class="p-4 text-center">
-                                        <a href="orders/details.html"
-                                            class="w-8 h-8 rounded-lg bg-slate-50 text-slate-600 hover:bg-slate-200 hover:text-indigo-600 transition-colors flex items-center justify-center shadow-sm m-auto">
-                                            <i class="fa-solid fa-eye"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+
+                    <!-- Orders Stats Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-8 mt-2">
+                        <div class="glass-panel p-6 rounded-2xl relative overflow-hidden group border-indigo-100/50 hover:border-indigo-200 hover:shadow-lg transition-all">
+                            <div class="absolute top-0 right-0 w-24 h-24 bg-indigo-500/10 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+                            <div class="flex justify-between items-start relative z-10">
+                                <div>
+                                    <p class="text-slate-500 text-sm font-semibold mb-1">إجمالي الطلبات</p>
+                                    <h3 class="text-3xl font-bold text-slate-800">1,245</h3>
+                                </div>
+                                <div class="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-xl shadow-inner">
+                                    <i class="fa-solid fa-boxes-stacked"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="glass-panel p-6 rounded-2xl relative overflow-hidden group border-amber-100/50 hover:border-amber-200 hover:shadow-lg transition-all">
+                            <div class="absolute top-0 right-0 w-24 h-24 bg-amber-500/10 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+                            <div class="flex justify-between items-start relative z-10">
+                                <div>
+                                    <p class="text-slate-500 text-sm font-semibold mb-1">بانتظار الدفع</p>
+                                    <h3 class="text-3xl font-bold text-slate-800">45</h3>
+                                </div>
+                                <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-xl shadow-inner">
+                                    <i class="fa-solid fa-spinner"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="glass-panel p-6 rounded-2xl relative overflow-hidden group border-emerald-100/50 hover:border-emerald-200 hover:shadow-lg transition-all">
+                            <div class="absolute top-0 right-0 w-24 h-24 bg-emerald-500/10 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+                            <div class="flex justify-between items-start relative z-10">
+                                <div>
+                                    <p class="text-slate-500 text-sm font-semibold mb-1">طلبات مكتملة</p>
+                                    <h3 class="text-3xl font-bold text-slate-800">1,080</h3>
+                                </div>
+                                <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl shadow-inner">
+                                    <i class="fa-solid fa-check-double"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="glass-panel p-6 rounded-2xl relative overflow-hidden group border-rose-100/50 hover:border-rose-200 hover:shadow-lg transition-all">
+                            <div class="absolute top-0 right-0 w-24 h-24 bg-rose-500/10 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+                            <div class="flex justify-between items-start relative z-10">
+                                <div>
+                                    <p class="text-slate-500 text-sm font-semibold mb-1">طلبات ملغاة</p>
+                                    <h3 class="text-3xl font-bold text-slate-800">120</h3>
+                                </div>
+                                <div class="w-12 h-12 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center text-xl shadow-inner">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slider Tabs for Order Statuses -->
+                    <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-2 no-scrollbar border-b border-slate-100">
+                        <button onclick="switchOrderSubTab('all')" id="order-subtab-all"
+                            class="order-subtab active whitespace-nowrap px-4 py-2 rounded-xl text-sm font-bold transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-100">
+                            <i class="fa-solid fa-list-ul mr-1"></i> جميع الطلبات
+                        </button>
+                        <button onclick="switchOrderSubTab('pending')" id="order-subtab-pending"
+                            class="order-subtab whitespace-nowrap px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-100 hover:bg-slate-50">
+                            <i class="fa-solid fa-clock-rotate-left mr-1"></i> بانتظار الدفع
+                        </button>
+                        <button onclick="switchOrderSubTab('processing')" id="order-subtab-processing"
+                            class="order-subtab whitespace-nowrap px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-100 hover:bg-slate-50">
+                            <i class="fa-solid fa-fire-burner mr-1"></i> قيد التحضير
+                        </button>
+                        <button onclick="switchOrderSubTab('ready')" id="order-subtab-ready"
+                            class="order-subtab whitespace-nowrap px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-100 hover:bg-slate-50">
+                            <i class="fa-solid fa-bell-concierge mr-1"></i> جاهز للاستلام/للتوصيل
+                        </button>
+                        <button onclick="switchOrderSubTab('completed')" id="order-subtab-completed"
+                            class="order-subtab whitespace-nowrap px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-100 hover:bg-slate-50">
+                            <i class="fa-solid fa-check-double mr-1"></i> مكتمل
+                        </button>
+                        <button onclick="switchOrderSubTab('canceled')" id="order-subtab-canceled"
+                            class="order-subtab whitespace-nowrap px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-100 hover:bg-slate-50">
+                            <i class="fa-solid fa-ban mr-1"></i> ملغي
+                        </button>
+                    </div>
+
+                    <!-- Orders Table Area -->
+                    <div class="glass-panel rounded-3xl overflow-hidden shadow-sm mt-4 p-0 md:p-6 bg-white shrink">
+                        <div class="p-0 overflow-x-auto custom-scrollbar">
+                            <table class="w-full text-right align-middle" id="ordersDataTable">
+                                <thead>
+                                    <tr class="text-slate-500 text-sm border-b border-slate-100">
+                                        <th class="pb-3 font-semibold pl-4">رقم الطلب</th>
+                                        <th class="pb-3 font-semibold px-4">العميل</th>
+                                        <th class="pb-3 font-semibold px-4">المتجر و نوع الطلب</th>
+                                        <th class="pb-3 font-semibold px-4 text-center">الإجمالي</th>
+                                        <th class="pb-3 font-semibold px-4 text-center">الحالة</th>
+                                        <th class="pb-3 font-semibold px-4">التاريخ والوقت</th>
+                                        <th class="pb-3 font-semibold px-4 text-center">الإجراءات</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-50">
+                                    <tr class="hover:bg-slate-50/50 transition-colors group">
+                                        <td class="py-4 pl-4">
+                                            <div class="font-black text-slate-700">#NUZ-2140</div>
+                                            <div class="text-xs text-slate-400 font-semibold mt-0.5">منذ 5 د</div>
+                                        </td>
+                                        <td class="py-4 px-4">
+                                            <div class="flex items-center gap-3">
+                                                <div class="w-8 h-8 rounded-full bg-indigo-50 text-indigo-500 flex items-center justify-center font-bold text-xs border border-indigo-100">A</div>
+                                                <div>
+                                                    <div class="font-bold text-slate-800 text-sm">Amir Adel</div>
+                                                    <div class="text-slate-400 text-xs mt-0.5">553399596</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="py-4 px-4">
+                                            <div class="font-bold text-slate-700 text-sm">حي النزهة</div>
+                                            <div class="text-[11px] font-bold mt-1 text-slate-500 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded-md inline-flex items-center gap-1"><i class="fa-solid fa-box text-blue-500"></i> استلام ذاتي</div>
+                                        </td>
+                                        <td class="py-4 px-4 text-center font-bold text-emerald-600 text-sm">304.75 ر.س</td>
+                                        <td class="py-4 px-4 text-center">
+                                            <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-50 text-amber-600 rounded-full text-[11px] font-bold border border-amber-200 shadow-sm"><i class="fa-solid fa-spinner fa-spin"></i> بانتظار الدفع</span>
+                                        </td>
+                                        <td class="py-4 px-4">
+                                            <div class="text-sm font-semibold text-slate-600">2026-03-04</div>
+                                            <div class="text-xs text-slate-400 mt-0.5 font-bold">01:34 AM</div>
+                                        </td>
+                                        <td class="py-4 px-4 text-center">
+                                            <button type="button" onclick="openOrderDetailsModal('orders/details.html', this.closest('tr').querySelector('.font-black').innerText)" class="w-8 h-8 rounded-lg bg-slate-50 text-slate-600 hover:bg-indigo-50 hover:text-indigo-600 border border-slate-100 hover:border-indigo-200 shadow-sm transition-all flex items-center justify-center m-auto">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="hover:bg-slate-50/50 transition-colors group">
+                                        <td class="py-4 pl-4">
+                                            <div class="font-black text-slate-700">#SAF-1092</div>
+                                            <div class="text-xs text-slate-400 font-semibold mt-0.5">منذ سـاعة</div>
+                                        </td>
+                                        <td class="py-4 px-4">
+                                            <div class="flex items-center gap-3">
+                                                <div class="w-8 h-8 rounded-full bg-emerald-50 text-emerald-500 flex items-center justify-center font-bold text-xs border border-emerald-100">K</div>
+                                                <div>
+                                                    <div class="font-bold text-slate-800 text-sm">Khalid Saad</div>
+                                                    <div class="text-slate-400 text-xs mt-0.5">501234567</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="py-4 px-4">
+                                            <div class="font-bold text-slate-700 text-sm">حي الصفا</div>
+                                            <div class="text-[11px] font-bold mt-1 text-slate-500 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded-md inline-flex items-center gap-1"><i class="fa-solid fa-motorcycle text-indigo-500"></i> توصيل</div>
+                                        </td>
+                                        <td class="py-4 px-4 text-center font-bold text-emerald-600 text-sm">1,250.00 ر.س</td>
+                                        <td class="py-4 px-4 text-center">
+                                            <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-[11px] font-bold border border-blue-200 shadow-sm"><i class="fa-solid fa-fire-burner"></i> قيد التحضير</span>
+                                        </td>
+                                        <td class="py-4 px-4">
+                                            <div class="text-sm font-semibold text-slate-600">2026-03-04</div>
+                                            <div class="text-xs text-slate-400 mt-0.5 font-bold">12:30 AM</div>
+                                        </td>
+                                        <td class="py-4 px-4 text-center">
+                                            <button type="button" onclick="openOrderDetailsModal('orders/details.html', this.closest('tr').querySelector('.font-black').innerText)" class="w-8 h-8 rounded-lg bg-slate-50 text-slate-600 hover:bg-indigo-50 hover:text-indigo-600 border border-slate-100 hover:border-indigo-200 shadow-sm transition-all flex items-center justify-center m-auto">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="hover:bg-slate-50/50 transition-colors group">
+                                        <td class="py-4 pl-4">
+                                            <div class="font-black text-slate-700">#HAM-8831</div>
+                                            <div class="text-xs text-slate-400 font-semibold mt-0.5">أمس</div>
+                                        </td>
+                                        <td class="py-4 px-4">
+                                            <div class="flex items-center gap-3">
+                                                <div class="w-8 h-8 rounded-full bg-rose-50 text-rose-500 flex items-center justify-center font-bold text-xs border border-rose-100">M</div>
+                                                <div>
+                                                    <div class="font-bold text-slate-800 text-sm">Mohammed Ali</div>
+                                                    <div class="text-slate-400 text-xs mt-0.5">560192837</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="py-4 px-4">
+                                            <div class="font-bold text-slate-700 text-sm">حي الحمدانية</div>
+                                            <div class="text-[11px] font-bold mt-1 text-slate-500 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded-md inline-flex items-center gap-1"><i class="fa-solid fa-motorcycle text-indigo-500"></i> توصيل</div>
+                                        </td>
+                                        <td class="py-4 px-4 text-center font-bold text-emerald-600 text-sm">85.00 ر.س</td>
+                                        <td class="py-4 px-4 text-center">
+                                            <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-50 text-emerald-600 rounded-full text-[11px] font-bold border border-emerald-200 shadow-sm"><i class="fa-solid fa-check-double"></i> مكتمل</span>
+                                        </td>
+                                        <td class="py-4 px-4">
+                                            <div class="text-sm font-semibold text-slate-600">2026-03-03</div>
+                                            <div class="text-xs text-slate-400 mt-0.5 font-bold">06:45 PM</div>
+                                        </td>
+                                        <td class="py-4 px-4 text-center">
+                                            <button type="button" onclick="openOrderDetailsModal('orders/details.html', this.closest('tr').querySelector('.font-black').innerText)" class="w-8 h-8 rounded-lg bg-slate-50 text-slate-600 hover:bg-indigo-50 hover:text-indigo-600 border border-slate-100 hover:border-indigo-200 shadow-sm transition-all flex items-center justify-center m-auto">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="hover:bg-slate-50/50 transition-colors group">
+                                        <td class="py-4 pl-4">
+                                            <div class="font-black text-slate-700">#AZZ-1920</div>
+                                            <div class="text-xs text-slate-400 font-semibold mt-0.5">2 أيام</div>
+                                        </td>
+                                        <td class="py-4 px-4">
+                                            <div class="flex items-center gap-3">
+                                                <div class="w-8 h-8 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center font-bold text-xs border border-slate-200">W</div>
+                                                <div>
+                                                    <div class="font-bold text-slate-800 text-sm">Waleed Hassan</div>
+                                                    <div class="text-slate-400 text-xs mt-0.5">504993882</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="py-4 px-4">
+                                            <div class="font-bold text-slate-700 text-sm">حي العزيزية</div>
+                                            <div class="text-[11px] font-bold mt-1 text-slate-500 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded-md inline-flex items-center gap-1"><i class="fa-solid fa-box text-blue-500"></i> استلام ذاتي</div>
+                                        </td>
+                                        <td class="py-4 px-4 text-center font-bold text-emerald-600 text-sm">540.00 ر.س</td>
+                                        <td class="py-4 px-4 text-center">
+                                            <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-rose-50 text-rose-600 rounded-full text-[11px] font-bold border border-rose-200 shadow-sm"><i class="fa-solid fa-ban"></i> ملغي</span>
+                                        </td>
+                                        <td class="py-4 px-4">
+                                            <div class="text-sm font-semibold text-slate-600">2026-03-02</div>
+                                            <div class="text-xs text-slate-400 mt-0.5 font-bold">11:15 AM</div>
+                                        </td>
+                                        <td class="py-4 px-4 text-center">
+                                            <button type="button" onclick="openOrderDetailsModal('orders/details.html', this.closest('tr').querySelector('.font-black').innerText)" class="w-8 h-8 rounded-lg bg-slate-50 text-slate-600 hover:bg-indigo-50 hover:text-indigo-600 border border-slate-100 hover:border-indigo-200 shadow-sm transition-all flex items-center justify-center m-auto">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="hover:bg-slate-50/50 transition-colors group">
+                                        <td class="py-4 pl-4">
+                                            <div class="font-black text-slate-700">#MUM-9214</div>
+                                            <div class="text-xs text-slate-400 font-semibold mt-0.5">منذ سـاعة</div>
+                                        </td>
+                                        <td class="py-4 px-4">
+                                            <div class="flex items-center gap-3">
+                                                <div class="w-8 h-8 rounded-full bg-cyan-50 text-cyan-500 flex items-center justify-center font-bold text-xs border border-cyan-100">Y</div>
+                                                <div>
+                                                    <div class="font-bold text-slate-800 text-sm">Yasser Ali</div>
+                                                    <div class="text-slate-400 text-xs mt-0.5">501111567</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="py-4 px-4">
+                                            <div class="font-bold text-slate-700 text-sm">حي المروة</div>
+                                            <div class="text-[11px] font-bold mt-1 text-slate-500 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded-md inline-flex items-center gap-1"><i class="fa-solid fa-motorcycle text-indigo-500"></i> توصيل</div>
+                                        </td>
+                                        <td class="py-4 px-4 text-center font-bold text-emerald-600 text-sm">180.00 ر.س</td>
+                                        <td class="py-4 px-4 text-center">
+                                            <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-[11px] font-bold border border-purple-200 shadow-sm"><i class="fa-solid fa-bell-concierge"></i> جاهز للاستلام</span>
+                                        </td>
+                                        <td class="py-4 px-4">
+                                            <div class="text-sm font-semibold text-slate-600">2026-03-04</div>
+                                            <div class="text-xs text-slate-400 mt-0.5 font-bold">12:30 AM</div>
+                                        </td>
+                                        <td class="py-4 px-4 text-center">
+                                            <button type="button" onclick="openOrderDetailsModal('orders/details.html', this.closest('tr').querySelector('.font-black').innerText)" class="w-8 h-8 rounded-lg bg-slate-50 text-slate-600 hover:bg-indigo-50 hover:text-indigo-600 border border-slate-100 hover:border-indigo-200 shadow-sm transition-all flex items-center justify-center m-auto">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div><!-- End tab-orders -->
-            </div> <!-- End Scrollable Content Area -->
-        </main>
+                </div> <!-- End Scrollable Content Area -->
+    </main>
 
+
+    <!-- Order Details Modal -->
+    <div id="orderDetailsModal" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[9999] hidden items-center justify-center p-4">
+        <div class="bg-white rounded-3xl w-full max-w-6xl shadow-2xl animate-in fade-in zoom-in duration-300 h-[90vh] flex flex-col overflow-hidden">
+            <div class="p-6 border-b border-slate-100 flex items-center justify-between bg-white shrink-0 rounded-t-3xl">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-file-invoice"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-800" id="orderDetailsModalTitle">تفاصيل الطلب</h3>
+                        <p class="text-sm text-slate-500">استعراض بيانات الطلب وتتبعه</p>
+                    </div>
+                </div>
+                <button type="button" onclick="document.getElementById('orderDetailsIframe').src = ''; toggleModal('orderDetailsModal')"
+                    class="w-10 h-10 rounded-xl bg-slate-50 text-slate-400 hover:bg-rose-50 hover:text-rose-500 transition-all flex items-center justify-center shadow-sm">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+            <div class="flex-1 w-full relative bg-slate-50 rounded-b-3xl overflow-hidden shadow-inner">
+                <iframe id="orderDetailsIframe" src="" class="absolute inset-0 w-full h-full border-none bg-slate-50" title="Order Details"></iframe>
+            </div>
+        </div>
+    </div>
 
     <!-- Add/Edit Role Modal -->
     <div id="addNewRoleModal"
@@ -2684,7 +2857,7 @@
             document.querySelectorAll('.tab-content').forEach(el => {
                 el.classList.remove('active');
             });
-            
+
             // Show selected tab
             targetTab.classList.add('active');
 
@@ -2757,6 +2930,12 @@
                 modal.classList.add('hidden');
                 modal.classList.remove('flex');
             }
+        }
+
+        function openOrderDetailsModal(url, orderTitle) {
+            document.getElementById('orderDetailsModalTitle').innerText = 'تفاصيل الطلب ' + (orderTitle ? orderTitle : '');
+            document.getElementById('orderDetailsIframe').src = url;
+            toggleModal('orderDetailsModal');
         }
 
         function previewImage(input) {
@@ -3499,6 +3678,39 @@
             }, 100);
         }
 
+        function switchOrderSubTab(subTabId) {
+            // Update buttons
+            document.querySelectorAll('.order-subtab').forEach(btn => {
+                btn.classList.remove('active', 'bg-indigo-600', 'text-white', 'shadow-lg', 'shadow-indigo-100');
+                btn.classList.add('bg-white', 'text-slate-600', 'border', 'border-slate-100', 'hover:bg-slate-50');
+            });
+            const activeBtn = document.getElementById('order-subtab-' + subTabId);
+            if (activeBtn) {
+                activeBtn.classList.add('active', 'bg-indigo-600', 'text-white', 'shadow-lg', 'shadow-indigo-100');
+                activeBtn.classList.remove('bg-white', 'text-slate-600', 'border', 'border-slate-100', 'hover:bg-slate-50');
+            }
+
+            // Filter datatable
+            if ($.fn.DataTable.isDataTable('#ordersDataTable')) {
+                let table = $('#ordersDataTable').DataTable();
+                table.column(4).search(''); // Reset search
+
+                if (subTabId === 'pending') {
+                    table.column(4).search('بانتظار');
+                } else if (subTabId === 'processing') {
+                    table.column(4).search('التحضير');
+                } else if (subTabId === 'ready') {
+                    table.column(4).search('جاهز');
+                } else if (subTabId === 'completed') {
+                    table.column(4).search('مكتمل');
+                } else if (subTabId === 'canceled') {
+                    table.column(4).search('ملغي');
+                }
+                
+                table.draw();
+            }
+        }
+
         function confirmDelete() {
             return confirm('هل أنت متأكد من رغبتك في حذف هذا المستخدم؟');
         }
@@ -3632,6 +3844,7 @@
             initAddonCategories();
             initAddons();
             initUsers();
+            initOrdersDatatable();
 
             // Handle URL parameters for direct tab/sub-tab access
             const urlParams = new URLSearchParams(window.location.search);
@@ -3649,6 +3862,25 @@
                 }
             }
         });
+
+        function initOrdersDatatable() {
+            if ($.fn.DataTable.isDataTable('#ordersDataTable')) return;
+            $('#ordersDataTable').DataTable({
+                "order": [[0, "desc"]],
+                "pageLength": 10,
+                "scrollX": true,
+                "scrollCollapse": true,
+                "dom": '<"flex justify-between items-center bg-white p-4 border-b border-slate-100 rounded-t-xl"lf>rt<"flex justify-between items-center bg-white p-4 border-t border-slate-100 rounded-b-xl"ip>',
+                "language": {
+                    "search": "",
+                    "searchPlaceholder": "بحث في الطلبات...",
+                    "sEmptyTable": "لا توجد طلبات",
+                    "lengthMenu": "عرض _MENU_ مدخلات",
+                    "info": "عرض _START_ إلى _END_ من _TOTAL_ طلبات",
+                    "paginate": { "first": "الأول", "last": "الأخير", "next": "&larr;", "previous": "&rarr;" }
+                }
+            });
+        }
     </script>
 </body>
 
