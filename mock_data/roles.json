@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "name": "مدير النظام",
+    "name_en": "Admin",
+    "permissions": ["صلاحيات كاملة (+)", "وصول مطلق"],
+    "users_count": 1,
+    "is_system": true,
+    "created_at": "2023-01-01"
+  },
+  {
+    "id": 2,
+    "name": "المصنع",
+    "name_en": "Factory",
+    "permissions": ["عرض الطلبات", "إجراءات الطلبات", "عرض الطلبات الخاصة"],
+    "users_count": 3,
+    "is_system": false,
+    "created_at": "2023-01-15"
+  },
+  {
+    "id": 3,
+    "name": "مدير المتاجر",
+    "name_en": "Store Manager",
+    "permissions": ["عرض المتاجر", "تعديل المتاجر", "عرض الطلبات", "إجراءات الطلبات", "إدارة المنتجات"],
+    "users_count": 5,
+    "is_system": false,
+    "created_at": "2023-03-20"
+  },
+  {
+    "id": 4,
+    "name": "مشرف التوصيل",
+    "name_en": "Delivery Supervisor",
+    "permissions": ["عرض عمال التوصيل", "تعيين الطلبات", "تتبع التوصيل", "إدارة المناطق"],
+    "users_count": 2,
+    "is_system": false,
+    "created_at": "2023-06-10"
+  },
+  {
+    "id": 5,
+    "name": "محاسب",
+    "name_en": "Accountant",
+    "permissions": ["عرض التقارير المالية", "إدارة المحافظ", "عرض الفواتير", "تصدير البيانات"],
+    "users_count": 2,
+    "is_system": false,
+    "created_at": "2023-09-01"
+  },
+  {
+    "id": 6,
+    "name": "دعم العملاء",
+    "name_en": "Customer Support",
+    "permissions": ["عرض العملاء", "عرض الطلبات", "إدارة الشكاوى", "عرض المحفظة"],
+    "users_count": 4,
+    "is_system": false,
+    "created_at": "2024-01-05"
+  }
+]

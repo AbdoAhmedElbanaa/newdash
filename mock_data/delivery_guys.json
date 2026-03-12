@@ -1,0 +1,46 @@
+[
+  {
+    "id": 103,
+    "name": "محمد خالد العتيبي",
+    "email": "mohammed.k@example.com",
+    "phone": "0534567890",
+    "role": "Delivery Guy",
+    "wallet": 890.50,
+    "created_at": "2024-01-20",
+    "status": "1",
+    "action": "<div class='flex gap-2'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center'><i class='fa-solid fa-pen'></i></button><button class='w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center'><i class='fa-solid fa-trash'></i></button></div>"
+  },
+  {
+    "id": 109,
+    "name": "أحمد ناصر البقمي",
+    "email": "ahmed.n@example.com",
+    "phone": "0589012345",
+    "role": "Delivery Guy",
+    "wallet": 620.00,
+    "created_at": "2024-09-14",
+    "status": "1",
+    "action": "<div class='flex gap-2'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center'><i class='fa-solid fa-pen'></i></button><button class='w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center'><i class='fa-solid fa-trash'></i></button></div>"
+  },
+  {
+    "id": 111,
+    "name": "سلطان يوسف العنزي",
+    "email": "sultan@example.com",
+    "phone": "0523456789",
+    "role": "Delivery Guy",
+    "wallet": 445.75,
+    "created_at": "2024-11-05",
+    "status": "0",
+    "action": "<div class='flex gap-2'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center'><i class='fa-solid fa-pen'></i></button><button class='w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center'><i class='fa-solid fa-trash'></i></button></div>"
+  },
+  {
+    "id": 203,
+    "name": "بندر ممدوح العنزي",
+    "email": "bandar@example.com",
+    "phone": "0536667778",
+    "role": "Delivery Guy",
+    "wallet": 310.00,
+    "created_at": "2025-02-10",
+    "status": "1",
+    "action": "<div class='flex gap-2'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center'><i class='fa-solid fa-pen'></i></button><button class='w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center'><i class='fa-solid fa-trash'></i></button></div>"
+  }
+]

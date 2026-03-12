@@ -1,0 +1,68 @@
+[
+  {
+    "id": 101,
+    "name": "عبد الله محمد الحربي",
+    "email": "abdullah@example.com",
+    "phone": "0501234567",
+    "role": "Customer",
+    "wallet": 250.75,
+    "created_at": "2024-03-01",
+    "status": "1",
+    "action": "<div class='flex gap-2'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center'><i class='fa-solid fa-pen'></i></button><button class='w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center'><i class='fa-solid fa-trash'></i></button></div>"
+  },
+  {
+    "id": 104,
+    "name": "فاطمة علي الشهري",
+    "email": "fatma@example.com",
+    "phone": "0567891234",
+    "role": "Customer",
+    "wallet": 125.00,
+    "created_at": "2024-04-05",
+    "status": "1",
+    "action": "<div class='flex gap-2'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center'><i class='fa-solid fa-pen'></i></button><button class='w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center'><i class='fa-solid fa-trash'></i></button></div>"
+  },
+  {
+    "id": 106,
+    "name": "نورة عبدالرحمن الغامدي",
+    "email": "noura@example.com",
+    "phone": "0512345678",
+    "role": "Customer",
+    "wallet": 430.25,
+    "created_at": "2024-06-18",
+    "status": "1",
+    "action": "<div class='flex gap-2'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center'><i class='fa-solid fa-pen'></i></button><button class='w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center'><i class='fa-solid fa-trash'></i></button></div>"
+  },
+  {
+    "id": 108,
+    "name": "ريم فهد الزهراني",
+    "email": "reem.f@example.com",
+    "phone": "0578901234",
+    "role": "Customer",
+    "wallet": 75.50,
+    "created_at": "2024-08-30",
+    "status": "0",
+    "action": "<div class='flex gap-2'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center'><i class='fa-solid fa-pen'></i></button><button class='w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center'><i class='fa-solid fa-trash'></i></button></div>"
+  },
+  {
+    "id": 110,
+    "name": "مريم حسن الشمراني",
+    "email": "maryam@example.com",
+    "phone": "0590123456",
+    "role": "Customer",
+    "wallet": 185.00,
+    "created_at": "2024-10-22",
+    "status": "1",
+    "action": "<div class='flex gap-2'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center'><i class='fa-solid fa-pen'></i></button><button class='w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center'><i class='fa-solid fa-trash'></i></button></div>"
+  },
+  {
+    "id": 201,
+    "name": "سعد مسفر العجمي",
+    "email": "saad@example.com",
+    "phone": "0502223334",
+    "role": "Customer",
+    "wallet": 50.00,
+    "created_at": "2024-11-15",
+    "status": "1",
+    "action": "<div class='flex gap-2'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center'><i class='fa-solid fa-pen'></i></button><button class='w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center'><i class='fa-solid fa-trash'></i></button></div>"
+  }
+]

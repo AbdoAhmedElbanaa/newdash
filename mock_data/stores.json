@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "image": "<img src='https://ui-avatars.com/api/?name=حم&background=6366f1&color=fff&size=100' class='w-12 h-12 rounded-lg object-cover shadow-sm' />",
+    "name": "<div class='font-bold text-slate-700 text-left'>متجر الحمدانية (نشط)</div><div class='text-xs text-slate-500 text-left'>Alhamdaniah Store</div>",
+    "areas": "<span class='px-2 py-1 bg-indigo-50 text-indigo-600 rounded text-xs font-semibold'>الحمدانية</span>",
+    "owner": "<span class='text-slate-600 font-semibold'>أحمد محمد</span>",
+    "created_at": "<span class='text-slate-500 text-xs'>2023-01-15</span>",
+    "oddo_stock": "<span class='px-2 py-1 bg-emerald-50 text-emerald-600 rounded-full text-xs font-bold border border-emerald-100'><i class='fa-solid fa-check-circle mr-1'></i> متوفر</span>",
+    "updated_stock": "<span class='text-slate-500 text-xs text-center block'>منذ سـاعتين</span>",
+    "action": "<div class='flex items-center justify-center gap-2'><input type='checkbox' class='action-switch' checked='checked'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center'><i class='fa-solid fa-pen'></i></button></div>"
+  },
+  {
+    "id": 2,
+    "image": "<img src='https://ui-avatars.com/api/?name=صف&background=10b981&color=fff&size=100' class='w-12 h-12 rounded-lg object-cover shadow-sm' />",
+    "name": "<div class='font-bold text-slate-700 text-left'>متجر الصفا (مغلق)</div><div class='text-xs text-slate-500 text-left'>Alsafa Store</div>",
+    "areas": "<div class='flex gap-1 flex-wrap'><span class='px-2 py-1 bg-indigo-50 text-indigo-600 rounded text-xs font-semibold'>الصفا</span></div>",
+    "owner": "<span class='text-slate-600 font-semibold'>سعيد خالد</span>",
+    "created_at": "<span class='text-slate-500 text-xs'>2023-05-22</span>",
+    "oddo_stock": "<span class='px-2 py-1 bg-rose-50 text-rose-600 rounded-full text-xs font-bold border border-rose-100'><i class='fa-solid fa-circle-exclamation mr-1'></i> نفد الكمية</span>",
+    "updated_stock": "<span class='text-slate-500 text-xs text-center block'>منذ يومين</span>",
+    "action": "<div class='flex items-center justify-center gap-2'><input type='checkbox' class='action-switch'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center'><i class='fa-solid fa-pen'></i></button></div>"
+  },
+  {
+    "id": 3,
+    "image": "<img src='https://ui-avatars.com/api/?name=سم&background=f59e0b&color=fff&size=100' class='w-12 h-12 rounded-lg object-cover shadow-sm' />",
+    "name": "<div class='font-bold text-slate-700 text-left'>متجر السامر (نشط)</div><div class='text-xs text-slate-500 text-left'>Alsamer Store</div>",
+    "areas": "<div class='flex gap-1 flex-wrap'><span class='px-2 py-1 bg-indigo-50 text-indigo-600 rounded text-xs font-semibold'>السامر</span><span class='px-2 py-1 bg-indigo-50 text-indigo-600 rounded text-xs font-semibold'>النزهة</span></div>",
+    "owner": "<span class='text-slate-600 font-semibold'>محمد عبدالله</span>",
+    "created_at": "<span class='text-slate-500 text-xs'>2023-08-10</span>",
+    "oddo_stock": "<span class='px-2 py-1 bg-emerald-50 text-emerald-600 rounded-full text-xs font-bold border border-emerald-100'><i class='fa-solid fa-check-circle mr-1'></i> متوفر</span>",
+    "updated_stock": "<span class='text-slate-500 text-xs text-center block'>منذ 3 ساعات</span>",
+    "action": "<div class='flex items-center justify-center gap-2'><input type='checkbox' class='action-switch' checked='checked'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center'><i class='fa-solid fa-pen'></i></button></div>"
+  },
+  {
+    "id": 4,
+    "image": "<img src='https://ui-avatars.com/api/?name=نز&background=ef4444&color=fff&size=100' class='w-12 h-12 rounded-lg object-cover shadow-sm' />",
+    "name": "<div class='font-bold text-slate-700 text-left'>حي النزهة (نشط)</div><div class='text-xs text-slate-500 text-left'>Al Nuzha District</div>",
+    "areas": "<span class='px-2 py-1 bg-indigo-50 text-indigo-600 rounded text-xs font-semibold'>النزهة</span>",
+    "owner": "<span class='text-slate-600 font-semibold'>عبدالرحمن فهد</span>",
+    "created_at": "<span class='text-slate-500 text-xs'>2023-11-03</span>",
+    "oddo_stock": "<span class='px-2 py-1 bg-amber-50 text-amber-600 rounded-full text-xs font-bold border border-amber-100'><i class='fa-solid fa-clock-rotate-left mr-1'></i> بانتظار الجرد</span>",
+    "updated_stock": "<span class='text-slate-500 text-xs text-center block'>منذ 5 أيام</span>",
+    "action": "<div class='flex items-center justify-center gap-2'><input type='checkbox' class='action-switch' checked='checked'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center'><i class='fa-solid fa-pen'></i></button></div>"
+  },
+  {
+    "id": 5,
+    "image": "<img src='https://ui-avatars.com/api/?name=سل&background=8b5cf6&color=fff&size=100' class='w-12 h-12 rounded-lg object-cover shadow-sm' />",
+    "name": "<div class='font-bold text-slate-700 text-left'>حي السلامة (نشط)</div><div class='text-xs text-slate-500 text-left'>Al Salamah District</div>",
+    "areas": "<div class='flex gap-1 flex-wrap'><span class='px-2 py-1 bg-indigo-50 text-indigo-600 rounded text-xs font-semibold'>السلامة</span></div>",
+    "owner": "<span class='text-slate-600 font-semibold'>خالد إبراهيم</span>",
+    "created_at": "<span class='text-slate-500 text-xs'>2024-01-20</span>",
+    "oddo_stock": "<span class='px-2 py-1 bg-emerald-50 text-emerald-600 rounded-full text-xs font-bold border border-emerald-100'><i class='fa-solid fa-check-circle mr-1'></i> متوفر</span>",
+    "updated_stock": "<span class='text-slate-500 text-xs text-center block'>منذ ساعة</span>",
+    "action": "<div class='flex items-center justify-center gap-2'><input type='checkbox' class='action-switch' checked='checked'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center'><i class='fa-solid fa-pen'></i></button></div>"
+  },
+  {
+    "id": 6,
+    "image": "<img src='https://ui-avatars.com/api/?name=رو&background=ec4899&color=fff&size=100' class='w-12 h-12 rounded-lg object-cover shadow-sm' />",
+    "name": "<div class='font-bold text-slate-700 text-left'>حي الروضة (مغلق)</div><div class='text-xs text-slate-500 text-left'>Al Rawdah District</div>",
+    "areas": "<span class='px-2 py-1 bg-indigo-50 text-indigo-600 rounded text-xs font-semibold'>الروضة</span>",
+    "owner": "<span class='text-slate-600 font-semibold'>ناصر علي</span>",
+    "created_at": "<span class='text-slate-500 text-xs'>2024-02-14</span>",
+    "oddo_stock": "<span class='px-2 py-1 bg-rose-50 text-rose-600 rounded-full text-xs font-bold border border-rose-100'><i class='fa-solid fa-circle-exclamation mr-1'></i> نفد الكمية</span>",
+    "updated_stock": "<span class='text-slate-500 text-xs text-center block'>منذ أسبوع</span>",
+    "action": "<div class='flex items-center justify-center gap-2'><input type='checkbox' class='action-switch'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center'><i class='fa-solid fa-pen'></i></button></div>"
+  },
+  {
+    "id": 7,
+    "image": "<img src='https://ui-avatars.com/api/?name=بغ&background=14b8a6&color=fff&size=100' class='w-12 h-12 rounded-lg object-cover shadow-sm' />",
+    "name": "<div class='font-bold text-slate-700 text-left'>حي البغدادية (نشط)</div><div class='text-xs text-slate-500 text-left'>Al Baghdadiyah</div>",
+    "areas": "<div class='flex gap-1 flex-wrap'><span class='px-2 py-1 bg-indigo-50 text-indigo-600 rounded text-xs font-semibold'>البغدادية</span><span class='px-2 py-1 bg-indigo-50 text-indigo-600 rounded text-xs font-semibold'>الحمدانية</span></div>",
+    "owner": "<span class='text-slate-600 font-semibold'>فيصل سعود</span>",
+    "created_at": "<span class='text-slate-500 text-xs'>2024-03-01</span>",
+    "oddo_stock": "<span class='px-2 py-1 bg-emerald-50 text-emerald-600 rounded-full text-xs font-bold border border-emerald-100'><i class='fa-solid fa-check-circle mr-1'></i> متوفر</span>",
+    "updated_stock": "<span class='text-slate-500 text-xs text-center block'>منذ 30 دقيقة</span>",
+    "action": "<div class='flex items-center justify-center gap-2'><input type='checkbox' class='action-switch' checked='checked'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center'><i class='fa-solid fa-pen'></i></button></div>"
+  },
+  {
+    "id": 8,
+    "image": "<img src='https://ui-avatars.com/api/?name=مك&background=0ea5e9&color=fff&size=100' class='w-12 h-12 rounded-lg object-cover shadow-sm' />",
+    "name": "<div class='font-bold text-slate-700 text-left'>فرع مكة (نشط)</div><div class='text-xs text-slate-500 text-left'>Makkah Branch</div>",
+    "areas": "<span class='px-2 py-1 bg-indigo-50 text-indigo-600 rounded text-xs font-semibold'>مكة</span>",
+    "owner": "<span class='text-slate-600 font-semibold'>عمر حسين</span>",
+    "created_at": "<span class='text-slate-500 text-xs'>2024-05-18</span>",
+    "oddo_stock": "<span class='px-2 py-1 bg-emerald-50 text-emerald-600 rounded-full text-xs font-bold border border-emerald-100'><i class='fa-solid fa-check-circle mr-1'></i> متوفر</span>",
+    "updated_stock": "<span class='text-slate-500 text-xs text-center block'>منذ 4 ساعات</span>",
+    "action": "<div class='flex items-center justify-center gap-2'><input type='checkbox' class='action-switch' checked='checked'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center'><i class='fa-solid fa-pen'></i></button></div>"
+  }
+]

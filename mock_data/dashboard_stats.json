@@ -1,0 +1,22 @@
+{
+  "stats": {
+    "total_stores": 156,
+    "total_orders": 8432,
+    "total_users": 2105,
+    "total_earnings": "45,230.50",
+    "delivery_guys": 42,
+    "pending_orders": 18
+  },
+  "charts": {
+    "donut": [
+      { "value": 12, "name": "Order Placed" },
+      { "value": 45, "name": "Preparing Order" },
+      { "value": 356, "name": "Delivered" },
+      { "value": 28, "name": "Canceled" },
+      { "value": 15, "name": "Ready For Pick Up" },
+      { "value": 5, "name": "Awaiting Payment" },
+      { "value": 10, "name": "Payment Failed" }
+    ],
+    "hourly_sales": [0, 0, 0, 0, 0, 0, 0, 0, 10, 20, 15, 30, 25, 45, 60, 50, 40, 20, 10, 5, 0, 0, 0, 0]
+  }
+}

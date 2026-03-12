@@ -1,0 +1,74 @@
+[
+  {
+    "id": 17,
+    "image": "https://ui-avatars.com/api/?name=عي&background=f59e0b&color=fff&size=100",
+    "name": "مناسبات أعياد",
+    "items_count": 8,
+    "status": "enabled",
+    "created_by": "admin",
+    "created_at": "منذ أشهر 4"
+  },
+  {
+    "id": 16,
+    "image": "https://ui-avatars.com/api/?name=ري&background=10b981&color=fff&size=100",
+    "name": "مناسبات رياضية",
+    "items_count": 5,
+    "status": "enabled",
+    "created_by": "admin",
+    "created_at": "منذ سنة"
+  },
+  {
+    "id": 5,
+    "image": "https://ui-avatars.com/api/?name=مع&background=6366f1&color=fff&size=100",
+    "name": "المعجنات",
+    "items_count": 23,
+    "status": "enabled",
+    "created_by": "admin",
+    "created_at": "منذ سنتين"
+  },
+  {
+    "id": 4,
+    "image": "https://ui-avatars.com/api/?name=بت&background=ec4899&color=fff&size=100",
+    "name": "البيتيفور",
+    "items_count": 15,
+    "status": "enabled",
+    "created_by": "admin",
+    "created_at": "منذ سنتين"
+  },
+  {
+    "id": 3,
+    "image": "https://ui-avatars.com/api/?name=تو&background=ef4444&color=fff&size=100",
+    "name": "التورته",
+    "items_count": 32,
+    "status": "enabled",
+    "created_by": "admin",
+    "created_at": "منذ سنتين"
+  },
+  {
+    "id": 18,
+    "image": "https://ui-avatars.com/api/?name=حل&background=8b5cf6&color=fff&size=100",
+    "name": "حلويات شرقية",
+    "items_count": 18,
+    "status": "enabled",
+    "created_by": "admin",
+    "created_at": "منذ 6 أشهر"
+  },
+  {
+    "id": 19,
+    "image": "https://ui-avatars.com/api/?name=مش&background=14b8a6&color=fff&size=100",
+    "name": "مشروبات",
+    "items_count": 12,
+    "status": "disabled",
+    "created_by": "store_owner",
+    "created_at": "منذ 3 أشهر"
+  },
+  {
+    "id": 20,
+    "image": "https://ui-avatars.com/api/?name=وج&background=0ea5e9&color=fff&size=100",
+    "name": "وجبات خفيفة",
+    "items_count": 9,
+    "status": "enabled",
+    "created_by": "admin",
+    "created_at": "منذ شهرين"
+  }
+]

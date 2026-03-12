@@ -1,0 +1,134 @@
+[
+  {
+    "id": 101,
+    "name": "عبد الله محمد الحربي",
+    "email": "abdullah@example.com",
+    "phone": "0501234567",
+    "role": "Customer",
+    "wallet": 250.75,
+    "created_at": "2024-03-01 10:00:00",
+    "status": "1",
+    "action": "<div class='flex gap-2'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center'><i class='fa-solid fa-pen'></i></button><button class='w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center'><i class='fa-solid fa-trash'></i></button></div>"
+  },
+  {
+    "id": 102,
+    "name": "سارة أحمد القحطاني",
+    "email": "sara@example.com",
+    "phone": "0559876543",
+    "role": "Store Owner",
+    "wallet": 1540.00,
+    "created_at": "2024-02-15 14:30:00",
+    "status": "1",
+    "action": "<div class='flex gap-2'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center'><i class='fa-solid fa-pen'></i></button><button class='w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center'><i class='fa-solid fa-trash'></i></button></div>"
+  },
+  {
+    "id": 103,
+    "name": "محمد خالد العتيبي",
+    "email": "mohammed.k@example.com",
+    "phone": "0534567890",
+    "role": "Delivery Guy",
+    "wallet": 890.50,
+    "created_at": "2024-01-20 09:15:00",
+    "status": "1",
+    "action": "<div class='flex gap-2'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center'><i class='fa-solid fa-pen'></i></button><button class='w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center'><i class='fa-solid fa-trash'></i></button></div>"
+  },
+  {
+    "id": 104,
+    "name": "فاطمة علي الشهري",
+    "email": "fatma@example.com",
+    "phone": "0567891234",
+    "role": "Customer",
+    "wallet": 125.00,
+    "created_at": "2024-04-05 16:45:00",
+    "status": "1",
+    "action": "<div class='flex gap-2'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center'><i class='fa-solid fa-pen'></i></button><button class='w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center'><i class='fa-solid fa-trash'></i></button></div>"
+  },
+  {
+    "id": 105,
+    "name": "عبدالعزيز سعود المالكي",
+    "email": "aziz.s@example.com",
+    "phone": "0543219876",
+    "role": "Factory",
+    "wallet": 0.00,
+    "created_at": "2024-05-12 11:30:00",
+    "status": "1",
+    "action": "<div class='flex gap-2'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center'><i class='fa-solid fa-pen'></i></button><button class='w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center'><i class='fa-solid fa-trash'></i></button></div>"
+  },
+  {
+    "id": 106,
+    "name": "نورة عبدالرحمن الغامدي",
+    "email": "noura@example.com",
+    "phone": "0512345678",
+    "role": "Customer",
+    "wallet": 430.25,
+    "created_at": "2024-06-18 08:20:00",
+    "status": "1",
+    "action": "<div class='flex gap-2'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center'><i class='fa-solid fa-pen'></i></button><button class='w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center'><i class='fa-solid fa-trash'></i></button></div>"
+  },
+  {
+    "id": 107,
+    "name": "خالد إبراهيم الدوسري",
+    "email": "khalid.i@example.com",
+    "phone": "0556789012",
+    "role": "Store Owner",
+    "wallet": 3200.00,
+    "created_at": "2024-07-25 13:00:00",
+    "status": "1",
+    "action": "<div class='flex gap-2'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center'><i class='fa-solid fa-pen'></i></button><button class='w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center'><i class='fa-solid fa-trash'></i></button></div>"
+  },
+  {
+    "id": 108,
+    "name": "ريم فهد الزهراني",
+    "email": "reem.f@example.com",
+    "phone": "0578901234",
+    "role": "Customer",
+    "wallet": 75.50,
+    "created_at": "2024-08-30 10:10:00",
+    "status": "0",
+    "action": "<div class='flex gap-2'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center'><i class='fa-solid fa-pen'></i></button><button class='w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center'><i class='fa-solid fa-trash'></i></button></div>"
+  },
+  {
+    "id": 109,
+    "name": "أحمد ناصر البقمي",
+    "email": "ahmed.n@example.com",
+    "phone": "0589012345",
+    "role": "Delivery Guy",
+    "wallet": 620.00,
+    "created_at": "2024-09-14 07:45:00",
+    "status": "1",
+    "action": "<div class='flex gap-2'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center'><i class='fa-solid fa-pen'></i></button><button class='w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center'><i class='fa-solid fa-trash'></i></button></div>"
+  },
+  {
+    "id": 110,
+    "name": "مريم حسن الشمراني",
+    "email": "maryam@example.com",
+    "phone": "0590123456",
+    "role": "Customer",
+    "wallet": 185.00,
+    "created_at": "2024-10-22 15:30:00",
+    "status": "1",
+    "action": "<div class='flex gap-2'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center'><i class='fa-solid fa-pen'></i></button><button class='w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center'><i class='fa-solid fa-trash'></i></button></div>"
+  },
+  {
+    "id": 111,
+    "name": "سلطان يوسف العنزي",
+    "email": "sultan@example.com",
+    "phone": "0523456789",
+    "role": "Delivery Guy",
+    "wallet": 445.75,
+    "created_at": "2024-11-05 12:00:00",
+    "status": "0",
+    "action": "<div class='flex gap-2'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center'><i class='fa-solid fa-pen'></i></button><button class='w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center'><i class='fa-solid fa-trash'></i></button></div>"
+  },
+  {
+    "id": 112,
+    "name": "هند سعيد الحارثي",
+    "email": "hind@example.com",
+    "phone": "0545678901",
+    "role": "Store Owner",
+    "wallet": 2750.50,
+    "created_at": "2024-12-10 09:00:00",
+    "status": "1",
+    "action": "<div class='flex gap-2'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center'><i class='fa-solid fa-pen'></i></button><button class='w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center'><i class='fa-solid fa-trash'></i></button></div>"
+  }
+]
