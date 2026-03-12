@@ -128,13 +128,13 @@
                 <!-- Head title -->
                 <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 mt-2">
                     <div>
-                        <h2 class="text-3xl font-bold text-slate-800 mb-2">#NUZ-2140 <span
-                                class="text-slate-400 font-normal">/ حي النزهة</span></h2>
+                        <h2 id="order-title" class="text-3xl font-bold text-slate-800 mb-2">#NUZ-2140 <span
+                                id="order-store" class="text-slate-400 font-normal">/ حي النزهة</span></h2>
                         <div class="flex flex-wrap items-center gap-3">
-                            <span
+                            <span id="order-datetime"
                                 class="text-slate-500 font-bold text-sm bg-white px-3 py-1 rounded-lg border border-slate-200 shadow-sm"><i
                                     class="fa-regular fa-clock mr-1 text-slate-400"></i> 2026-03-04 / 01:34 AM</span>
-                            <span
+                            <span id="order-status-badge"
                                 class="px-3 py-1 bg-amber-50 border border-amber-200 text-amber-600 rounded-lg text-sm font-bold shadow-sm whitespace-nowrap"><i
                                     class="fa-solid fa-spinner fa-spin mr-1"></i> بانتظار الدفع (Awaiting
                                 Payment)</span>
@@ -165,13 +165,13 @@
                             <div class="space-y-4 text-sm">
                                 <div class="flex justify-between">
                                     <span class="text-slate-500">نوع الطلب</span>
-                                    <span
+                                    <span id="order-type"
                                         class="font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-100">استلام
                                         ذاتي</span>
                                 </div>
                                 <div class="flex justify-between">
                                     <span class="text-slate-500">اسم المتجر</span>
-                                    <span class="font-bold text-slate-800">حي النزهة</span>
+                                    <span id="order-store-name" class="font-bold text-slate-800">حي النزهة</span>
                                 </div>
                                 <div class="flex justify-between">
                                     <span class="text-slate-500">طريقة الدفع</span>
@@ -207,15 +207,14 @@
                                         class="w-12 h-12 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center font-bold border border-slate-200">
                                         أ</div>
                                     <div>
-                                        <div class="font-bold text-slate-800 text-base">Amir Adel</div>
-                                        <div class="text-slate-400 text-xs mt-0.5"
-                                            style="direction: ltr; text-align: right;">amer.adel.mohamed.aid@gmail.com
-                                        </div>
+                                        <div id="customer-name" class="font-bold text-slate-800 text-base">Amir Adel</div>
+                                        <div id="customer-email" class="text-slate-400 text-xs mt-0.5"
+                                            style="direction: ltr; text-align: right;">amer.adel.mohamed.aid@gmail.com</div>
                                     </div>
                                 </div>
                                 <div class="flex justify-between items-center pt-3 border-t border-slate-100">
                                     <span class="text-slate-500">الهاتف</span>
-                                    <span
+                                    <span id="customer-phone"
                                         class="font-bold text-slate-800 border px-2 py-0.5 rounded bg-slate-50 border-slate-200 tracking-wider">553399596</span>
                                 </div>
                             </div>
@@ -387,6 +386,89 @@
             </div>
         </div>
     </main>
+
+    <script>
+        async function loadMockOrders() {
+            try {
+                const res = await fetch('../mock_data/orders.json');
+                if (!res.ok) return [];
+                return await res.json();
+            } catch (e) {
+                console.error('Could not load mock orders', e);
+                return [];
+            }
+        }
+
+        function getQueryParam(key) {
+            const params = new URLSearchParams(window.location.search);
+            return params.get(key);
+        }
+
+        function stripHtml(html) {
+            const div = document.createElement('div');
+            div.innerHTML = html || '';
+            return (div.textContent || div.innerText || '').trim();
+        }
+
+        async function initOrderDetailsPage() {
+            const orderId = getQueryParam('order_id');
+            if (!orderId) return;
+
+            const orders = await loadMockOrders();
+            const order = orders.find(o => o.order_id === orderId);
+            if (!order) return;
+
+            const titleEl = document.getElementById('order-title');
+            const storeSpan = document.getElementById('order-store');
+            const dtEl = document.getElementById('order-datetime');
+            const statusBadge = document.getElementById('order-status-badge');
+            const typeEl = document.getElementById('order-type');
+            const storeNameEl = document.getElementById('order-store-name');
+            const customerNameEl = document.getElementById('customer-name');
+            const customerEmailEl = document.getElementById('customer-email');
+            const customerPhoneEl = document.getElementById('customer-phone');
+
+            const storeTextFull = stripHtml(order.store);
+            const storeLines = storeTextFull.split('\n').map(s => s.trim()).filter(Boolean);
+            const storeName = storeLines[0] || '';
+            const orderType = storeLines[1] || storeLines[0] || '';
+
+            if (titleEl && storeSpan) {
+                titleEl.firstChild.nodeValue = order.order_id + ' ';
+                storeSpan.textContent = '/ ' + storeName;
+            }
+            if (dtEl) {
+                dtEl.innerHTML = `<i class="fa-regular fa-clock mr-1 text-slate-400"></i> ${order.created_at}`;
+            }
+            if (statusBadge) {
+                statusBadge.innerHTML = order.status;
+            }
+            if (storeNameEl) {
+                storeNameEl.textContent = storeName;
+            }
+            if (typeEl) {
+                typeEl.textContent = orderType;
+            }
+
+            const customerTextFull = stripHtml(order.customer);
+            const customerLines = customerTextFull.split('\n').map(s => s.trim()).filter(Boolean);
+            const customerName = customerLines[0] || '';
+            const customerPhone = customerLines[1] || '';
+
+            if (customerNameEl) {
+                customerNameEl.textContent = customerName;
+            }
+            if (customerPhoneEl) {
+                customerPhoneEl.textContent = customerPhone;
+            }
+            // لا يوجد إيميل في الموك، نتركه كما هو أو نفرغه
+            if (customerEmailEl && !customerEmailEl.dataset.staticEmail) {
+                customerEmailEl.textContent = '';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', initOrderDetailsPage);
+    </script>
 
 </body>
 

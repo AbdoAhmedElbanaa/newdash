@@ -6,7 +6,7 @@
     "total": "85.50 ر.س",
     "status": "<span class='inline-flex items-center gap-1.5 px-3 py-1 bg-amber-50 text-amber-600 rounded-full text-[11px] font-bold border border-amber-200'>بانتظار الدفع</span>",
     "created_at": "منذ 10 دقائق",
-    "action": "<button class='p-2 text-indigo-600 hover:bg-indigo-50 rounded-lg'><i class='fa-solid fa-eye'></i></button>"
+    "action": "<button class='p-2 text-indigo-600 hover:bg-indigo-50 rounded-lg' onclick=\"window.location.href='orders/details.html?order_id=%23ORD-8432'\"><i class='fa-solid fa-eye'></i></button>"
   },
   {
     "order_id": "#ORD-8431",
@@ -15,7 +15,7 @@
     "total": "45.00 ر.س",
     "status": "<span class='inline-flex items-center gap-1.5 px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-[11px] font-bold border border-blue-200'>قيد التحضير</span>",
     "created_at": "منذ ساعة",
-    "action": "<button class='p-2 text-indigo-600 hover:bg-indigo-50 rounded-lg'><i class='fa-solid fa-eye'></i></button>"
+    "action": "<button class='p-2 text-indigo-600 hover:bg-indigo-50 rounded-lg' onclick=\"window.location.href='orders/details.html?order_id=%23ORD-8431'\"><i class='fa-solid fa-eye'></i></button>"
   },
   {
     "order_id": "#ORD-8430",
@@ -24,7 +24,7 @@
     "total": "220.00 ر.س",
     "status": "<span class='inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-50 text-emerald-600 rounded-full text-[11px] font-bold border border-emerald-200'>مكتمل</span>",
     "created_at": "منذ 3 ساعات",
-    "action": "<button class='p-2 text-indigo-600 hover:bg-indigo-50 rounded-lg'><i class='fa-solid fa-eye'></i></button>"
+    "action": "<button class='p-2 text-indigo-600 hover:bg-indigo-50 rounded-lg' onclick=\"window.location.href='orders/details.html?order_id=%23ORD-8430'\"><i class='fa-solid fa-eye'></i></button>"
   },
   {
     "order_id": "#ORD-8429",
@@ -33,7 +33,7 @@
     "total": "165.00 ر.س",
     "status": "<span class='inline-flex items-center gap-1.5 px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-[11px] font-bold border border-purple-200'>جاهز للاستلام</span>",
     "created_at": "منذ 5 ساعات",
-    "action": "<button class='p-2 text-indigo-600 hover:bg-indigo-50 rounded-lg'><i class='fa-solid fa-eye'></i></button>"
+    "action": "<button class='p-2 text-indigo-600 hover:bg-indigo-50 rounded-lg' onclick=\"window.location.href='orders/details.html?order_id=%23ORD-8429'\"><i class='fa-solid fa-eye'></i></button>"
   },
   {
     "order_id": "#ORD-8428",
@@ -42,7 +42,7 @@
     "total": "350.00 ر.س",
     "status": "<span class='inline-flex items-center gap-1.5 px-3 py-1 bg-rose-50 text-rose-600 rounded-full text-[11px] font-bold border border-rose-200'>ملغي</span>",
     "created_at": "منذ 6 ساعات",
-    "action": "<button class='p-2 text-indigo-600 hover:bg-indigo-50 rounded-lg'><i class='fa-solid fa-eye'></i></button>"
+    "action": "<button class='p-2 text-indigo-600 hover:bg-indigo-50 rounded-lg' onclick=\"window.location.href='orders/details.html?order_id=%23ORD-8428'\"><i class='fa-solid fa-eye'></i></button>"
   },
   {
     "order_id": "#ORD-8427",
@@ -51,7 +51,7 @@
     "total": "95.00 ر.س",
     "status": "<span class='inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-50 text-emerald-600 rounded-full text-[11px] font-bold border border-emerald-200'>مكتمل</span>",
     "created_at": "منذ 8 ساعات",
-    "action": "<button class='p-2 text-indigo-600 hover:bg-indigo-50 rounded-lg'><i class='fa-solid fa-eye'></i></button>"
+    "action": "<button class='p-2 text-indigo-600 hover:bg-indigo-50 rounded-lg' onclick=\"window.location.href='orders/details.html?order_id=%23ORD-8427'\"><i class='fa-solid fa-eye'></i></button>"
   },
   {
     "order_id": "#ORD-8426",
@@ -60,7 +60,7 @@
     "total": "130.00 ر.س",
     "status": "<span class='inline-flex items-center gap-1.5 px-3 py-1 bg-amber-50 text-amber-600 rounded-full text-[11px] font-bold border border-amber-200'>بانتظار الدفع</span>",
     "created_at": "منذ يوم",
-    "action": "<button class='p-2 text-indigo-600 hover:bg-indigo-50 rounded-lg'><i class='fa-solid fa-eye'></i></button>"
+    "action": "<button class='p-2 text-indigo-600 hover:bg-indigo-50 rounded-lg' onclick=\"window.location.href='orders/details.html?order_id=%23ORD-8426'\"><i class='fa-solid fa-eye'></i></button>"
   },
   {
     "order_id": "#ORD-8425",
@@ -69,7 +69,7 @@
     "total": "75.50 ر.س",
     "status": "<span class='inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-50 text-emerald-600 rounded-full text-[11px] font-bold border border-emerald-200'>مكتمل</span>",
     "created_at": "منذ يوم",
-    "action": "<button class='p-2 text-indigo-600 hover:bg-indigo-50 rounded-lg'><i class='fa-solid fa-eye'></i></button>"
+    "action": "<button class='p-2 text-indigo-600 hover:bg-indigo-50 rounded-lg' onclick=\"window.location.href='orders/details.html?order_id=%23ORD-8425'\"><i class='fa-solid fa-eye'></i></button>"
   },
   {
     "order_id": "#ORD-8424",
@@ -78,7 +78,7 @@
     "total": "185.00 ر.س",
     "status": "<span class='inline-flex items-center gap-1.5 px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-[11px] font-bold border border-blue-200'>قيد التحضير</span>",
     "created_at": "منذ يومين",
-    "action": "<button class='p-2 text-indigo-600 hover:bg-indigo-50 rounded-lg'><i class='fa-solid fa-eye'></i></button>"
+    "action": "<button class='p-2 text-indigo-600 hover:bg-indigo-50 rounded-lg' onclick=\"window.location.href='orders/details.html?order_id=%23ORD-8424'\"><i class='fa-solid fa-eye'></i></button>"
   },
   {
     "order_id": "#ORD-8423",
@@ -87,7 +87,7 @@
     "total": "55.00 ر.س",
     "status": "<span class='inline-flex items-center gap-1.5 px-3 py-1 bg-rose-50 text-rose-600 rounded-full text-[11px] font-bold border border-rose-200'>ملغي</span>",
     "created_at": "منذ يومين",
-    "action": "<button class='p-2 text-indigo-600 hover:bg-indigo-50 rounded-lg'><i class='fa-solid fa-eye'></i></button>"
+    "action": "<button class='p-2 text-indigo-600 hover:bg-indigo-50 rounded-lg' onclick=\"window.location.href='orders/details.html?order_id=%23ORD-8423'\"><i class='fa-solid fa-eye'></i></button>"
   },
   {
     "order_id": "#ORD-8422",
@@ -96,7 +96,7 @@
     "total": "420.00 ر.س",
     "status": "<span class='inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-50 text-emerald-600 rounded-full text-[11px] font-bold border border-emerald-200'>مكتمل</span>",
     "created_at": "منذ 3 أيام",
-    "action": "<button class='p-2 text-indigo-600 hover:bg-indigo-50 rounded-lg'><i class='fa-solid fa-eye'></i></button>"
+    "action": "<button class='p-2 text-indigo-600 hover:bg-indigo-50 rounded-lg' onclick=\"window.location.href='orders/details.html?order_id=%23ORD-8422'\"><i class='fa-solid fa-eye'></i></button>"
   },
   {
     "order_id": "#ORD-8421",
@@ -105,6 +105,6 @@
     "total": "290.00 ر.س",
     "status": "<span class='inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-50 text-emerald-600 rounded-full text-[11px] font-bold border border-emerald-200'>مكتمل</span>",
     "created_at": "منذ 4 أيام",
-    "action": "<button class='p-2 text-indigo-600 hover:bg-indigo-50 rounded-lg'><i class='fa-solid fa-eye'></i></button>"
+    "action": "<button class='p-2 text-indigo-600 hover:bg-indigo-50 rounded-lg' onclick=\"window.location.href='orders/details.html?order_id=%23ORD-8421'\"><i class='fa-solid fa-eye'></i></button>"
   }
 ]
