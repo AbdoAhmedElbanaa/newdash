@@ -3015,7 +3015,26 @@
                 activeActions.classList.remove('hidden');
             }
 
-            // Adjust table columns for the new subtab
+            // Ensure mock-data tables are initialized/refreshed when their sub-tab is activated
+            if (subTabId === 'addons') {
+                if (typeof window.addonsDatatableVar === 'undefined' || !window.addonsDatatableVar) {
+                    if (typeof initAddons === 'function') {
+                        initAddons();
+                    }
+                } else if (Array.isArray(window.ELITE_MOCK?.addons)) {
+                    window.addonsDatatableVar.clear().rows.add(window.ELITE_MOCK.addons).draw(false);
+                }
+            } else if (subTabId === 'addoncategories') {
+                if (typeof window.addonCatDatatableVar === 'undefined' || !window.addonCatDatatableVar) {
+                    if (typeof initAddonCategories === 'function') {
+                        initAddonCategories();
+                    }
+                } else if (Array.isArray(window.ELITE_MOCK?.addon_categories)) {
+                    window.addonCatDatatableVar.clear().rows.add(window.ELITE_MOCK.addon_categories).draw(false);
+                }
+            }
+
+            // Adjust table columns for the new subtab after it becomes visible
             setTimeout(() => {
                 $.fn.dataTable.tables({ visible: true, api: true }).columns.adjust().draw();
             }, 50);
@@ -3133,12 +3152,23 @@
 
         async function loadMockData(filename) {
             try {
-                const response = await fetch(`./mock_data/${filename}.json`);
-                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-                return await response.json();
+                // نحاول المسار النسبي أولاً (يعمل عند فتح الملف من نفس المجلد)
+                const relResponse = await fetch(`./mock_data/${filename}.json`);
+                if (relResponse.ok) {
+                    return await relResponse.json();
+                }
             } catch (e) {
-                console.error(`Could not load mock data: ${filename}`, e);
-                return null;
+                console.error(`Could not load mock data (relative): ${filename}`, e);
+            }
+
+            try {
+                // fallback لمسار مطلق من جذر الموقع في حالة العمل داخل نظام مثل Laravel
+                const absResponse = await fetch(`/mock_data/${filename}.json`);
+                if (!absResponse.ok) throw new Error(`HTTP error! status: ${absResponse.status}`);
+                return await absResponse.json();
+            } catch (e) {
+                console.error(`Could not load mock data (absolute): ${filename}`, e);
+                return [];
             }
         }
 
@@ -3526,7 +3556,9 @@
         function initAddonCategories() {
             if ($("#addonCatDatatable").length || $("#addonCatDatatable_standalone").length) {
                 loadMockData('addon_categories').then(catData => {
-                if (!catData) catData = [];
+                if (!Array.isArray(catData)) catData = [];
+
+                window.ELITE_MOCK.addon_categories = catData;
 
                 window.addonCatDatatableVar = $('#addonCatDatatable, #addonCatDatatable_standalone').DataTable({
                     data: catData,
@@ -3579,7 +3611,9 @@
         function initAddons() {
             if ($("#addonsDatatable").length || $("#addonsDatatable_standalone").length) {
                 loadMockData('addons').then(addonsData => {
-                if (!addonsData) addonsData = [];
+                if (!Array.isArray(addonsData)) addonsData = [];
+
+                window.ELITE_MOCK.addons = addonsData;
 
                 window.addonsDatatableVar = $('#addonsDatatable, #addonsDatatable_standalone').DataTable({
                     data: addonsData,
