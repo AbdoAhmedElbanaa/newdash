@@ -1,0 +1,4 @@
+{
+    "openai.apiBase": "http://127.0.0.1:8045/v1",
+    "openai.apiKey": "sk-154436855dcd4cb38c276d012327967e"
+}

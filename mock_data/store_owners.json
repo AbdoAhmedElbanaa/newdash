@@ -1,46 +1,35 @@
 [
   {
-    "id": 102,
-    "name": "سارة أحمد القحطاني",
-    "email": "sara@example.com",
-    "phone": "0559876543",
+    "id": 21,
+    "name": "مالك متجر ١ - سارة",
+    "email": "owner1@example.com",
+    "phone": "0562000001",
     "role": "Store Owner",
-    "wallet": 1540.00,
-    "created_at": "2024-02-15",
+    "wallet": 3000,
+    "created_at": "2024-01-20",
     "status": "1",
-    "action": "<div class='flex gap-2'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center'><i class='fa-solid fa-pen'></i></button><button class='w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center'><i class='fa-solid fa-trash'></i></button></div>"
+    "action": "<div class='flex gap-2 justify-center'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center' title='تعديل'><i class='fa-solid fa-pen'></i></button><button class='w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center' title='حذف'><i class='fa-solid fa-trash'></i></button></div>"
   },
   {
-    "id": 107,
-    "name": "خالد إبراهيم الدوسري",
-    "email": "khalid.i@example.com",
-    "phone": "0556789012",
+    "id": 22,
+    "name": "مالك متجر ٢ - خالد",
+    "email": "owner2@example.com",
+    "phone": "0562000002",
     "role": "Store Owner",
-    "wallet": 3200.00,
-    "created_at": "2024-07-25",
+    "wallet": 1800.75,
+    "created_at": "2024-03-10",
     "status": "1",
-    "action": "<div class='flex gap-2'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center'><i class='fa-solid fa-pen'></i></button><button class='w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center'><i class='fa-solid fa-trash'></i></button></div>"
+    "action": "<div class='flex gap-2 justify-center'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center' title='تعديل'><i class='fa-solid fa-pen'></i></button><button class='w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center' title='حذف'><i class='fa-solid fa-trash'></i></button></div>"
   },
   {
-    "id": 112,
-    "name": "هند سعيد الحارثي",
-    "email": "hind@example.com",
-    "phone": "0545678901",
+    "id": 23,
+    "name": "مالك متجر ٣ - هند",
+    "email": "owner3@example.com",
+    "phone": "0562000003",
     "role": "Store Owner",
-    "wallet": 2750.50,
-    "created_at": "2024-12-10",
+    "wallet": 4200.25,
+    "created_at": "2024-04-05",
     "status": "1",
-    "action": "<div class='flex gap-2'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center'><i class='fa-solid fa-pen'></i></button><button class='w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center'><i class='fa-solid fa-trash'></i></button></div>"
-  },
-  {
-    "id": 202,
-    "name": "فيصل تركي السديري",
-    "email": "faisal@example.com",
-    "phone": "0554445556",
-    "role": "Store Owner",
-    "wallet": 4100.25,
-    "created_at": "2025-01-05",
-    "status": "1",
-    "action": "<div class='flex gap-2'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center'><i class='fa-solid fa-pen'></i></button><button class='w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center'><i class='fa-solid fa-trash'></i></button></div>"
+    "action": "<div class='flex gap-2 justify-center'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center' title='تعديل'><i class='fa-solid fa-pen'></i></button><button class='w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center' title='حذف'><i class='fa-solid fa-trash'></i></button></div>"
   }
 ]

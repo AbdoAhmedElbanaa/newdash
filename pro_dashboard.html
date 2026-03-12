@@ -63,6 +63,60 @@
             box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
         }
 
+        /* Dark mode */
+        .dark-mode body {
+            background-color: #020617;
+            color: #e5e7eb;
+        }
+
+        .dark-mode .glass-panel {
+            background: rgba(15, 23, 42, 0.96);
+            border-color: rgba(148, 163, 184, 0.4);
+            box-shadow: 0 16px 45px rgba(15, 23, 42, 0.7);
+        }
+
+        .dark-mode .glass-sidebar {
+            background: linear-gradient(135deg, #020617 0%, #020617 100%);
+            border-right-color: rgba(15, 23, 42, 0.8);
+        }
+
+        .dark-mode .nav-item {
+            color: #9ca3af;
+        }
+
+        .dark-mode .nav-item.active {
+            background: linear-gradient(90deg, rgba(129, 140, 248, 0.15), transparent);
+            border-right-color: #818cf8;
+            color: #e5e7eb;
+        }
+
+        .dark-mode .bg-white,
+        .dark-mode .bg-slate-50,
+        .dark-mode .bg-slate-100 {
+            background-color: #020617 !important;
+        }
+
+        .dark-mode .border-slate-50,
+        .dark-mode .border-slate-100,
+        .dark-mode .border-slate-200 {
+            border-color: rgba(51, 65, 85, 0.8) !important;
+        }
+
+        .dark-mode .text-slate-800,
+        .dark-mode .text-slate-700,
+        .dark-mode .text-slate-600 {
+            color: #e5e7eb !important;
+        }
+
+        .dark-mode .text-slate-500,
+        .dark-mode .text-slate-400 {
+            color: #9ca3af !important;
+        }
+
+        .dark-mode .stat-card:hover {
+            box-shadow: 0 18px 50px -10px rgba(15, 23, 42, 0.9);
+        }
+
         .glass-sidebar {
             background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
             color: white;
@@ -224,6 +278,13 @@
                 </button>
                 <button class="relative p-2 text-slate-500 hover:text-indigo-600 transition-colors">
                     <i class="fa-regular fa-envelope text-xl"></i>
+                </button>
+                <!-- Dark mode toggle -->
+                <button id="themeToggleButton"
+                    class="relative p-2 rounded-full border border-slate-200 text-slate-500 hover:text-amber-400 hover:border-amber-300 bg-white/70 hover:bg-amber-50 transition-colors flex items-center justify-center"
+                    type="button" onclick="toggleTheme()">
+                    <i class="fa-solid fa-moon text-lg icon-moon"></i>
+                    <i class="fa-solid fa-sun text-lg icon-sun hidden"></i>
                 </button>
                 <div class="h-8 w-px bg-slate-200 mx-2"></div>
                 <button class="flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-slate-900">
@@ -3541,7 +3602,8 @@
                 });
             }
 
-            if ($('.summernote-editor').length) {
+            // Initialize Summernote only if the plugin is loaded
+            if (typeof $.fn.summernote === 'function' && $('.summernote-editor').length) {
                 $('.summernote-editor').summernote({
                     height: 150,
                     toolbar: [
@@ -3562,21 +3624,25 @@
 
                 window.addonCatDatatableVar = $('#addonCatDatatable, #addonCatDatatable_standalone').DataTable({
                     data: catData,
+                    autoWidth: false,
+                    scrollX: false,
+                    responsive: true,
                     columns: [
-                        { data: 'name', className: 'font-semibold text-slate-800' },
+                        { data: 'name', className: 'font-semibold text-slate-800 px-4' },
                         {
                             data: 'type',
+                            className: 'px-4',
                             render: function (data) {
                                 let color = data === 'اختيار متعدد' ? 'bg-indigo-100 text-indigo-700' : 'bg-emerald-100 text-emerald-700';
-                                return `<span class="px-3 py-1 rounded-full text-xs font-bold ${color}">${data}</span>`;
+                                return `<span class="px-3 py-1 rounded-full text-xs font-bold ${color} whitespace-nowrap">${data}</span>`;
                             }
                         },
-                        { data: 'max', className: 'text-slate-600' },
-                        { data: 'count', className: 'text-slate-600' },
-                        { data: 'date', className: 'text-slate-500 text-xs' },
+                        { data: 'max', className: 'text-slate-600 px-4 text-center whitespace-nowrap' },
+                        { data: 'count', className: 'text-slate-600 px-4 text-center whitespace-nowrap' },
+                        { data: 'date', className: 'text-slate-500 text-xs px-4 whitespace-nowrap' },
                         {
                             data: null,
-                            className: 'text-center',
+                            className: 'text-center px-4',
                             render: function (data) {
                                 return `
                                 <div class="relative inline-block text-left dropdown">
@@ -3592,6 +3658,14 @@
                                 </div>`;
                             }
                         }
+                    ],
+                    columnDefs: [
+                        { targets: 0, width: '40%' },
+                        { targets: 1, width: '20%' },
+                        { targets: 2, width: '10%' },
+                        { targets: 3, width: '10%' },
+                        { targets: 4, width: '15%' },
+                        { targets: 5, width: '5%' }
                     ],
                     pageLength: 10,
                     dom: '<"flex justify-between items-center bg-white p-4 border-b border-slate-100 rounded-t-xl"lf>rt<"flex justify-between items-center bg-white p-4 border-t border-slate-100 rounded-b-xl"ip>',
@@ -3617,14 +3691,17 @@
 
                 window.addonsDatatableVar = $('#addonsDatatable, #addonsDatatable_standalone').DataTable({
                     data: addonsData,
+                    autoWidth: false,
+                    scrollX: false,
+                    responsive: true,
                     columns: [
-                        { data: 'name', className: 'font-semibold text-slate-800' },
-                        { data: 'price', className: 'font-bold text-emerald-600', render: function (data) { return data + ' ر.س'; } },
-                        { data: 'cat', className: 'text-slate-600' },
-                        { data: 'date', className: 'text-slate-500 text-xs' },
+                        { data: 'name', className: 'font-semibold text-slate-800 px-4' },
+                        { data: 'price', className: 'font-bold text-emerald-600 text-center px-4 whitespace-nowrap', render: function (data) { return data + ' ر.س'; } },
+                        { data: 'cat', className: 'text-slate-600 px-4' },
+                        { data: 'date', className: 'text-slate-500 text-xs px-4 whitespace-nowrap' },
                         {
                             data: null,
-                            className: 'text-center',
+                            className: 'text-center px-4',
                             render: function (data) {
                                 let checked = data.checked ? 'checked' : '';
                                 return `
@@ -3644,6 +3721,13 @@
                                 </div>`;
                             }
                         }
+                    ],
+                    columnDefs: [
+                        { targets: 0, width: '40%' },
+                        { targets: 1, width: '15%' },
+                        { targets: 2, width: '25%' },
+                        { targets: 3, width: '15%' },
+                        { targets: 4, width: '5%' }
                     ],
                     pageLength: 10,
                     dom: '<"flex justify-between items-center bg-white p-4 border-b border-slate-100 rounded-t-xl"lf>rt<"flex justify-between items-center bg-white p-4 border-t border-slate-100 rounded-b-xl"ip>',
@@ -3675,21 +3759,21 @@
                 btn.classList.add('bg-white', 'text-slate-600', 'border', 'border-slate-100', 'hover:bg-slate-50');
             });
             const activeBtn = document.getElementById('user-subtab-' + subTabId);
-            activeBtn.classList.add('active', 'bg-indigo-600', 'text-white', 'shadow-lg', 'shadow-indigo-100');
-            activeBtn.classList.remove('bg-white', 'text-slate-600', 'border', 'border-slate-100', 'hover:bg-slate-50');
+            if (activeBtn) {
+                activeBtn.classList.add('active', 'bg-indigo-600', 'text-white', 'shadow-lg', 'shadow-indigo-100');
+                activeBtn.classList.remove('bg-white', 'text-slate-600', 'border', 'border-slate-100', 'hover:bg-slate-50');
+            }
 
             // Toggle content
             document.querySelectorAll('.user-subtab-content').forEach(el => {
                 el.classList.add('hidden');
                 el.classList.remove('active');
             });
-            document.getElementById('user-content-' + subTabId).classList.remove('hidden');
-            document.getElementById('user-content-' + subTabId).classList.add('active');
-
-            // Adjust table columns
-            setTimeout(() => {
-                $.fn.dataTable.tables({ visible: true, api: true }).columns.adjust();
-            }, 100);
+            const activeContent = document.getElementById('user-content-' + subTabId);
+            if (activeContent) {
+                activeContent.classList.remove('hidden');
+                activeContent.classList.add('active');
+            }
         }
 
         function switchOrderSubTab(subTabId) {
@@ -3731,103 +3815,92 @@
             return confirm('هل أنت متأكد من رغبتك في حذف هذا المستخدم؟');
         }
 
-        let userDataTables = {};
-
         function initUsers() {
-            if ($.fn.DataTable.isDataTable('#usersDataTableAll')) return;
+            // لا نستخدم DataTables هنا، فقط نملأ الجداول مباشرة من ملفات الموك داتا
+            if (window.__USERS_INIT_DONE__) return;
+            window.__USERS_INIT_DONE__ = true;
 
             const tableConfigs = [
-                { id: '#usersDataTableAll', ajax_file: 'users', cols: [{ data: 'id' }, { data: 'name' }, { data: 'email' }, { data: 'phone' }, { data: 'role' }, { data: 'wallet' }, { data: 'created_at' }, { data: 'action' }] },
-                { id: '#usersDataTableCustomers', ajax_file: 'customers', cols: [{ data: 'id' }, { data: 'name' }, { data: 'email' }, { data: 'phone' }, { data: 'role' }, { data: 'wallet' }, { data: 'created_at' }, { data: 'action' }] },
-                { id: '#usersDataTableStoreOwners', ajax_file: 'store_owners', cols: [{ data: 'id' }, { data: 'name' }, { data: 'email' }, { data: 'phone' }, { data: 'created_at' }, { data: 'action' }] },
-                { id: '#usersDataTableDeliveryGuys', ajax_file: 'delivery_guys', cols: [{ data: 'id' }, { data: 'name' }, { data: 'email' }, { data: 'phone' }, { data: 'wallet' }, { data: 'status' }, { data: 'created_at' }, { data: 'action' }] },
-                { id: '#usersDataTableStaff', ajax_file: 'staff', cols: [{ data: 'id' }, { data: 'name' }, { data: 'email' }, { data: 'phone' }, { data: 'role' }, { data: 'created_at' }, { data: 'action' }] }
+                {
+                    id: 'usersDataTableAll',
+                    ajax_file: 'users',
+                    cols: ['id', 'name', 'email', 'phone', 'role', 'wallet', 'created_at', 'action']
+                },
+                {
+                    id: 'usersDataTableCustomers',
+                    ajax_file: 'customers',
+                    cols: ['id', 'name', 'email', 'phone', 'role', 'wallet', 'created_at', 'action']
+                },
+                {
+                    id: 'usersDataTableStoreOwners',
+                    ajax_file: 'store_owners',
+                    cols: ['id', 'name', 'email', 'phone', 'created_at', 'action']
+                },
+                {
+                    id: 'usersDataTableDeliveryGuys',
+                    ajax_file: 'delivery_guys',
+                    cols: ['id', 'name', 'email', 'phone', 'wallet', 'status', 'created_at', 'action']
+                },
+                {
+                    id: 'usersDataTableStaff',
+                    ajax_file: 'staff',
+                    cols: ['id', 'name', 'email', 'phone', 'role', 'created_at', 'action']
+                }
             ];
 
-            const commonConfig = {
-                processing: true,
-                serverSide: true,
-                stateSave: true,
-                lengthMenu: [10, 25, 50, 100],
-                order: [[0, "desc"]],
-                scrollX: true,
-                scrollCollapse: true,
-                dom: '<"flex flex-col md:flex-row justify-between items-center bg-white p-4 border-b border-slate-100 rounded-t-xl gap-4"lBf>rt<"flex justify-between items-center bg-white p-4 border-t border-slate-100 rounded-b-xl"ip>',
-                buttons: [
-                    {
-                        extend: 'csv',
-                        text: '<i class="fa-solid fa-file-export mr-2"></i> تصدير CSV',
-                        className: 'px-4 py-2 bg-indigo-50 text-indigo-600 rounded-xl text-sm font-bold border border-indigo-100 hover:bg-indigo-100 transition-all'
-                    }
-                ],
-                language: {
-                    search: '',
-                    searchPlaceholder: 'بحث...',
-                    sEmptyTable: "لا توجد بيانات",
-                    lengthMenu: 'عرض _MENU_',
-                    info: "عرض _START_ إلى _END_ من _TOTAL_ مدخلات",
-                    paginate: { 'first': 'الأول', 'last': 'الأخير', 'next': '&larr;', 'previous': '&rarr;' },
-                    processing: '<i class="fa-solid fa-spinner fa-spin mr-2"></i> جار التحميل...'
-                },
-                columnDefs: [
-                    { targets: 0, visible: false },
-                    {
-                        targets: '_all',
-                        className: 'p-4 text-sm align-middle'
-                    }
-                ],
-                drawCallback: function () {
-                    $('.action-switch').each(function () {
-                        if (!this.getAttribute('data-switchery')) {
-                            new Switchery(this, { color: '#6366f1', size: 'small' });
-                        }
-                    });
-                }
-            };
-
             tableConfigs.forEach(config => {
-                userDataTables[config.id] = $(config.id).DataTable({
-                    ...commonConfig,
-                    ajax: function (data, callback, settings) {
-                        loadMockData(config.ajax_file).then(mockUsers => {
-                            if (!mockUsers) {
-                                callback({ draw: data.draw, recordsTotal: 0, recordsFiltered: 0, data: [] });
-                                return;
+                loadMockData(config.ajax_file).then(mockUsers => {
+                    if (!Array.isArray(mockUsers)) mockUsers = [];
+                    const table = document.getElementById(config.id);
+                    if (!table) return;
+                    const tbody = table.querySelector('tbody');
+                    if (!tbody) return;
+                    tbody.innerHTML = '';
+
+                    mockUsers.forEach(user => {
+                        const tr = document.createElement('tr');
+                        tr.className = 'border-b border-slate-50 hover:bg-slate-50/60 transition-colors';
+
+                        config.cols.forEach(col => {
+                            const td = document.createElement('td');
+                            td.className = 'p-3 text-sm';
+
+                            if (col === 'name') {
+                                td.className += ' font-bold text-slate-800';
+                                td.textContent = user[col] ?? '';
+                            } else if (col === 'email' || col === 'phone') {
+                                td.className += ' text-slate-500 text-xs';
+                                td.textContent = user[col] ?? '';
+                            } else if (col === 'wallet') {
+                                td.className += ' font-bold text-emerald-600 text-center';
+                                td.textContent = (user[col] ?? 0) + ' ر.س';
+                            } else if (col === 'status') {
+                                const isActive = user[col] && (user[col].toString().toLowerCase().includes('active') || user[col] === '1' || user[col] === 1);
+                                td.innerHTML = isActive
+                                    ? '<span class="text-emerald-500 flex items-center gap-1 justify-center font-bold text-xs"><i class="fa-solid fa-circle text-[6px]"></i> نشط</span>'
+                                    : '<span class="text-rose-500 flex items-center gap-1 justify-center font-bold text-xs"><i class="fa-solid fa-circle text-[6px]"></i> غير نشط</span>';
+                            } else if (col === 'action') {
+                                td.className += ' text-center';
+                                td.innerHTML = user[col] ?? '';
+                            } else {
+                                td.textContent = user[col] ?? '';
                             }
-                            callback({
-                                draw: data.draw,
-                                recordsTotal: mockUsers.length,
-                                recordsFiltered: mockUsers.length,
-                                data: mockUsers
-                            });
+
+                            tr.appendChild(td);
                         });
-                    },
-                    columns: config.cols.map(c => {
-                        if (c.data === 'name') return { ...c, className: 'font-bold text-slate-800' };
-                        if (c.data === 'email' || c.data === 'phone') return { ...c, className: 'text-slate-500 text-xs font-medium' };
-                        if (c.data === 'role') return {
-                            ...c, render: function (d) {
-                                if (!d) return '--';
-                                return `<button onclick="switchUserSubTab('roles')" class="px-2 py-1 bg-indigo-50 text-indigo-700 rounded-md text-[10px] font-bold border border-indigo-100 hover:bg-indigo-100 transition-all">${d}</button>`;
-                            }
-                        };
-                        if (c.data === 'wallet') return { ...c, className: 'font-bold text-emerald-600', render: d => (d || 0) + ' ر.س' };
-                        if (c.data === 'status') return {
-                            ...c, render: function (d) {
-                                if (!d) return '--';
-                                let isActive = d.toString().toLowerCase().includes('active') || d === '1' || d === 1;
-                                return isActive ? '<span class="text-emerald-500 flex items-center gap-1 font-bold text-xs"><i class="fa-solid fa-circle text-[6px]"></i> نشط</span>' : '<span class="text-rose-500 flex items-center gap-1 font-bold text-xs"><i class="fa-solid fa-circle text-[6px]"></i> غير نشط</span>';
-                            }
-                        };
-                        return c;
-                    })
+
+                        tbody.appendChild(tr);
+                    });
                 });
             });
 
-            $('#clearUserFilters').click(function () {
-                Object.values(userDataTables).forEach(dt => dt.state.clear());
-                window.location.reload();
-            });
+            const clearBtn = document.getElementById('clearUserFilters');
+            if (clearBtn) {
+                clearBtn.addEventListener('click', function () {
+                    // إعادة تحميل الصفحة لإعادة ضبط الجداول البسيطة
+                    window.location.reload();
+                });
+            }
         }
 
         function checkAllPerms(status) {
@@ -3948,6 +4021,7 @@
         }
 
         $(document).ready(function () {
+            initTheme();
             initDashboard();
             initStoresDatatable();
             initItemCategories();
@@ -3976,12 +4050,62 @@
             }
         });
 
+        const THEME_STORAGE_KEY = 'elite_dashboard_theme';
+
+        function setTheme(theme) {
+            const root = document.documentElement;
+            if (theme === 'dark') {
+                root.classList.add('dark-mode');
+            } else {
+                root.classList.remove('dark-mode');
+            }
+            try {
+                localStorage.setItem(THEME_STORAGE_KEY, theme);
+            } catch (e) {
+                // ignore storage errors
+            }
+            updateThemeToggleIcon(theme);
+        }
+
+        function updateThemeToggleIcon(theme) {
+            const btn = document.getElementById('themeToggleButton');
+            if (!btn) return;
+            const moon = btn.querySelector('.icon-moon');
+            const sun = btn.querySelector('.icon-sun');
+            if (theme === 'dark') {
+                if (moon) moon.classList.add('hidden');
+                if (sun) sun.classList.remove('hidden');
+            } else {
+                if (moon) moon.classList.remove('hidden');
+                if (sun) sun.classList.add('hidden');
+            }
+        }
+
+        function toggleTheme() {
+            const isDark = document.documentElement.classList.contains('dark-mode');
+            setTheme(isDark ? 'light' : 'dark');
+        }
+
+        function initTheme() {
+            let stored = null;
+            try {
+                stored = localStorage.getItem(THEME_STORAGE_KEY);
+            } catch (e) {
+                stored = null;
+            }
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const initial = stored || (prefersDark ? 'dark' : 'light');
+            setTheme(initial);
+        }
+
         function initOrdersDatatable() {
             if ($.fn.DataTable.isDataTable('#ordersDataTable')) return;
             $('#ordersDataTable').DataTable({
                 "order": [[0, "desc"]],
                 "pageLength": 10,
-                "scrollX": true,
+                "autoWidth": false,
+                "scrollX": false,
+                "responsive": true,
                 "dom": '<"flex justify-between items-center bg-white p-4 border-b border-slate-100 rounded-t-xl"lf>rt<"flex justify-between items-center bg-white p-4 border-t border-slate-100 rounded-b-xl"ip>',
                 "ajax": function (data, callback, settings) {
                     loadMockData('orders').then(mockOrders => {
@@ -3989,13 +4113,19 @@
                     });
                 },
                 "columns": [
-                    { data: 'order_id', className: 'font-bold text-indigo-600' },
-                    { data: 'customer' },
-                    { data: 'store' },
-                    { data: 'total', className: 'font-bold text-slate-700' },
-                    { data: 'status' },
-                    { data: 'created_at' },
-                    { data: 'action' }
+                    { data: 'order_id', className: 'font-black text-slate-800 whitespace-nowrap pl-4' },
+                    { data: 'customer', className: 'px-4' },
+                    { data: 'store', className: 'px-4' },
+                    { data: 'total', className: 'font-bold text-emerald-600 text-center whitespace-nowrap px-4' },
+                    { data: 'status', className: 'text-center px-4' },
+                    { data: 'created_at', className: 'px-4 whitespace-nowrap' },
+                    { data: 'action', className: 'text-center px-4' }
+                ],
+                "columnDefs": [
+                    { "targets": 0, "width": "120px" },
+                    { "targets": 3, "width": "110px" },
+                    { "targets": 4, "width": "160px" },
+                    { "targets": 6, "width": "100px" }
                 ],
                 "language": {
                     "search": "",

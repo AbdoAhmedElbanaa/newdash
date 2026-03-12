@@ -1,32 +1,32 @@
 [
   {
-    "id": 1,
-    "name": "مدير النظام",
+    "id": 41,
+    "name": "موظف ١ - مدير النظام",
     "email": "admin@example.com",
-    "phone": "0500000001",
+    "phone": "0594000001",
     "role": "Admin",
     "created_at": "2023-01-01",
     "status": "1",
-    "action": "<div class='flex gap-2'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center'><i class='fa-solid fa-pen'></i></button></div>"
+    "action": "<div class='flex gap-2 justify-center'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center' title='تعديل'><i class='fa-solid fa-pen'></i></button></div>"
   },
   {
-    "id": 2,
-    "name": "مشرف العمليات",
+    "id": 42,
+    "name": "موظف ٢ - مشرف",
     "email": "supervisor@example.com",
-    "phone": "0500000002",
+    "phone": "0594000002",
     "role": "Manager",
     "created_at": "2023-06-01",
     "status": "1",
-    "action": "<div class='flex gap-2'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center'><i class='fa-solid fa-pen'></i></button></div>"
+    "action": "<div class='flex gap-2 justify-center'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center' title='تعديل'><i class='fa-solid fa-pen'></i></button></div>"
   },
   {
-    "id": 3,
-    "name": "مسؤول الدعم",
+    "id": 43,
+    "name": "موظف ٣ - دعم",
     "email": "support@example.com",
-    "phone": "0500000003",
+    "phone": "0594000003",
     "role": "Support",
     "created_at": "2023-08-15",
     "status": "1",
-    "action": "<div class='flex gap-2'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center'><i class='fa-solid fa-pen'></i></button></div>"
+    "action": "<div class='flex gap-2 justify-center'><button class='w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center' title='تعديل'><i class='fa-solid fa-pen'></i></button></div>"
   }
 ]
