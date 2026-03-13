@@ -188,7 +188,7 @@
 <body class="flex h-screen overflow-hidden text-slate-800">
 
     <!-- Sidebar -->
-    <aside class="glass-sidebar w-72 flex flex-col transition-all duration-300 z-20">
+    <aside id="sidebar" class="glass-sidebar w-72 flex flex-col transition-all duration-300 z-20 fixed md:relative inset-y-0 left-0 transform -translate-x-full md:translate-x-0 md:flex">
         <div class="h-20 flex items-center justify-center border-b border-slate-700/50">
             <h1
                 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-emerald-400">
@@ -258,36 +258,42 @@
         </nav>
     </aside>
 
+    <!-- Sidebar Overlay for Mobile -->
+    <div id="sidebarOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-10 hidden md:hidden" onclick="toggleSidebar()"></div>
+
     <!-- Main Content -->
-    <main class="flex-1 flex flex-col relative overflow-hidden bg-slate-50">
+    <main class="flex-1 flex flex-col relative overflow-hidden bg-slate-50 md:ml-0">
         <!-- Top Header -->
         <header
-            class="h-20 glass-panel border-b border-slate-200 px-8 flex justify-between items-center z-10 shadow-sm shrink-0">
+            class="h-16 md:h-20 glass-panel border-b border-slate-200 px-4 md:px-8 flex justify-between items-center z-10 shadow-sm shrink-0">
             <div class="flex items-center gap-4">
-                <div class="relative">
+                <button id="sidebarToggle" class="md:hidden p-2 text-slate-500 hover:text-indigo-600 transition-colors" onclick="toggleSidebar()">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+                <div class="relative hidden md:block">
                     <i class="fa-solid fa-search absolute right-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
                     <input type="text" placeholder="البحث الشامل..."
-                        class="pl-4 pr-10 py-2.5 rounded-xl border border-slate-200 bg-slate-100/50 focus:bg-white focus:ring-2 focus:ring-indigo-400 focus:border-transparent outline-none w-80 transition-all text-sm">
+                        class="pl-4 pr-10 py-2.5 rounded-xl border border-slate-200 bg-slate-100/50 focus:bg-white focus:ring-2 focus:ring-indigo-400 focus:border-transparent outline-none w-64 md:w-80 transition-all text-sm">
                 </div>
             </div>
-            <div class="flex items-center gap-5">
+            <div class="flex items-center gap-3 md:gap-5">
                 <button class="relative p-2 text-slate-500 hover:text-indigo-600 transition-colors">
-                    <i class="fa-regular fa-bell text-xl"></i>
+                    <i class="fa-regular fa-bell text-lg md:text-xl"></i>
                     <span
-                        class="absolute top-1 right-1 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-white"></span>
+                        class="absolute top-1 right-1 w-2 h-2 md:w-2.5 md:h-2.5 bg-red-500 rounded-full border-2 border-white"></span>
                 </button>
                 <button class="relative p-2 text-slate-500 hover:text-indigo-600 transition-colors">
-                    <i class="fa-regular fa-envelope text-xl"></i>
+                    <i class="fa-regular fa-envelope text-lg md:text-xl"></i>
                 </button>
                 <!-- Dark mode toggle -->
                 <button id="themeToggleButton"
                     class="relative p-2 rounded-full border border-slate-200 text-slate-500 hover:text-amber-400 hover:border-amber-300 bg-white/70 hover:bg-amber-50 transition-colors flex items-center justify-center"
                     type="button" onclick="toggleTheme()">
-                    <i class="fa-solid fa-moon text-lg icon-moon"></i>
-                    <i class="fa-solid fa-sun text-lg icon-sun hidden"></i>
+                    <i class="fa-solid fa-moon text-base md:text-lg icon-moon"></i>
+                    <i class="fa-solid fa-sun text-base md:text-lg icon-sun hidden"></i>
                 </button>
-                <div class="h-8 w-px bg-slate-200 mx-2"></div>
-                <button class="flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-slate-900">
+                <div class="h-6 md:h-8 w-px bg-slate-200 mx-1 md:mx-2"></div>
+                <button class="flex items-center gap-2 text-xs md:text-sm font-semibold text-slate-600 hover:text-slate-900">
                     <span>خروج</span>
                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
                 </button>
@@ -295,13 +301,13 @@
         </header>
 
         <!-- Scrollable Content Area -->
-        <div class="flex-1 overflow-y-auto custom-scrollbar p-8">
+        <div class="flex-1 overflow-y-auto custom-scrollbar p-4 md:p-8">
 
             <!-- Dashboard Tab -->
             <div id="tab-dashboard" class="tab-content active">
                 <div class="flex justify-between items-end mb-8">
                     <div>
-                        <h2 class="text-3xl font-bold text-slate-800 mb-2">لوحة التحكم الرئيسية</h2>
+                        <h2 class="text-2xl md:text-3xl font-bold text-slate-800 mb-2">لوحة التحكم الرئيسية</h2>
                         <p class="text-slate-500 text-sm">نظرة عامة على أداء النظام وإحصائياته</p>
                     </div>
                     <button
@@ -319,7 +325,7 @@
                         <div class="flex justify-between items-start">
                             <div>
                                 <p class="text-slate-500 text-sm font-semibold mb-1">إجمالي المتاجر</p>
-                                <h3 class="text-3xl font-bold text-slate-800">124</h3>
+                                <h3 class="text-2xl md:text-3xl font-bold text-slate-800">124</h3>
                             </div>
                             <div
                                 class="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-xl shadow-inner">
@@ -340,7 +346,7 @@
                         <div class="flex justify-between items-start">
                             <div>
                                 <p class="text-slate-500 text-sm font-semibold mb-1">إجمالي العناصر</p>
-                                <h3 class="text-3xl font-bold text-slate-800">5,432</h3>
+                                <h3 class="text-2xl md:text-3xl font-bold text-slate-800">5,432</h3>
                             </div>
                             <div
                                 class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center text-xl shadow-inner">
@@ -361,7 +367,7 @@
                         <div class="flex justify-between items-start">
                             <div>
                                 <p class="text-slate-500 text-sm font-semibold mb-1">المبيعات اليومية</p>
-                                <h3 class="text-3xl font-bold text-slate-800">SAR 12,450</h3>
+                                <h3 class="text-2xl md:text-3xl font-bold text-slate-800">SAR 12,450</h3>
                             </div>
                             <div
                                 class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl shadow-inner">
@@ -382,7 +388,7 @@
                         <div class="flex justify-between items-start">
                             <div>
                                 <p class="text-slate-500 text-sm font-semibold mb-1">الطلبات المعلقة</p>
-                                <h3 class="text-3xl font-bold text-slate-800">48</h3>
+                                <h3 class="text-2xl md:text-3xl font-bold text-slate-800">48</h3>
                             </div>
                             <div
                                 class="w-12 h-12 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center text-xl shadow-inner">
@@ -399,9 +405,9 @@
                 </div>
 
                 <!-- Dashboard Widgets Grid 1 -->
-                <div class="grid grid-cols-1 xl:grid-cols-3 gap-6 mb-8">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
                     <!-- Recent Orders -->
-                    <div class="glass-panel rounded-2xl p-6 xl:col-span-2">
+                    <div class="glass-panel rounded-2xl p-6 lg:col-span-2">
                         <div class="flex justify-between items-center mb-6">
                             <h3 class="text-xl font-bold text-slate-800">الطلبات الأخيرة</h3>
                             <button class="text-indigo-600 text-sm font-semibold hover:underline">عرض الكل</button>
@@ -654,7 +660,7 @@
             <div id="tab-stores" class="tab-content">
                 <div class="flex justify-between items-end mb-8">
                     <div>
-                        <h2 class="text-3xl font-bold text-slate-800 mb-2">إدارة المتاجر</h2>
+                        <h2 class="text-2xl md:text-3xl font-bold text-slate-800 mb-2">إدارة المتاجر</h2>
                         <p class="text-slate-500 text-sm">عرض وتعديل بيانات جميع المتاجر المسجلة</p>
                     </div>
                     <button onclick="toggleModal('addNewRestaurantModal')"
@@ -2440,7 +2446,7 @@
                 </div>
 
                 <!-- Orders Table Area -->
-                <div class="glass-panel rounded-3xl overflow-hidden shadow-sm mt-4 p-0 md:p-6 bg-white shrink">
+                <div class="glass-panel rounded-3xl overflow-hidden shadow-sm mt-4 p-2 md:p-6 bg-white shrink">
                     <div class="p-0 overflow-x-auto custom-scrollbar">
                         <table class="w-full text-right align-middle" id="ordersDataTable">
                             <thead>
@@ -2999,6 +3005,20 @@
 
 
     <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            const isOpen = !sidebar.classList.contains('-translate-x-full');
+            
+            if (isOpen) {
+                sidebar.classList.add('-translate-x-full');
+                overlay.classList.add('hidden');
+            } else {
+                sidebar.classList.remove('-translate-x-full');
+                overlay.classList.remove('hidden');
+            }
+        }
+
         function switchTab(tabId) {
             // Handle legacy product tab IDs by redirecting to products sub-tabs ONLY IF standalone tabs don't exist
             const legacyProductTabs = ['itemcategories', 'items'];
