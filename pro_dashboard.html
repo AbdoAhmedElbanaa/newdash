@@ -184,6 +184,94 @@
             transform: scale(1.02);
         }
 
+        /* Custom DataTable Premium Styling */
+        .dataTables_wrapper .dataTables_filter input {
+            margin-right: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 0.75rem;
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            outline: none;
+            transition: all 0.2s;
+            background: #fcfcfc;
+            min-width: 200px;
+        }
+        .dataTables_wrapper .dataTables_filter input:focus {
+            border-color: #4f46e5;
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.08);
+        }
+        .dataTables_wrapper .dataTables_length select {
+            padding: 0.4rem 0.8rem;
+            border-radius: 0.75rem;
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            outline: none;
+            background: #fcfcfc;
+            cursor: pointer;
+        }
+        table.dataTable thead th {
+            border-bottom: 2px solid #f8fafc !important;
+            white-space: nowrap;
+        }
+        table.dataTable.no-footer {
+            border-bottom: 0 !important;
+        }
+        .dataTables_info, .dataTables_paginate {
+            font-size: 0.8rem;
+            color: #64748b !important;
+        }
+        .paginate_button {
+            border-radius: 0.5rem !important;
+            border: 1px solid transparent !important;
+        }
+        .paginate_button.current {
+            background: #4f46e5 !important;
+            color: white !important;
+            border-color: #4f46e5 !important;
+        }
+        .paginate_button:hover {
+            background: #f1f5f9 !important;
+            color: #4f46e5 !important;
+        }
+
+        /* Premium Table Body Styling */
+        table.dataTable tbody tr {
+            transition: all 0.2s;
+        }
+        table.dataTable tbody tr:hover {
+            background-color: rgba(79, 70, 229, 0.02) !important;
+        }
+        table.dataTable tbody td {
+            padding: 1.25rem 1rem !important;
+            vertical-align: middle !important;
+            color: #475569;
+            font-size: 0.875rem;
+            border-bottom: 1px solid #f1f5f9 !important;
+        }
+        table.dataTable tbody td.text-center {
+            text-align: center !important;
+        }
+        table.dataTable tbody td.text-right {
+            text-align: right !important;
+        }
+        .table-image {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 2px solid #fff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .badge-premium {
+            padding: 0.35rem 0.75rem;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            white-space: nowrap;
+        }
+
         .section-header {
             display: flex;
             justify-content: space-between;
@@ -220,6 +308,78 @@
         .dataTables_wrapper .dataTables_info,
         .dataTables_wrapper .dataTables_paginate {
             margin: 0;
+        }
+
+        /* Premium Datatables Pagination & Info Styling */
+        .dataTables_info {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #64748b !important;
+            padding: 0.5rem 0;
+        }
+
+        .dataTables_paginate {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 0.5rem 0;
+        }
+
+        .dataTables_paginate span {
+            display: flex;
+            gap: 0.25rem;
+        }
+
+        .dataTables_paginate .paginate_button {
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            min-width: 2.5rem;
+            height: 2.5rem;
+            padding: 0 0.5rem !important;
+            margin: 0 !important;
+            border-radius: 0.75rem !important;
+            border: 1px solid #e2e8f0 !important;
+            background: #ffffff !important;
+            color: #64748b !important;
+            font-weight: 700 !important;
+            font-size: 0.85rem !important;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            cursor: pointer;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .dataTables_paginate .paginate_button:hover:not(.disabled):not(.current) {
+            background: #f8fafc !important;
+            border-color: #cbd5e1 !important;
+            color: #4f46e5 !important;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .dataTables_paginate .paginate_button.current {
+            background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%) !important;
+            border-color: #4f46e5 !important;
+            color: white !important;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+        }
+
+        .dataTables_paginate .paginate_button.previous,
+        .dataTables_paginate .paginate_button.next {
+            font-size: 1rem !important;
+            background: #f1f5f9 !important;
+            border-color: #e2e8f0 !important;
+        }
+
+        .dataTables_paginate .paginate_button.disabled {
+            opacity: 0.5;
+            cursor: default;
+            background: #f1f5f9 !important;
+            color: #94a3b8 !important;
+        }
+
+        .dataTables_paginate .paginate_button i {
+            font-size: 0.9rem;
         }
 
         @media (max-width: 1023px) {
@@ -531,7 +691,8 @@
                         <div class="flex justify-between items-start">
                             <div>
                                 <p class="text-slate-500 text-sm font-semibold mb-1">إجمالي المتاجر</p>
-                                <h3 class="text-2xl md:text-3xl font-bold text-slate-800">124</h3>
+                                <h3 class="text-2xl md:text-3xl font-bold text-slate-800 total-stores-val">124</h3>
+
                             </div>
                             <div
                                 class="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-xl shadow-inner">
@@ -552,7 +713,8 @@
                         <div class="flex justify-between items-start">
                             <div>
                                 <p class="text-slate-500 text-sm font-semibold mb-1">إجمالي العناصر</p>
-                                <h3 class="text-2xl md:text-3xl font-bold text-slate-800">5,432</h3>
+                                <h3 class="text-2xl md:text-3xl font-bold text-slate-800 total-items-val">5,432</h3>
+
                             </div>
                             <div
                                 class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center text-xl shadow-inner">
@@ -573,7 +735,8 @@
                         <div class="flex justify-between items-start">
                             <div>
                                 <p class="text-slate-500 text-sm font-semibold mb-1">المبيعات اليومية</p>
-                                <h3 class="text-2xl md:text-3xl font-bold text-slate-800">SAR 12,450</h3>
+                                <h3 class="text-2xl md:text-3xl font-bold text-slate-800 total-earnings-val">SAR 12,450</h3>
+
                             </div>
                             <div
                                 class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl shadow-inner">
@@ -594,7 +757,8 @@
                         <div class="flex justify-between items-start">
                             <div>
                                 <p class="text-slate-500 text-sm font-semibold mb-1">الطلبات المعلقة</p>
-                                <h3 class="text-2xl md:text-3xl font-bold text-slate-800">48</h3>
+                                <h3 class="text-2xl md:text-3xl font-bold text-slate-800 pending-orders-val">48</h3>
+
                             </div>
                             <div
                                 class="w-12 h-12 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center text-xl shadow-inner">
@@ -610,10 +774,10 @@
                     </div>
                 </div>
 
-                <!-- Dashboard Widgets Grid 1 -->
+                <!-- Recent Orders Only -->
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
                     <!-- Recent Orders -->
-                    <div class="glass-panel rounded-2xl p-6 lg:col-span-2">
+                    <div class="glass-panel rounded-2xl p-6 lg:col-span-3">
                         <div class="flex justify-between items-center mb-6">
                             <h3 class="text-xl font-bold text-slate-800">الطلبات الأخيرة</h3>
                             <button class="text-indigo-600 text-sm font-semibold hover:underline">عرض الكل</button>
@@ -678,16 +842,109 @@
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Donut Chart -->
-                    <div class="glass-panel rounded-2xl p-6">
-                        <h3 class="text-xl font-bold text-slate-800 mb-6">حالة الطلبات</h3>
-                        <div id="basic_donut" class="w-full h-72 flex justify-center items-center relative">
-                            <!-- Canvas will be injected here -->
-                            <p class="text-slate-400 text-sm italic absolute">جاري تحميل الإحصائيات...</p>
+                <!-- Orders Status Full Section with Donut Chart - Enlarged -->
+                <div class="glass-panel rounded-3xl p-8 mb-8">
+                    <div class="flex flex-col lg:flex-row gap-8 items-start lg:items-center justify-between mb-8">
+                        <div>
+                            <h3 class="text-2xl lg:text-3xl font-bold text-slate-800 mb-2">حالة الطلبات</h3>
+                            <p class="text-slate-500 text-lg">نظرة شاملة على توزيع حالات الطلبات</p>
+                        </div>
+                        <div class="flex gap-4 text-sm">
+                            <button onclick="exportOrdersChartData()" class="px-4 py-2 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 transition-all flex items-center gap-2 shadow-md">
+                                <i class="fa-solid fa-download"></i> تصدير
+                            </button>
+                        </div>
+                    </div>
+
+<div class="flex flex-col gap-8">
+                        <!-- Donut Chart - Large Interactive -->
+                        <div class="w-full bg-gradient-to-br from-slate-50/50 to-white/50 rounded-3xl p-6 shadow-inner border border-slate-100/50">
+                            <div id="ordersDonutChart" class="w-full h-80 lg:h-96"></div>
+                            
+                            <!-- Redesigned Status Categories - Modern & Sleek -->
+                            <div class="mt-8 pt-8 border-t border-slate-100/60">
+                                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                                    <!-- New Order -->
+                                    <div class="flex items-center gap-3 p-3 rounded-2xl bg-white/60 hover:bg-white hover:shadow-lg hover:shadow-indigo-500/10 transition-all border border-slate-100 group">
+                                        <div class="w-10 h-10 rounded-xl bg-indigo-500 text-white flex items-center justify-center shadow-lg shadow-indigo-200 group-hover:scale-110 transition-transform"><i class="fa-solid fa-plus-circle"></i></div>
+                                        <div>
+                                            <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">طلب جديد</p>
+                                            <div class="flex items-baseline gap-1">
+                                                <h4 class="text-lg font-black text-slate-800 orders-new-val">0</h4>
+                                                <span class="text-[10px] text-emerald-500 font-bold">+15%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Awaiting Payment -->
+                                    <div class="flex items-center gap-3 p-3 rounded-2xl bg-white/60 hover:bg-white hover:shadow-lg hover:shadow-amber-500/10 transition-all border border-slate-100 group">
+                                        <div class="w-10 h-10 rounded-xl bg-amber-500 text-white flex items-center justify-center shadow-lg shadow-amber-200 group-hover:scale-110 transition-transform"><i class="fa-solid fa-spinner fa-spin-pulse"></i></div>
+                                        <div>
+                                            <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">بانتظار الدفع</p>
+                                            <div class="flex items-baseline gap-1">
+                                                <h4 class="text-lg font-black text-slate-800 orders-pending-val">0</h4>
+                                                <span class="text-[10px] text-emerald-500 font-bold">+12%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Processing -->
+                                    <div class="flex items-center gap-3 p-3 rounded-2xl bg-white/60 hover:bg-white hover:shadow-lg hover:shadow-blue-500/10 transition-all border border-slate-100 group">
+                                        <div class="w-10 h-10 rounded-xl bg-blue-500 text-white flex items-center justify-center shadow-lg shadow-blue-200 group-hover:scale-110 transition-transform"><i class="fa-solid fa-fire-burner"></i></div>
+                                        <div>
+                                            <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">قيد التحضير</p>
+                                            <div class="flex items-baseline gap-1">
+                                                <h4 class="text-lg font-black text-slate-800 orders-processing-val">0</h4>
+                                                <span class="text-[10px] text-emerald-500 font-bold">+8%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Ready -->
+                                    <div class="flex items-center gap-3 p-3 rounded-2xl bg-white/60 hover:bg-white hover:shadow-lg hover:shadow-purple-500/10 transition-all border border-slate-100 group">
+                                        <div class="w-10 h-10 rounded-xl bg-purple-500 text-white flex items-center justify-center shadow-lg shadow-purple-200 group-hover:scale-110 transition-transform"><i class="fa-solid fa-clock"></i></div>
+                                        <div>
+                                            <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">جاهز للاستلام</p>
+                                            <div class="flex items-baseline gap-1">
+                                                <h4 class="text-lg font-black text-slate-800 orders-ready-val">0</h4>
+                                                <span class="text-[10px] text-rose-500 font-bold">-3%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Completed -->
+                                    <div class="flex items-center gap-3 p-3 rounded-2xl bg-white/60 hover:bg-white hover:shadow-lg hover:shadow-emerald-500/10 transition-all border border-slate-100 group">
+                                        <div class="w-10 h-10 rounded-xl bg-emerald-500 text-white flex items-center justify-center shadow-lg shadow-emerald-200 group-hover:scale-110 transition-transform"><i class="fa-solid fa-check-double"></i></div>
+                                        <div>
+                                            <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">مكتمل</p>
+                                            <div class="flex items-baseline gap-1">
+                                                <h4 class="text-lg font-black text-slate-800 orders-completed-val">0</h4>
+                                                <span class="text-[10px] text-emerald-500 font-bold">+15%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Canceled -->
+                                    <div class="flex items-center gap-3 p-3 rounded-2xl bg-white/60 hover:bg-white hover:shadow-lg hover:shadow-rose-500/10 transition-all border border-slate-100 group">
+                                        <div class="w-10 h-10 rounded-xl bg-rose-500 text-white flex items-center justify-center shadow-lg shadow-rose-200 group-hover:scale-110 transition-transition"><i class="fa-solid fa-ban"></i></div>
+                                        <div>
+                                            <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">ملغي</p>
+                                            <div class="flex items-baseline gap-1">
+                                                <h4 class="text-lg font-black text-slate-800 orders-canceled-val">0</h4>
+                                                <span class="text-[10px] text-rose-500 font-bold">-5%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <script>
+                    function exportOrdersChartData() {
+                        // Placeholder for export functionality
+                        alert('تم تصدير بيانات حالة الطلبات بصيغة CSV');
+                    }
+                </script>
+
 
                 <!-- Dashboard Widgets Grid 2 -->
                 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-8">
@@ -902,16 +1159,15 @@
                         <table class="w-full text-right text-sm" id="storesDatatable" width="100%">
                             <thead class="bg-slate-50/80 text-slate-500">
                                 <tr>
-                                    <th class="p-4 font-semibold text-right">المعرف</th>
-                                    <th class="p-4 font-semibold text-right">الصورة</th>
-                                    <th class="p-4 font-semibold text-right">الاسم</th>
-                                    <th class="p-4 font-semibold text-right">مناطق التشغيل</th>
-                                    <th class="p-4 font-semibold text-right">المالك</th>
-                                    <th class="p-4 font-semibold text-right">تاريخ الانضمام</th>
-                                    <th class="p-4 font-semibold text-right">حالة المخزون</th>
-                                    <th class="p-4 font-semibold text-center">أخر جرد</th>
-                                    <th class="p-4 font-semibold text-center"><i class="fa-solid fa-chevron-down"></i>
-                                    </th>
+                                    <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">المعرف</th>
+                                    <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider shrink-0">صورة</th>
+                                    <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">اسم المتجر</th>
+                                    <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">المناطق</th>
+                                    <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">المالك</th>
+                                    <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">تاريخ الانضمام</th>
+                                    <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">حالة المخزون</th>
+                                    <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">أخر جرد</th>
+                                    <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider"><i class="fa-solid fa-gear"></i></th>
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-slate-100">
@@ -1313,8 +1569,8 @@
                                 <thead class="bg-slate-50/80 text-slate-500">
                                     <tr>
                                         <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">المعرف</th>
-                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">صوره</th>
-                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">الاسم</th>
+                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">صورة</th>
+                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">اسم المنتج</th>
                                         <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">المتجر</th>
                                         <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">التصنيف</th>
                                         <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">السعر</th>
@@ -2353,22 +2609,20 @@
                     </button>
                 </div>
 
-                <!-- All Users Sub-tab -->
                 <div id="user-content-all" class="user-subtab-content active mt-4">
                     <div class="glass-panel rounded-2xl p-6">
                         <div class="overflow-x-auto custom-scrollbar">
                             <table class="w-full text-right" id="usersDataTableAll">
-                                <thead>
-                                    <tr class="text-slate-500 text-sm border-b border-slate-100">
-                                        <th class="pb-3 font-semibold">ID</th>
-                                        <th class="pb-3 font-semibold">المستخدم</th>
-                                        <th class="pb-3 font-semibold">البريد الإلكتروني</th>
-                                        <th class="pb-3 font-semibold">الجوال</th>
-                                        <th class="pb-3 font-semibold">الدور</th>
-                                        <th class="pb-3 font-semibold">المحفظة</th>
-                                        <th class="pb-3 font-semibold">تاريخ الانضمام</th>
-                                        <th class="pb-3 font-semibold text-center"><i
-                                                class="fa-solid fa-ellipsis-vertical"></i></th>
+                                <thead class="bg-slate-50/80 text-slate-500">
+                                    <tr>
+                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">المعرف</th>
+                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">المستخدم</th>
+                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">البريد الإلكتروني</th>
+                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">الجوال</th>
+                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">الدور</th>
+                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider text-nowrap">المحفظة</th>
+                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">تاريخ الانضمام</th>
+                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider"><i class="fa-solid fa-gear"></i></th>
                                     </tr>
                                 </thead>
                                 <tbody></tbody>
@@ -2377,22 +2631,20 @@
                     </div>
                 </div>
 
-                <!-- Customers Sub-tab -->
                 <div id="user-content-customers" class="user-subtab-content hidden mt-4">
                     <div class="glass-panel rounded-2xl p-6">
                         <div class="overflow-x-auto custom-scrollbar">
                             <table class="w-full text-right" id="usersDataTableCustomers">
-                                <thead>
-                                    <tr class="text-slate-500 text-sm border-b border-slate-100">
-                                        <th class="pb-3 font-semibold">ID</th>
-                                        <th class="pb-3 font-semibold">المستخدم</th>
-                                        <th class="pb-3 font-semibold">البريد الإلكتروني</th>
-                                        <th class="pb-3 font-semibold">الجوال</th>
-                                        <th class="pb-3 font-semibold">الدور</th>
-                                        <th class="pb-3 font-semibold">المحفظة</th>
-                                        <th class="pb-3 font-semibold">تاريخ الانضمام</th>
-                                        <th class="pb-3 font-semibold text-center"><i
-                                                class="fa-solid fa-ellipsis-vertical"></i></th>
+                                <thead class="bg-slate-50/80 text-slate-500">
+                                    <tr>
+                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">المعرف</th>
+                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">المستخدم</th>
+                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">البريد الإلكتروني</th>
+                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">الجوال</th>
+                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">الدور</th>
+                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider text-nowrap">المحفظة</th>
+                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">تاريخ الانضمام</th>
+                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider"><i class="fa-solid fa-gear"></i></th>
                                     </tr>
                                 </thead>
                                 <tbody></tbody>
@@ -2406,15 +2658,14 @@
                     <div class="glass-panel rounded-2xl p-6">
                         <div class="overflow-x-auto custom-scrollbar">
                             <table class="w-full text-right" id="usersDataTableStoreOwners">
-                                <thead>
-                                    <tr class="text-slate-500 text-sm border-b border-slate-100">
-                                        <th class="pb-3 font-semibold">ID</th>
-                                        <th class="pb-3 font-semibold">المستخدم</th>
-                                        <th class="pb-3 font-semibold">البريد الإلكتروني</th>
-                                        <th class="pb-3 font-semibold">الجوال</th>
-                                        <th class="pb-3 font-semibold">تاريخ الانضمام</th>
-                                        <th class="pb-3 font-semibold text-center"><i
-                                                class="fa-solid fa-ellipsis-vertical"></i></th>
+                                <thead class="bg-slate-50/80 text-slate-500">
+                                    <tr>
+                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">المعرف</th>
+                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">المستخدم</th>
+                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">البريد الإلكتروني</th>
+                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">الجوال</th>
+                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider text-nowrap">تاريخ الانضمام</th>
+                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider"><i class="fa-solid fa-gear"></i></th>
                                     </tr>
                                 </thead>
                                 <tbody></tbody>
@@ -2428,17 +2679,16 @@
                     <div class="glass-panel rounded-2xl p-6">
                         <div class="overflow-x-auto custom-scrollbar">
                             <table class="w-full text-right" id="usersDataTableDeliveryGuys">
-                                <thead>
-                                    <tr class="text-slate-500 text-sm border-b border-slate-100">
-                                        <th class="pb-3 font-semibold">ID</th>
-                                        <th class="pb-3 font-semibold">المستخدم</th>
-                                        <th class="pb-3 font-semibold">البريد الإلكتروني</th>
-                                        <th class="pb-3 font-semibold">الجوال</th>
-                                        <th class="pb-3 font-semibold">المحفظة</th>
-                                        <th class="pb-3 font-semibold">الحالة</th>
-                                        <th class="pb-3 font-semibold">تاريخ الانضمام</th>
-                                        <th class="pb-3 font-semibold text-center"><i
-                                                class="fa-solid fa-ellipsis-vertical"></i></th>
+                                <thead class="bg-slate-50/80 text-slate-500">
+                                    <tr>
+                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">المعرف</th>
+                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">المستخدم</th>
+                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">البريد الإلكتروني</th>
+                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">الجوال</th>
+                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider text-nowrap">المحفظة</th>
+                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">الحالة</th>
+                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">تاريخ الانضمام</th>
+                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider"><i class="fa-solid fa-gear"></i></th>
                                     </tr>
                                 </thead>
                                 <tbody></tbody>
@@ -2452,16 +2702,15 @@
                     <div class="glass-panel rounded-2xl p-6">
                         <div class="overflow-x-auto custom-scrollbar">
                             <table class="w-full text-right" id="usersDataTableStaff">
-                                <thead>
-                                    <tr class="text-slate-500 text-sm border-b border-slate-100">
-                                        <th class="pb-3 font-semibold">ID</th>
-                                        <th class="pb-3 font-semibold">المستخدم</th>
-                                        <th class="pb-3 font-semibold">البريد الإلكتروني</th>
-                                        <th class="pb-3 font-semibold">الجوال</th>
-                                        <th class="pb-3 font-semibold">الدور</th>
-                                        <th class="pb-3 font-semibold">تاريخ الانضمام</th>
-                                        <th class="pb-3 font-semibold text-center"><i
-                                                class="fa-solid fa-ellipsis-vertical"></i></th>
+                                <thead class="bg-slate-50/80 text-slate-500">
+                                    <tr>
+                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">المعرف</th>
+                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">المستخدم</th>
+                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">البريد الإلكتروني</th>
+                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">الجوال</th>
+                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">الدور</th>
+                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">تاريخ الانضمام</th>
+                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider"><i class="fa-solid fa-gear"></i></th>
                                     </tr>
                                 </thead>
                                 <tbody></tbody>
@@ -2481,12 +2730,11 @@
                         </div>
                         <div class="overflow-x-auto custom-scrollbar">
                             <table class="w-full text-right" id="rolesDataTable">
-                                <thead>
-                                    <tr class="text-slate-500 text-sm border-b border-slate-100">
-                                        <th class="pb-3 font-semibold px-4">اسم الدور</th>
-                                        <th class="pb-3 font-semibold px-4">الصلاحيات الممنوحة</th>
-                                        <th class="pb-3 font-semibold text-center w-32 px-4 whitespace-nowrap">الإجراءات
-                                        </th>
+                                <thead class="bg-slate-50/80 text-slate-500">
+                                    <tr>
+                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">اسم الدور</th>
+                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">الصلاحيات الممنوحة</th>
+                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider w-32 px-4 whitespace-nowrap"><i class="fa-solid fa-gear"></i></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -2655,17 +2903,17 @@
                 <div class="glass-panel rounded-3xl overflow-hidden shadow-sm mt-4 p-2 md:p-6 bg-white shrink">
                     <div class="p-0 overflow-x-auto custom-scrollbar">
                         <table class="w-full text-right align-middle" id="ordersDataTable">
-                            <thead>
-                                <tr class="text-slate-500 text-sm border-b border-slate-100">
-                                    <th class="pb-3 font-semibold pl-4">رقم الطلب</th>
-                                    <th class="pb-3 font-semibold px-4">العميل</th>
-                                    <th class="pb-3 font-semibold px-4">المتجر و نوع الطلب</th>
-                                    <th class="pb-3 font-semibold px-4 text-center">الإجمالي</th>
-                                    <th class="pb-3 font-semibold px-4 text-center">الحالة</th>
-                                    <th class="pb-3 font-semibold px-4">التاريخ والوقت</th>
-                                    <th class="pb-3 font-semibold px-4 text-center">الإجراءات</th>
-                                </tr>
-                            </thead>
+                                <thead class="bg-slate-50/80 text-slate-500">
+                                    <tr>
+                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">رقم الطلب</th>
+                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">العميل</th>
+                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">المتجر و نوع الطلب</th>
+                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">الإجمالي</th>
+                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">الحالة</th>
+                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">التاريخ والوقت</th>
+                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider"><i class="fa-solid fa-gear"></i></th>
+                                    </tr>
+                                </thead>
                             <tbody class="divide-y divide-slate-50">
                                 <tr class="hover:bg-slate-50/50 transition-colors group">
                                     <td class="py-4 pl-4">
@@ -3445,7 +3693,10 @@
         function initDashboard() {
             // Dashboard specific initialization logic
             console.log("Dashboard initialized");
+            // Note: Order Status Donut Chart is now initialized in the loadMockData block
+            // to ensure ECharts modules and themes are ready.
         }
+
     </script>
 
 
@@ -3513,34 +3764,96 @@
                     'echarts/chart/funnel',
                 ],
                 function (ec, limitless) {
-                    var basic_donut = ec.init(document.getElementById('basic_donut'), limitless);
-                    var basic_donut_options = {
-                        title: { text: 'Overview Of Order Statuses', subtext: `Of all orders till ${moment().format('YYYY-MM-DD')}`, x: 'center' },
-                        legend: {
-                            show: true, orient: 'vertical', x: 'left',
-                            data: data.charts.donut.map(d => d.name)
-                        },
-                        toolbox: { show: false },
-                        calculable: false,
-                        series: [
-                            {
-                                name: 'Orders', type: 'pie', radius: ['50%', '70%'], center: ['50%', '58%'],
+                    // Try Basic Donut (Legacy)
+                    var container = document.getElementById('basic_donut');
+                    if (container) {
+                        var basic_donut = ec.init(container, limitless);
+                        var basic_donut_options = {
+                            title: { text: 'Overview Of Order Statuses', subtext: `Of all orders till ${moment().format('YYYY-MM-DD')}`, x: 'center' },
+                            legend: {
+                                show: true, orient: 'vertical', x: 'left',
+                                data: data.charts.donut.map(d => d.name)
+                            },
+                            toolbox: { show: false },
+                            calculable: false,
+                            series: [
+                                {
+                                    name: 'Orders', type: 'pie', radius: ['50%', '70%'], center: ['50%', '58%'],
+                                    itemStyle: {
+                                        normal: { label: { show: true }, labelLine: { show: true } },
+                                        emphasis: {
+                                            label: {
+                                                show: true, formatter: '{b}' + '\n\n' + '{c} ({d}%)',
+                                                position: 'center', textStyle: { fontSize: '17', fontWeight: '500' }
+                                            }
+                                        }
+                                    },
+                                    data: data.charts.donut
+                                }
+                            ]
+                        };
+                        basic_donut.setOption(basic_donut_options);
+                        window.addEventListener('resize', function() { basic_donut.resize(); });
+                    }
+
+                    // Try Unified Orders Donut Chart (Modern)
+                    var ordersDom = document.getElementById('ordersDonutChart');
+                    if (ordersDom && data.charts && data.charts.donut) {
+                        var ordersChart = ec.init(ordersDom, limitless);
+                        
+                        const statusMap = {
+                            'Awaiting Payment': { label: 'بانتظار الدفع', color: '#f59e0b', class: '.orders-pending-val' },
+                            'Preparing Order': { label: 'قيد التحضير', color: '#3b82f6', class: '.orders-processing-val' },
+                            'Ready For Pick Up': { label: 'جاهز للاستلام', color: '#8b5cf6', class: '.orders-ready-val' },
+                            'Delivered': { label: 'مكتمل', color: '#10b981', class: '.orders-completed-val' },
+                            'Canceled': { label: 'ملغي', color: '#ef4444', class: '.orders-canceled-val' },
+                            'Order Placed': { label: 'طلب جديد', color: '#6366f1', class: '.orders-new-val' },
+                            'Payment Failed': { label: 'فشل الدفع', color: '#f43f5e' }
+                        };
+
+                        const chartData = data.charts.donut.map(item => {
+                            const config = statusMap[item.name] || { label: item.name, color: '#94a3b8' };
+                            if (config.class) {
+                                const valEl = document.querySelector(config.class);
+                                if (valEl) valEl.innerText = item.value;
+                            }
+                            return {
+                                value: item.value,
+                                name: config.label,
+                                itemStyle: { color: config.color }
+                            };
+                        });
+
+                        const ordersOption = {
+                            tooltip: { trigger: 'item', formatter: '{a} <br/>{b}: {c} ({d}%)' },
+                            legend: {
+                                show: false, // Hidden to use the custom redesigned UI at the bottom
+                                data: chartData.map(d => d.name)
+                            },
+                            series: [{
+                                name: 'حالة الطلبات',
+                                type: 'pie',
+                                radius: ['60%', '85%'], // Thinner and more modern donut
+                                center: ['50%', '50%'],
+                                avoidLabelOverlap: false,
                                 itemStyle: {
-                                    normal: { label: { show: true }, labelLine: { show: true } },
+                                    normal: {
+                                        label: { show: false },
+                                        labelLine: { show: false }
+                                    },
                                     emphasis: {
                                         label: {
-                                            show: true, formatter: '{b}' + '\n\n' + '{c} ({d}%)',
-                                            position: 'center', textStyle: { fontSize: '17', fontWeight: '500' }
+                                            show: true,
+                                            position: 'center',
+                                            textStyle: { fontSize: '24', fontWeight: '900', fontFamily: 'Cairo', color: '#1e293b' }
                                         }
                                     }
                                 },
-                                data: data.charts.donut
-                            }
-                        ]
-                    };
-                    basic_donut.setOption(basic_donut_options);
-                    window.onresize = function () {
-                        setTimeout(function () { basic_donut.resize(); }, 200);
+                                data: chartData
+                            }]
+                        };
+                        ordersChart.setOption(ordersOption);
+                        window.addEventListener('resize', function() { ordersChart.resize(); });
                     }
                 }
             );
@@ -3592,6 +3905,24 @@
         }
 
         // Initialize when ready
+        const dataTableArabicLanguage = {
+            search: '',
+            searchPlaceholder: 'ابحث هنا...',
+            sEmptyTable: "لا توجد بيانات متاحة",
+            sZeroRecords: "لا توجد نتائج مطابقة",
+            sLengthMenu: "عرض _MENU_ مدخلات",
+            sInfo: "إظهار _START_ إلى _END_ من أصل _TOTAL_ مُدخل",
+            sInfoEmpty: "إظهار 0 إلى 0 من أصل 0 مُدخل",
+            sInfoFiltered: "(تمت التصفية من إجمالي _MAX_ مُدخل)",
+            paginate: {
+                first: '<i class="fa-solid fa-angles-right"></i>',
+                last: '<i class="fa-solid fa-angles-left"></i>',
+                next: '<i class="fa-solid fa-chevron-right"></i>',
+                previous: '<i class="fa-solid fa-chevron-left"></i>'
+            },
+            processing: '<i class="fa-solid fa-spinner fa-spin mr-2"></i> جار التحميل...'
+        };
+
         // Stores DataTables Setup
         var datatable;
         function initStoresDatatable() {
@@ -3617,15 +3948,74 @@
                     order: [[0, "desc"]],
                     data: mockStoresData,
                     columns: [
-                        { data: 'id', visible: false, searchable: false, sortable: false },
-                        { data: 'image', searchable: false, sortable: false },
-                        { data: 'name', sortable: true },
-                        { data: 'areas', searchable: false, sortable: false },
-                        { data: 'owner', searchable: false, sortable: true },
-                        { data: 'created_at', searchable: true, sortable: true },
-                        { data: 'oddo_stock', searchable: false, sortable: false },
-                        { data: 'updated_stock', searchable: false, sortable: false },
-                        { data: 'action', sortable: false, searchable: false },
+                        { data: 'id', visible: true, searchable: true, sortable: true, className: 'text-center font-bold text-slate-400' },
+                        { 
+                            data: 'image', 
+                            searchable: false, 
+                            sortable: false,
+                            className: 'text-center',
+                            render: function(data) {
+                                if (!data) return '<div class="w-11 h-11 bg-slate-100 rounded-xl mx-auto border border-slate-200 flex items-center justify-center text-slate-300"><i class="fa-solid fa-image"></i></div>';
+                                // Extract src more robustly (handles single and double quotes)
+                                let match = data.match(/src=['"]([^'"]+)['"]/i);
+                                let src = match ? match[1] : data;
+                                // If data was already HTML but match failed, return data as is, otherwise wrap in our premium styled img
+                                if (data.indexOf('<') !== -1 && !match) return data;
+                                return `<img src="${src}" class="table-image mx-auto" alt="store">`;
+                            }
+                        },
+                        { 
+                            data: 'name', 
+                            sortable: true,
+                            className: 'font-bold text-slate-800 text-center'
+                        },
+                        { 
+                            data: 'areas', 
+                            searchable: false, 
+                            sortable: false,
+                            render: function(data) {
+                                if (!data) return '';
+                                if (Array.isArray(data)) {
+                                    return `<div class="flex flex-wrap gap-1">${data.map(a => `<span class="badge-premium bg-slate-100 text-slate-600">${a}</span>`).join('')}</div>`;
+                                }
+                                // If it's a string, just return it (might be pre-formatted or plan text)
+                                if (data.indexOf('<') !== -1) return data;
+                                return `<span class="badge-premium bg-slate-100 text-slate-600">${data}</span>`;
+                            }
+                        },
+                        { 
+                            data: 'owner', 
+                            searchable: false, 
+                            sortable: true,
+                            render: function(data) {
+                                return `<div class="flex items-center gap-2"><div class="w-8 h-8 rounded-full bg-indigo-50 text-indigo-500 flex items-center justify-center font-bold text-[10px]">${data.charAt(0)}</div><span class="font-medium text-slate-700">${data}</span></div>`;
+                            }
+                        },
+                        { data: 'created_at', searchable: true, sortable: true, className: 'text-center text-xs text-slate-500' },
+                        { 
+                            data: 'oddo_stock', 
+                            searchable: false, 
+                            sortable: false,
+                            className: 'text-center',
+                            render: function(data) {
+                                let style = data === 'Active' ? 'bg-emerald-50 text-emerald-600 border-emerald-100' : 'bg-rose-50 text-rose-600 border-rose-100';
+                                return `<span class="badge-premium ${style} border">${data === 'Active' ? '<i class="fa-solid fa-check-circle"></i> متصل' : '<i class="fa-solid fa-circle-exclamation"></i> غير متصل'}</span>`;
+                            }
+                        },
+                        { data: 'updated_stock', searchable: false, sortable: false, className: 'text-center text-[11px] text-slate-400 font-medium' },
+                        { 
+                            data: 'action', 
+                            sortable: false, 
+                            searchable: false,
+                            className: 'text-center',
+                            render: function(data) {
+                                return `
+                                <div class="flex items-center justify-center gap-2">
+                                    <button class="w-9 h-9 rounded-xl bg-slate-50 text-slate-400 hover:bg-slate-100 hover:text-indigo-600 transition-all flex items-center justify-center border border-slate-100" title="تعديل"><i class="fa-solid fa-pen-to-square"></i></button>
+                                    <button class="w-9 h-9 rounded-xl bg-slate-50 text-slate-400 hover:bg-rose-50 hover:text-rose-600 transition-all flex items-center justify-center border border-slate-100" title="حذف"><i class="fa-solid fa-trash-can"></i></button>
+                                </div>`;
+                            }
+                        },
                     ],
                     colReorder: false,
                     drawCallback: function (settings) {
@@ -3636,18 +4026,10 @@
                             }
                         });
                     },
-                    scrollX: true,
-                    scrollCollapse: true,
+                    responsive: true,
+                    autoWidth: false,
                     dom: '<"flex justify-between items-center bg-white p-4 border-b border-slate-100 rounded-t-xl"lf>rt<"flex justify-between items-center bg-white p-4 border-t border-slate-100 rounded-b-xl"ip>',
-                    language: {
-                        search: '',
-                        searchPlaceholder: 'ابحث عن أي شيء...',
-                        sEmptyTable: "لا توجد بيانات",
-                        lengthMenu: 'عرض _MENU_',
-                        info: "عرض _START_ إلى _END_ من _TOTAL_ مدخلات",
-                        paginate: { 'first': 'الأول', 'last': 'الأخير', 'next': '&larr;', 'previous': '&rarr;' }, // Flipped for RTL
-                        processing: '<i class="fa-solid fa-spinner fa-spin mr-2"></i> جار التحميل...'
-                    }
+                    language: dataTableArabicLanguage
                 });
             });
 
@@ -3680,7 +4062,7 @@
                 let newRow = {
                     id: newId,
                     image: '<div class="w-12 h-12 rounded-lg bg-indigo-50 flex items-center justify-center border border-indigo-100 shadow-sm"><i class="fa-solid fa-store text-indigo-400 text-xl"></i></div>',
-                    name: '<div class="font-bold text-slate-700 text-left">' + dataObj.name + ' <span class="text-[10px] text-emerald-500 bg-emerald-50 px-1 rounded">جديد</span></div><div class="text-xs text-slate-500 text-left">' + (dataObj.short_name || '') + '</div>',
+                    name: '<div class="font-bold text-slate-700 text-center">' + dataObj.name + ' <span class="text-[10px] text-emerald-500 bg-emerald-50 px-1 rounded">جديد</span></div><div class="text-xs text-slate-500 text-center">' + (dataObj.short_name || '') + '</div>',
                     areas: '<span class="px-2 py-1 bg-indigo-50 text-indigo-600 rounded text-xs font-semibold whitespace-nowrap">تم التعيين حديثاً</span>',
                     owner: '<span class="text-slate-600 font-semibold whitespace-nowrap">' + (dataObj.user_id ? "المالك #" + dataObj.user_id : "غير محدد") + '</span>',
                     created_at: '<span class="text-slate-500 text-xs whitespace-nowrap">الآن</span>',
@@ -3795,24 +4177,49 @@
                 },
                 columns: [
                     { data: 'id', visible: true, className: 'text-center font-bold text-slate-400' },
-                    { data: 'image', sortable: false, className: 'text-center' },
+                    { 
+                        data: 'image', 
+                        sortable: false, 
+                        className: 'text-center',
+                        render: function(data) {
+                            if (!data) return '<div class="w-11 h-11 bg-slate-100 rounded-xl mx-auto border border-slate-200 flex items-center justify-center text-slate-300"><i class="fa-solid fa-image"></i></div>';
+                            let match = data.match(/src=['"]([^'"]+)['"]/i);
+                            let src = match ? match[1] : data;
+                            return `<img src="${src}" class="table-image mx-auto" alt="product">`;
+                        }
+                    },
                     { data: 'name', className: 'text-right font-bold text-slate-700' },
                     { data: 'restaurant_name', sortable: false, className: 'text-right' },
-                    { data: 'category_name', className: 'text-right' },
-                    { data: 'price', className: 'text-center font-bold text-emerald-600' },
-                    { data: 'attributes', sortable: false, className: 'text-center' },
-                    { data: 'created_at', className: 'text-center text-xs text-slate-500' },
-                    { data: 'action', sortable: false, className: 'text-center' }
+                    { 
+                        data: 'category_name', 
+                        className: 'text-right',
+                        render: d => `<span class="badge-premium bg-indigo-50 text-indigo-600 border border-indigo-100">${d}</span>`
+                    },
+                    { 
+                        data: 'price', 
+                        className: 'text-center font-bold text-emerald-600',
+                        render: d => `<span class="font-mono">${d}</span> <small class="text-[10px]">ر.س</small>`
+                    },
+                    { 
+                        data: 'attributes', 
+                        sortable: false, 
+                        className: 'text-center',
+                        render: d => `<span class="text-[11px] text-slate-400">${d || '-'}</span>`
+                    },
+                    { data: 'created_at', className: 'text-center text-xs text-slate-400 font-medium' },
+                    { 
+                        data: 'action', 
+                        sortable: false, 
+                        className: 'text-center',
+                        render: function() {
+                            return `<div class="flex items-center justify-center gap-2"><button class="w-8 h-8 rounded-lg bg-slate-50 text-slate-400 hover:bg-slate-100 hover:text-indigo-600 transition-all flex items-center justify-center border border-slate-100"><i class="fa-solid fa-pen"></i></button><button class="w-8 h-8 rounded-lg bg-slate-50 text-slate-400 hover:bg-rose-50 hover:text-rose-600 transition-all flex items-center justify-center border border-slate-100"><i class="fa-solid fa-trash"></i></button></div>`;
+                        }
+                    }
                 ],
+                responsive: true,
                 autoWidth: false,
-                scrollX: true,
                 dom: '<"flex justify-between items-center bg-white p-4 border-b border-slate-100 rounded-t-xl"lf>rt<"flex justify-between items-center bg-white p-4 border-t border-slate-100 rounded-b-xl"ip>',
-                language: {
-                    search: '',
-                    searchPlaceholder: 'بحث في العناصر...',
-                    sEmptyTable: "لا توجد بيانات متاحة",
-                    paginate: { 'first': 'الأول', 'last': 'الأخير', 'next': '&larr;', 'previous': '&rarr;' }
-                }
+                language: dataTableArabicLanguage
             });
 
             $('#clearItemsFilterAndState').click(function () {
@@ -3878,33 +4285,26 @@
                     scrollX: false,
                     responsive: true,
                     columns: [
-                        { data: 'name', className: 'font-semibold text-slate-800 px-4' },
+                        { data: 'name', className: 'font-bold text-slate-800 px-4' },
                         {
                             data: 'type',
                             className: 'px-4',
                             render: function (data) {
-                                let color = data === 'اختيار متعدد' ? 'bg-indigo-100 text-indigo-700' : 'bg-emerald-100 text-emerald-700';
-                                return `<span class="px-3 py-1 rounded-full text-xs font-bold ${color} whitespace-nowrap">${data}</span>`;
+                                let colors = data === 'اختيار متعدد' ? 'bg-indigo-50 text-indigo-600 border-indigo-100' : 'bg-emerald-50 text-emerald-600 border-emerald-100';
+                                return `<span class="badge-premium ${colors} border font-bold text-[10px]">${data}</span>`;
                             }
                         },
-                        { data: 'max', className: 'text-slate-600 px-4 text-center whitespace-nowrap' },
-                        { data: 'count', className: 'text-slate-600 px-4 text-center whitespace-nowrap' },
-                        { data: 'date', className: 'text-slate-500 text-xs px-4 whitespace-nowrap' },
+                        { data: 'max', className: 'text-slate-600 px-4 text-center whitespace-nowrap font-bold font-mono' },
+                        { data: 'count', className: 'text-slate-600 px-4 text-center whitespace-nowrap font-bold font-mono' },
+                        { data: 'date', className: 'text-slate-400 text-[10px] px-4 whitespace-nowrap' },
                         {
                             data: null,
                             className: 'text-center px-4',
                             render: function (data) {
                                 return `
-                                <div class="relative inline-block text-left dropdown">
-                                    <button class="text-slate-400 hover:text-indigo-600 transition-colors p-2 rounded-lg hover:bg-slate-50" data-bs-toggle="dropdown" aria-expanded="false" onclick="this.nextElementSibling.classList.toggle('hidden')">
-                                        <i class="fa-solid fa-ellipsis-vertical"></i>
-                                    </button>
-                                    <div class="dropdown-menu absolute left-1/2 -px-2 -translate-x-1/2 z-10 w-32 mt-2 origin-top bg-white border border-slate-100 rounded-xl shadow-lg shadow-slate-200/50 hidden">
-                                        <div class="py-1">
-                                            <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-indigo-600 transition-colors text-right"><i class="fa-solid fa-pen-to-square ml-2"></i> تعديل</a>
-                                            <a href="#" class="block px-4 py-2 text-sm text-rose-600 hover:bg-rose-50 transition-colors text-right"><i class="fa-solid fa-trash ml-2"></i> حذف</a>
-                                        </div>
-                                    </div>
+                                <div class="flex items-center justify-center gap-2">
+                                    <button class="w-8 h-8 rounded-lg bg-slate-50 text-slate-400 hover:bg-slate-100 hover:text-indigo-600 transition-all flex items-center justify-center border border-slate-100"><i class="fa-solid fa-pen-to-square"></i></button>
+                                    <button class="w-8 h-8 rounded-lg bg-slate-50 text-slate-400 hover:bg-rose-50 hover:text-rose-600 transition-all flex items-center justify-center border border-slate-100"><i class="fa-solid fa-trash-can"></i></button>
                                 </div>`;
                             }
                         }
@@ -3919,14 +4319,7 @@
                     ],
                     pageLength: 10,
                     dom: '<"flex justify-between items-center bg-white p-4 border-b border-slate-100 rounded-t-xl"lf>rt<"flex justify-between items-center bg-white p-4 border-t border-slate-100 rounded-b-xl"ip>',
-                    language: {
-                        search: '',
-                        searchPlaceholder: 'بحث في تصنيفات الإضافات...',
-                        sEmptyTable: "لا توجد بيانات متاحة",
-                        lengthMenu: 'عرض _MENU_ مدخلات',
-                        info: "إظهار _START_ إلى _END_ من _TOTAL_ مُدخل",
-                        paginate: { 'first': 'الأول', 'last': 'الأخير', 'next': '&larr;', 'previous': '&rarr;' }
-                    }
+                    language: dataTableArabicLanguage
                 });
                 });
             }
@@ -3981,14 +4374,7 @@
                     ],
                     pageLength: 10,
                     dom: '<"flex justify-between items-center bg-white p-4 border-b border-slate-100 rounded-t-xl"lf>rt<"flex justify-between items-center bg-white p-4 border-t border-slate-100 rounded-b-xl"ip>',
-                    language: {
-                        search: '',
-                        searchPlaceholder: 'بحث في الإضافات...',
-                        sEmptyTable: "لا توجد بيانات متاحة",
-                        lengthMenu: 'عرض _MENU_ مدخلات',
-                        info: "إظهار _START_ إلى _END_ من _TOTAL_ مُدخل",
-                        paginate: { 'first': 'الأول', 'last': 'الأخير', 'next': '&larr;', 'previous': '&rarr;' }
-                    },
+                    language: dataTableArabicLanguage,
                     drawCallback: function () {
                         var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch-addon'));
                         elems.forEach(function (html) {
@@ -4066,91 +4452,170 @@
         }
 
         function initUsers() {
-            // لا نستخدم DataTables هنا، فقط نملأ الجداول مباشرة من ملفات الموك داتا
             if (window.__USERS_INIT_DONE__) return;
             window.__USERS_INIT_DONE__ = true;
 
-            const tableConfigs = [
-                {
-                    id: 'usersDataTableAll',
-                    ajax_file: 'users',
-                    cols: ['id', 'name', 'email', 'phone', 'role', 'wallet', 'created_at', 'action']
+            const baseConfig = {
+                responsive: true,
+                autoWidth: false,
+                pageLength: 10,
+                dom: '<"flex justify-between items-center bg-white p-4 border-b border-slate-100 rounded-t-xl"lf>rt<"flex justify-between items-center bg-white p-4 border-t border-slate-100 rounded-b-xl"ip>',
+                language: dataTableArabicLanguage
+            };
+
+            const userColsAll = [
+                { data: 'id', className: 'text-center font-bold text-slate-400 text-xs' },
+                { 
+                    data: 'name', 
+                    className: 'font-bold text-slate-800',
+                    render: function(data, type, row) {
+                        let name = data || 'المستخدم';
+                        return `<div class="flex items-center gap-3"><div class="w-9 h-9 rounded-xl bg-indigo-50 text-indigo-500 flex items-center justify-center font-black text-xs border border-indigo-100 shadow-sm">${name.charAt(0)}</div><div><div class="font-bold text-slate-800 text-sm leading-none">${name}</div><div class="text-slate-400 text-[10px] mt-1 font-mono">ID: ${row.id}</div></div></div>`;
+                    }
                 },
-                {
-                    id: 'usersDataTableCustomers',
-                    ajax_file: 'customers',
-                    cols: ['id', 'name', 'email', 'phone', 'role', 'wallet', 'created_at', 'action']
+                { data: 'email', className: 'text-slate-500 text-xs font-medium' },
+                { data: 'phone', className: 'text-slate-500 text-xs font-medium font-mono' },
+                { 
+                    data: 'role', 
+                    className: 'text-center',
+                    render: function(data) {
+                        let role = data || 'User';
+                        let styles = {
+                            'Admin': 'bg-indigo-50 text-indigo-600 border-indigo-100',
+                            'Customer': 'bg-emerald-50 text-emerald-600 border-emerald-100',
+                            'Store Owner': 'bg-amber-50 text-amber-600 border-amber-100',
+                            'Delivery Guy': 'bg-blue-50 text-blue-600 border-blue-100',
+                            'Staff': 'bg-purple-50 text-purple-600 border-purple-100'
+                        };
+                        let style = styles[role] || 'bg-slate-50 text-slate-600 border-slate-100';
+                        return `<span class="badge-premium ${style} border font-bold text-[10px] whitespace-nowrap">${role}</span>`;
+                    }
                 },
-                {
-                    id: 'usersDataTableStoreOwners',
-                    ajax_file: 'store_owners',
-                    cols: ['id', 'name', 'email', 'phone', 'created_at', 'action']
+                { 
+                    data: 'wallet', 
+                    className: 'font-black text-emerald-600 text-center', 
+                    render: d => `<span class="font-mono">${parseFloat(d || 0).toLocaleString('en-US', {minimumFractionDigits: 2})}</span> <small class="text-[10px] opacity-70">ر.س</small>` 
                 },
-                {
-                    id: 'usersDataTableDeliveryGuys',
-                    ajax_file: 'delivery_guys',
-                    cols: ['id', 'name', 'email', 'phone', 'wallet', 'status', 'created_at', 'action']
-                },
-                {
-                    id: 'usersDataTableStaff',
-                    ajax_file: 'staff',
-                    cols: ['id', 'name', 'email', 'phone', 'role', 'created_at', 'action']
+                { data: 'created_at', className: 'text-center text-xs text-slate-400 font-medium' },
+                { 
+                    data: null, 
+                    className: 'text-center', 
+                    sortable: false,
+                    render: function() {
+                        return `<div class="flex items-center justify-center gap-1.5">
+                            <button class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-500 hover:bg-indigo-600 hover:text-white transition-all flex items-center justify-center border border-indigo-100 shadow-sm"><i class="fa-solid fa-pen text-[10px]"></i></button>
+                            <button class="w-8 h-8 rounded-lg bg-rose-50 text-rose-500 hover:bg-rose-600 hover:text-white transition-all flex items-center justify-center border border-rose-100 shadow-sm"><i class="fa-solid fa-trash text-[10px]"></i></button>
+                        </div>`;
+                    }
                 }
             ];
 
+            const userColsStoreOwner = [
+                { data: 'id', className: 'text-center font-bold text-slate-400 text-xs' },
+                { 
+                    data: 'name', 
+                    className: 'font-bold text-slate-800',
+                    render: function(data, type, row) {
+                        return `<div class="flex items-center gap-3"><div class="w-9 h-9 rounded-xl bg-amber-50 text-amber-500 flex items-center justify-center font-black text-xs border border-amber-100 shadow-sm">${data.charAt(0)}</div><div><div class="font-bold text-slate-800 text-sm leading-none">${data}</div><div class="text-slate-400 text-[10px] mt-1 font-mono">ID: ${row.id}</div></div></div>`;
+                    }
+                },
+                { data: 'email', className: 'text-slate-500 text-xs font-medium' },
+                { data: 'phone', className: 'text-slate-500 text-xs font-medium font-mono' },
+                { data: 'created_at', className: 'text-center text-xs text-slate-400 font-medium' },
+                { 
+                    data: null, 
+                    className: 'text-center', 
+                    sortable: false,
+                    render: () => `<div class="flex items-center justify-center gap-1.5"><button class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-500 hover:bg-indigo-600 hover:text-white transition-all flex items-center justify-center border border-indigo-100 shadow-sm"><i class="fa-solid fa-pen text-[10px]"></i></button></div>`
+                }
+            ];
+
+            const userColsDelivery = [
+                { data: 'id', className: 'text-center font-bold text-slate-400 text-xs' },
+                { 
+                    data: 'name', 
+                    className: 'font-bold text-slate-800',
+                    render: function(data, type, row) {
+                        return `<div class="flex items-center gap-3"><div class="w-9 h-9 rounded-xl bg-blue-50 text-blue-500 flex items-center justify-center font-black text-xs border border-blue-100 shadow-sm">${data.charAt(0)}</div><div><div class="font-bold text-slate-800 text-sm leading-none">${data}</div><div class="text-slate-400 text-[10px] mt-1 font-mono">ID: ${row.id}</div></div></div>`;
+                    }
+                },
+                { data: 'email', className: 'text-slate-500 text-xs font-medium' },
+                { data: 'phone', className: 'text-slate-500 text-xs font-medium font-mono' },
+                { 
+                    data: 'wallet', 
+                    className: 'font-black text-emerald-600 text-center', 
+                    render: d => `<span class="font-mono">${parseFloat(d || 0).toLocaleString('en-US', {minimumFractionDigits: 2})}</span> <small class="text-[10px]">ر.س</small>` 
+                },
+                { 
+                    data: 'status', 
+                    className: 'text-center', 
+                    render: s => s == 1 || s == 'Active' ? '<span class="px-3 py-1 bg-emerald-50 text-emerald-600 rounded-full text-[10px] font-bold border border-emerald-100"><i class="fa-solid fa-circle text-[6px] mr-1"></i> نشط</span>' : '<span class="px-3 py-1 bg-slate-50 text-slate-400 rounded-full text-[10px] font-bold border border-slate-100">متوقف</span>' 
+                },
+                { data: 'created_at', className: 'text-center text-xs text-slate-400 font-medium' },
+                { 
+                    data: null, 
+                    className: 'text-center', 
+                    sortable: false,
+                    render: () => `<div class="flex items-center justify-center gap-1.5"><button class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-500 hover:bg-indigo-600 hover:text-white transition-all flex items-center justify-center border border-indigo-100 shadow-sm"><i class="fa-solid fa-eye text-[10px]"></i></button></div>`
+                }
+            ];
+
+            const userColsStaff = [
+                { data: 'id', className: 'text-center font-bold text-slate-400 text-xs' },
+                { 
+                    data: 'name', 
+                    className: 'font-bold text-slate-800',
+                    render: function(data, type, row) {
+                        return `<div class="flex items-center gap-3"><div class="w-9 h-9 rounded-xl bg-purple-50 text-purple-500 flex items-center justify-center font-black text-xs border border-purple-100 shadow-sm">${data.charAt(0)}</div><div><div class="font-bold text-slate-800 text-sm leading-none">${data}</div><div class="text-slate-400 text-[10px] mt-1 font-mono">ID: ${row.id}</div></div></div>`;
+                    }
+                },
+                { data: 'email', className: 'text-slate-500 text-xs font-medium' },
+                { data: 'phone', className: 'text-slate-500 text-xs font-medium font-mono' },
+                { 
+                    data: 'role', 
+                    className: 'text-center',
+                    render: r => `<span class="badge-premium bg-purple-50 text-purple-600 border border-purple-100 font-bold text-[10px]">${r || 'Staff'}</span>`
+                },
+                { data: 'created_at', className: 'text-center text-xs text-slate-400 font-medium' },
+                { 
+                    data: null, 
+                    className: 'text-center', 
+                    sortable: false,
+                    render: () => `<div class="flex items-center justify-center gap-1.5"><button class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-500 hover:bg-indigo-600 hover:text-white transition-all flex items-center justify-center border border-indigo-100 shadow-sm"><i class="fa-solid fa-shield text-[10px]"></i></button></div>`
+                }
+            ];
+
+            const tableConfigs = [
+                { id: 'usersDataTableAll', ajax_file: 'users', columns: userColsAll },
+                { id: 'usersDataTableCustomers', ajax_file: 'customers', columns: userColsAll },
+                { id: 'usersDataTableStoreOwners', ajax_file: 'store_owners', columns: userColsStoreOwner },
+                { id: 'usersDataTableDeliveryGuys', ajax_file: 'delivery_guys', columns: userColsDelivery },
+                { id: 'usersDataTableStaff', ajax_file: 'staff', columns: userColsStaff }
+            ];
+
             tableConfigs.forEach(config => {
-                loadMockData(config.ajax_file).then(mockUsers => {
-                    if (!Array.isArray(mockUsers)) mockUsers = [];
-                    const table = document.getElementById(config.id);
-                    if (!table) return;
-                    const tbody = table.querySelector('tbody');
-                    if (!tbody) return;
-                    tbody.innerHTML = '';
-
-                    mockUsers.forEach(user => {
-                        const tr = document.createElement('tr');
-                        tr.className = 'border-b border-slate-50 hover:bg-slate-50/60 transition-colors';
-
-                        config.cols.forEach(col => {
-                            const td = document.createElement('td');
-                            td.className = 'p-3 text-sm';
-
-                            if (col === 'name') {
-                                td.className += ' font-bold text-slate-800';
-                                td.textContent = user[col] ?? '';
-                            } else if (col === 'email' || col === 'phone') {
-                                td.className += ' text-slate-500 text-xs';
-                                td.textContent = user[col] ?? '';
-                            } else if (col === 'wallet') {
-                                td.className += ' font-bold text-emerald-600 text-center';
-                                td.textContent = (user[col] ?? 0) + ' ر.س';
-                            } else if (col === 'status') {
-                                const isActive = user[col] && (user[col].toString().toLowerCase().includes('active') || user[col] === '1' || user[col] === 1);
-                                td.innerHTML = isActive
-                                    ? '<span class="text-emerald-500 flex items-center gap-1 justify-center font-bold text-xs"><i class="fa-solid fa-circle text-[6px]"></i> نشط</span>'
-                                    : '<span class="text-rose-500 flex items-center gap-1 justify-center font-bold text-xs"><i class="fa-solid fa-circle text-[6px]"></i> غير نشط</span>';
-                            } else if (col === 'action') {
-                                td.className += ' text-center';
-                                td.innerHTML = user[col] ?? '';
-                            } else {
-                                td.textContent = user[col] ?? '';
-                            }
-
-                            tr.appendChild(td);
-                        });
-
-                        tbody.appendChild(tr);
+                const $target = $(`#${config.id}`);
+                if ($target.length && !$.fn.DataTable.isDataTable(`#${config.id}`)) {
+                    $target.DataTable({
+                        ...baseConfig,
+                        columns: config.columns,
+                        ajax: function(data, callback, settings) {
+                            loadMockData(config.ajax_file).then(mockUsers => {
+                                callback({ data: mockUsers || [] });
+                            });
+                        }
                     });
-                });
+                }
             });
 
-            const clearBtn = document.getElementById('clearUserFilters');
-            if (clearBtn) {
-                clearBtn.addEventListener('click', function () {
-                    // إعادة تحميل الصفحة لإعادة ضبط الجداول البسيطة
-                    window.location.reload();
+            $('#clearUserFilters').on('click', function () {
+                tableConfigs.forEach(c => {
+                    if ($.fn.DataTable.isDataTable(`#${c.id}`)) {
+                        $(`#${c.id}`).DataTable().state.clear();
+                    }
                 });
-            }
+                window.location.reload();
+            });
         }
 
         function checkAllPerms(status) {
@@ -4243,30 +4708,40 @@
         }
 
         function initRolesData() {
-            loadMockData('roles').then(roles => {
-                if (!roles) return;
-                const tbody = document.querySelector('#rolesDataTable tbody');
-                if (!tbody) return;
-
-                tbody.innerHTML = roles.map(role => {
-                    const permsHtml = role.permissions.map(p => 
-                        `<span class="px-2 py-0.5 ${role.is_system ? 'bg-indigo-50 text-indigo-600 border-indigo-100' : 'bg-slate-50 text-slate-600 border-slate-100'} rounded-lg text-[10px] font-bold border">${p}</span>`
-                    ).join('');
-
-                    const actionHtml = role.is_system 
-                        ? `<button class="w-8 h-8 rounded-lg bg-slate-50 text-slate-300 cursor-not-allowed flex items-center justify-center border border-slate-100" title="لا يمكن تعديل المدير الرئيسي"><i class="fa-solid fa-lock"></i></button>`
-                        : `<button onclick="toggleModal('addNewRoleModal')" class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 hover:bg-indigo-600 hover:text-white transition-colors flex items-center justify-center shadow-sm" title="تعديل"><i class="fa-solid fa-pen"></i></button>
-                           <button class="w-8 h-8 rounded-lg bg-rose-50 text-rose-500 hover:bg-rose-500 hover:text-white transition-colors flex items-center justify-center shadow-sm" title="حذف"><i class="fa-solid fa-trash"></i></button>`;
-
-                    return `
-                    <tr class="hover:bg-slate-50/50 transition-colors border-b border-slate-50">
-                        <td class="p-4 font-bold text-slate-700 px-4">${role.name} <span class="text-xs font-medium text-slate-400 font-mono">(${role.name_en})</span>
-                            <div class="text-[10px] text-slate-400 mt-1"><i class="fa-solid fa-users mr-1"></i>${role.users_count} مستخدم</div>
-                        </td>
-                        <td class="p-4 px-4"><div class="flex flex-wrap gap-1.5 max-w-2xl">${permsHtml}</div></td>
-                        <td class="p-4 px-4 text-center"><div class="flex items-center justify-center gap-2">${actionHtml}</div></td>
-                    </tr>`;
-                }).join('');
+            if ($.fn.DataTable.isDataTable('#rolesDataTable')) return;
+            $('#rolesDataTable').DataTable({
+                responsive: true,
+                autoWidth: false,
+                dom: '<"flex justify-between items-center bg-white p-4 border-b border-slate-100 rounded-t-xl"lf>rt<"flex justify-between items-center bg-white p-4 border-t border-slate-100 rounded-b-xl"ip>',
+                ajax: function(data, callback, settings) {
+                    loadMockData('roles').then(roles => {
+                        callback({ data: roles || [] });
+                    });
+                },
+                columns: [
+                    { 
+                        data: 'name', 
+                        className: 'font-bold text-slate-700 p-4',
+                        render: (d, t, r) => `${d} <span class="text-xs font-medium text-slate-400 font-mono">(${r.name_en})</span><div class="text-[10px] text-slate-400 mt-1"><i class="fa-solid fa-users mr-1"></i>${r.users_count} مستخدم</div>`
+                    },
+                    { 
+                        data: 'permissions', 
+                        className: 'p-4',
+                        render: (perms, t, r) => perms.map(p => `<span class="px-2 py-0.5 ${r.is_system ? 'bg-indigo-50 text-indigo-600 border-indigo-100' : 'bg-slate-50 text-slate-600 border-slate-100'} rounded-lg text-[10px] font-bold border">${p}</span>`).join(' ')
+                    },
+                    { 
+                        data: null, 
+                        className: 'p-4 text-center',
+                        sortable: false,
+                        render: (d, t, r) => r.is_system 
+                            ? `<button class="w-8 h-8 rounded-lg bg-slate-50 text-slate-300 cursor-not-allowed flex items-center justify-center border border-slate-100" title="لا يمكن تعديل المدير الرئيسي"><i class="fa-solid fa-lock"></i></button>`
+                            : `<div class="flex items-center justify-center gap-2">
+                                <button onclick="toggleModal('addNewRoleModal')" class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 hover:bg-indigo-600 hover:text-white transition-colors flex items-center justify-center shadow-sm" title="تعديل"><i class="fa-solid fa-pen"></i></button>
+                                <button class="w-8 h-8 rounded-lg bg-rose-50 text-rose-500 hover:bg-rose-500 hover:text-white transition-colors flex items-center justify-center shadow-sm" title="حذف"><i class="fa-solid fa-trash"></i></button>
+                               </div>`
+                    }
+                ],
+                language: dataTableArabicLanguage
             });
         }
 
@@ -4357,7 +4832,6 @@
                 "order": [[0, "desc"]],
                 "pageLength": 10,
                 "autoWidth": false,
-                "scrollX": false,
                 "responsive": true,
                 "dom": '<"flex justify-between items-center bg-white p-4 border-b border-slate-100 rounded-t-xl"lf>rt<"flex justify-between items-center bg-white p-4 border-t border-slate-100 rounded-b-xl"ip>',
                 "ajax": function (data, callback, settings) {
@@ -4366,26 +4840,53 @@
                     });
                 },
                 "columns": [
-                    { data: 'order_id', className: 'font-black text-slate-800 whitespace-nowrap pl-4' },
-                    { data: 'customer', className: 'px-4' },
-                    { data: 'store', className: 'px-4' },
-                    { data: 'total', className: 'font-bold text-emerald-600 text-center whitespace-nowrap px-4' },
-                    { data: 'status', className: 'text-center px-4' },
-                    { data: 'created_at', className: 'px-4 whitespace-nowrap' },
-                    { data: 'action', className: 'text-center px-4' }
+                    { 
+                        data: 'order_id', 
+                        className: 'font-black text-slate-800 whitespace-nowrap pl-4',
+                        render: d => `<div class="text-indigo-600">#${d.replace('#', '')}</div>`
+                    },
+                    { 
+                        data: 'customer', 
+                        className: 'px-4',
+                        render: function(data) {
+                            return `<div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center font-bold text-xs border border-slate-200">${data.charAt(0)}</div><div class="font-bold text-slate-700 text-sm">${data}</div></div>`;
+                        }
+                    },
+                    { 
+                        data: 'store', 
+                        className: 'px-4',
+                        render: d => `<div class="font-semibold text-slate-700 text-xs">${d}</div>`
+                    },
+                    { 
+                        data: 'total', 
+                        className: 'font-bold text-emerald-600 text-center whitespace-nowrap px-4',
+                        render: d => `<span class="font-mono">${d}</span> <small class="text-[10px]">ر.س</small>`
+                    },
+                    { 
+                        data: 'status', 
+                        className: 'text-center px-4',
+                        render: function(data) {
+                            let styles = {
+                                'بانتظار الدفع': 'bg-amber-50 text-amber-600 border-amber-200',
+                                'قيد التحضير': 'bg-blue-50 text-blue-600 border-blue-200',
+                                'جاهز': 'bg-purple-50 text-purple-600 border-purple-200',
+                                'مكتمل': 'bg-emerald-50 text-emerald-600 border-emerald-200',
+                                'ملغي': 'bg-rose-50 text-rose-600 border-rose-200'
+                            };
+                            let style = styles[data] || 'bg-slate-50 text-slate-600 border-slate-200';
+                            return `<span class="badge-premium ${style} border font-bold text-[10px]"><i class="fa-solid fa-circle text-[6px]"></i> ${data}</span>`;
+                        }
+                    },
+                    { data: 'created_at', className: 'px-4 whitespace-nowrap text-xs text-slate-400 font-medium' },
+                    { 
+                        data: 'action', 
+                        className: 'text-center px-4',
+                        render: function() {
+                            return `<button class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 hover:bg-indigo-600 hover:text-white transition-all flex items-center justify-center border border-indigo-100 shadow-sm"><i class="fa-solid fa-eye"></i></button>`;
+                        }
+                    }
                 ],
-                "columnDefs": [
-                    { "targets": 0, "width": "120px" },
-                    { "targets": 3, "width": "110px" },
-                    { "targets": 4, "width": "160px" },
-                    { "targets": 6, "width": "100px" }
-                ],
-                "language": {
-                    "search": "",
-                    "searchPlaceholder": "بحث في الطلبات...",
-                    "sEmptyTable": "لا توجد طلبات",
-                    "paginate": { "first": "الأول", "last": "الأخير", "next": "&larr;", "previous": "&rarr;" }
-                }
+                "language": dataTableArabicLanguage
             });
         }
     </script>
