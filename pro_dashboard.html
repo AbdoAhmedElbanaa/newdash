@@ -774,162 +774,176 @@
                     </div>
                 </div>
 
-                <!-- Recent Orders Only -->
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8 items-stretch">
                     <!-- Recent Orders -->
-                    <div class="glass-panel rounded-2xl p-6 lg:col-span-3">
-                        <div class="flex justify-between items-center mb-6">
-                            <h3 class="text-xl font-bold text-slate-800">الطلبات الأخيرة</h3>
-                            <button class="text-indigo-600 text-sm font-semibold hover:underline">عرض الكل</button>
-                        </div>
-                        <div class="space-y-3">
-                            <!-- Order Item -->
-                            <div
-                                class="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition-colors border border-slate-100">
-                                <div class="flex items-center gap-4">
-                                    <img src="https://ui-avatars.com/api/?name=St&background=f1f5f9&color=6366f1"
-                                        onerror="this.src='https://placehold.co/100x100?text=Store'"
-                                        class="w-12 h-12 rounded-lg object-cover shadow-sm">
-                                    <div>
-                                        <h4 class="font-bold text-slate-800 text-sm">حي النزهة</h4>
-                                        <p class="text-slate-500 text-xs">#NUZ-2140 - ر.س304.75</p>
+                    <div class="lg:col-span-4 flex flex-col">
+                        <div class="glass-panel rounded-3xl p-6 flex flex-col shadow-lg border border-slate-100/50 hover:shadow-xl transition-shadow bg-white/80 backdrop-blur-md">
+                            <div class="flex justify-between items-center mb-6 shrink-0">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-10 h-10 rounded-2xl bg-indigo-50 text-indigo-500 flex items-center justify-center shadow-sm border border-indigo-100/50">
+                                        <i class="fa-solid fa-clock-rotate-left"></i>
                                     </div>
+                                    <h3 class="text-xl font-black text-slate-800 tracking-tight">الطلبات الأخيرة</h3>
                                 </div>
-                                <div class="text-left">
-                                    <span
-                                        class="inline-block px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-xs font-bold mb-1">Awaiting
-                                        Payment</span>
-                                    <p class="text-slate-400 text-xs flex items-center gap-1 justify-end"><i
-                                            class="fa-solid fa-spinner fa-spin"></i> 2026-03-04</p>
-                                </div>
+                                <button onclick="switchTab('orders')" class="text-[11px] font-black text-indigo-600 bg-indigo-50 px-3 py-1.5 rounded-xl hover:bg-indigo-600 hover:text-white transition-all shadow-sm border border-indigo-100/50 uppercase">عرض الكل</button>
                             </div>
-                            <!-- Order Item -->
-                            <div
-                                class="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition-colors border border-slate-100">
-                                <div class="flex items-center gap-4">
-                                    <img src="https://ui-avatars.com/api/?name=Jd&background=f1f5f9&color=6366f1"
-                                        onerror="this.src='https://placehold.co/100x100?text=Store'"
-                                        class="w-12 h-12 rounded-lg object-cover shadow-sm">
-                                    <div>
-                                        <h4 class="font-bold text-slate-800 text-sm">حي الصفا</h4>
-                                        <p class="text-slate-500 text-xs">#SAF-2139 - ر.س16.1</p>
-                                    </div>
-                                </div>
-                                <div class="text-left">
-                                    <span
-                                        class="inline-block px-3 py-1 bg-rose-100 text-rose-700 rounded-full text-xs font-bold mb-1">Payment
-                                        Failed</span>
-                                    <p class="text-slate-400 text-xs">فشل في: ثانية 46</p>
-                                </div>
-                            </div>
-                            <!-- Order Item -->
-                            <div
-                                class="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition-colors border border-slate-100">
-                                <div class="flex items-center gap-4">
-                                    <img src="https://ui-avatars.com/api/?name=As&background=f1f5f9&color=6366f1"
-                                        onerror="this.src='https://placehold.co/100x100?text=Store'"
-                                        class="w-12 h-12 rounded-lg object-cover shadow-sm">
-                                    <div>
-                                        <h4 class="font-bold text-slate-800 text-sm">حى السلامة</h4>
-                                        <p class="text-slate-500 text-xs">#SAL-2136 - ر.س29.9</p>
-                                    </div>
-                                </div>
-                                <div class="text-left">
-                                    <span
-                                        class="inline-block px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-xs font-bold mb-1">Delivered</span>
-                                    <p class="text-slate-400 text-xs">تم التوصيل بنجاح</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Orders Status Full Section with Donut Chart - Enlarged -->
-                <div class="glass-panel rounded-3xl p-8 mb-8">
-                    <div class="flex flex-col lg:flex-row gap-8 items-start lg:items-center justify-between mb-8">
-                        <div>
-                            <h3 class="text-2xl lg:text-3xl font-bold text-slate-800 mb-2">حالة الطلبات</h3>
-                            <p class="text-slate-500 text-lg">نظرة شاملة على توزيع حالات الطلبات</p>
-                        </div>
-                        <div class="flex gap-4 text-sm">
-                            <button onclick="exportOrdersChartData()" class="px-4 py-2 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 transition-all flex items-center gap-2 shadow-md">
-                                <i class="fa-solid fa-download"></i> تصدير
-                            </button>
-                        </div>
-                    </div>
-
-<div class="flex flex-col gap-8">
-                        <!-- Donut Chart - Large Interactive -->
-                        <div class="w-full bg-gradient-to-br from-slate-50/50 to-white/50 rounded-3xl p-6 shadow-inner border border-slate-100/50">
-                            <div id="ordersDonutChart" class="w-full h-80 lg:h-96"></div>
-                            
-                            <!-- Redesigned Status Categories - Modern & Sleek -->
-                            <div class="mt-8 pt-8 border-t border-slate-100/60">
-                                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-                                    <!-- New Order -->
-                                    <div class="flex items-center gap-3 p-3 rounded-2xl bg-white/60 hover:bg-white hover:shadow-lg hover:shadow-indigo-500/10 transition-all border border-slate-100 group">
-                                        <div class="w-10 h-10 rounded-xl bg-indigo-500 text-white flex items-center justify-center shadow-lg shadow-indigo-200 group-hover:scale-110 transition-transform"><i class="fa-solid fa-plus-circle"></i></div>
-                                        <div>
-                                            <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">طلب جديد</p>
-                                            <div class="flex items-baseline gap-1">
-                                                <h4 class="text-lg font-black text-slate-800 orders-new-val">0</h4>
-                                                <span class="text-[10px] text-emerald-500 font-bold">+15%</span>
+                            <div class="space-y-4 flex-1 overflow-y-auto custom-scrollbar pr-1">
+                                <!-- Order Item -->
+                                <div class="group relative flex items-center justify-between p-4 rounded-2xl bg-slate-50/50 hover:bg-white hover:shadow-lg hover:shadow-indigo-500/5 transition-all border border-transparent hover:border-slate-100 border-dashed">
+                                    <div class="flex items-center gap-4">
+                                        <div class="relative shrink-0">
+                                            <img src="https://ui-avatars.com/api/?name=St&background=f1f5f9&color=6366f1" class="w-14 h-14 rounded-2xl object-cover shadow-sm border border-white">
+                                            <div class="absolute -bottom-1 -right-1 w-5 h-5 bg-amber-500 text-white rounded-lg flex items-center justify-center text-[10px] border-2 border-white shadow-sm">
+                                                <i class="fa-solid fa-spinner fa-spin"></i>
                                             </div>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-black text-slate-800 text-sm mb-0.5 group-hover:text-indigo-600 transition-colors">حي النزهة</h4>
+                                            <p class="text-[10px] text-slate-400 font-bold mb-1 uppercase tracking-wider">#NUZ-2140 <span class="mx-1 opacity-30">•</span> <span class="text-emerald-600 font-mono">SAR 304.75</span></p>
+                                            <span class="inline-flex items-center gap-1.5 px-2 py-0.5 bg-amber-50 text-amber-600 rounded-lg text-[9px] font-black border border-amber-200">بانتظار الدفع</span>
+                                        </div>
+                                    </div>
+                                    <button onclick="window.location.href='orders/details.html?order_id=%23NUZ-2140'" class="w-10 h-10 rounded-xl bg-white text-slate-400 hover:bg-indigo-600 hover:text-white transition-all shadow-sm border border-slate-100 flex items-center justify-center group-hover:scale-110">
+                                        <i class="fa-solid fa-arrow-left text-xs"></i>
+                                    </button>
+                                </div>
+                                <!-- Order Item -->
+                                <div class="group relative flex items-center justify-between p-4 rounded-2xl bg-slate-50/50 hover:bg-white hover:shadow-lg hover:shadow-rose-500/5 transition-all border border-transparent hover:border-slate-100 border-dashed">
+                                    <div class="flex items-center gap-4">
+                                        <div class="relative shrink-0">
+                                            <img src="https://ui-avatars.com/api/?name=Jd&background=f1f5f9&color=6366f1" class="w-14 h-14 rounded-2xl object-cover shadow-sm border border-white">
+                                            <div class="absolute -bottom-1 -right-1 w-5 h-5 bg-rose-500 text-white rounded-lg flex items-center justify-center text-[10px] border-2 border-white shadow-sm">
+                                                <i class="fa-solid fa-xmark"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-black text-slate-800 text-sm mb-0.5 group-hover:text-rose-600 transition-colors">حي الصفا</h4>
+                                            <p class="text-[10px] text-slate-400 font-bold mb-1 uppercase tracking-wider">#SAF-2139 <span class="mx-1 opacity-30">•</span> <span class="text-emerald-600 font-mono">SAR 16.1</span></p>
+                                            <span class="inline-flex items-center gap-1.5 px-2 py-0.5 bg-rose-50 text-rose-600 rounded-lg text-[9px] font-black border border-rose-200">الدفع فاشل</span>
+                                        </div>
+                                    </div>
+                                    <button onclick="window.location.href='orders/details.html?order_id=%23SAF-2139'" class="w-10 h-10 rounded-xl bg-white text-slate-400 hover:bg-indigo-600 hover:text-white transition-all shadow-sm border border-slate-100 flex items-center justify-center group-hover:scale-110">
+                                        <i class="fa-solid fa-arrow-left text-xs"></i>
+                                    </button>
+                                </div>
+                                <!-- Order Item -->
+                                <div class="group relative flex items-center justify-between p-4 rounded-2xl bg-slate-50/50 hover:bg-white hover:shadow-lg hover:shadow-emerald-500/5 transition-all border border-transparent hover:border-slate-100 border-dashed">
+                                    <div class="flex items-center gap-4">
+                                        <div class="relative shrink-0">
+                                            <img src="https://ui-avatars.com/api/?name=As&background=f1f5f9&color=6366f1" class="w-14 h-14 rounded-2xl object-cover shadow-sm border border-white">
+                                            <div class="absolute -bottom-1 -right-1 w-5 h-5 bg-emerald-500 text-white rounded-lg flex items-center justify-center text-[10px] border-2 border-white shadow-sm">
+                                                <i class="fa-solid fa-check"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-black text-slate-800 text-sm mb-0.5 group-hover:text-emerald-600 transition-colors">حى السلامة</h4>
+                                            <p class="text-[10px] text-slate-400 font-bold mb-1 uppercase tracking-wider">#SAL-2136 <span class="mx-1 opacity-30">•</span> <span class="text-emerald-600 font-mono">SAR 29.9</span></p>
+                                            <span class="inline-flex items-center gap-1.5 px-2 py-0.5 bg-emerald-50 text-emerald-600 rounded-lg text-[9px] font-black border border-emerald-200">تم التوصيل</span>
+                                        </div>
+                                    </div>
+                                    <button onclick="window.location.href='orders/details.html?order_id=%23SAL-2136'" class="w-10 h-10 rounded-xl bg-white text-slate-400 hover:bg-indigo-600 hover:text-white transition-all shadow-sm border border-slate-100 flex items-center justify-center group-hover:scale-110">
+                                        <i class="fa-solid fa-arrow-left text-xs"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Orders Status Full Section with Donut Chart -->
+                    <div class="lg:col-span-8 flex flex-col">
+                        <div class="glass-panel rounded-3xl p-8 flex flex-col shadow-lg border border-slate-100/50 bg-white/80 backdrop-blur-md">
+                            <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4 shrink-0">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-12 h-12 rounded-2xl bg-indigo-600 text-white flex items-center justify-center shadow-lg shadow-indigo-200">
+                                        <i class="fa-solid fa-chart-donut text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-2xl font-black text-slate-800 tracking-tight">تحليل حالات الطلبات</h3>
+                                        <p class="text-[11px] text-slate-400 font-bold uppercase tracking-widest mt-0.5">نظرة شاملة على توزيع وإحصائيات الطلبات</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-3">
+                                    <button onclick="exportOrdersChartData()" class="px-6 py-2.5 bg-white text-slate-700 font-black rounded-2xl hover:bg-indigo-600 hover:text-white transition-all flex items-center gap-2 shadow-sm border border-slate-100 text-[11px] uppercase tracking-wider">
+                                        <i class="fa-solid fa-download"></i> تصدير البيانات
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-col xl:flex-row gap-8 flex-1 min-h-0">
+                                <!-- Donut Chart -->
+                                <div class="flex-1 min-h-[300px] relative bg-gradient-to-br from-slate-50/50 to-white/50 rounded-3xl border border-slate-100/50 overflow-hidden group">
+                                    <div class="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none group-hover:scale-110 transition-transform duration-700">
+                                        <i class="fa-solid fa-gem text-[200px]"></i>
+                                    </div>
+                                    <div id="ordersDonutChart" class="w-full h-full relative z-10"></div>
+                                </div>
+                                
+                                <!-- Categories Stats -->
+                                <div class="xl:w-80 shrink-0 grid grid-cols-2 lg:grid-cols-2 gap-3 content-start">
+                                    <!-- New Order -->
+                                    <div class="p-4 rounded-2xl bg-white hover:shadow-lg hover:shadow-indigo-500/5 transition-all border border-slate-100 group">
+                                        <div class="flex items-center gap-3 mb-2">
+                                            <div class="w-8 h-8 rounded-xl bg-indigo-500 text-white flex items-center justify-center text-xs shadow-sm shadow-indigo-200 group-hover:scale-110 transition-transform"><i class="fa-solid fa-plus text-[10px]"></i></div>
+                                            <p class="text-[9px] text-slate-400 font-black uppercase tracking-wider">طلب جديد</p>
+                                        </div>
+                                        <div class="flex items-baseline justify-between">
+                                            <h4 class="text-xl font-black text-slate-800 orders-new-val">0</h4>
+                                            <span class="text-[10px] text-emerald-500 font-bold bg-emerald-50 px-1.5 py-0.5 rounded-lg">+15%</span>
                                         </div>
                                     </div>
                                     <!-- Awaiting Payment -->
-                                    <div class="flex items-center gap-3 p-3 rounded-2xl bg-white/60 hover:bg-white hover:shadow-lg hover:shadow-amber-500/10 transition-all border border-slate-100 group">
-                                        <div class="w-10 h-10 rounded-xl bg-amber-500 text-white flex items-center justify-center shadow-lg shadow-amber-200 group-hover:scale-110 transition-transform"><i class="fa-solid fa-spinner fa-spin-pulse"></i></div>
-                                        <div>
-                                            <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">بانتظار الدفع</p>
-                                            <div class="flex items-baseline gap-1">
-                                                <h4 class="text-lg font-black text-slate-800 orders-pending-val">0</h4>
-                                                <span class="text-[10px] text-emerald-500 font-bold">+12%</span>
-                                            </div>
+                                    <div class="p-4 rounded-2xl bg-white hover:shadow-lg hover:shadow-amber-500/5 transition-all border border-slate-100 group">
+                                        <div class="flex items-center gap-3 mb-2">
+                                            <div class="w-8 h-8 rounded-xl bg-amber-500 text-white flex items-center justify-center text-xs shadow-sm shadow-amber-200 group-hover:scale-110 transition-transform"><i class="fa-solid fa-clock text-[10px]"></i></div>
+                                            <p class="text-[9px] text-slate-400 font-black uppercase tracking-wider">انتظار دفع</p>
+                                        </div>
+                                        <div class="flex items-baseline justify-between">
+                                            <h4 class="text-xl font-black text-slate-800 orders-pending-val">0</h4>
+                                            <span class="text-[10px] text-emerald-500 font-bold bg-emerald-50 px-1.5 py-0.5 rounded-lg">+12%</span>
                                         </div>
                                     </div>
                                     <!-- Processing -->
-                                    <div class="flex items-center gap-3 p-3 rounded-2xl bg-white/60 hover:bg-white hover:shadow-lg hover:shadow-blue-500/10 transition-all border border-slate-100 group">
-                                        <div class="w-10 h-10 rounded-xl bg-blue-500 text-white flex items-center justify-center shadow-lg shadow-blue-200 group-hover:scale-110 transition-transform"><i class="fa-solid fa-fire-burner"></i></div>
-                                        <div>
-                                            <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">قيد التحضير</p>
-                                            <div class="flex items-baseline gap-1">
-                                                <h4 class="text-lg font-black text-slate-800 orders-processing-val">0</h4>
-                                                <span class="text-[10px] text-emerald-500 font-bold">+8%</span>
-                                            </div>
+                                    <div class="p-4 rounded-2xl bg-white hover:shadow-lg hover:shadow-blue-500/5 transition-all border border-slate-100 group">
+                                        <div class="flex items-center gap-3 mb-2">
+                                            <div class="w-8 h-8 rounded-xl bg-blue-500 text-white flex items-center justify-center text-xs shadow-sm shadow-blue-200 group-hover:scale-110 transition-transform"><i class="fa-solid fa-spinner fa-spin text-[10px]"></i></div>
+                                            <p class="text-[9px] text-slate-400 font-black uppercase tracking-wider">تحضير</p>
+                                        </div>
+                                        <div class="flex items-baseline justify-between">
+                                            <h4 class="text-xl font-black text-slate-800 orders-processing-val">0</h4>
+                                            <span class="text-[10px] text-emerald-500 font-bold bg-emerald-50 px-1.5 py-0.5 rounded-lg">+8%</span>
                                         </div>
                                     </div>
                                     <!-- Ready -->
-                                    <div class="flex items-center gap-3 p-3 rounded-2xl bg-white/60 hover:bg-white hover:shadow-lg hover:shadow-purple-500/10 transition-all border border-slate-100 group">
-                                        <div class="w-10 h-10 rounded-xl bg-purple-500 text-white flex items-center justify-center shadow-lg shadow-purple-200 group-hover:scale-110 transition-transform"><i class="fa-solid fa-clock"></i></div>
-                                        <div>
-                                            <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">جاهز للاستلام</p>
-                                            <div class="flex items-baseline gap-1">
-                                                <h4 class="text-lg font-black text-slate-800 orders-ready-val">0</h4>
-                                                <span class="text-[10px] text-rose-500 font-bold">-3%</span>
-                                            </div>
+                                    <div class="p-4 rounded-2xl bg-white hover:shadow-lg hover:shadow-purple-500/5 transition-all border border-slate-100 group">
+                                        <div class="flex items-center gap-3 mb-2">
+                                            <div class="w-8 h-8 rounded-xl bg-purple-500 text-white flex items-center justify-center text-xs shadow-sm shadow-purple-200 group-hover:scale-110 transition-transform"><i class="fa-solid fa-check text-[10px]"></i></div>
+                                            <p class="text-[9px] text-slate-400 font-black uppercase tracking-wider">جاهز</p>
+                                        </div>
+                                        <div class="flex items-baseline justify-between">
+                                            <h4 class="text-xl font-black text-slate-800 orders-ready-val">0</h4>
+                                            <span class="text-[10px] text-rose-500 font-bold bg-rose-50 px-1.5 py-0.5 rounded-lg">-3%</span>
                                         </div>
                                     </div>
                                     <!-- Completed -->
-                                    <div class="flex items-center gap-3 p-3 rounded-2xl bg-white/60 hover:bg-white hover:shadow-lg hover:shadow-emerald-500/10 transition-all border border-slate-100 group">
-                                        <div class="w-10 h-10 rounded-xl bg-emerald-500 text-white flex items-center justify-center shadow-lg shadow-emerald-200 group-hover:scale-110 transition-transform"><i class="fa-solid fa-check-double"></i></div>
-                                        <div>
-                                            <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">مكتمل</p>
-                                            <div class="flex items-baseline gap-1">
-                                                <h4 class="text-lg font-black text-slate-800 orders-completed-val">0</h4>
-                                                <span class="text-[10px] text-emerald-500 font-bold">+15%</span>
-                                            </div>
+                                    <div class="p-4 rounded-2xl bg-white hover:shadow-lg hover:shadow-emerald-500/5 transition-all border border-slate-100 group">
+                                        <div class="flex items-center gap-3 mb-2">
+                                            <div class="w-8 h-8 rounded-xl bg-emerald-500 text-white flex items-center justify-center text-xs shadow-sm shadow-emerald-200 group-hover:scale-110 transition-transform"><i class="fa-solid fa-check-double text-[10px]"></i></div>
+                                            <p class="text-[9px] text-slate-400 font-black uppercase tracking-wider">مكتمل</p>
+                                        </div>
+                                        <div class="flex items-baseline justify-between gap-1">
+                                            <h4 class="text-xl font-black text-slate-800 orders-completed-val line-clamp-1">0</h4>
+                                            <span class="text-[9px] text-emerald-500 font-bold bg-emerald-50 px-1 py-0.5 rounded">إنجاز</span>
                                         </div>
                                     </div>
                                     <!-- Canceled -->
-                                    <div class="flex items-center gap-3 p-3 rounded-2xl bg-white/60 hover:bg-white hover:shadow-lg hover:shadow-rose-500/10 transition-all border border-slate-100 group">
-                                        <div class="w-10 h-10 rounded-xl bg-rose-500 text-white flex items-center justify-center shadow-lg shadow-rose-200 group-hover:scale-110 transition-transition"><i class="fa-solid fa-ban"></i></div>
-                                        <div>
-                                            <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">ملغي</p>
-                                            <div class="flex items-baseline gap-1">
-                                                <h4 class="text-lg font-black text-slate-800 orders-canceled-val">0</h4>
-                                                <span class="text-[10px] text-rose-500 font-bold">-5%</span>
-                                            </div>
+                                    <div class="p-4 rounded-2xl bg-white hover:shadow-lg hover:shadow-rose-500/5 transition-all border border-slate-100 group">
+                                        <div class="flex items-center gap-3 mb-2">
+                                            <div class="w-8 h-8 rounded-xl bg-rose-500 text-white flex items-center justify-center text-xs shadow-sm shadow-rose-200 group-hover:scale-110 transition-transform"><i class="fa-solid fa-ban text-[10px]"></i></div>
+                                            <p class="text-[9px] text-slate-400 font-black uppercase tracking-wider">ملغي</p>
+                                        </div>
+                                        <div class="flex items-baseline justify-between">
+                                            <h4 class="text-xl font-black text-slate-800 orders-canceled-val">0</h4>
+                                            <span class="text-[10px] text-rose-500 font-bold bg-rose-50 px-1.5 py-0.5 rounded-lg">-5%</span>
                                         </div>
                                     </div>
                                 </div>
@@ -2902,14 +2916,17 @@
                 <!-- Orders Table Area -->
                 <div class="glass-panel rounded-3xl overflow-hidden shadow-sm mt-4 p-2 md:p-6 bg-white shrink">
                     <div class="p-0 overflow-x-auto custom-scrollbar">
-                        <table class="w-full text-right align-middle" id="ordersDataTable">
+                                <table class="w-full text-right align-middle" id="ordersDataTable">
                                 <thead class="bg-slate-50/80 text-slate-500">
                                     <tr>
                                         <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">رقم الطلب</th>
                                         <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">العميل</th>
                                         <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">المتجر و نوع الطلب</th>
+                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">طريقة الدفع</th>
+                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">حالة الدفع</th>
                                         <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">الإجمالي</th>
                                         <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">الحالة</th>
+                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">المؤقت المباشر</th>
                                         <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">التاريخ والوقت</th>
                                         <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider"><i class="fa-solid fa-gear"></i></th>
                                     </tr>
@@ -3610,8 +3627,14 @@
             }
         }
 
-        function openOrderDetailsModal(url, orderTitle) {
-            window.open(url, '_blank');
+        function openOrderDetailsModal(url, orderId) {
+            if (orderId) {
+                // Remove '#' if it exists and clean the ID
+                const cleanId = orderId.trim().replace('#', '');
+                window.location.href = `orders/details.html?order_id=${encodeURIComponent('#' + cleanId)}`;
+            } else {
+                window.location.href = url;
+            }
         }
 
         function previewImage(input) {
@@ -4426,23 +4449,23 @@
                 activeBtn.classList.remove('text-slate-500', 'border-transparent');
             }
 
-            // Filter datatable
+            // Filter datatable - Status column updated to index 6
             if ($.fn.DataTable.isDataTable('#ordersDataTable')) {
                 let table = $('#ordersDataTable').DataTable();
-                table.column(4).search(''); // Reset search
+                table.column(6).search(''); // Reset search
 
                 if (subTabId === 'pending') {
-                    table.column(4).search('بانتظار').draw();
+                    table.column(6).search('بانتظار').draw();
                 } else if (subTabId === 'processing') {
-                    table.column(4).search('التحضير').draw();
+                    table.column(6).search('التحضير').draw();
                 } else if (subTabId === 'ready') {
-                    table.column(4).search('جاهز').draw();
+                    table.column(6).search('جاهز').draw();
                 } else if (subTabId === 'completed') {
-                    table.column(4).search('مكتمل').draw();
+                    table.column(6).search('مكتمل').draw();
                 } else if (subTabId === 'canceled') {
-                    table.column(4).search('ملغي').draw();
+                    table.column(6).search('ملغي').draw();
                 } else {
-                    table.column(4).search('').draw();
+                    table.column(6).search('').draw();
                 }
             }
         }
@@ -4849,23 +4872,46 @@
                         data: 'customer', 
                         className: 'px-4',
                         render: function(data) {
+                            if (data.indexOf('<div') !== -1) return data;
                             return `<div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center font-bold text-xs border border-slate-200">${data.charAt(0)}</div><div class="font-bold text-slate-700 text-sm">${data}</div></div>`;
                         }
                     },
                     { 
                         data: 'store', 
                         className: 'px-4',
-                        render: d => `<div class="font-semibold text-slate-700 text-xs">${d}</div>`
+                        render: d => d.indexOf('<div') !== -1 ? d : `<div class="font-semibold text-slate-700 text-xs">${d}</div>`
+                    },
+                    {
+                        data: 'payment_method',
+                        className: 'text-center px-4',
+                        render: function(data) {
+                            let icon = 'fa-credit-card';
+                            let brand = 'fa-solid';
+                            if (data === 'Cash') icon = 'fa-wallet';
+                            if (data === 'Visa') { icon = 'fa-cc-visa'; brand = 'fa-brands'; }
+                            if (data === 'Apple Pay') { icon = 'fa-apple-pay'; brand = 'fa-brands'; }
+                            if (data === 'مدى' || data === 'Mada') icon = 'fa-credit-card';
+                            return `<div class="flex flex-col items-center gap-1"><i class="${brand} ${icon} text-indigo-500 text-lg"></i><span class="text-[9px] font-black text-slate-500 uppercase">${data}</span></div>`;
+                        }
+                    },
+                    {
+                        data: 'payment_status',
+                        className: 'text-center px-4',
+                        render: function(data) {
+                            let style = data === 'مدفوع' ? 'bg-emerald-50 text-emerald-600 border-emerald-200' : 'bg-rose-50 text-rose-600 border-rose-200';
+                            return `<span class="badge-premium ${style} border font-bold text-[9px] whitespace-nowrap"><i class="fa-solid ${data === 'مدفوع' ? 'fa-check-circle' : 'fa-clock'} mr-1"></i> ${data}</span>`;
+                        }
                     },
                     { 
                         data: 'total', 
                         className: 'font-bold text-emerald-600 text-center whitespace-nowrap px-4',
-                        render: d => `<span class="font-mono">${d}</span> <small class="text-[10px]">ر.س</small>`
+                        render: d => `<span class="font-mono">${parseFloat(d).toLocaleString('en-US', {minimumFractionDigits: 2})}</span> <small class="text-[10px]">ر.س</small>`
                     },
                     { 
                         data: 'status', 
                         className: 'text-center px-4',
                         render: function(data) {
+                            if (data.indexOf('<span') !== -1) return data;
                             let styles = {
                                 'بانتظار الدفع': 'bg-amber-50 text-amber-600 border-amber-200',
                                 'قيد التحضير': 'bg-blue-50 text-blue-600 border-blue-200',
@@ -4877,18 +4923,63 @@
                             return `<span class="badge-premium ${style} border font-bold text-[10px]"><i class="fa-solid fa-circle text-[6px]"></i> ${data}</span>`;
                         }
                     },
-                    { data: 'created_at', className: 'px-4 whitespace-nowrap text-xs text-slate-400 font-medium' },
+                    {
+                        data: 'deadline',
+                        className: 'text-center px-4',
+                        render: function(data) {
+                            if (!data) return '-';
+                            return `<div class="order-timer font-black font-mono text-indigo-600 bg-indigo-50/50 px-2 py-1.5 rounded-xl border border-indigo-100 shadow-sm" data-deadline="${data}">--:--</div>`;
+                        }
+                    },
+                    { 
+                        data: 'created_at', 
+                        className: 'px-4 whitespace-nowrap text-[10px] text-slate-400 font-bold',
+                        render: d => `<div>${moment(d).format('YYYY-MM-DD')}</div><div class="opacity-70">${moment(d).format('hh:mm A')}</div>`
+                    },
                     { 
                         data: 'action', 
                         className: 'text-center px-4',
-                        render: function() {
-                            return `<button class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 hover:bg-indigo-600 hover:text-white transition-all flex items-center justify-center border border-indigo-100 shadow-sm"><i class="fa-solid fa-eye"></i></button>`;
+                        render: function(data, type, row) {
+                            return `<button onclick="openOrderDetailsModal('orders/details.html', '${row.order_id}')" class="w-8 h-8 rounded-lg bg-slate-50 text-slate-400 hover:bg-indigo-600 hover:text-white hover:border-indigo-600 transition-all flex items-center justify-center border border-slate-100 shadow-sm m-auto"><i class="fa-solid fa-eye text-xs"></i></button>`;
                         }
                     }
                 ],
-                "language": dataTableArabicLanguage
+                "language": dataTableArabicLanguage,
+                "drawCallback": function() {
+                    updateOrderTimers();
+                }
             });
         }
+
+        function updateOrderTimers() {
+            document.querySelectorAll('.order-timer').forEach(el => {
+                const deadline = el.getAttribute('data-deadline');
+                if (!deadline) return;
+                
+                const now = new Date().getTime();
+                const target = new Date(deadline).getTime();
+                const diff = target - now;
+                
+                if (diff <= 0) {
+                    el.innerHTML = '<span class="text-rose-500 font-black flex items-center gap-1"><i class="fa-solid fa-circle-exclamation animate-pulse"></i> منتهي</span>';
+                    el.classList.add('bg-rose-50', 'border-rose-100');
+                    el.classList.remove('text-indigo-600', 'bg-indigo-50/50', 'border-indigo-100');
+                    return;
+                }
+                
+                const hours = Math.floor(diff / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                let display = '';
+                if (hours > 0) display += hours + ':';
+                display += (minutes < 10 ? '0' : '') + minutes + ':';
+                display += (seconds < 10 ? '0' : '') + seconds;
+                
+                el.innerHTML = `<i class="fa-solid fa-clock-rotate-left mr-1 opacity-70"></i> ${display}`;
+            });
+        }
+        setInterval(updateOrderTimers, 1000);
     </script>
 </body>
 
