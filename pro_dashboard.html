@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Unified Dashboard</title>
+    <title>مونتانا</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -19,19 +19,30 @@
     <!-- Core Dependencies -->
     <script src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/main/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
-    <script src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/visualization/d3/d3.min.js"></script>
-    <script src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/visualization/d3/d3_tooltip.js"></script>
-    <script src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/ui/moment/moment.min.js"></script>
-    <script src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/pickers/daterangepicker.js"></script>
-    <script src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/tables/datatables/datatables.min.js"></script>
-    <script src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/forms/selects/select2.min.js"></script>
-    <script src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/forms/styling/uniform.min.js"></script>
-    <script src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/forms/styling/switchery.min.js"></script>
-    <script src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/tables/datatables/extensions/buttons.min.js"></script>
+    <script
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/visualization/d3/d3.min.js"></script>
+    <script
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/visualization/d3/d3_tooltip.js"></script>
+    <script
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/ui/moment/moment.min.js"></script>
+    <script
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/pickers/daterangepicker.js"></script>
+    <script
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/tables/datatables/datatables.min.js"></script>
+    <script
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/forms/selects/select2.min.js"></script>
+    <script
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/forms/styling/uniform.min.js"></script>
+    <script
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/forms/styling/switchery.min.js"></script>
+    <script
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/tables/datatables/extensions/buttons.min.js"></script>
     <script src="https://montana-sa.amir-adel.com/admin/assets/backend/js/jquery-alphanum.js"></script>
-    <script src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/editors/summernote/summernote.min.js"></script>
+    <script
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/editors/summernote/summernote.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-    <script src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/visualization/echarts/echarts.js"></script>
+    <script
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/visualization/echarts/echarts.js"></script>
 
     <script>
         tailwind.config = {
@@ -195,11 +206,13 @@
             background: #fcfcfc;
             min-width: 200px;
         }
+
         .dataTables_wrapper .dataTables_filter input:focus {
             border-color: #4f46e5;
             background: #fff;
             box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.08);
         }
+
         .dataTables_wrapper .dataTables_length select {
             padding: 0.4rem 0.8rem;
             border-radius: 0.75rem;
@@ -208,26 +221,33 @@
             background: #fcfcfc;
             cursor: pointer;
         }
+
         table.dataTable thead th {
             border-bottom: 2px solid #f8fafc !important;
             white-space: nowrap;
         }
+
         table.dataTable.no-footer {
             border-bottom: 0 !important;
         }
-        .dataTables_info, .dataTables_paginate {
+
+        .dataTables_info,
+        .dataTables_paginate {
             font-size: 0.8rem;
             color: #64748b !important;
         }
+
         .paginate_button {
             border-radius: 0.5rem !important;
             border: 1px solid transparent !important;
         }
+
         .paginate_button.current {
             background: #4f46e5 !important;
             color: white !important;
             border-color: #4f46e5 !important;
         }
+
         .paginate_button:hover {
             background: #f1f5f9 !important;
             color: #4f46e5 !important;
@@ -237,9 +257,11 @@
         table.dataTable tbody tr {
             transition: all 0.2s;
         }
+
         table.dataTable tbody tr:hover {
             background-color: rgba(79, 70, 229, 0.02) !important;
         }
+
         table.dataTable tbody td {
             padding: 1.25rem 1rem !important;
             vertical-align: middle !important;
@@ -247,20 +269,24 @@
             font-size: 0.875rem;
             border-bottom: 1px solid #f1f5f9 !important;
         }
+
         table.dataTable tbody td.text-center {
             text-align: center !important;
         }
+
         table.dataTable tbody td.text-right {
             text-align: right !important;
         }
+
         .table-image {
             width: 44px;
             height: 44px;
             border-radius: 12px;
             object-fit: cover;
             border: 2px solid #fff;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
+
         .badge-premium {
             padding: 0.35rem 0.75rem;
             border-radius: 8px;
@@ -448,14 +474,14 @@
                 line-height: 2.25rem;
             }
 
-            .section-header > button,
+            .section-header>button,
             .section-actions,
             .product-subtab-actions {
                 width: 100%;
             }
 
-            .section-actions > *,
-            .product-subtab-actions > * {
+            .section-actions>*,
+            .product-subtab-actions>* {
                 flex: 1 1 100%;
                 justify-content: center;
             }
@@ -482,7 +508,7 @@
                 min-width: 760px;
             }
 
-            .dataTables_wrapper > .flex.justify-between.items-center {
+            .dataTables_wrapper>.flex.justify-between.items-center {
                 flex-direction: column;
                 align-items: stretch;
                 gap: 0.75rem;
@@ -508,30 +534,30 @@
                 align-items: flex-start;
             }
 
-            [id$="Modal"] > div {
+            [id$="Modal"]>div {
                 width: min(100%, calc(100vw - 1rem));
                 max-height: calc(100svh - 1rem);
                 margin: auto;
                 border-radius: 1.5rem;
             }
 
-            [id$="Modal"] > div > div:first-child {
+            [id$="Modal"]>div>div:first-child {
                 padding: 1rem;
                 align-items: flex-start;
                 gap: 0.75rem;
             }
 
-            [id$="Modal"] > div > div:first-child > div {
+            [id$="Modal"]>div>div:first-child>div {
                 min-width: 0;
             }
 
-            [id$="Modal"] > div > div:first-child h3,
-            [id$="Modal"] > div > div:first-child h5 {
+            [id$="Modal"]>div>div:first-child h3,
+            [id$="Modal"]>div>div:first-child h5 {
                 font-size: 1rem;
                 line-height: 1.5rem;
             }
 
-            [id$="Modal"] > div > div:first-child p {
+            [id$="Modal"]>div>div:first-child p {
                 font-size: 0.75rem;
             }
 
@@ -539,12 +565,12 @@
                 flex-wrap: wrap;
             }
 
-            [id$="Modal"] .flex.justify-end.pt-6.border-t > * {
+            [id$="Modal"] .flex.justify-end.pt-6.border-t>* {
                 flex: 1 1 100%;
                 justify-content: center;
             }
 
-            #orderDetailsModal > div {
+            #orderDetailsModal>div {
                 height: calc(100svh - 1rem);
             }
         }
@@ -554,7 +580,8 @@
 <body class="flex h-screen overflow-hidden text-slate-800">
 
     <!-- Sidebar -->
-    <aside id="sidebar" class="glass-sidebar w-72 flex flex-col transition-all duration-300 z-20 fixed md:relative inset-y-0 left-0 transform -translate-x-full md:translate-x-0 md:flex">
+    <aside id="sidebar"
+        class="glass-sidebar w-72 flex flex-col transition-all duration-300 z-20 fixed md:relative inset-y-0 left-0 transform -translate-x-full md:translate-x-0 md:flex">
         <div class="h-20 flex items-center justify-center border-b border-slate-700/50">
             <h1
                 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-emerald-400">
@@ -625,7 +652,8 @@
     </aside>
 
     <!-- Sidebar Overlay for Mobile -->
-    <div id="sidebarOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-10 hidden md:hidden" onclick="toggleSidebar()"></div>
+    <div id="sidebarOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-10 hidden md:hidden"
+        onclick="toggleSidebar()"></div>
 
     <!-- Main Content -->
     <main class="dashboard-main flex-1 flex flex-col relative overflow-hidden bg-slate-50 md:ml-0">
@@ -633,7 +661,8 @@
         <header
             class="dashboard-header h-16 md:h-20 glass-panel border-b border-slate-200 px-4 md:px-8 flex justify-between items-center z-10 shadow-sm shrink-0">
             <div class="flex items-center gap-4">
-                <button id="sidebarToggle" class="md:hidden p-2 text-slate-500 hover:text-indigo-600 transition-colors" onclick="toggleSidebar()">
+                <button id="sidebarToggle" class="md:hidden p-2 text-slate-500 hover:text-indigo-600 transition-colors"
+                    onclick="toggleSidebar()">
                     <i class="fa-solid fa-bars text-xl"></i>
                 </button>
                 <div class="relative hidden md:block">
@@ -659,7 +688,8 @@
                     <i class="fa-solid fa-sun text-base md:text-lg icon-sun hidden"></i>
                 </button>
                 <div class="h-6 md:h-8 w-px bg-slate-200 mx-1 md:mx-2"></div>
-                <button class="flex items-center gap-2 text-xs md:text-sm font-semibold text-slate-600 hover:text-slate-900">
+                <button
+                    class="flex items-center gap-2 text-xs md:text-sm font-semibold text-slate-600 hover:text-slate-900">
                     <span>خروج</span>
                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
                 </button>
@@ -735,7 +765,8 @@
                         <div class="flex justify-between items-start">
                             <div>
                                 <p class="text-slate-500 text-sm font-semibold mb-1">المبيعات اليومية</p>
-                                <h3 class="text-2xl md:text-3xl font-bold text-slate-800 total-earnings-val">SAR 12,450</h3>
+                                <h3 class="text-2xl md:text-3xl font-bold text-slate-800 total-earnings-val">SAR 12,450
+                                </h3>
 
                             </div>
                             <div
@@ -777,71 +808,108 @@
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8 items-stretch">
                     <!-- Recent Orders -->
                     <div class="lg:col-span-4 flex flex-col">
-                        <div class="glass-panel rounded-3xl p-6 flex flex-col shadow-lg border border-slate-100/50 hover:shadow-xl transition-shadow bg-white/80 backdrop-blur-md">
+                        <div
+                            class="glass-panel rounded-3xl p-6 flex flex-col shadow-lg border border-slate-100/50 hover:shadow-xl transition-shadow bg-white/80 backdrop-blur-md">
                             <div class="flex justify-between items-center mb-6 shrink-0">
                                 <div class="flex items-center gap-2">
-                                    <div class="w-10 h-10 rounded-2xl bg-indigo-50 text-indigo-500 flex items-center justify-center shadow-sm border border-indigo-100/50">
+                                    <div
+                                        class="w-10 h-10 rounded-2xl bg-indigo-50 text-indigo-500 flex items-center justify-center shadow-sm border border-indigo-100/50">
                                         <i class="fa-solid fa-clock-rotate-left"></i>
                                     </div>
                                     <h3 class="text-xl font-black text-slate-800 tracking-tight">الطلبات الأخيرة</h3>
                                 </div>
-                                <button onclick="switchTab('orders')" class="text-[11px] font-black text-indigo-600 bg-indigo-50 px-3 py-1.5 rounded-xl hover:bg-indigo-600 hover:text-white transition-all shadow-sm border border-indigo-100/50 uppercase">عرض الكل</button>
+                                <button onclick="switchTab('orders')"
+                                    class="text-[11px] font-black text-indigo-600 bg-indigo-50 px-3 py-1.5 rounded-xl hover:bg-indigo-600 hover:text-white transition-all shadow-sm border border-indigo-100/50 uppercase">عرض
+                                    الكل</button>
                             </div>
                             <div class="space-y-4 flex-1 overflow-y-auto custom-scrollbar pr-1">
                                 <!-- Order Item -->
-                                <div class="group relative flex items-center justify-between p-4 rounded-2xl bg-slate-50/50 hover:bg-white hover:shadow-lg hover:shadow-indigo-500/5 transition-all border border-transparent hover:border-slate-100 border-dashed">
+                                <div
+                                    class="group relative flex items-center justify-between p-4 rounded-2xl bg-slate-50/50 hover:bg-white hover:shadow-lg hover:shadow-indigo-500/5 transition-all border border-transparent hover:border-slate-100 border-dashed">
                                     <div class="flex items-center gap-4">
                                         <div class="relative shrink-0">
-                                            <img src="https://ui-avatars.com/api/?name=St&background=f1f5f9&color=6366f1" class="w-14 h-14 rounded-2xl object-cover shadow-sm border border-white">
-                                            <div class="absolute -bottom-1 -right-1 w-5 h-5 bg-amber-500 text-white rounded-lg flex items-center justify-center text-[10px] border-2 border-white shadow-sm">
+                                            <img src="https://ui-avatars.com/api/?name=St&background=f1f5f9&color=6366f1"
+                                                class="w-14 h-14 rounded-2xl object-cover shadow-sm border border-white">
+                                            <div
+                                                class="absolute -bottom-1 -right-1 w-5 h-5 bg-amber-500 text-white rounded-lg flex items-center justify-center text-[10px] border-2 border-white shadow-sm">
                                                 <i class="fa-solid fa-spinner fa-spin"></i>
                                             </div>
                                         </div>
                                         <div>
-                                            <h4 class="font-black text-slate-800 text-sm mb-0.5 group-hover:text-indigo-600 transition-colors">حي النزهة</h4>
-                                            <p class="text-[10px] text-slate-400 font-bold mb-1 uppercase tracking-wider">#NUZ-2140 <span class="mx-1 opacity-30">•</span> <span class="text-emerald-600 font-mono">SAR 304.75</span></p>
-                                            <span class="inline-flex items-center gap-1.5 px-2 py-0.5 bg-amber-50 text-amber-600 rounded-lg text-[9px] font-black border border-amber-200">بانتظار الدفع</span>
+                                            <h4
+                                                class="font-black text-slate-800 text-sm mb-0.5 group-hover:text-indigo-600 transition-colors">
+                                                حي النزهة</h4>
+                                            <p
+                                                class="text-[10px] text-slate-400 font-bold mb-1 uppercase tracking-wider">
+                                                #NUZ-2140 <span class="mx-1 opacity-30">•</span> <span
+                                                    class="text-emerald-600 font-mono">SAR 304.75</span></p>
+                                            <span
+                                                class="inline-flex items-center gap-1.5 px-2 py-0.5 bg-amber-50 text-amber-600 rounded-lg text-[9px] font-black border border-amber-200">بانتظار
+                                                الدفع</span>
                                         </div>
                                     </div>
-                                    <button onclick="window.location.href='orders/details.html?order_id=%23NUZ-2140'" class="w-10 h-10 rounded-xl bg-white text-slate-400 hover:bg-indigo-600 hover:text-white transition-all shadow-sm border border-slate-100 flex items-center justify-center group-hover:scale-110">
+                                    <button onclick="window.location.href='orders/details.html?order_id=%23NUZ-2140'"
+                                        class="w-10 h-10 rounded-xl bg-white text-slate-400 hover:bg-indigo-600 hover:text-white transition-all shadow-sm border border-slate-100 flex items-center justify-center group-hover:scale-110">
                                         <i class="fa-solid fa-arrow-left text-xs"></i>
                                     </button>
                                 </div>
                                 <!-- Order Item -->
-                                <div class="group relative flex items-center justify-between p-4 rounded-2xl bg-slate-50/50 hover:bg-white hover:shadow-lg hover:shadow-rose-500/5 transition-all border border-transparent hover:border-slate-100 border-dashed">
+                                <div
+                                    class="group relative flex items-center justify-between p-4 rounded-2xl bg-slate-50/50 hover:bg-white hover:shadow-lg hover:shadow-rose-500/5 transition-all border border-transparent hover:border-slate-100 border-dashed">
                                     <div class="flex items-center gap-4">
                                         <div class="relative shrink-0">
-                                            <img src="https://ui-avatars.com/api/?name=Jd&background=f1f5f9&color=6366f1" class="w-14 h-14 rounded-2xl object-cover shadow-sm border border-white">
-                                            <div class="absolute -bottom-1 -right-1 w-5 h-5 bg-rose-500 text-white rounded-lg flex items-center justify-center text-[10px] border-2 border-white shadow-sm">
+                                            <img src="https://ui-avatars.com/api/?name=Jd&background=f1f5f9&color=6366f1"
+                                                class="w-14 h-14 rounded-2xl object-cover shadow-sm border border-white">
+                                            <div
+                                                class="absolute -bottom-1 -right-1 w-5 h-5 bg-rose-500 text-white rounded-lg flex items-center justify-center text-[10px] border-2 border-white shadow-sm">
                                                 <i class="fa-solid fa-xmark"></i>
                                             </div>
                                         </div>
                                         <div>
-                                            <h4 class="font-black text-slate-800 text-sm mb-0.5 group-hover:text-rose-600 transition-colors">حي الصفا</h4>
-                                            <p class="text-[10px] text-slate-400 font-bold mb-1 uppercase tracking-wider">#SAF-2139 <span class="mx-1 opacity-30">•</span> <span class="text-emerald-600 font-mono">SAR 16.1</span></p>
-                                            <span class="inline-flex items-center gap-1.5 px-2 py-0.5 bg-rose-50 text-rose-600 rounded-lg text-[9px] font-black border border-rose-200">الدفع فاشل</span>
+                                            <h4
+                                                class="font-black text-slate-800 text-sm mb-0.5 group-hover:text-rose-600 transition-colors">
+                                                حي الصفا</h4>
+                                            <p
+                                                class="text-[10px] text-slate-400 font-bold mb-1 uppercase tracking-wider">
+                                                #SAF-2139 <span class="mx-1 opacity-30">•</span> <span
+                                                    class="text-emerald-600 font-mono">SAR 16.1</span></p>
+                                            <span
+                                                class="inline-flex items-center gap-1.5 px-2 py-0.5 bg-rose-50 text-rose-600 rounded-lg text-[9px] font-black border border-rose-200">الدفع
+                                                فاشل</span>
                                         </div>
                                     </div>
-                                    <button onclick="window.location.href='orders/details.html?order_id=%23SAF-2139'" class="w-10 h-10 rounded-xl bg-white text-slate-400 hover:bg-indigo-600 hover:text-white transition-all shadow-sm border border-slate-100 flex items-center justify-center group-hover:scale-110">
+                                    <button onclick="window.location.href='orders/details.html?order_id=%23SAF-2139'"
+                                        class="w-10 h-10 rounded-xl bg-white text-slate-400 hover:bg-indigo-600 hover:text-white transition-all shadow-sm border border-slate-100 flex items-center justify-center group-hover:scale-110">
                                         <i class="fa-solid fa-arrow-left text-xs"></i>
                                     </button>
                                 </div>
                                 <!-- Order Item -->
-                                <div class="group relative flex items-center justify-between p-4 rounded-2xl bg-slate-50/50 hover:bg-white hover:shadow-lg hover:shadow-emerald-500/5 transition-all border border-transparent hover:border-slate-100 border-dashed">
+                                <div
+                                    class="group relative flex items-center justify-between p-4 rounded-2xl bg-slate-50/50 hover:bg-white hover:shadow-lg hover:shadow-emerald-500/5 transition-all border border-transparent hover:border-slate-100 border-dashed">
                                     <div class="flex items-center gap-4">
                                         <div class="relative shrink-0">
-                                            <img src="https://ui-avatars.com/api/?name=As&background=f1f5f9&color=6366f1" class="w-14 h-14 rounded-2xl object-cover shadow-sm border border-white">
-                                            <div class="absolute -bottom-1 -right-1 w-5 h-5 bg-emerald-500 text-white rounded-lg flex items-center justify-center text-[10px] border-2 border-white shadow-sm">
+                                            <img src="https://ui-avatars.com/api/?name=As&background=f1f5f9&color=6366f1"
+                                                class="w-14 h-14 rounded-2xl object-cover shadow-sm border border-white">
+                                            <div
+                                                class="absolute -bottom-1 -right-1 w-5 h-5 bg-emerald-500 text-white rounded-lg flex items-center justify-center text-[10px] border-2 border-white shadow-sm">
                                                 <i class="fa-solid fa-check"></i>
                                             </div>
                                         </div>
                                         <div>
-                                            <h4 class="font-black text-slate-800 text-sm mb-0.5 group-hover:text-emerald-600 transition-colors">حى السلامة</h4>
-                                            <p class="text-[10px] text-slate-400 font-bold mb-1 uppercase tracking-wider">#SAL-2136 <span class="mx-1 opacity-30">•</span> <span class="text-emerald-600 font-mono">SAR 29.9</span></p>
-                                            <span class="inline-flex items-center gap-1.5 px-2 py-0.5 bg-emerald-50 text-emerald-600 rounded-lg text-[9px] font-black border border-emerald-200">تم التوصيل</span>
+                                            <h4
+                                                class="font-black text-slate-800 text-sm mb-0.5 group-hover:text-emerald-600 transition-colors">
+                                                حى السلامة</h4>
+                                            <p
+                                                class="text-[10px] text-slate-400 font-bold mb-1 uppercase tracking-wider">
+                                                #SAL-2136 <span class="mx-1 opacity-30">•</span> <span
+                                                    class="text-emerald-600 font-mono">SAR 29.9</span></p>
+                                            <span
+                                                class="inline-flex items-center gap-1.5 px-2 py-0.5 bg-emerald-50 text-emerald-600 rounded-lg text-[9px] font-black border border-emerald-200">تم
+                                                التوصيل</span>
                                         </div>
                                     </div>
-                                    <button onclick="window.location.href='orders/details.html?order_id=%23SAL-2136'" class="w-10 h-10 rounded-xl bg-white text-slate-400 hover:bg-indigo-600 hover:text-white transition-all shadow-sm border border-slate-100 flex items-center justify-center group-hover:scale-110">
+                                    <button onclick="window.location.href='orders/details.html?order_id=%23SAL-2136'"
+                                        class="w-10 h-10 rounded-xl bg-white text-slate-400 hover:bg-indigo-600 hover:text-white transition-all shadow-sm border border-slate-100 flex items-center justify-center group-hover:scale-110">
                                         <i class="fa-solid fa-arrow-left text-xs"></i>
                                     </button>
                                 </div>
@@ -851,19 +919,25 @@
 
                     <!-- Orders Status Full Section with Donut Chart -->
                     <div class="lg:col-span-8 flex flex-col">
-                        <div class="glass-panel rounded-3xl p-8 flex flex-col shadow-lg border border-slate-100/50 bg-white/80 backdrop-blur-md">
+                        <div
+                            class="glass-panel rounded-3xl p-8 flex flex-col shadow-lg border border-slate-100/50 bg-white/80 backdrop-blur-md">
                             <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4 shrink-0">
                                 <div class="flex items-center gap-3">
-                                    <div class="w-12 h-12 rounded-2xl bg-indigo-600 text-white flex items-center justify-center shadow-lg shadow-indigo-200">
+                                    <div
+                                        class="w-12 h-12 rounded-2xl bg-indigo-600 text-white flex items-center justify-center shadow-lg shadow-indigo-200">
                                         <i class="fa-solid fa-chart-donut text-xl"></i>
                                     </div>
                                     <div>
-                                        <h3 class="text-2xl font-black text-slate-800 tracking-tight">تحليل حالات الطلبات</h3>
-                                        <p class="text-[11px] text-slate-400 font-bold uppercase tracking-widest mt-0.5">نظرة شاملة على توزيع وإحصائيات الطلبات</p>
+                                        <h3 class="text-2xl font-black text-slate-800 tracking-tight">تحليل حالات
+                                            الطلبات</h3>
+                                        <p
+                                            class="text-[11px] text-slate-400 font-bold uppercase tracking-widest mt-0.5">
+                                            نظرة شاملة على توزيع وإحصائيات الطلبات</p>
                                     </div>
                                 </div>
                                 <div class="flex gap-3">
-                                    <button onclick="exportOrdersChartData()" class="px-6 py-2.5 bg-white text-slate-700 font-black rounded-2xl hover:bg-indigo-600 hover:text-white transition-all flex items-center gap-2 shadow-sm border border-slate-100 text-[11px] uppercase tracking-wider">
+                                    <button onclick="exportOrdersChartData()"
+                                        class="px-6 py-2.5 bg-white text-slate-700 font-black rounded-2xl hover:bg-indigo-600 hover:text-white transition-all flex items-center gap-2 shadow-sm border border-slate-100 text-[11px] uppercase tracking-wider">
                                         <i class="fa-solid fa-download"></i> تصدير البيانات
                                     </button>
                                 </div>
@@ -871,79 +945,119 @@
 
                             <div class="flex flex-col xl:flex-row gap-8 flex-1 min-h-0">
                                 <!-- Donut Chart -->
-                                <div class="flex-1 min-h-[300px] relative bg-gradient-to-br from-slate-50/50 to-white/50 rounded-3xl border border-slate-100/50 overflow-hidden group">
-                                    <div class="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none group-hover:scale-110 transition-transform duration-700">
+                                <div
+                                    class="flex-1 min-h-[300px] relative bg-gradient-to-br from-slate-50/50 to-white/50 rounded-3xl border border-slate-100/50 overflow-hidden group">
+                                    <div
+                                        class="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none group-hover:scale-110 transition-transform duration-700">
                                         <i class="fa-solid fa-gem text-[200px]"></i>
                                     </div>
                                     <div id="ordersDonutChart" class="w-full h-full relative z-10"></div>
                                 </div>
-                                
+
                                 <!-- Categories Stats -->
                                 <div class="xl:w-80 shrink-0 grid grid-cols-2 lg:grid-cols-2 gap-3 content-start">
                                     <!-- New Order -->
-                                    <div class="p-4 rounded-2xl bg-white hover:shadow-lg hover:shadow-indigo-500/5 transition-all border border-slate-100 group">
+                                    <div
+                                        class="p-4 rounded-2xl bg-white hover:shadow-lg hover:shadow-indigo-500/5 transition-all border border-slate-100 group">
                                         <div class="flex items-center gap-3 mb-2">
-                                            <div class="w-8 h-8 rounded-xl bg-indigo-500 text-white flex items-center justify-center text-xs shadow-sm shadow-indigo-200 group-hover:scale-110 transition-transform"><i class="fa-solid fa-plus text-[10px]"></i></div>
-                                            <p class="text-[9px] text-slate-400 font-black uppercase tracking-wider">طلب جديد</p>
+                                            <div
+                                                class="w-8 h-8 rounded-xl bg-indigo-500 text-white flex items-center justify-center text-xs shadow-sm shadow-indigo-200 group-hover:scale-110 transition-transform">
+                                                <i class="fa-solid fa-plus text-[10px]"></i>
+                                            </div>
+                                            <p class="text-[9px] text-slate-400 font-black uppercase tracking-wider">طلب
+                                                جديد</p>
                                         </div>
                                         <div class="flex items-baseline justify-between">
                                             <h4 class="text-xl font-black text-slate-800 orders-new-val">0</h4>
-                                            <span class="text-[10px] text-emerald-500 font-bold bg-emerald-50 px-1.5 py-0.5 rounded-lg">+15%</span>
+                                            <span
+                                                class="text-[10px] text-emerald-500 font-bold bg-emerald-50 px-1.5 py-0.5 rounded-lg">+15%</span>
                                         </div>
                                     </div>
                                     <!-- Awaiting Payment -->
-                                    <div class="p-4 rounded-2xl bg-white hover:shadow-lg hover:shadow-amber-500/5 transition-all border border-slate-100 group">
+                                    <div
+                                        class="p-4 rounded-2xl bg-white hover:shadow-lg hover:shadow-amber-500/5 transition-all border border-slate-100 group">
                                         <div class="flex items-center gap-3 mb-2">
-                                            <div class="w-8 h-8 rounded-xl bg-amber-500 text-white flex items-center justify-center text-xs shadow-sm shadow-amber-200 group-hover:scale-110 transition-transform"><i class="fa-solid fa-clock text-[10px]"></i></div>
-                                            <p class="text-[9px] text-slate-400 font-black uppercase tracking-wider">انتظار دفع</p>
+                                            <div
+                                                class="w-8 h-8 rounded-xl bg-amber-500 text-white flex items-center justify-center text-xs shadow-sm shadow-amber-200 group-hover:scale-110 transition-transform">
+                                                <i class="fa-solid fa-clock text-[10px]"></i>
+                                            </div>
+                                            <p class="text-[9px] text-slate-400 font-black uppercase tracking-wider">
+                                                انتظار دفع</p>
                                         </div>
                                         <div class="flex items-baseline justify-between">
                                             <h4 class="text-xl font-black text-slate-800 orders-pending-val">0</h4>
-                                            <span class="text-[10px] text-emerald-500 font-bold bg-emerald-50 px-1.5 py-0.5 rounded-lg">+12%</span>
+                                            <span
+                                                class="text-[10px] text-emerald-500 font-bold bg-emerald-50 px-1.5 py-0.5 rounded-lg">+12%</span>
                                         </div>
                                     </div>
                                     <!-- Processing -->
-                                    <div class="p-4 rounded-2xl bg-white hover:shadow-lg hover:shadow-blue-500/5 transition-all border border-slate-100 group">
+                                    <div
+                                        class="p-4 rounded-2xl bg-white hover:shadow-lg hover:shadow-blue-500/5 transition-all border border-slate-100 group">
                                         <div class="flex items-center gap-3 mb-2">
-                                            <div class="w-8 h-8 rounded-xl bg-blue-500 text-white flex items-center justify-center text-xs shadow-sm shadow-blue-200 group-hover:scale-110 transition-transform"><i class="fa-solid fa-spinner fa-spin text-[10px]"></i></div>
-                                            <p class="text-[9px] text-slate-400 font-black uppercase tracking-wider">تحضير</p>
+                                            <div
+                                                class="w-8 h-8 rounded-xl bg-blue-500 text-white flex items-center justify-center text-xs shadow-sm shadow-blue-200 group-hover:scale-110 transition-transform">
+                                                <i class="fa-solid fa-spinner fa-spin text-[10px]"></i>
+                                            </div>
+                                            <p class="text-[9px] text-slate-400 font-black uppercase tracking-wider">
+                                                تحضير</p>
                                         </div>
                                         <div class="flex items-baseline justify-between">
                                             <h4 class="text-xl font-black text-slate-800 orders-processing-val">0</h4>
-                                            <span class="text-[10px] text-emerald-500 font-bold bg-emerald-50 px-1.5 py-0.5 rounded-lg">+8%</span>
+                                            <span
+                                                class="text-[10px] text-emerald-500 font-bold bg-emerald-50 px-1.5 py-0.5 rounded-lg">+8%</span>
                                         </div>
                                     </div>
                                     <!-- Ready -->
-                                    <div class="p-4 rounded-2xl bg-white hover:shadow-lg hover:shadow-purple-500/5 transition-all border border-slate-100 group">
+                                    <div
+                                        class="p-4 rounded-2xl bg-white hover:shadow-lg hover:shadow-purple-500/5 transition-all border border-slate-100 group">
                                         <div class="flex items-center gap-3 mb-2">
-                                            <div class="w-8 h-8 rounded-xl bg-purple-500 text-white flex items-center justify-center text-xs shadow-sm shadow-purple-200 group-hover:scale-110 transition-transform"><i class="fa-solid fa-check text-[10px]"></i></div>
-                                            <p class="text-[9px] text-slate-400 font-black uppercase tracking-wider">جاهز</p>
+                                            <div
+                                                class="w-8 h-8 rounded-xl bg-purple-500 text-white flex items-center justify-center text-xs shadow-sm shadow-purple-200 group-hover:scale-110 transition-transform">
+                                                <i class="fa-solid fa-check text-[10px]"></i>
+                                            </div>
+                                            <p class="text-[9px] text-slate-400 font-black uppercase tracking-wider">
+                                                جاهز</p>
                                         </div>
                                         <div class="flex items-baseline justify-between">
                                             <h4 class="text-xl font-black text-slate-800 orders-ready-val">0</h4>
-                                            <span class="text-[10px] text-rose-500 font-bold bg-rose-50 px-1.5 py-0.5 rounded-lg">-3%</span>
+                                            <span
+                                                class="text-[10px] text-rose-500 font-bold bg-rose-50 px-1.5 py-0.5 rounded-lg">-3%</span>
                                         </div>
                                     </div>
                                     <!-- Completed -->
-                                    <div class="p-4 rounded-2xl bg-white hover:shadow-lg hover:shadow-emerald-500/5 transition-all border border-slate-100 group">
+                                    <div
+                                        class="p-4 rounded-2xl bg-white hover:shadow-lg hover:shadow-emerald-500/5 transition-all border border-slate-100 group">
                                         <div class="flex items-center gap-3 mb-2">
-                                            <div class="w-8 h-8 rounded-xl bg-emerald-500 text-white flex items-center justify-center text-xs shadow-sm shadow-emerald-200 group-hover:scale-110 transition-transform"><i class="fa-solid fa-check-double text-[10px]"></i></div>
-                                            <p class="text-[9px] text-slate-400 font-black uppercase tracking-wider">مكتمل</p>
+                                            <div
+                                                class="w-8 h-8 rounded-xl bg-emerald-500 text-white flex items-center justify-center text-xs shadow-sm shadow-emerald-200 group-hover:scale-110 transition-transform">
+                                                <i class="fa-solid fa-check-double text-[10px]"></i>
+                                            </div>
+                                            <p class="text-[9px] text-slate-400 font-black uppercase tracking-wider">
+                                                مكتمل</p>
                                         </div>
                                         <div class="flex items-baseline justify-between gap-1">
-                                            <h4 class="text-xl font-black text-slate-800 orders-completed-val line-clamp-1">0</h4>
-                                            <span class="text-[9px] text-emerald-500 font-bold bg-emerald-50 px-1 py-0.5 rounded">إنجاز</span>
+                                            <h4
+                                                class="text-xl font-black text-slate-800 orders-completed-val line-clamp-1">
+                                                0</h4>
+                                            <span
+                                                class="text-[9px] text-emerald-500 font-bold bg-emerald-50 px-1 py-0.5 rounded">إنجاز</span>
                                         </div>
                                     </div>
                                     <!-- Canceled -->
-                                    <div class="p-4 rounded-2xl bg-white hover:shadow-lg hover:shadow-rose-500/5 transition-all border border-slate-100 group">
+                                    <div
+                                        class="p-4 rounded-2xl bg-white hover:shadow-lg hover:shadow-rose-500/5 transition-all border border-slate-100 group">
                                         <div class="flex items-center gap-3 mb-2">
-                                            <div class="w-8 h-8 rounded-xl bg-rose-500 text-white flex items-center justify-center text-xs shadow-sm shadow-rose-200 group-hover:scale-110 transition-transform"><i class="fa-solid fa-ban text-[10px]"></i></div>
-                                            <p class="text-[9px] text-slate-400 font-black uppercase tracking-wider">ملغي</p>
+                                            <div
+                                                class="w-8 h-8 rounded-xl bg-rose-500 text-white flex items-center justify-center text-xs shadow-sm shadow-rose-200 group-hover:scale-110 transition-transform">
+                                                <i class="fa-solid fa-ban text-[10px]"></i>
+                                            </div>
+                                            <p class="text-[9px] text-slate-400 font-black uppercase tracking-wider">
+                                                ملغي</p>
                                         </div>
                                         <div class="flex items-baseline justify-between">
                                             <h4 class="text-xl font-black text-slate-800 orders-canceled-val">0</h4>
-                                            <span class="text-[10px] text-rose-500 font-bold bg-rose-50 px-1.5 py-0.5 rounded-lg">-5%</span>
+                                            <span
+                                                class="text-[10px] text-rose-500 font-bold bg-rose-50 px-1.5 py-0.5 rounded-lg">-5%</span>
                                         </div>
                                     </div>
                                 </div>
@@ -1173,15 +1287,34 @@
                         <table class="w-full text-right text-sm" id="storesDatatable" width="100%">
                             <thead class="bg-slate-50/80 text-slate-500">
                                 <tr>
-                                    <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">المعرف</th>
-                                    <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider shrink-0">صورة</th>
-                                    <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">اسم المتجر</th>
-                                    <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">المناطق</th>
-                                    <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">المالك</th>
-                                    <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">تاريخ الانضمام</th>
-                                    <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">حالة المخزون</th>
-                                    <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">أخر جرد</th>
-                                    <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider"><i class="fa-solid fa-gear"></i></th>
+                                    <th
+                                        class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                        المعرف</th>
+                                    <th
+                                        class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider shrink-0">
+                                        صورة</th>
+                                    <th
+                                        class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                        اسم المتجر</th>
+                                    <th
+                                        class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                        المناطق</th>
+                                    <th
+                                        class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                        المالك</th>
+                                    <th
+                                        class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                        تاريخ الانضمام</th>
+                                    <th
+                                        class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                        حالة المخزون</th>
+                                    <th
+                                        class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                        أخر جرد</th>
+                                    <th
+                                        class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                        <i class="fa-solid fa-gear"></i>
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-slate-100">
@@ -1545,7 +1678,8 @@
                 </div>
 
                 <!-- Sub-tabs Navigation -->
-                <div class="tab-scroller flex items-center gap-2 overflow-x-auto pb-4 mb-6 no-scrollbar border-b border-slate-100">
+                <div
+                    class="tab-scroller flex items-center gap-2 overflow-x-auto pb-4 mb-6 no-scrollbar border-b border-slate-100">
                     <button onclick="switchProductSubTab('items')" id="product-subtab-items"
                         class="product-subtab active whitespace-nowrap px-5 py-2.5 rounded-xl text-sm font-bold transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-100">
                         <i class="fa-solid fa-box-open mr-1"></i> العناصر (Items)
@@ -1579,18 +1713,38 @@
                             </div>
                         </div>
                         <div class="p-6 overflow-x-auto custom-scrollbar">
-                            <table class="w-full text-right text-sm border-separate border-spacing-0" id="itemsDatatable" style="width:100%">
+                            <table class="w-full text-right text-sm border-separate border-spacing-0"
+                                id="itemsDatatable" style="width:100%">
                                 <thead class="bg-slate-50/80 text-slate-500">
                                     <tr>
-                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">المعرف</th>
-                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">صورة</th>
-                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">اسم المنتج</th>
-                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">المتجر</th>
-                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">التصنيف</th>
-                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">السعر</th>
-                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">الصفات</th>
-                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">تاريخ الانشاء</th>
-                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider"><i class="fa-solid fa-gear"></i></th>
+                                        <th
+                                            class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            المعرف</th>
+                                        <th
+                                            class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            صورة</th>
+                                        <th
+                                            class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            اسم المنتج</th>
+                                        <th
+                                            class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            المتجر</th>
+                                        <th
+                                            class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            التصنيف</th>
+                                        <th
+                                            class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            السعر</th>
+                                        <th
+                                            class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            الصفات</th>
+                                        <th
+                                            class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            تاريخ الانشاء</th>
+                                        <th
+                                            class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            <i class="fa-solid fa-gear"></i>
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody class="divide-y divide-slate-100">
@@ -1612,14 +1766,31 @@
                             <table class="w-full text-right text-sm">
                                 <thead class="bg-slate-50/80 text-slate-500">
                                     <tr>
-                                        <th class="p-4 font-semibold border-b border-slate-100 text-center uppercase text-[11px] tracking-wider">المعرف</th>
-                                        <th class="p-4 font-semibold border-b border-slate-100 text-center uppercase text-[11px] tracking-wider">صوره</th>
-                                        <th class="p-4 font-semibold border-b border-slate-100 text-right uppercase text-[11px] tracking-wider">الاسم</th>
-                                        <th class="p-4 font-semibold border-b border-slate-100 text-center uppercase text-[11px] tracking-wider">عدد العناصر</th>
-                                        <th class="p-4 font-semibold border-b border-slate-100 text-center uppercase text-[11px] tracking-wider">الحالة</th>
-                                        <th class="p-4 font-semibold border-b border-slate-100 text-center uppercase text-[11px] tracking-wider">بواسطة</th>
-                                        <th class="p-4 font-semibold border-b border-slate-100 text-center uppercase text-[11px] tracking-wider">التاريخ</th>
-                                        <th class="p-4 font-semibold border-b border-slate-100 text-center uppercase text-[11px] tracking-wider"><i class="fa-solid fa-gear"></i></th>
+                                        <th
+                                            class="p-4 font-semibold border-b border-slate-100 text-center uppercase text-[11px] tracking-wider">
+                                            المعرف</th>
+                                        <th
+                                            class="p-4 font-semibold border-b border-slate-100 text-center uppercase text-[11px] tracking-wider">
+                                            صوره</th>
+                                        <th
+                                            class="p-4 font-semibold border-b border-slate-100 text-right uppercase text-[11px] tracking-wider">
+                                            الاسم</th>
+                                        <th
+                                            class="p-4 font-semibold border-b border-slate-100 text-center uppercase text-[11px] tracking-wider">
+                                            عدد العناصر</th>
+                                        <th
+                                            class="p-4 font-semibold border-b border-slate-100 text-center uppercase text-[11px] tracking-wider">
+                                            الحالة</th>
+                                        <th
+                                            class="p-4 font-semibold border-b border-slate-100 text-center uppercase text-[11px] tracking-wider">
+                                            بواسطة</th>
+                                        <th
+                                            class="p-4 font-semibold border-b border-slate-100 text-center uppercase text-[11px] tracking-wider">
+                                            التاريخ</th>
+                                        <th
+                                            class="p-4 font-semibold border-b border-slate-100 text-center uppercase text-[11px] tracking-wider">
+                                            <i class="fa-solid fa-gear"></i>
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody class="divide-y divide-slate-100">
@@ -2308,7 +2479,10 @@
                                 <p class="text-slate-500 text-xs font-semibold mb-1">إجمالي العروض</p>
                                 <h3 class="text-2xl font-bold text-slate-800" id="promo-total-count">0</h3>
                             </div>
-                            <div class="w-10 h-10 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center text-lg"><i class="fa-solid fa-ticket"></i></div>
+                            <div
+                                class="w-10 h-10 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-ticket"></i>
+                            </div>
                         </div>
                     </div>
                     <div class="glass-panel p-5 rounded-2xl stat-card relative overflow-hidden group">
@@ -2317,7 +2491,10 @@
                                 <p class="text-slate-500 text-xs font-semibold mb-1">عروض نشطة</p>
                                 <h3 class="text-2xl font-bold text-emerald-600" id="promo-active-count">0</h3>
                             </div>
-                            <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-lg"><i class="fa-solid fa-check-circle"></i></div>
+                            <div
+                                class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-check-circle"></i>
+                            </div>
                         </div>
                     </div>
                     <div class="glass-panel p-5 rounded-2xl stat-card relative overflow-hidden group">
@@ -2326,7 +2503,10 @@
                                 <p class="text-slate-500 text-xs font-semibold mb-1">عروض منتهية</p>
                                 <h3 class="text-2xl font-bold text-rose-600" id="promo-expired-count">0</h3>
                             </div>
-                            <div class="w-10 h-10 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center text-lg"><i class="fa-solid fa-clock"></i></div>
+                            <div
+                                class="w-10 h-10 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
                         </div>
                     </div>
                     <div class="glass-panel p-5 rounded-2xl stat-card relative overflow-hidden group">
@@ -2335,7 +2515,10 @@
                                 <p class="text-slate-500 text-xs font-semibold mb-1">عروض مجدولة</p>
                                 <h3 class="text-2xl font-bold text-blue-600" id="promo-scheduled-count">0</h3>
                             </div>
-                            <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center text-lg"><i class="fa-solid fa-calendar-check"></i></div>
+                            <div
+                                class="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-calendar-check"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -2343,7 +2526,8 @@
                 <!-- Promotions Cards Grid - Dynamic -->
                 <div id="promotions-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-8">
                     <!-- Will be populated dynamically -->
-                    <div class="glass-panel p-8 rounded-3xl col-span-full flex items-center justify-center text-slate-400">
+                    <div
+                        class="glass-panel p-8 rounded-3xl col-span-full flex items-center justify-center text-slate-400">
                         <i class="fa-solid fa-spinner fa-spin mr-2"></i> جار تحميل العروض...
                     </div>
                 </div>
@@ -2596,7 +2780,8 @@
                 </div>
 
                 <!-- Slider Tabs for User Types -->
-                <div class="tab-scroller flex items-center gap-2 overflow-x-auto pb-4 mb-2 no-scrollbar border-b border-slate-100">
+                <div
+                    class="tab-scroller flex items-center gap-2 overflow-x-auto pb-4 mb-2 no-scrollbar border-b border-slate-100">
                     <button onclick="switchUserSubTab('all')" id="user-subtab-all"
                         class="user-subtab active whitespace-nowrap px-4 py-2 rounded-xl text-sm font-bold transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-100">
                         <i class="fa-solid fa-users mr-1"></i> الكل
@@ -2629,14 +2814,31 @@
                             <table class="w-full text-right" id="usersDataTableAll">
                                 <thead class="bg-slate-50/80 text-slate-500">
                                     <tr>
-                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">المعرف</th>
-                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">المستخدم</th>
-                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">البريد الإلكتروني</th>
-                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">الجوال</th>
-                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">الدور</th>
-                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider text-nowrap">المحفظة</th>
-                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">تاريخ الانضمام</th>
-                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider"><i class="fa-solid fa-gear"></i></th>
+                                        <th
+                                            class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            المعرف</th>
+                                        <th
+                                            class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            المستخدم</th>
+                                        <th
+                                            class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            البريد الإلكتروني</th>
+                                        <th
+                                            class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            الجوال</th>
+                                        <th
+                                            class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            الدور</th>
+                                        <th
+                                            class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider text-nowrap">
+                                            المحفظة</th>
+                                        <th
+                                            class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            تاريخ الانضمام</th>
+                                        <th
+                                            class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            <i class="fa-solid fa-gear"></i>
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody></tbody>
@@ -2651,14 +2853,31 @@
                             <table class="w-full text-right" id="usersDataTableCustomers">
                                 <thead class="bg-slate-50/80 text-slate-500">
                                     <tr>
-                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">المعرف</th>
-                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">المستخدم</th>
-                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">البريد الإلكتروني</th>
-                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">الجوال</th>
-                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">الدور</th>
-                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider text-nowrap">المحفظة</th>
-                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">تاريخ الانضمام</th>
-                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider"><i class="fa-solid fa-gear"></i></th>
+                                        <th
+                                            class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            المعرف</th>
+                                        <th
+                                            class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            المستخدم</th>
+                                        <th
+                                            class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            البريد الإلكتروني</th>
+                                        <th
+                                            class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            الجوال</th>
+                                        <th
+                                            class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            الدور</th>
+                                        <th
+                                            class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider text-nowrap">
+                                            المحفظة</th>
+                                        <th
+                                            class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            تاريخ الانضمام</th>
+                                        <th
+                                            class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            <i class="fa-solid fa-gear"></i>
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody></tbody>
@@ -2674,12 +2893,25 @@
                             <table class="w-full text-right" id="usersDataTableStoreOwners">
                                 <thead class="bg-slate-50/80 text-slate-500">
                                     <tr>
-                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">المعرف</th>
-                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">المستخدم</th>
-                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">البريد الإلكتروني</th>
-                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">الجوال</th>
-                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider text-nowrap">تاريخ الانضمام</th>
-                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider"><i class="fa-solid fa-gear"></i></th>
+                                        <th
+                                            class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            المعرف</th>
+                                        <th
+                                            class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            المستخدم</th>
+                                        <th
+                                            class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            البريد الإلكتروني</th>
+                                        <th
+                                            class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            الجوال</th>
+                                        <th
+                                            class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider text-nowrap">
+                                            تاريخ الانضمام</th>
+                                        <th
+                                            class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            <i class="fa-solid fa-gear"></i>
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody></tbody>
@@ -2695,14 +2927,31 @@
                             <table class="w-full text-right" id="usersDataTableDeliveryGuys">
                                 <thead class="bg-slate-50/80 text-slate-500">
                                     <tr>
-                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">المعرف</th>
-                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">المستخدم</th>
-                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">البريد الإلكتروني</th>
-                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">الجوال</th>
-                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider text-nowrap">المحفظة</th>
-                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">الحالة</th>
-                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">تاريخ الانضمام</th>
-                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider"><i class="fa-solid fa-gear"></i></th>
+                                        <th
+                                            class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            المعرف</th>
+                                        <th
+                                            class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            المستخدم</th>
+                                        <th
+                                            class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            البريد الإلكتروني</th>
+                                        <th
+                                            class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            الجوال</th>
+                                        <th
+                                            class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider text-nowrap">
+                                            المحفظة</th>
+                                        <th
+                                            class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            الحالة</th>
+                                        <th
+                                            class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            تاريخ الانضمام</th>
+                                        <th
+                                            class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            <i class="fa-solid fa-gear"></i>
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody></tbody>
@@ -2718,13 +2967,28 @@
                             <table class="w-full text-right" id="usersDataTableStaff">
                                 <thead class="bg-slate-50/80 text-slate-500">
                                     <tr>
-                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">المعرف</th>
-                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">المستخدم</th>
-                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">البريد الإلكتروني</th>
-                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">الجوال</th>
-                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">الدور</th>
-                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">تاريخ الانضمام</th>
-                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider"><i class="fa-solid fa-gear"></i></th>
+                                        <th
+                                            class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            المعرف</th>
+                                        <th
+                                            class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            المستخدم</th>
+                                        <th
+                                            class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            البريد الإلكتروني</th>
+                                        <th
+                                            class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            الجوال</th>
+                                        <th
+                                            class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            الدور</th>
+                                        <th
+                                            class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            تاريخ الانضمام</th>
+                                        <th
+                                            class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            <i class="fa-solid fa-gear"></i>
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody></tbody>
@@ -2746,9 +3010,16 @@
                             <table class="w-full text-right" id="rolesDataTable">
                                 <thead class="bg-slate-50/80 text-slate-500">
                                     <tr>
-                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">اسم الدور</th>
-                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">الصلاحيات الممنوحة</th>
-                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider w-32 px-4 whitespace-nowrap"><i class="fa-solid fa-gear"></i></th>
+                                        <th
+                                            class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            اسم الدور</th>
+                                        <th
+                                            class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                            الصلاحيات الممنوحة</th>
+                                        <th
+                                            class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider w-32 px-4 whitespace-nowrap">
+                                            <i class="fa-solid fa-gear"></i>
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -2829,56 +3100,78 @@
 
                 <!-- Orders Stats Cards (Premium Redesign) -->
                 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-8 mt-2">
-                    <div class="glass-panel p-6 rounded-[2rem] border border-white/40 shadow-xl shadow-slate-200/40 relative overflow-hidden group hover:-translate-y-1 transition-all duration-300">
-                        <div class="absolute -right-4 -top-4 w-24 h-24 bg-indigo-600/5 rounded-full blur-2xl group-hover:bg-indigo-600/10 transition-colors"></div>
+                    <div
+                        class="glass-panel p-6 rounded-[2rem] border border-white/40 shadow-xl shadow-slate-200/40 relative overflow-hidden group hover:-translate-y-1 transition-all duration-300">
+                        <div
+                            class="absolute -right-4 -top-4 w-24 h-24 bg-indigo-600/5 rounded-full blur-2xl group-hover:bg-indigo-600/10 transition-colors">
+                        </div>
                         <div class="flex items-center gap-4 relative z-10">
-                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-500 to-indigo-700 text-white flex items-center justify-center text-2xl shadow-lg shadow-indigo-100 ring-4 ring-indigo-50">
+                            <div
+                                class="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-500 to-indigo-700 text-white flex items-center justify-center text-2xl shadow-lg shadow-indigo-100 ring-4 ring-indigo-50">
                                 <i class="fa-solid fa-layer-group"></i>
                             </div>
                             <div>
-                                <p class="text-[11px] font-extrabold text-slate-400 uppercase tracking-wider mb-0.5">إجمالي الطلبات</p>
+                                <p class="text-[11px] font-extrabold text-slate-400 uppercase tracking-wider mb-0.5">
+                                    إجمالي الطلبات</p>
                                 <div class="flex items-baseline gap-2">
                                     <h3 class="text-3xl font-black text-slate-800">1,245</h3>
-                                    <span class="text-[10px] font-bold text-emerald-500 bg-emerald-50 px-1.5 py-0.5 rounded-lg"><i class="fa-solid fa-arrow-up text-[8px] mr-1"></i> 12%+</span>
+                                    <span
+                                        class="text-[10px] font-bold text-emerald-500 bg-emerald-50 px-1.5 py-0.5 rounded-lg"><i
+                                            class="fa-solid fa-arrow-up text-[8px] mr-1"></i> 12%+</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="glass-panel p-6 rounded-[2rem] border border-white/40 shadow-xl shadow-slate-200/40 relative overflow-hidden group hover:-translate-y-1 transition-all duration-300">
-                        <div class="absolute -right-4 -top-4 w-24 h-24 bg-amber-600/5 rounded-full blur-2xl group-hover:bg-amber-600/10 transition-colors"></div>
+
+                    <div
+                        class="glass-panel p-6 rounded-[2rem] border border-white/40 shadow-xl shadow-slate-200/40 relative overflow-hidden group hover:-translate-y-1 transition-all duration-300">
+                        <div
+                            class="absolute -right-4 -top-4 w-24 h-24 bg-amber-600/5 rounded-full blur-2xl group-hover:bg-amber-600/10 transition-colors">
+                        </div>
                         <div class="flex items-center gap-4 relative z-10">
-                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-400 to-amber-600 text-white flex items-center justify-center text-2xl shadow-lg shadow-amber-100 ring-4 ring-amber-50">
+                            <div
+                                class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-400 to-amber-600 text-white flex items-center justify-center text-2xl shadow-lg shadow-amber-100 ring-4 ring-amber-50">
                                 <i class="fa-solid fa-spinner fa-spin-pulse"></i>
                             </div>
                             <div>
-                                <p class="text-[11px] font-extrabold text-slate-400 uppercase tracking-wider mb-0.5">بانتظار الدفع</p>
+                                <p class="text-[11px] font-extrabold text-slate-400 uppercase tracking-wider mb-0.5">
+                                    بانتظار الدفع</p>
                                 <h3 class="text-3xl font-black text-slate-800">45</h3>
                             </div>
                         </div>
                     </div>
 
-                    <div class="glass-panel p-6 rounded-[2rem] border border-white/40 shadow-xl shadow-slate-200/40 relative overflow-hidden group hover:-translate-y-1 transition-all duration-300">
-                        <div class="absolute -right-4 -top-4 w-24 h-24 bg-emerald-600/5 rounded-full blur-2xl group-hover:bg-emerald-600/10 transition-colors"></div>
+                    <div
+                        class="glass-panel p-6 rounded-[2rem] border border-white/40 shadow-xl shadow-slate-200/40 relative overflow-hidden group hover:-translate-y-1 transition-all duration-300">
+                        <div
+                            class="absolute -right-4 -top-4 w-24 h-24 bg-emerald-600/5 rounded-full blur-2xl group-hover:bg-emerald-600/10 transition-colors">
+                        </div>
                         <div class="flex items-center gap-4 relative z-10">
-                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-400 to-emerald-600 text-white flex items-center justify-center text-2xl shadow-lg shadow-emerald-100 ring-4 ring-emerald-50">
+                            <div
+                                class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-400 to-emerald-600 text-white flex items-center justify-center text-2xl shadow-lg shadow-emerald-100 ring-4 ring-emerald-50">
                                 <i class="fa-solid fa-check-double scale-110"></i>
                             </div>
                             <div>
-                                <p class="text-[11px] font-extrabold text-slate-400 uppercase tracking-wider mb-0.5">طلبات مكتملة</p>
+                                <p class="text-[11px] font-extrabold text-slate-400 uppercase tracking-wider mb-0.5">
+                                    طلبات مكتملة</p>
                                 <h3 class="text-3xl font-black text-slate-800">1,080</h3>
                             </div>
                         </div>
                     </div>
 
-                    <div class="glass-panel p-6 rounded-[2rem] border border-white/40 shadow-xl shadow-slate-200/40 relative overflow-hidden group hover:-translate-y-1 transition-all duration-300">
-                        <div class="absolute -right-4 -top-4 w-24 h-24 bg-rose-600/5 rounded-full blur-2xl group-hover:bg-rose-600/10 transition-colors"></div>
+                    <div
+                        class="glass-panel p-6 rounded-[2rem] border border-white/40 shadow-xl shadow-slate-200/40 relative overflow-hidden group hover:-translate-y-1 transition-all duration-300">
+                        <div
+                            class="absolute -right-4 -top-4 w-24 h-24 bg-rose-600/5 rounded-full blur-2xl group-hover:bg-rose-600/10 transition-colors">
+                        </div>
                         <div class="flex items-center gap-4 relative z-10">
-                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-rose-400 to-rose-600 text-white flex items-center justify-center text-2xl shadow-lg shadow-rose-100 ring-4 ring-rose-50">
+                            <div
+                                class="w-14 h-14 rounded-2xl bg-gradient-to-br from-rose-400 to-rose-600 text-white flex items-center justify-center text-2xl shadow-lg shadow-rose-100 ring-4 ring-rose-50">
                                 <i class="fa-solid fa-ban"></i>
                             </div>
                             <div>
-                                <p class="text-[11px] font-extrabold text-slate-400 uppercase tracking-wider mb-0.5">طلبات ملغاة</p>
+                                <p class="text-[11px] font-extrabold text-slate-400 uppercase tracking-wider mb-0.5">
+                                    طلبات ملغاة</p>
                                 <h3 class="text-3xl font-black text-slate-800">120</h3>
                             </div>
                         </div>
@@ -2886,7 +3179,8 @@
                 </div>
 
                 <!-- Modern Segmented Control for Order Statuses -->
-                <div class="tab-scroller p-1 bg-slate-100/80 backdrop-blur-md rounded-2xl flex items-center gap-1 mb-6 max-w-fit overflow-x-auto no-scrollbar border border-slate-200/50 shadow-inner">
+                <div
+                    class="tab-scroller p-1 bg-slate-100/80 backdrop-blur-md rounded-2xl flex items-center gap-1 mb-6 max-w-fit overflow-x-auto no-scrollbar border border-slate-200/50 shadow-inner">
                     <button onclick="switchOrderSubTab('all')" id="order-subtab-all"
                         class="order-subtab active px-5 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 bg-indigo-600 text-white shadow-md shadow-indigo-100">
                         <i class="fa-solid fa-layer-group"></i> الكل
@@ -2916,21 +3210,42 @@
                 <!-- Orders Table Area -->
                 <div class="glass-panel rounded-3xl overflow-hidden shadow-sm mt-4 p-2 md:p-6 bg-white shrink">
                     <div class="p-0 overflow-x-auto custom-scrollbar">
-                                <table class="w-full text-right align-middle" id="ordersDataTable">
-                                <thead class="bg-slate-50/80 text-slate-500">
-                                    <tr>
-                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">رقم الطلب</th>
-                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">العميل</th>
-                                        <th class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">المتجر و نوع الطلب</th>
-                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">طريقة الدفع</th>
-                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">حالة الدفع</th>
-                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">الإجمالي</th>
-                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">الحالة</th>
-                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">المؤقت المباشر</th>
-                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">التاريخ والوقت</th>
-                                        <th class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider"><i class="fa-solid fa-gear"></i></th>
-                                    </tr>
-                                </thead>
+                        <table class="w-full text-right align-middle" id="ordersDataTable">
+                            <thead class="bg-slate-50/80 text-slate-500">
+                                <tr>
+                                    <th
+                                        class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                        رقم الطلب</th>
+                                    <th
+                                        class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                        العميل</th>
+                                    <th
+                                        class="p-4 font-semibold text-right border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                        المتجر و نوع الطلب</th>
+                                    <th
+                                        class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                        طريقة الدفع</th>
+                                    <th
+                                        class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                        حالة الدفع</th>
+                                    <th
+                                        class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                        الإجمالي</th>
+                                    <th
+                                        class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                        الحالة</th>
+                                    <th
+                                        class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                        المؤقت المباشر</th>
+                                    <th
+                                        class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                        التاريخ والوقت</th>
+                                    <th
+                                        class="p-4 font-semibold text-center border-b border-slate-100 uppercase text-[11px] tracking-wider">
+                                        <i class="fa-solid fa-gear"></i>
+                                    </th>
+                                </tr>
+                            </thead>
                             <tbody class="divide-y divide-slate-50">
                                 <tr class="hover:bg-slate-50/50 transition-colors group">
                                     <td class="py-4 pl-4">
@@ -2952,7 +3267,8 @@
                                         <div class="font-bold text-slate-700 text-sm">حي النزهة</div>
                                         <div
                                             class="text-[11px] font-bold mt-1 text-slate-500 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded-md inline-flex items-center gap-1">
-                                            <i class="fa-solid fa-box text-blue-500"></i> استلام ذاتي</div>
+                                            <i class="fa-solid fa-box text-blue-500"></i> استلام ذاتي
+                                        </div>
                                     </td>
                                     <td class="py-4 px-4 text-center font-bold text-emerald-600 text-sm">304.75 ر.س</td>
                                     <td class="py-4 px-4 text-center">
@@ -2993,7 +3309,8 @@
                                         <div class="font-bold text-slate-700 text-sm">حي الصفا</div>
                                         <div
                                             class="text-[11px] font-bold mt-1 text-slate-500 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded-md inline-flex items-center gap-1">
-                                            <i class="fa-solid fa-motorcycle text-indigo-500"></i> توصيل</div>
+                                            <i class="fa-solid fa-motorcycle text-indigo-500"></i> توصيل
+                                        </div>
                                     </td>
                                     <td class="py-4 px-4 text-center font-bold text-emerald-600 text-sm">1,250.00 ر.س
                                     </td>
@@ -3035,7 +3352,8 @@
                                         <div class="font-bold text-slate-700 text-sm">حي الحمدانية</div>
                                         <div
                                             class="text-[11px] font-bold mt-1 text-slate-500 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded-md inline-flex items-center gap-1">
-                                            <i class="fa-solid fa-motorcycle text-indigo-500"></i> توصيل</div>
+                                            <i class="fa-solid fa-motorcycle text-indigo-500"></i> توصيل
+                                        </div>
                                     </td>
                                     <td class="py-4 px-4 text-center font-bold text-emerald-600 text-sm">85.00 ر.س</td>
                                     <td class="py-4 px-4 text-center">
@@ -3076,7 +3394,8 @@
                                         <div class="font-bold text-slate-700 text-sm">حي العزيزية</div>
                                         <div
                                             class="text-[11px] font-bold mt-1 text-slate-500 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded-md inline-flex items-center gap-1">
-                                            <i class="fa-solid fa-box text-blue-500"></i> استلام ذاتي</div>
+                                            <i class="fa-solid fa-box text-blue-500"></i> استلام ذاتي
+                                        </div>
                                     </td>
                                     <td class="py-4 px-4 text-center font-bold text-emerald-600 text-sm">540.00 ر.س</td>
                                     <td class="py-4 px-4 text-center">
@@ -3117,7 +3436,8 @@
                                         <div class="font-bold text-slate-700 text-sm">حي المروة</div>
                                         <div
                                             class="text-[11px] font-bold mt-1 text-slate-500 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded-md inline-flex items-center gap-1">
-                                            <i class="fa-solid fa-motorcycle text-indigo-500"></i> توصيل</div>
+                                            <i class="fa-solid fa-motorcycle text-indigo-500"></i> توصيل
+                                        </div>
                                     </td>
                                     <td class="py-4 px-4 text-center font-bold text-emerald-600 text-sm">180.00 ر.س</td>
                                     <td class="py-4 px-4 text-center">
@@ -3495,7 +3815,7 @@
             const overlay = document.getElementById('sidebarOverlay');
             if (!sidebar || !overlay || window.innerWidth >= 768) return;
             const isOpen = !sidebar.classList.contains('-translate-x-full');
-            
+
             if (isOpen) {
                 sidebar.classList.add('-translate-x-full');
                 overlay.classList.add('hidden');
@@ -3816,14 +4136,14 @@
                             ]
                         };
                         basic_donut.setOption(basic_donut_options);
-                        window.addEventListener('resize', function() { basic_donut.resize(); });
+                        window.addEventListener('resize', function () { basic_donut.resize(); });
                     }
 
                     // Try Unified Orders Donut Chart (Modern)
                     var ordersDom = document.getElementById('ordersDonutChart');
                     if (ordersDom && data.charts && data.charts.donut) {
                         var ordersChart = ec.init(ordersDom, limitless);
-                        
+
                         const statusMap = {
                             'Awaiting Payment': { label: 'بانتظار الدفع', color: '#f59e0b', class: '.orders-pending-val' },
                             'Preparing Order': { label: 'قيد التحضير', color: '#3b82f6', class: '.orders-processing-val' },
@@ -3876,7 +4196,7 @@
                             }]
                         };
                         ordersChart.setOption(ordersOption);
-                        window.addEventListener('resize', function() { ordersChart.resize(); });
+                        window.addEventListener('resize', function () { ordersChart.resize(); });
                     }
                 }
             );
@@ -3972,12 +4292,12 @@
                     data: mockStoresData,
                     columns: [
                         { data: 'id', visible: true, searchable: true, sortable: true, className: 'text-center font-bold text-slate-400' },
-                        { 
-                            data: 'image', 
-                            searchable: false, 
+                        {
+                            data: 'image',
+                            searchable: false,
                             sortable: false,
                             className: 'text-center',
-                            render: function(data) {
+                            render: function (data) {
                                 if (!data) return '<div class="w-11 h-11 bg-slate-100 rounded-xl mx-auto border border-slate-200 flex items-center justify-center text-slate-300"><i class="fa-solid fa-image"></i></div>';
                                 // Extract src more robustly (handles single and double quotes)
                                 let match = data.match(/src=['"]([^'"]+)['"]/i);
@@ -3987,16 +4307,16 @@
                                 return `<img src="${src}" class="table-image mx-auto" alt="store">`;
                             }
                         },
-                        { 
-                            data: 'name', 
+                        {
+                            data: 'name',
                             sortable: true,
                             className: 'font-bold text-slate-800 text-center'
                         },
-                        { 
-                            data: 'areas', 
-                            searchable: false, 
+                        {
+                            data: 'areas',
+                            searchable: false,
                             sortable: false,
-                            render: function(data) {
+                            render: function (data) {
                                 if (!data) return '';
                                 if (Array.isArray(data)) {
                                     return `<div class="flex flex-wrap gap-1">${data.map(a => `<span class="badge-premium bg-slate-100 text-slate-600">${a}</span>`).join('')}</div>`;
@@ -4006,32 +4326,32 @@
                                 return `<span class="badge-premium bg-slate-100 text-slate-600">${data}</span>`;
                             }
                         },
-                        { 
-                            data: 'owner', 
-                            searchable: false, 
+                        {
+                            data: 'owner',
+                            searchable: false,
                             sortable: true,
-                            render: function(data) {
+                            render: function (data) {
                                 return `<div class="flex items-center gap-2"><div class="w-8 h-8 rounded-full bg-indigo-50 text-indigo-500 flex items-center justify-center font-bold text-[10px]">${data.charAt(0)}</div><span class="font-medium text-slate-700">${data}</span></div>`;
                             }
                         },
                         { data: 'created_at', searchable: true, sortable: true, className: 'text-center text-xs text-slate-500' },
-                        { 
-                            data: 'oddo_stock', 
-                            searchable: false, 
+                        {
+                            data: 'oddo_stock',
+                            searchable: false,
                             sortable: false,
                             className: 'text-center',
-                            render: function(data) {
+                            render: function (data) {
                                 let style = data === 'Active' ? 'bg-emerald-50 text-emerald-600 border-emerald-100' : 'bg-rose-50 text-rose-600 border-rose-100';
                                 return `<span class="badge-premium ${style} border">${data === 'Active' ? '<i class="fa-solid fa-check-circle"></i> متصل' : '<i class="fa-solid fa-circle-exclamation"></i> غير متصل'}</span>`;
                             }
                         },
                         { data: 'updated_stock', searchable: false, sortable: false, className: 'text-center text-[11px] text-slate-400 font-medium' },
-                        { 
-                            data: 'action', 
-                            sortable: false, 
+                        {
+                            data: 'action',
+                            sortable: false,
                             searchable: false,
                             className: 'text-center',
-                            render: function(data) {
+                            render: function (data) {
                                 return `
                                 <div class="flex items-center justify-center gap-2">
                                     <button class="w-9 h-9 rounded-xl bg-slate-50 text-slate-400 hover:bg-slate-100 hover:text-indigo-600 transition-all flex items-center justify-center border border-slate-100" title="تعديل"><i class="fa-solid fa-pen-to-square"></i></button>
@@ -4200,11 +4520,11 @@
                 },
                 columns: [
                     { data: 'id', visible: true, className: 'text-center font-bold text-slate-400' },
-                    { 
-                        data: 'image', 
-                        sortable: false, 
+                    {
+                        data: 'image',
+                        sortable: false,
                         className: 'text-center',
-                        render: function(data) {
+                        render: function (data) {
                             if (!data) return '<div class="w-11 h-11 bg-slate-100 rounded-xl mx-auto border border-slate-200 flex items-center justify-center text-slate-300"><i class="fa-solid fa-image"></i></div>';
                             let match = data.match(/src=['"]([^'"]+)['"]/i);
                             let src = match ? match[1] : data;
@@ -4213,28 +4533,28 @@
                     },
                     { data: 'name', className: 'text-right font-bold text-slate-700' },
                     { data: 'restaurant_name', sortable: false, className: 'text-right' },
-                    { 
-                        data: 'category_name', 
+                    {
+                        data: 'category_name',
                         className: 'text-right',
                         render: d => `<span class="badge-premium bg-indigo-50 text-indigo-600 border border-indigo-100">${d}</span>`
                     },
-                    { 
-                        data: 'price', 
+                    {
+                        data: 'price',
                         className: 'text-center font-bold text-emerald-600',
                         render: d => `<span class="font-mono">${d}</span> <small class="text-[10px]">ر.س</small>`
                     },
-                    { 
-                        data: 'attributes', 
-                        sortable: false, 
+                    {
+                        data: 'attributes',
+                        sortable: false,
                         className: 'text-center',
                         render: d => `<span class="text-[11px] text-slate-400">${d || '-'}</span>`
                     },
                     { data: 'created_at', className: 'text-center text-xs text-slate-400 font-medium' },
-                    { 
-                        data: 'action', 
-                        sortable: false, 
+                    {
+                        data: 'action',
+                        sortable: false,
                         className: 'text-center',
-                        render: function() {
+                        render: function () {
                             return `<div class="flex items-center justify-center gap-2"><button class="w-8 h-8 rounded-lg bg-slate-50 text-slate-400 hover:bg-slate-100 hover:text-indigo-600 transition-all flex items-center justify-center border border-slate-100"><i class="fa-solid fa-pen"></i></button><button class="w-8 h-8 rounded-lg bg-slate-50 text-slate-400 hover:bg-rose-50 hover:text-rose-600 transition-all flex items-center justify-center border border-slate-100"><i class="fa-solid fa-trash"></i></button></div>`;
                         }
                     }
@@ -4298,52 +4618,52 @@
         function initAddonCategories() {
             if ($("#addonCatDatatable").length || $("#addonCatDatatable_standalone").length) {
                 loadMockData('addon_categories').then(catData => {
-                if (!Array.isArray(catData)) catData = [];
+                    if (!Array.isArray(catData)) catData = [];
 
-                window.ELITE_MOCK.addon_categories = catData;
+                    window.ELITE_MOCK.addon_categories = catData;
 
-                window.addonCatDatatableVar = $('#addonCatDatatable, #addonCatDatatable_standalone').DataTable({
-                    data: catData,
-                    autoWidth: false,
-                    scrollX: false,
-                    responsive: true,
-                    columns: [
-                        { data: 'name', className: 'font-bold text-slate-800 px-4' },
-                        {
-                            data: 'type',
-                            className: 'px-4',
-                            render: function (data) {
-                                let colors = data === 'اختيار متعدد' ? 'bg-indigo-50 text-indigo-600 border-indigo-100' : 'bg-emerald-50 text-emerald-600 border-emerald-100';
-                                return `<span class="badge-premium ${colors} border font-bold text-[10px]">${data}</span>`;
-                            }
-                        },
-                        { data: 'max', className: 'text-slate-600 px-4 text-center whitespace-nowrap font-bold font-mono' },
-                        { data: 'count', className: 'text-slate-600 px-4 text-center whitespace-nowrap font-bold font-mono' },
-                        { data: 'date', className: 'text-slate-400 text-[10px] px-4 whitespace-nowrap' },
-                        {
-                            data: null,
-                            className: 'text-center px-4',
-                            render: function (data) {
-                                return `
+                    window.addonCatDatatableVar = $('#addonCatDatatable, #addonCatDatatable_standalone').DataTable({
+                        data: catData,
+                        autoWidth: false,
+                        scrollX: false,
+                        responsive: true,
+                        columns: [
+                            { data: 'name', className: 'font-bold text-slate-800 px-4' },
+                            {
+                                data: 'type',
+                                className: 'px-4',
+                                render: function (data) {
+                                    let colors = data === 'اختيار متعدد' ? 'bg-indigo-50 text-indigo-600 border-indigo-100' : 'bg-emerald-50 text-emerald-600 border-emerald-100';
+                                    return `<span class="badge-premium ${colors} border font-bold text-[10px]">${data}</span>`;
+                                }
+                            },
+                            { data: 'max', className: 'text-slate-600 px-4 text-center whitespace-nowrap font-bold font-mono' },
+                            { data: 'count', className: 'text-slate-600 px-4 text-center whitespace-nowrap font-bold font-mono' },
+                            { data: 'date', className: 'text-slate-400 text-[10px] px-4 whitespace-nowrap' },
+                            {
+                                data: null,
+                                className: 'text-center px-4',
+                                render: function (data) {
+                                    return `
                                 <div class="flex items-center justify-center gap-2">
                                     <button class="w-8 h-8 rounded-lg bg-slate-50 text-slate-400 hover:bg-slate-100 hover:text-indigo-600 transition-all flex items-center justify-center border border-slate-100"><i class="fa-solid fa-pen-to-square"></i></button>
                                     <button class="w-8 h-8 rounded-lg bg-slate-50 text-slate-400 hover:bg-rose-50 hover:text-rose-600 transition-all flex items-center justify-center border border-slate-100"><i class="fa-solid fa-trash-can"></i></button>
                                 </div>`;
+                                }
                             }
-                        }
-                    ],
-                    columnDefs: [
-                        { targets: 0, width: '40%' },
-                        { targets: 1, width: '20%' },
-                        { targets: 2, width: '10%' },
-                        { targets: 3, width: '10%' },
-                        { targets: 4, width: '15%' },
-                        { targets: 5, width: '5%' }
-                    ],
-                    pageLength: 10,
-                    dom: '<"flex justify-between items-center bg-white p-4 border-b border-slate-100 rounded-t-xl"lf>rt<"flex justify-between items-center bg-white p-4 border-t border-slate-100 rounded-b-xl"ip>',
-                    language: dataTableArabicLanguage
-                });
+                        ],
+                        columnDefs: [
+                            { targets: 0, width: '40%' },
+                            { targets: 1, width: '20%' },
+                            { targets: 2, width: '10%' },
+                            { targets: 3, width: '10%' },
+                            { targets: 4, width: '15%' },
+                            { targets: 5, width: '5%' }
+                        ],
+                        pageLength: 10,
+                        dom: '<"flex justify-between items-center bg-white p-4 border-b border-slate-100 rounded-t-xl"lf>rt<"flex justify-between items-center bg-white p-4 border-t border-slate-100 rounded-b-xl"ip>',
+                        language: dataTableArabicLanguage
+                    });
                 });
             }
         }
@@ -4351,26 +4671,26 @@
         function initAddons() {
             if ($("#addonsDatatable").length || $("#addonsDatatable_standalone").length) {
                 loadMockData('addons').then(addonsData => {
-                if (!Array.isArray(addonsData)) addonsData = [];
+                    if (!Array.isArray(addonsData)) addonsData = [];
 
-                window.ELITE_MOCK.addons = addonsData;
+                    window.ELITE_MOCK.addons = addonsData;
 
-                window.addonsDatatableVar = $('#addonsDatatable, #addonsDatatable_standalone').DataTable({
-                    data: addonsData,
-                    autoWidth: false,
-                    scrollX: false,
-                    responsive: true,
-                    columns: [
-                        { data: 'name', className: 'font-semibold text-slate-800 px-4' },
-                        { data: 'price', className: 'font-bold text-emerald-600 text-center px-4 whitespace-nowrap', render: function (data) { return data + ' ر.س'; } },
-                        { data: 'cat', className: 'text-slate-600 px-4' },
-                        { data: 'date', className: 'text-slate-500 text-xs px-4 whitespace-nowrap' },
-                        {
-                            data: null,
-                            className: 'text-center px-4',
-                            render: function (data) {
-                                let checked = data.checked ? 'checked' : '';
-                                return `
+                    window.addonsDatatableVar = $('#addonsDatatable, #addonsDatatable_standalone').DataTable({
+                        data: addonsData,
+                        autoWidth: false,
+                        scrollX: false,
+                        responsive: true,
+                        columns: [
+                            { data: 'name', className: 'font-semibold text-slate-800 px-4' },
+                            { data: 'price', className: 'font-bold text-emerald-600 text-center px-4 whitespace-nowrap', render: function (data) { return data + ' ر.س'; } },
+                            { data: 'cat', className: 'text-slate-600 px-4' },
+                            { data: 'date', className: 'text-slate-500 text-xs px-4 whitespace-nowrap' },
+                            {
+                                data: null,
+                                className: 'text-center px-4',
+                                render: function (data) {
+                                    let checked = data.checked ? 'checked' : '';
+                                    return `
                                 <div class="flex items-center justify-center gap-3">
                                     <input type="checkbox" class="js-switch-addon" ${checked} />
                                     <div class="relative inline-block text-left dropdown mt-1">
@@ -4385,28 +4705,28 @@
                                         </div>
                                     </div>
                                 </div>`;
+                                }
                             }
+                        ],
+                        columnDefs: [
+                            { targets: 0, width: '40%' },
+                            { targets: 1, width: '15%' },
+                            { targets: 2, width: '25%' },
+                            { targets: 3, width: '15%' },
+                            { targets: 4, width: '5%' }
+                        ],
+                        pageLength: 10,
+                        dom: '<"flex justify-between items-center bg-white p-4 border-b border-slate-100 rounded-t-xl"lf>rt<"flex justify-between items-center bg-white p-4 border-t border-slate-100 rounded-b-xl"ip>',
+                        language: dataTableArabicLanguage,
+                        drawCallback: function () {
+                            var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch-addon'));
+                            elems.forEach(function (html) {
+                                if (!html.getAttribute('data-switchery')) {
+                                    new Switchery(html, { color: '#8360c3', size: 'small' });
+                                }
+                            });
                         }
-                    ],
-                    columnDefs: [
-                        { targets: 0, width: '40%' },
-                        { targets: 1, width: '15%' },
-                        { targets: 2, width: '25%' },
-                        { targets: 3, width: '15%' },
-                        { targets: 4, width: '5%' }
-                    ],
-                    pageLength: 10,
-                    dom: '<"flex justify-between items-center bg-white p-4 border-b border-slate-100 rounded-t-xl"lf>rt<"flex justify-between items-center bg-white p-4 border-t border-slate-100 rounded-b-xl"ip>',
-                    language: dataTableArabicLanguage,
-                    drawCallback: function () {
-                        var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch-addon'));
-                        elems.forEach(function (html) {
-                            if (!html.getAttribute('data-switchery')) {
-                                new Switchery(html, { color: '#8360c3', size: 'small' });
-                            }
-                        });
-                    }
-                });
+                    });
                 });
             }
         }
@@ -4442,7 +4762,7 @@
                 btn.classList.add('text-slate-500', 'border-transparent');
                 btn.classList.remove('border-slate-100', 'bg-white'); // Clean up old residue if any
             });
-            
+
             const activeBtn = document.getElementById('order-subtab-' + subTabId);
             if (activeBtn) {
                 activeBtn.classList.add('active', 'bg-indigo-600', 'text-white', 'shadow-md', 'shadow-indigo-100');
@@ -4488,20 +4808,20 @@
 
             const userColsAll = [
                 { data: 'id', className: 'text-center font-bold text-slate-400 text-xs' },
-                { 
-                    data: 'name', 
+                {
+                    data: 'name',
                     className: 'font-bold text-slate-800',
-                    render: function(data, type, row) {
+                    render: function (data, type, row) {
                         let name = data || 'المستخدم';
                         return `<div class="flex items-center gap-3"><div class="w-9 h-9 rounded-xl bg-indigo-50 text-indigo-500 flex items-center justify-center font-black text-xs border border-indigo-100 shadow-sm">${name.charAt(0)}</div><div><div class="font-bold text-slate-800 text-sm leading-none">${name}</div><div class="text-slate-400 text-[10px] mt-1 font-mono">ID: ${row.id}</div></div></div>`;
                     }
                 },
                 { data: 'email', className: 'text-slate-500 text-xs font-medium' },
                 { data: 'phone', className: 'text-slate-500 text-xs font-medium font-mono' },
-                { 
-                    data: 'role', 
+                {
+                    data: 'role',
                     className: 'text-center',
-                    render: function(data) {
+                    render: function (data) {
                         let role = data || 'User';
                         let styles = {
                             'Admin': 'bg-indigo-50 text-indigo-600 border-indigo-100',
@@ -4514,17 +4834,17 @@
                         return `<span class="badge-premium ${style} border font-bold text-[10px] whitespace-nowrap">${role}</span>`;
                     }
                 },
-                { 
-                    data: 'wallet', 
-                    className: 'font-black text-emerald-600 text-center', 
-                    render: d => `<span class="font-mono">${parseFloat(d || 0).toLocaleString('en-US', {minimumFractionDigits: 2})}</span> <small class="text-[10px] opacity-70">ر.س</small>` 
+                {
+                    data: 'wallet',
+                    className: 'font-black text-emerald-600 text-center',
+                    render: d => `<span class="font-mono">${parseFloat(d || 0).toLocaleString('en-US', { minimumFractionDigits: 2 })}</span> <small class="text-[10px] opacity-70">ر.س</small>`
                 },
                 { data: 'created_at', className: 'text-center text-xs text-slate-400 font-medium' },
-                { 
-                    data: null, 
-                    className: 'text-center', 
+                {
+                    data: null,
+                    className: 'text-center',
                     sortable: false,
-                    render: function() {
+                    render: function () {
                         return `<div class="flex items-center justify-center gap-1.5">
                             <button class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-500 hover:bg-indigo-600 hover:text-white transition-all flex items-center justify-center border border-indigo-100 shadow-sm"><i class="fa-solid fa-pen text-[10px]"></i></button>
                             <button class="w-8 h-8 rounded-lg bg-rose-50 text-rose-500 hover:bg-rose-600 hover:text-white transition-all flex items-center justify-center border border-rose-100 shadow-sm"><i class="fa-solid fa-trash text-[10px]"></i></button>
@@ -4535,19 +4855,19 @@
 
             const userColsStoreOwner = [
                 { data: 'id', className: 'text-center font-bold text-slate-400 text-xs' },
-                { 
-                    data: 'name', 
+                {
+                    data: 'name',
                     className: 'font-bold text-slate-800',
-                    render: function(data, type, row) {
+                    render: function (data, type, row) {
                         return `<div class="flex items-center gap-3"><div class="w-9 h-9 rounded-xl bg-amber-50 text-amber-500 flex items-center justify-center font-black text-xs border border-amber-100 shadow-sm">${data.charAt(0)}</div><div><div class="font-bold text-slate-800 text-sm leading-none">${data}</div><div class="text-slate-400 text-[10px] mt-1 font-mono">ID: ${row.id}</div></div></div>`;
                     }
                 },
                 { data: 'email', className: 'text-slate-500 text-xs font-medium' },
                 { data: 'phone', className: 'text-slate-500 text-xs font-medium font-mono' },
                 { data: 'created_at', className: 'text-center text-xs text-slate-400 font-medium' },
-                { 
-                    data: null, 
-                    className: 'text-center', 
+                {
+                    data: null,
+                    className: 'text-center',
                     sortable: false,
                     render: () => `<div class="flex items-center justify-center gap-1.5"><button class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-500 hover:bg-indigo-600 hover:text-white transition-all flex items-center justify-center border border-indigo-100 shadow-sm"><i class="fa-solid fa-pen text-[10px]"></i></button></div>`
                 }
@@ -4555,29 +4875,29 @@
 
             const userColsDelivery = [
                 { data: 'id', className: 'text-center font-bold text-slate-400 text-xs' },
-                { 
-                    data: 'name', 
+                {
+                    data: 'name',
                     className: 'font-bold text-slate-800',
-                    render: function(data, type, row) {
+                    render: function (data, type, row) {
                         return `<div class="flex items-center gap-3"><div class="w-9 h-9 rounded-xl bg-blue-50 text-blue-500 flex items-center justify-center font-black text-xs border border-blue-100 shadow-sm">${data.charAt(0)}</div><div><div class="font-bold text-slate-800 text-sm leading-none">${data}</div><div class="text-slate-400 text-[10px] mt-1 font-mono">ID: ${row.id}</div></div></div>`;
                     }
                 },
                 { data: 'email', className: 'text-slate-500 text-xs font-medium' },
                 { data: 'phone', className: 'text-slate-500 text-xs font-medium font-mono' },
-                { 
-                    data: 'wallet', 
-                    className: 'font-black text-emerald-600 text-center', 
-                    render: d => `<span class="font-mono">${parseFloat(d || 0).toLocaleString('en-US', {minimumFractionDigits: 2})}</span> <small class="text-[10px]">ر.س</small>` 
+                {
+                    data: 'wallet',
+                    className: 'font-black text-emerald-600 text-center',
+                    render: d => `<span class="font-mono">${parseFloat(d || 0).toLocaleString('en-US', { minimumFractionDigits: 2 })}</span> <small class="text-[10px]">ر.س</small>`
                 },
-                { 
-                    data: 'status', 
-                    className: 'text-center', 
-                    render: s => s == 1 || s == 'Active' ? '<span class="px-3 py-1 bg-emerald-50 text-emerald-600 rounded-full text-[10px] font-bold border border-emerald-100"><i class="fa-solid fa-circle text-[6px] mr-1"></i> نشط</span>' : '<span class="px-3 py-1 bg-slate-50 text-slate-400 rounded-full text-[10px] font-bold border border-slate-100">متوقف</span>' 
+                {
+                    data: 'status',
+                    className: 'text-center',
+                    render: s => s == 1 || s == 'Active' ? '<span class="px-3 py-1 bg-emerald-50 text-emerald-600 rounded-full text-[10px] font-bold border border-emerald-100"><i class="fa-solid fa-circle text-[6px] mr-1"></i> نشط</span>' : '<span class="px-3 py-1 bg-slate-50 text-slate-400 rounded-full text-[10px] font-bold border border-slate-100">متوقف</span>'
                 },
                 { data: 'created_at', className: 'text-center text-xs text-slate-400 font-medium' },
-                { 
-                    data: null, 
-                    className: 'text-center', 
+                {
+                    data: null,
+                    className: 'text-center',
                     sortable: false,
                     render: () => `<div class="flex items-center justify-center gap-1.5"><button class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-500 hover:bg-indigo-600 hover:text-white transition-all flex items-center justify-center border border-indigo-100 shadow-sm"><i class="fa-solid fa-eye text-[10px]"></i></button></div>`
                 }
@@ -4585,24 +4905,24 @@
 
             const userColsStaff = [
                 { data: 'id', className: 'text-center font-bold text-slate-400 text-xs' },
-                { 
-                    data: 'name', 
+                {
+                    data: 'name',
                     className: 'font-bold text-slate-800',
-                    render: function(data, type, row) {
+                    render: function (data, type, row) {
                         return `<div class="flex items-center gap-3"><div class="w-9 h-9 rounded-xl bg-purple-50 text-purple-500 flex items-center justify-center font-black text-xs border border-purple-100 shadow-sm">${data.charAt(0)}</div><div><div class="font-bold text-slate-800 text-sm leading-none">${data}</div><div class="text-slate-400 text-[10px] mt-1 font-mono">ID: ${row.id}</div></div></div>`;
                     }
                 },
                 { data: 'email', className: 'text-slate-500 text-xs font-medium' },
                 { data: 'phone', className: 'text-slate-500 text-xs font-medium font-mono' },
-                { 
-                    data: 'role', 
+                {
+                    data: 'role',
                     className: 'text-center',
                     render: r => `<span class="badge-premium bg-purple-50 text-purple-600 border border-purple-100 font-bold text-[10px]">${r || 'Staff'}</span>`
                 },
                 { data: 'created_at', className: 'text-center text-xs text-slate-400 font-medium' },
-                { 
-                    data: null, 
-                    className: 'text-center', 
+                {
+                    data: null,
+                    className: 'text-center',
                     sortable: false,
                     render: () => `<div class="flex items-center justify-center gap-1.5"><button class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-500 hover:bg-indigo-600 hover:text-white transition-all flex items-center justify-center border border-indigo-100 shadow-sm"><i class="fa-solid fa-shield text-[10px]"></i></button></div>`
                 }
@@ -4622,7 +4942,7 @@
                     $target.DataTable({
                         ...baseConfig,
                         columns: config.columns,
-                        ajax: function(data, callback, settings) {
+                        ajax: function (data, callback, settings) {
                             loadMockData(config.ajax_file).then(mockUsers => {
                                 callback({ data: mockUsers || [] });
                             });
@@ -4736,27 +5056,27 @@
                 responsive: true,
                 autoWidth: false,
                 dom: '<"flex justify-between items-center bg-white p-4 border-b border-slate-100 rounded-t-xl"lf>rt<"flex justify-between items-center bg-white p-4 border-t border-slate-100 rounded-b-xl"ip>',
-                ajax: function(data, callback, settings) {
+                ajax: function (data, callback, settings) {
                     loadMockData('roles').then(roles => {
                         callback({ data: roles || [] });
                     });
                 },
                 columns: [
-                    { 
-                        data: 'name', 
+                    {
+                        data: 'name',
                         className: 'font-bold text-slate-700 p-4',
                         render: (d, t, r) => `${d} <span class="text-xs font-medium text-slate-400 font-mono">(${r.name_en})</span><div class="text-[10px] text-slate-400 mt-1"><i class="fa-solid fa-users mr-1"></i>${r.users_count} مستخدم</div>`
                     },
-                    { 
-                        data: 'permissions', 
+                    {
+                        data: 'permissions',
                         className: 'p-4',
                         render: (perms, t, r) => perms.map(p => `<span class="px-2 py-0.5 ${r.is_system ? 'bg-indigo-50 text-indigo-600 border-indigo-100' : 'bg-slate-50 text-slate-600 border-slate-100'} rounded-lg text-[10px] font-bold border">${p}</span>`).join(' ')
                     },
-                    { 
-                        data: null, 
+                    {
+                        data: null,
                         className: 'p-4 text-center',
                         sortable: false,
-                        render: (d, t, r) => r.is_system 
+                        render: (d, t, r) => r.is_system
                             ? `<button class="w-8 h-8 rounded-lg bg-slate-50 text-slate-300 cursor-not-allowed flex items-center justify-center border border-slate-100" title="لا يمكن تعديل المدير الرئيسي"><i class="fa-solid fa-lock"></i></button>`
                             : `<div class="flex items-center justify-center gap-2">
                                 <button onclick="toggleModal('addNewRoleModal')" class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 hover:bg-indigo-600 hover:text-white transition-colors flex items-center justify-center shadow-sm" title="تعديل"><i class="fa-solid fa-pen"></i></button>
@@ -4863,28 +5183,28 @@
                     });
                 },
                 "columns": [
-                    { 
-                        data: 'order_id', 
+                    {
+                        data: 'order_id',
                         className: 'font-black text-slate-800 whitespace-nowrap pl-4',
                         render: d => `<div class="text-indigo-600">#${d.replace('#', '')}</div>`
                     },
-                    { 
-                        data: 'customer', 
+                    {
+                        data: 'customer',
                         className: 'px-4',
-                        render: function(data) {
+                        render: function (data) {
                             if (data.indexOf('<div') !== -1) return data;
                             return `<div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center font-bold text-xs border border-slate-200">${data.charAt(0)}</div><div class="font-bold text-slate-700 text-sm">${data}</div></div>`;
                         }
                     },
-                    { 
-                        data: 'store', 
+                    {
+                        data: 'store',
                         className: 'px-4',
                         render: d => d.indexOf('<div') !== -1 ? d : `<div class="font-semibold text-slate-700 text-xs">${d}</div>`
                     },
                     {
                         data: 'payment_method',
                         className: 'text-center px-4',
-                        render: function(data) {
+                        render: function (data) {
                             let icon = 'fa-credit-card';
                             let brand = 'fa-solid';
                             if (data === 'Cash') icon = 'fa-wallet';
@@ -4897,20 +5217,20 @@
                     {
                         data: 'payment_status',
                         className: 'text-center px-4',
-                        render: function(data) {
+                        render: function (data) {
                             let style = data === 'مدفوع' ? 'bg-emerald-50 text-emerald-600 border-emerald-200' : 'bg-rose-50 text-rose-600 border-rose-200';
                             return `<span class="badge-premium ${style} border font-bold text-[9px] whitespace-nowrap"><i class="fa-solid ${data === 'مدفوع' ? 'fa-check-circle' : 'fa-clock'} mr-1"></i> ${data}</span>`;
                         }
                     },
-                    { 
-                        data: 'total', 
+                    {
+                        data: 'total',
                         className: 'font-bold text-emerald-600 text-center whitespace-nowrap px-4',
-                        render: d => `<span class="font-mono">${parseFloat(d).toLocaleString('en-US', {minimumFractionDigits: 2})}</span> <small class="text-[10px]">ر.س</small>`
+                        render: d => `<span class="font-mono">${parseFloat(d).toLocaleString('en-US', { minimumFractionDigits: 2 })}</span> <small class="text-[10px]">ر.س</small>`
                     },
-                    { 
-                        data: 'status', 
+                    {
+                        data: 'status',
                         className: 'text-center px-4',
-                        render: function(data) {
+                        render: function (data) {
                             if (data.indexOf('<span') !== -1) return data;
                             let styles = {
                                 'بانتظار الدفع': 'bg-amber-50 text-amber-600 border-amber-200',
@@ -4926,26 +5246,26 @@
                     {
                         data: 'deadline',
                         className: 'text-center px-4',
-                        render: function(data) {
+                        render: function (data) {
                             if (!data) return '-';
                             return `<div class="order-timer font-black font-mono text-indigo-600 bg-indigo-50/50 px-2 py-1.5 rounded-xl border border-indigo-100 shadow-sm" data-deadline="${data}">--:--</div>`;
                         }
                     },
-                    { 
-                        data: 'created_at', 
+                    {
+                        data: 'created_at',
                         className: 'px-4 whitespace-nowrap text-[10px] text-slate-400 font-bold',
                         render: d => `<div>${moment(d).format('YYYY-MM-DD')}</div><div class="opacity-70">${moment(d).format('hh:mm A')}</div>`
                     },
-                    { 
-                        data: 'action', 
+                    {
+                        data: 'action',
                         className: 'text-center px-4',
-                        render: function(data, type, row) {
+                        render: function (data, type, row) {
                             return `<button onclick="openOrderDetailsModal('orders/details.html', '${row.order_id}')" class="w-8 h-8 rounded-lg bg-slate-50 text-slate-400 hover:bg-indigo-600 hover:text-white hover:border-indigo-600 transition-all flex items-center justify-center border border-slate-100 shadow-sm m-auto"><i class="fa-solid fa-eye text-xs"></i></button>`;
                         }
                     }
                 ],
                 "language": dataTableArabicLanguage,
-                "drawCallback": function() {
+                "drawCallback": function () {
                     updateOrderTimers();
                 }
             });
@@ -4955,27 +5275,27 @@
             document.querySelectorAll('.order-timer').forEach(el => {
                 const deadline = el.getAttribute('data-deadline');
                 if (!deadline) return;
-                
+
                 const now = new Date().getTime();
                 const target = new Date(deadline).getTime();
                 const diff = target - now;
-                
+
                 if (diff <= 0) {
                     el.innerHTML = '<span class="text-rose-500 font-black flex items-center gap-1"><i class="fa-solid fa-circle-exclamation animate-pulse"></i> منتهي</span>';
                     el.classList.add('bg-rose-50', 'border-rose-100');
                     el.classList.remove('text-indigo-600', 'bg-indigo-50/50', 'border-indigo-100');
                     return;
                 }
-                
+
                 const hours = Math.floor(diff / (1000 * 60 * 60));
                 const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-                
+
                 let display = '';
                 if (hours > 0) display += hours + ':';
                 display += (minutes < 10 ? '0' : '') + minutes + ':';
                 display += (seconds < 10 ? '0' : '') + seconds;
-                
+
                 el.innerHTML = `<i class="fa-solid fa-clock-rotate-left mr-1 opacity-70"></i> ${display}`;
             });
         }
