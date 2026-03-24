@@ -1,0 +1,30 @@
+[
+  {
+    "id": "#LOG-8801",
+    "delivery_guy": "سامي حمد",
+    "amount": 150.00,
+    "collected_by": "أدمن النظام",
+    "date": "2024-03-23 03:30 PM"
+  },
+  {
+    "id": "#LOG-8802",
+    "delivery_guy": "كريم فؤاد",
+    "amount": 80.00,
+    "collected_by": "أدمن النظام",
+    "date": "2024-03-24 10:15 AM"
+  },
+  {
+    "id": "#LOG-8803",
+    "delivery_guy": "ياسين محمود",
+    "amount": 200.00,
+    "collected_by": "أحمد محمود",
+    "date": "2024-03-24 11:20 AM"
+  },
+  {
+    "id": "#LOG-8804",
+    "delivery_guy": "عمر خالد",
+    "amount": 280.00,
+    "collected_by": "أحمد محمود",
+    "date": "2024-03-24 01:45 PM"
+  }
+]

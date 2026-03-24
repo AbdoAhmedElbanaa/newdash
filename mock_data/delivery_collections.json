@@ -1,0 +1,30 @@
+[
+  {
+    "delivery_guy": "سامي حمد",
+    "collector": "أدمن النظام",
+    "current_amount": 350.50,
+    "total_collected": 12450.00,
+    "last_collected": "2024-03-22 06:15 PM"
+  },
+  {
+    "delivery_guy": "كريم فؤاد",
+    "collector": "أحمد محمود",
+    "current_amount": 120.00,
+    "total_collected": 4320.00,
+    "last_collected": "2024-03-23 09:30 AM"
+  },
+  {
+    "delivery_guy": "ياسين محمود",
+    "collector": "أدمن النظام",
+    "current_amount": 500.25,
+    "total_collected": 8740.50,
+    "last_collected": "2024-03-21 11:20 PM"
+  },
+  {
+    "delivery_guy": "عمر خالد",
+    "collector": "أحمد محمود",
+    "current_amount": 280.00,
+    "total_collected": 2100.00,
+    "last_collected": "2024-03-24 01:45 PM"
+  }
+]

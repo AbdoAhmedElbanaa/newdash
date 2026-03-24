@@ -1,0 +1,42 @@
+[
+  {
+    "id": "#TXN-001",
+    "user": "أحمد محمد",
+    "amount": 500.00,
+    "type": "DEPOSIT",
+    "description": "شحن رصيد بواسطة المحفظة البنكية",
+    "date": "2024-03-20 10:30 AM"
+  },
+  {
+    "id": "#TXN-002",
+    "user": "سارة علي",
+    "amount": 150.00,
+    "type": "WITHDRAW",
+    "description": "دفع ثمن الطلب رقم #ORD-5541",
+    "date": "2024-03-20 11:15 AM"
+  },
+  {
+    "id": "#TXN-003",
+    "user": "خالد محمود",
+    "amount": 200.00,
+    "type": "DEPOSIT",
+    "description": "استرداد مالي للطلب #ORD-5520",
+    "date": "2024-03-21 09:45 AM"
+  },
+  {
+    "id": "#TXN-004",
+    "user": "فاطمة الزهراء",
+    "amount": 1000.00,
+    "type": "DEPOSIT",
+    "description": "تحويل مالي من حساب خارجي",
+    "date": "2024-03-21 02:20 PM"
+  },
+  {
+    "id": "#TXN-005",
+    "user": "عمر حسن",
+    "amount": 320.00,
+    "type": "WITHDRAW",
+    "description": "دفع رسوم توصيل إضافية",
+    "date": "2024-03-22 04:10 PM"
+  }
+]

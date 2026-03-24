@@ -1,0 +1,32 @@
+[
+  {
+    "name": "بيج ماك الوجبة العائلية",
+    "store": "ماكدونالدز",
+    "total_sales": 15450.00,
+    "quantity_sold": 350
+  },
+  {
+    "name": "بيتزا مارجريتا حجم كبير",
+    "store": "بيتزا هت",
+    "total_sales": 12800.00,
+    "quantity_sold": 280
+  },
+  {
+    "name": "ساندوتش زنجر سبايسي",
+    "store": "كنتاكي",
+    "total_sales": 9500.50,
+    "quantity_sold": 210
+  },
+  {
+    "name": "كابتشينو بارد مع الكريمة",
+    "store": "ستاربكس",
+    "total_sales": 8400.00,
+    "quantity_sold": 560
+  },
+  {
+    "name": "كنافة صيدانية ملكي",
+    "store": "حلويات السلطان",
+    "total_sales": 5200.00,
+    "quantity_sold": 120
+  }
+]
