@@ -2472,81 +2472,6 @@
                 </div>
             </div>
 
-            <!-- Promotions Tab (Restored) -->
-            <div id="tab-promotions" class="tab-content">
-                <div class="section-header mb-8 flex justify-between items-end">
-                    <div>
-                        <h2 class="text-3xl font-bold text-slate-800 mb-2">العروض الترويجية</h2>
-                        <p class="text-slate-500 text-sm">إدارة الكوبونات، الخصومات، وحملات التسويق</p>
-                    </div>
-                    <button
-                        class="px-5 py-2.5 bg-gradient-to-r from-orange-500 to-rose-500 text-white rounded-xl shadow-lg shadow-orange-100 hover:shadow-xl hover:-translate-y-0.5 transition-all text-sm font-bold flex items-center gap-2">
-                        <i class="fa-solid fa-plus"></i> إنشاء عرض جديد
-                    </button>
-                </div>
-
-                <!-- Promotions Stats -->
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-                    <div class="glass-panel p-5 rounded-2xl stat-card relative overflow-hidden group">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <p class="text-slate-500 text-xs font-semibold mb-1">إجمالي العروض</p>
-                                <h3 class="text-2xl font-bold text-slate-800" id="promo-total-count">0</h3>
-                            </div>
-                            <div
-                                class="w-10 h-10 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center text-lg">
-                                <i class="fa-solid fa-ticket"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="glass-panel p-5 rounded-2xl stat-card relative overflow-hidden group">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <p class="text-slate-500 text-xs font-semibold mb-1">عروض نشطة</p>
-                                <h3 class="text-2xl font-bold text-emerald-600" id="promo-active-count">0</h3>
-                            </div>
-                            <div
-                                class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-lg">
-                                <i class="fa-solid fa-check-circle"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="glass-panel p-5 rounded-2xl stat-card relative overflow-hidden group">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <p class="text-slate-500 text-xs font-semibold mb-1">عروض منتهية</p>
-                                <h3 class="text-2xl font-bold text-rose-600" id="promo-expired-count">0</h3>
-                            </div>
-                            <div
-                                class="w-10 h-10 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center text-lg">
-                                <i class="fa-solid fa-clock"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="glass-panel p-5 rounded-2xl stat-card relative overflow-hidden group">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <p class="text-slate-500 text-xs font-semibold mb-1">عروض مجدولة</p>
-                                <h3 class="text-2xl font-bold text-blue-600" id="promo-scheduled-count">0</h3>
-                            </div>
-                            <div
-                                class="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center text-lg">
-                                <i class="fa-solid fa-calendar-check"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Promotions Cards Grid - Dynamic -->
-                <div id="promotions-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-8">
-                    <!-- Will be populated dynamically -->
-                    <div
-                        class="glass-panel p-8 rounded-3xl col-span-full flex items-center justify-center text-slate-400">
-                        <i class="fa-solid fa-spinner fa-spin mr-2"></i> جار تحميل العروض...
-                    </div>
-                </div>
-            </div>
-
             <!-- Addon Categories Modal -->
             <div id="addNewAddonCatModal"
                 class="fixed inset-0 z-50 hidden items-center justify-center overflow-y-auto bg-slate-900/50 backdrop-blur-sm">
@@ -3777,6 +3702,302 @@
                     </div>
                 </div>
             </div><!-- End tab-transactions -->
+
+            <!-- Promotions Tab -->
+            <div id="tab-promotions" class="tab-content">
+                <div class="section-header flex justify-between items-end mb-8">
+                    <div>
+                        <h2 class="text-3xl font-bold text-slate-800 mb-2">العروض الترويجية والتسويق</h2>
+                        <p class="text-slate-500 text-sm">إدارة الكوبونات، الكاش باك، السلايدرز، الصفحات والإشعارات</p>
+                    </div>
+                </div>
+
+                <!-- Slider Tabs for Promotions Types -->
+                <div class="tab-scroller flex items-center gap-2 overflow-x-auto pb-4 mb-2 no-scrollbar border-b border-slate-100">
+                    <button onclick="switchPromotionsSubTab('coupons')" id="promo-subtab-coupons" class="promo-subtab active whitespace-nowrap px-4 py-2 rounded-xl text-sm font-bold transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-100">
+                        <i class="fa-solid fa-ticket mr-1"></i> الكوبونات
+                    </button>
+                    <button onclick="switchPromotionsSubTab('cashback')" id="promo-subtab-cashback" class="promo-subtab whitespace-nowrap px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-100 hover:bg-slate-50">
+                        <i class="fa-solid fa-money-bill-transfer mr-1"></i> الكاش باك
+                    </button>
+                    <button onclick="switchPromotionsSubTab('sliders')" id="promo-subtab-sliders" class="promo-subtab whitespace-nowrap px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-100 hover:bg-slate-50">
+                        <i class="fa-solid fa-images mr-1"></i> السلايدرز
+                    </button>
+                    <button onclick="switchPromotionsSubTab('store_cats')" id="promo-subtab-store_cats" class="promo-subtab whitespace-nowrap px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-100 hover:bg-slate-50">
+                        <i class="fa-solid fa-layer-group mr-1"></i> تصنيفات المتاجر
+                    </button>
+                    <button onclick="switchPromotionsSubTab('pages')" id="promo-subtab-pages" class="promo-subtab whitespace-nowrap px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-100 hover:bg-slate-50">
+                        <i class="fa-solid fa-file-lines mr-1"></i> الصفحات
+                    </button>
+                    <button onclick="switchPromotionsSubTab('notifications')" id="promo-subtab-notifications" class="promo-subtab whitespace-nowrap px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-100 hover:bg-slate-50">
+                        <i class="fa-solid fa-bell mr-1"></i> الإشعارات
+                    </button>
+                </div>
+
+                <!-- Content areas -->
+                <div id="promo-content-coupons" class="promo-subtab-content active mt-4">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+                        <h3 class="text-xl font-bold text-slate-800">إدارة الكوبونات</h3>
+                        <button onclick="toggleModal('addEditCouponModal')" class="px-5 py-2.5 bg-indigo-600 text-white rounded-xl shadow-lg shadow-indigo-200 hover:bg-indigo-700 hover:-translate-y-0.5 transition-all font-bold flex items-center gap-2">
+                            <i class="fa-solid fa-plus"></i> إضافة كوبون جديد
+                        </button>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                        <div class="glass-panel p-5 rounded-2xl stat-card relative overflow-hidden group">
+                            <div class="flex justify-between items-start">
+                                <div><p class="text-slate-500 text-xs font-semibold mb-1">إجمالي الكوبونات</p><h3 class="text-2xl font-bold text-slate-800 border-b-2 border-indigo-100 pb-1 inline-block">124</h3></div>
+                                <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-lg"><i class="fa-solid fa-ticket"></i></div>
+                            </div>
+                        </div>
+                        <div class="glass-panel p-5 rounded-2xl stat-card relative overflow-hidden group">
+                            <div class="flex justify-between items-start">
+                                <div><p class="text-slate-500 text-xs font-semibold mb-1">كوبونات نشطة</p><h3 class="text-2xl font-bold text-emerald-600 border-b-2 border-emerald-100 pb-1 inline-block">89</h3></div>
+                                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-lg"><i class="fa-solid fa-check-circle"></i></div>
+                            </div>
+                        </div>
+                        <div class="glass-panel p-5 rounded-2xl stat-card relative overflow-hidden group">
+                            <div class="flex justify-between items-start">
+                                <div><p class="text-slate-500 text-xs font-semibold mb-1">إجمالي الاستخدامات</p><h3 class="text-2xl font-bold text-blue-600 border-b-2 border-blue-100 pb-1 inline-block">1,432</h3></div>
+                                <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center text-lg"><i class="fa-solid fa-chart-line"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass-panel rounded-2xl p-6">
+                        <div class="overflow-x-auto custom-scrollbar">
+                            <table class="w-full text-right" id="promoCouponsTable">
+                                <thead class="bg-slate-50/80 text-slate-500">
+                                    <tr>
+                                        <th class="p-4 font-semibold border-b border-slate-100 uppercase text-[11px] tracking-wider">الكود</th>
+                                        <th class="p-4 font-semibold border-b border-slate-100 uppercase text-[11px] tracking-wider">الاسم</th>
+                                        <th class="p-4 font-semibold border-b border-slate-100 uppercase text-[11px] tracking-wider">النوع</th>
+                                        <th class="p-4 font-semibold border-b border-slate-100 uppercase text-[11px] tracking-wider">القيمة</th>
+                                        <th class="p-4 font-semibold border-b border-slate-100 uppercase text-[11px] tracking-wider">الاستخدام</th>
+                                        <th class="p-4 font-semibold border-b border-slate-100 uppercase text-[11px] tracking-wider">الحالة</th>
+                                        <th class="p-4 font-semibold border-b border-slate-100 uppercase text-[11px] tracking-wider text-center">الإجراءات</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="promo-content-cashback" class="promo-subtab-content hidden mt-4">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+                        <h3 class="text-xl font-bold text-slate-800">إدارة الكاش باك</h3>
+                        <button onclick="toggleModal('addEditCashbackModal')" class="px-5 py-2.5 bg-indigo-600 text-white rounded-xl shadow-lg shadow-indigo-200 hover:bg-indigo-700 hover:-translate-y-0.5 transition-all font-bold flex items-center gap-2">
+                            <i class="fa-solid fa-plus"></i> إضافة رصيد كاش باك
+                        </button>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                        <div class="glass-panel p-5 rounded-2xl stat-card relative overflow-hidden group">
+                            <div class="flex justify-between items-start">
+                                <div><p class="text-slate-500 text-xs font-semibold mb-1">إجمالي الكاش باك الموزع</p><h3 class="text-2xl font-bold text-slate-800 border-b-2 border-indigo-100 pb-1 inline-block">14,250 ر.س</h3></div>
+                                <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-lg"><i class="fa-solid fa-money-bill-transfer"></i></div>
+                            </div>
+                        </div>
+                        <div class="glass-panel p-5 rounded-2xl stat-card relative overflow-hidden group">
+                            <div class="flex justify-between items-start">
+                                <div><p class="text-slate-500 text-xs font-semibold mb-1">عمليات معلقة</p><h3 class="text-2xl font-bold text-amber-500 border-b-2 border-amber-100 pb-1 inline-block">24</h3></div>
+                                <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-500 flex items-center justify-center text-lg"><i class="fa-solid fa-clock-rotate-left"></i></div>
+                            </div>
+                        </div>
+                        <div class="glass-panel p-5 rounded-2xl stat-card relative overflow-hidden group">
+                            <div class="flex justify-between items-start">
+                                <div><p class="text-slate-500 text-xs font-semibold mb-1">عمليات مكتملة</p><h3 class="text-2xl font-bold text-emerald-600 border-b-2 border-emerald-100 pb-1 inline-block">342</h3></div>
+                                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-lg"><i class="fa-solid fa-check-double"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass-panel rounded-2xl p-6">
+                        <div class="overflow-x-auto custom-scrollbar">
+                            <table class="w-full text-right" id="promoCashbackTable">
+                                <thead class="bg-slate-50/80 text-slate-500">
+                                    <tr>
+                                        <th class="p-4 font-semibold border-b border-slate-100 uppercase text-[11px] tracking-wider">المستخدم</th>
+                                        <th class="p-4 font-semibold border-b border-slate-100 uppercase text-[11px] tracking-wider">رقم الطلب</th>
+                                        <th class="p-4 font-semibold border-b border-slate-100 uppercase text-[11px] tracking-wider">المبلغ المكتسب</th>
+                                        <th class="p-4 font-semibold border-b border-slate-100 uppercase text-[11px] tracking-wider">الرصيد الكلي</th>
+                                        <th class="p-4 font-semibold border-b border-slate-100 uppercase text-[11px] tracking-wider">الحالة</th>
+                                        <th class="p-4 font-semibold border-b border-slate-100 uppercase text-[11px] tracking-wider">التاريخ</th>
+                                        <th class="p-4 font-semibold border-b border-slate-100 uppercase text-[11px] tracking-wider text-center">الإجراءات</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="promo-content-sliders" class="promo-subtab-content hidden mt-4">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+                        <h3 class="text-xl font-bold text-slate-800">إدارة السلايدرز الإعلانية</h3>
+                        <button onclick="toggleModal('addEditSliderModal')" class="px-5 py-2.5 bg-indigo-600 text-white rounded-xl shadow-lg shadow-indigo-200 hover:bg-indigo-700 hover:-translate-y-0.5 transition-all font-bold flex items-center gap-2">
+                            <i class="fa-solid fa-plus"></i> رفع سلايدر جديد
+                        </button>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                        <div class="glass-panel p-5 rounded-2xl stat-card relative overflow-hidden group">
+                            <div class="flex justify-between items-start">
+                                <div><p class="text-slate-500 text-xs font-semibold mb-1">إجمالي السلايدرز</p><h3 class="text-2xl font-bold text-slate-800 border-b-2 border-indigo-100 pb-1 inline-block">16</h3></div>
+                                <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-lg"><i class="fa-solid fa-images"></i></div>
+                            </div>
+                        </div>
+                        <div class="glass-panel p-5 rounded-2xl stat-card relative overflow-hidden group">
+                            <div class="flex justify-between items-start">
+                                <div><p class="text-slate-500 text-xs font-semibold mb-1">سلايدرز نشطة</p><h3 class="text-2xl font-bold text-emerald-600 border-b-2 border-emerald-100 pb-1 inline-block">5</h3></div>
+                                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-lg"><i class="fa-solid fa-eye"></i></div>
+                            </div>
+                        </div>
+                        <div class="glass-panel p-5 rounded-2xl stat-card relative overflow-hidden group">
+                            <div class="flex justify-between items-start">
+                                <div><p class="text-slate-500 text-xs font-semibold mb-1">إجمالي النقرات</p><h3 class="text-2xl font-bold text-blue-600 border-b-2 border-blue-100 pb-1 inline-block">45,120</h3></div>
+                                <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center text-lg"><i class="fa-solid fa-hand-pointer"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass-panel rounded-2xl p-6">
+                        <div class="overflow-x-auto custom-scrollbar">
+                            <table class="w-full text-right" id="promoSlidersTable">
+                                <thead class="bg-slate-50/80 text-slate-500">
+                                    <tr>
+                                        <th class="p-4 font-semibold border-b border-slate-100 uppercase text-[11px] tracking-wider">الصورة</th>
+                                        <th class="p-4 font-semibold border-b border-slate-100 uppercase text-[11px] tracking-wider">العنوان</th>
+                                        <th class="p-4 font-semibold border-b border-slate-100 uppercase text-[11px] tracking-wider">الهدف</th>
+                                        <th class="p-4 font-semibold border-b border-slate-100 uppercase text-[11px] tracking-wider">الحالة</th>
+                                        <th class="p-4 font-semibold border-b border-slate-100 uppercase text-[11px] tracking-wider text-center">الإجراءات</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="promo-content-store_cats" class="promo-subtab-content hidden mt-4">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+                        <h3 class="text-xl font-bold text-slate-800">سلايدر تصنيفات المتاجر</h3>
+                        <button onclick="toggleModal('addEditStoreCatSliderModal')" class="px-5 py-2.5 bg-indigo-600 text-white rounded-xl shadow-lg shadow-indigo-200 hover:bg-indigo-700 hover:-translate-y-0.5 transition-all font-bold flex items-center gap-2">
+                            <i class="fa-solid fa-plus"></i> إضافة تصنيف مميز
+                        </button>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div class="glass-panel p-5 rounded-2xl stat-card relative overflow-hidden group">
+                            <div class="flex justify-between items-start">
+                                <div><p class="text-slate-500 text-xs font-semibold mb-1">العدد الإجمالي للطروحات</p><h3 class="text-2xl font-bold text-slate-800 border-b-2 border-indigo-100 pb-1 inline-block">12</h3></div>
+                                <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-lg"><i class="fa-solid fa-layer-group"></i></div>
+                            </div>
+                        </div>
+                        <div class="glass-panel p-5 rounded-2xl stat-card relative overflow-hidden group">
+                            <div class="flex justify-between items-start">
+                                <div><p class="text-slate-500 text-xs font-semibold mb-1">المفعلة للتصدير بالشاشة الرئيسية</p><h3 class="text-2xl font-bold text-emerald-600 border-b-2 border-emerald-100 pb-1 inline-block">8</h3></div>
+                                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-lg"><i class="fa-solid fa-check"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass-panel rounded-2xl p-6">
+                        <div class="overflow-x-auto custom-scrollbar">
+                            <table class="w-full text-right" id="promoStoreCatsTable">
+                                <thead class="bg-slate-50/80 text-slate-500">
+                                    <tr>
+                                        <th class="p-4 font-semibold border-b border-slate-100 uppercase text-[11px] tracking-wider">الصورة</th>
+                                        <th class="p-4 font-semibold border-b border-slate-100 uppercase text-[11px] tracking-wider">العنوان</th>
+                                        <th class="p-4 font-semibold border-b border-slate-100 uppercase text-[11px] tracking-wider">التصنيف</th>
+                                        <th class="p-4 font-semibold border-b border-slate-100 uppercase text-[11px] tracking-wider">الحالة</th>
+                                        <th class="p-4 font-semibold border-b border-slate-100 uppercase text-[11px] tracking-wider text-center">الإجراءات</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="promo-content-pages" class="promo-subtab-content hidden mt-4">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+                        <h3 class="text-xl font-bold text-slate-800">إدارة الصفحات</h3>
+                        <button onclick="toggleModal('addEditPageModal')" class="px-5 py-2.5 bg-indigo-600 text-white rounded-xl shadow-lg shadow-indigo-200 hover:bg-indigo-700 hover:-translate-y-0.5 transition-all font-bold flex items-center gap-2">
+                            <i class="fa-solid fa-plus"></i> إضافة صفحة جديدة
+                        </button>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                        <div class="glass-panel p-5 rounded-2xl stat-card relative overflow-hidden group">
+                            <div class="flex justify-between items-start">
+                                <div><p class="text-slate-500 text-xs font-semibold mb-1">إجمالي الصفحات</p><h3 class="text-2xl font-bold text-slate-800 border-b-2 border-indigo-100 pb-1 inline-block">21</h3></div>
+                                <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-lg"><i class="fa-solid fa-file-lines"></i></div>
+                            </div>
+                        </div>
+                        <div class="glass-panel p-5 rounded-2xl stat-card relative overflow-hidden group">
+                            <div class="flex justify-between items-start">
+                                <div><p class="text-slate-500 text-xs font-semibold mb-1">صفحات منشورة</p><h3 class="text-2xl font-bold text-emerald-600 border-b-2 border-emerald-100 pb-1 inline-block">19</h3></div>
+                                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-lg"><i class="fa-solid fa-globe"></i></div>
+                            </div>
+                        </div>
+                        <div class="glass-panel p-5 rounded-2xl stat-card relative overflow-hidden group">
+                            <div class="flex justify-between items-start">
+                                <div><p class="text-slate-500 text-xs font-semibold mb-1">المشاهدات الكلية</p><h3 class="text-2xl font-bold text-blue-600 border-b-2 border-blue-100 pb-1 inline-block">102k</h3></div>
+                                <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center text-lg"><i class="fa-solid fa-eye"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass-panel rounded-2xl p-6">
+                        <div class="overflow-x-auto custom-scrollbar">
+                            <table class="w-full text-right" id="promoPagesTable">
+                                <thead class="bg-slate-50/80 text-slate-500">
+                                    <tr>
+                                        <th class="p-4 font-semibold border-b border-slate-100 uppercase text-[11px] tracking-wider">العنوان</th>
+                                        <th class="p-4 font-semibold border-b border-slate-100 uppercase text-[11px] tracking-wider">الرابط</th>
+                                        <th class="p-4 font-semibold border-b border-slate-100 uppercase text-[11px] tracking-wider">المشاهدات</th>
+                                        <th class="p-4 font-semibold border-b border-slate-100 uppercase text-[11px] tracking-wider">الحالة</th>
+                                        <th class="p-4 font-semibold border-b border-slate-100 uppercase text-[11px] tracking-wider text-center">الإجراءات</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="promo-content-notifications" class="promo-subtab-content hidden mt-4">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+                        <h3 class="text-xl font-bold text-slate-800">إرسال إشعارات (Push)</h3>
+                        <button onclick="toggleModal('addEditNotificationModal')" class="px-5 py-2.5 bg-indigo-600 text-white rounded-xl shadow-lg shadow-indigo-200 hover:bg-indigo-700 hover:-translate-y-0.5 transition-all font-bold flex items-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i> إرسال إشعار جديد
+                        </button>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                        <div class="glass-panel p-5 rounded-2xl stat-card relative overflow-hidden group">
+                            <div class="flex justify-between items-start">
+                                <div><p class="text-slate-500 text-xs font-semibold mb-1">إشعارات مرسلة</p><h3 class="text-2xl font-bold text-slate-800 border-b-2 border-indigo-100 pb-1 inline-block">1,245</h3></div>
+                                <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-lg"><i class="fa-solid fa-paper-plane"></i></div>
+                            </div>
+                        </div>
+                        <div class="glass-panel p-5 rounded-2xl stat-card relative overflow-hidden group">
+                            <div class="flex justify-between items-start">
+                                <div><p class="text-slate-500 text-xs font-semibold mb-1">إشعارات مجدولة</p><h3 class="text-2xl font-bold text-blue-600 border-b-2 border-blue-100 pb-1 inline-block">14</h3></div>
+                                <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center text-lg"><i class="fa-solid fa-clock"></i></div>
+                            </div>
+                        </div>
+                        <div class="glass-panel p-5 rounded-2xl stat-card relative overflow-hidden group">
+                            <div class="flex justify-between items-start">
+                                <div><p class="text-slate-500 text-xs font-semibold mb-1">مسودات معلقة</p><h3 class="text-2xl font-bold text-amber-500 border-b-2 border-amber-100 pb-1 inline-block">3</h3></div>
+                                <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-500 flex items-center justify-center text-lg"><i class="fa-solid fa-file-pen"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass-panel rounded-2xl p-6">
+                        <div class="overflow-x-auto custom-scrollbar">
+                            <table class="w-full text-right" id="promoNotificationsTable">
+                                <thead class="bg-slate-50/80 text-slate-500">
+                                    <tr>
+                                        <th class="p-4 font-semibold border-b border-slate-100 uppercase text-[11px] tracking-wider">العنوان</th>
+                                        <th class="p-4 font-semibold border-b border-slate-100 uppercase text-[11px] tracking-wider">الرسالة</th>
+                                        <th class="p-4 font-semibold border-b border-slate-100 uppercase text-[11px] tracking-wider">الاستهداف</th>
+                                        <th class="p-4 font-semibold border-b border-slate-100 uppercase text-[11px] tracking-wider">التاريخ</th>
+                                        <th class="p-4 font-semibold border-b border-slate-100 uppercase text-[11px] tracking-wider">الحالة</th>
+                                        <th class="p-4 font-semibold border-b border-slate-100 uppercase text-[11px] tracking-wider text-center">الإجراءات</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- End tab-promotions -->
 
         </div> <!-- End Scrollable Content Area -->
     </main>
@@ -5924,7 +6145,462 @@
             });
         }
         setInterval(updateOrderTimers, 1000);
+
+        function switchPromotionsSubTab(tabId) {
+            document.querySelectorAll('.promo-subtab').forEach(btn => {
+                btn.classList.remove('active', 'bg-indigo-600', 'text-white', 'shadow-lg', 'shadow-indigo-100');
+                btn.classList.add('bg-white', 'text-slate-600');
+            });
+            document.querySelectorAll('.promo-subtab-content').forEach(content => {
+                content.classList.remove('active');
+                content.classList.add('hidden');
+            });
+            const activeBtn = document.getElementById('promo-subtab-' + tabId);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-white', 'text-slate-600');
+                activeBtn.classList.add('active', 'bg-indigo-600', 'text-white', 'shadow-lg', 'shadow-indigo-100');
+            }
+            const activeContent = document.getElementById('promo-content-' + tabId);
+            if (activeContent) {
+                activeContent.classList.remove('hidden');
+                activeContent.classList.add('active');
+                // Re-calculate column widths if DataTable exists
+                $.fn.dataTable.tables({ visible: true, api: true }).columns.adjust();
+            }
+        }
+
+        function initPromoTables() {
+            // Coupons
+            if (!$.fn.DataTable.isDataTable('#promoCouponsTable')) {
+                $('#promoCouponsTable').DataTable({
+                    responsive: true,
+                    autoWidth: false,
+                    dom: '<"flex justify-between items-center bg-white p-4 border-b border-slate-100 rounded-t-xl"lf>rt<"flex justify-between items-center bg-white p-4 border-t border-slate-100 rounded-b-xl"ip>',
+                    ajax: function (data, callback) {
+                        loadMockData('promotions').then(promos => callback({ data: promos || [] }));
+                    },
+                    columns: [
+                        { data: 'code', className: 'p-4 font-bold text-indigo-600' },
+                        { data: 'name', className: 'p-4 font-bold text-slate-800' },
+                        { data: 'type', className: 'p-4 text-xs text-slate-500', render: d => d === 'percentage' ? 'نسبة مئوية' : (d === 'fixed' ? 'مبلغ ثابت' : 'أخرى') },
+                        { data: 'value', className: 'p-4 text-emerald-600 font-bold', render: (d, t, r) => r.type === 'percentage' ? d + '%' : d + ' ر.س' },
+                        { data: null, className: 'p-4 text-xs', render: (d, t, r) => `${r.used_count} / ${r.usage_limit}` },
+                        { data: 'status', className: 'p-4', render: d => d === 'active' ? '<span class="px-2 py-1 bg-emerald-50 text-emerald-600 rounded-lg text-[10px] font-bold">نشط</span>' : '<span class="px-2 py-1 bg-red-50 text-red-600 rounded-lg text-[10px] font-bold">معطل</span>' },
+                        { data: null, className: 'p-4 text-center', sortable: false, render: () => `<div class="flex justify-center gap-2"><button class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 hover:bg-indigo-600 hover:text-white transition-colors"><i class="fa-solid fa-pen"></i></button><button class="w-8 h-8 rounded-lg bg-rose-50 text-rose-500 hover:bg-rose-500 hover:text-white transition-colors"><i class="fa-solid fa-trash"></i></button></div>` }
+                    ],
+                    language: dataTableArabicLanguage
+                });
+            }
+
+            // Cashback
+            if (!$.fn.DataTable.isDataTable('#promoCashbackTable')) {
+                $('#promoCashbackTable').DataTable({
+                    responsive: true,
+                    autoWidth: false,
+                    dom: '<"flex justify-between items-center bg-white p-4 border-b border-slate-100 rounded-t-xl"lf>rt<"flex justify-between items-center bg-white p-4 border-t border-slate-100 rounded-b-xl"ip>',
+                    ajax: function (data, callback) {
+                        loadMockData('promotions_cashback').then(d => callback({ data: d || [] }));
+                    },
+                    columns: [
+                        { data: 'user', className: 'p-4', render: d => `<div class="flex items-center gap-3"><img src="${d.avatar}" class="w-8 h-8 rounded-full"><div class="font-bold text-slate-700 text-xs">${d.name}<div class="text-[10px] text-slate-400 font-normal">${d.phone}</div></div></div>` },
+                        { data: 'order_id', className: 'p-4 font-bold text-slate-700 font-mono' },
+                        { data: 'amount_earned', className: 'p-4 text-emerald-600 font-bold', render: d => '+' + d + ' ر.س' },
+                        { data: 'total_balance', className: 'p-4 text-indigo-600 font-bold', render: d => d + ' ر.س' },
+                        { data: 'status', className: 'p-4', render: d => {
+                            const styles = {
+                                'completed': 'bg-emerald-50 text-emerald-600',
+                                'pending': 'bg-amber-50 text-amber-600',
+                                'rejected': 'bg-rose-50 text-rose-600'
+                            };
+                            const labels = {
+                                'completed': 'مكتمل', 'pending': 'معلق', 'rejected': 'مرفوض'
+                            };
+                            return `<span class="px-2 py-1 ${styles[d]} rounded-lg text-[10px] font-bold">${labels[d]}</span>`;
+                        }},
+                        { data: 'date', className: 'p-4 text-[11px] text-slate-500 font-bold', render: d => moment(d).format('YYYY-MM-DD HH:mm') },
+                        { data: null, className: 'p-4 text-center', sortable: false, render: () => `<div class="flex justify-center"><button class="w-8 h-8 rounded-lg bg-slate-50 text-slate-400 hover:bg-slate-200 transition-colors"><i class="fa-solid fa-eye"></i></button></div>` }
+                    ],
+                    language: dataTableArabicLanguage
+                });
+            }
+
+            // Sliders
+            if (!$.fn.DataTable.isDataTable('#promoSlidersTable')) {
+                $('#promoSlidersTable').DataTable({
+                    responsive: true,
+                    autoWidth: false,
+                    dom: '<"flex justify-between items-center bg-white p-4 border-b border-slate-100 rounded-t-xl"lf>rt<"flex justify-between items-center bg-white p-4 border-t border-slate-100 rounded-b-xl"ip>',
+                    ajax: function (data, callback) {
+                        loadMockData('promotions_sliders').then(d => callback({ data: d || [] }));
+                    },
+                    columns: [
+                        { data: 'image', className: 'p-4', render: d => `<img src="${d}" class="w-16 h-10 object-cover rounded-lg shadow-sm border border-slate-100">` },
+                        { data: 'title', className: 'p-4 font-bold text-slate-800' },
+                        { data: 'target', className: 'p-4 text-xs text-slate-500' },
+                        { data: 'status', className: 'p-4', render: d => d === 'active' ? '<span class="px-2 py-1 bg-emerald-50 text-emerald-600 rounded-lg text-[10px] font-bold">نشط</span>' : '<span class="px-2 py-1 bg-red-50 text-red-600 rounded-lg text-[10px] font-bold">معطل</span>' },
+                        { data: null, className: 'p-4 text-center', sortable: false, render: () => `<div class="flex justify-center gap-2"><button class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 hover:bg-indigo-600 hover:text-white transition-colors"><i class="fa-solid fa-pen"></i></button><button class="w-8 h-8 rounded-lg bg-rose-50 text-rose-500 hover:bg-rose-500 hover:text-white transition-colors"><i class="fa-solid fa-trash"></i></button></div>` }
+                    ],
+                    language: dataTableArabicLanguage
+                });
+            }
+
+            // Store Cats Sliders
+            if (!$.fn.DataTable.isDataTable('#promoStoreCatsTable')) {
+                $('#promoStoreCatsTable').DataTable({
+                    responsive: true,
+                    autoWidth: false,
+                    dom: '<"flex justify-between items-center bg-white p-4 border-b border-slate-100 rounded-t-xl"lf>rt<"flex justify-between items-center bg-white p-4 border-t border-slate-100 rounded-b-xl"ip>',
+                    ajax: function (data, callback) {
+                        loadMockData('promotions_store_cat_sliders').then(d => callback({ data: d || [] }));
+                    },
+                    columns: [
+                        { data: 'image', className: 'p-4', render: d => `<img src="${d}" class="w-16 h-10 object-cover rounded-lg shadow-sm border border-slate-100">` },
+                        { data: 'title', className: 'p-4 font-bold text-slate-800' },
+                        { data: 'store_category', className: 'p-4 text-xs text-slate-500 font-bold', render: d => `<span class="bg-indigo-50 text-indigo-600 px-2 py-0.5 rounded">${d}</span>` },
+                        { data: 'status', className: 'p-4', render: d => d === 'active' ? '<span class="px-2 py-1 bg-emerald-50 text-emerald-600 rounded-lg text-[10px] font-bold">نشط</span>' : '<span class="px-2 py-1 bg-red-50 text-red-600 rounded-lg text-[10px] font-bold">معطل</span>' },
+                        { data: null, className: 'p-4 text-center', sortable: false, render: () => `<div class="flex justify-center gap-2"><button class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 hover:bg-indigo-600 hover:text-white transition-colors"><i class="fa-solid fa-pen"></i></button><button class="w-8 h-8 rounded-lg bg-rose-50 text-rose-500 hover:bg-rose-500 hover:text-white transition-colors"><i class="fa-solid fa-trash"></i></button></div>` }
+                    ],
+                    language: dataTableArabicLanguage
+                });
+            }
+
+            // Pages
+            if (!$.fn.DataTable.isDataTable('#promoPagesTable')) {
+                $('#promoPagesTable').DataTable({
+                    responsive: true,
+                    autoWidth: false,
+                    dom: '<"flex justify-between items-center bg-white p-4 border-b border-slate-100 rounded-t-xl"lf>rt<"flex justify-between items-center bg-white p-4 border-t border-slate-100 rounded-b-xl"ip>',
+                    ajax: function (data, callback) {
+                        loadMockData('promotions_pages').then(d => callback({ data: d || [] }));
+                    },
+                    columns: [
+                        { data: 'title', className: 'p-4 font-bold text-slate-800' },
+                        { data: 'slug', className: 'p-4 font-mono text-xs text-indigo-600', render: d => `/${d}` },
+                        { data: 'views', className: 'p-4 text-slate-600', render: d => d.toLocaleString() },
+                        { data: 'status', className: 'p-4', render: d => d === 'published' ? '<span class="px-2 py-1 bg-emerald-50 text-emerald-600 rounded-lg text-[10px] font-bold">منشور</span>' : '<span class="px-2 py-1 bg-amber-50 text-amber-600 rounded-lg text-[10px] font-bold">مسودة</span>' },
+                        { data: null, className: 'p-4 text-center', sortable: false, render: () => `<div class="flex justify-center gap-2"><button class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 hover:bg-indigo-600 hover:text-white transition-colors"><i class="fa-solid fa-pen"></i></button><button class="w-8 h-8 rounded-lg bg-slate-50 text-slate-600 hover:bg-slate-200 transition-colors"><i class="fa-solid fa-eye"></i></button><button class="w-8 h-8 rounded-lg bg-rose-50 text-rose-500 hover:bg-rose-500 hover:text-white transition-colors"><i class="fa-solid fa-trash"></i></button></div>` }
+                    ],
+                    language: dataTableArabicLanguage
+                });
+            }
+
+            // Notifications
+            if (!$.fn.DataTable.isDataTable('#promoNotificationsTable')) {
+                $('#promoNotificationsTable').DataTable({
+                    responsive: true,
+                    autoWidth: false,
+                    dom: '<"flex justify-between items-center bg-white p-4 border-b border-slate-100 rounded-t-xl"lf>rt<"flex justify-between items-center bg-white p-4 border-t border-slate-100 rounded-b-xl"ip>',
+                    ajax: function (data, callback) {
+                        loadMockData('promotions_notifications').then(d => callback({ data: d || [] }));
+                    },
+                    columns: [
+                        { data: 'title', className: 'p-4 font-bold text-slate-800' },
+                        { data: 'message', className: 'p-4 text-xs text-slate-500', render: d => `<span class="truncate max-w-[200px] block" title="${d}">${d}</span>` },
+                        { data: 'target', className: 'p-4 text-xs font-semibold' },
+                        { data: 'date', className: 'p-4 text-[11px] text-slate-500', render: d => moment(d).format('YYYY-MM-DD HH:mm') },
+                        { data: 'status', className: 'p-4', render: d => {
+                            const styles = { 'sent': 'bg-emerald-50 text-emerald-600', 'scheduled': 'bg-blue-50 text-blue-600', 'draft': 'bg-amber-50 text-amber-600' };
+                            const labels = { 'sent': 'مرسل', 'scheduled': 'مجدول', 'draft': 'مسودة' };
+                            return `<span class="px-2 py-1 ${styles[d]} rounded-lg text-[10px] font-bold">${labels[d]}</span>`;
+                        }},
+                        { data: null, className: 'p-4 text-center', sortable: false, render: () => `<div class="flex justify-center gap-2"><button class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 hover:bg-indigo-600 hover:text-white transition-colors"><i class="fa-solid fa-paper-plane"></i></button><button class="w-8 h-8 rounded-lg bg-rose-50 text-rose-500 hover:bg-rose-500 hover:text-white transition-colors"><i class="fa-solid fa-trash"></i></button></div>` }
+                    ],
+                    language: dataTableArabicLanguage
+                });
+            }
+        }
+
+        // Initialize promotion tables on ready
+        $(document).ready(function() {
+            initPromoTables();
+        });
     </script>
+
+    <!-- PROMOTIONS MODALS -->
+    
+    <!-- Delete Confirmation Modal -->
+    <div id="deleteConfirmModal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-slate-900/50 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl w-full max-w-md m-4 shadow-2xl overflow-hidden p-8 text-center bg-gradient-to-br from-white to-rose-50/30">
+            <div class="w-20 h-20 bg-rose-100 text-rose-500 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl shadow-lg shadow-rose-100/50">
+                <i class="fa-solid fa-trash-can"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-slate-800 mb-2">تأكيد الحذف</h3>
+            <p class="text-slate-500 mb-8">هل أنت متأكد أنك تريد حذف هذا العنصر؟ لا يمكن التراجع عن هذا الإجراء.</p>
+            <div class="flex flex-col gap-3">
+                <button type="button" class="w-full py-3.5 bg-rose-500 text-white rounded-xl shadow-lg shadow-rose-200 hover:bg-rose-600 hover:-translate-y-0.5 transition-all font-bold text-lg">
+                    نعم، احذف نهائياً
+                </button>
+                <button type="button" onclick="toggleModal('deleteConfirmModal')" class="w-full py-3.5 bg-white border-2 border-slate-200 text-slate-600 rounded-xl hover:bg-slate-50 hover:border-slate-300 transition-all font-bold text-lg">
+                    إلغاء التراجع
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Coupon Modal -->
+    <div id="addEditCouponModal" class="fixed inset-0 z-[100] hidden items-center justify-center overflow-y-auto bg-slate-900/50 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl w-full max-w-2xl m-4 shadow-2xl overflow-hidden transform transition-all">
+            <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50">
+                <h5 class="text-xl font-bold text-slate-800">إضافة/تعديل كوبون</h5>
+                <button type="button" onclick="toggleModal('addEditCouponModal')" class="w-8 h-8 flex items-center justify-center rounded-lg bg-white text-slate-400 hover:text-rose-500 hover:bg-rose-50 transition-all shadow-sm">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="p-6">
+                <form class="space-y-5">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">كود الكوبون <span class="text-rose-500">*</span></label>
+                            <input type="text" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none text-left" dir="ltr" placeholder="Ex: WINTER25" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">اسم الكوبون (للعرض) <span class="text-rose-500">*</span></label>
+                            <input type="text" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none" placeholder="مثال: خصم الشتاء" required>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">نوع الخصم <span class="text-rose-500">*</span></label>
+                            <select class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none bg-white">
+                                <option value="percentage">نسبة مئوية (%)</option>
+                                <option value="fixed">مبلغ ثابت (ر.س)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">قيمة الخصم <span class="text-rose-500">*</span></label>
+                            <input type="number" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none" required>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">حد الاستخدام العام</label>
+                            <input type="number" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none" placeholder="غير محدود = 0">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">الحالة</label>
+                            <select class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none bg-white">
+                                <option value="active">نشط</option>
+                                <option value="expired">منتهي/معطل</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="flex justify-end pt-6 mt-6 border-t border-slate-100 gap-3">
+                        <button type="button" onclick="toggleModal('addEditCouponModal')" class="px-6 py-2.5 rounded-xl border border-slate-200 text-slate-600 font-semibold hover:bg-slate-50 transition-colors">إلغاء</button>
+                        <button type="button" class="px-6 py-2.5 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700 shadow-md shadow-indigo-200 transition-all flex items-center gap-2">حفظ الكوبون <i class="fa-solid fa-check"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Cashback Modal -->
+    <div id="addEditCashbackModal" class="fixed inset-0 z-[100] hidden items-center justify-center overflow-y-auto bg-slate-900/50 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl w-full max-w-2xl m-4 shadow-2xl overflow-hidden transform transition-all">
+            <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50">
+                <h5 class="text-xl font-bold text-slate-800">تحديث رصيد كاش باك</h5>
+                <button type="button" onclick="toggleModal('addEditCashbackModal')" class="w-8 h-8 flex items-center justify-center rounded-lg bg-white text-slate-400 hover:text-rose-500 hover:bg-rose-50 transition-all shadow-sm"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="p-6">
+                <form class="space-y-5">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">رقم الطلب المرتبط (إن وجد)</label>
+                            <input type="text" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">المستخدم المستهدف <span class="text-rose-500">*</span></label>
+                            <select class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none bg-white">
+                                <option>يرجى اختيار مستخدم</option>
+                                <option>Ahmed Ali - 0501234567</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">مبلغ الكاش باك המكتسب (ر.س) <span class="text-rose-500">*</span></label>
+                        <input type="number" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">الحالة</label>
+                        <select class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none bg-white">
+                            <option value="completed">مكتمل</option>
+                            <option value="pending">معلق</option>
+                        </select>
+                    </div>
+                    <div class="flex justify-end pt-6 mt-6 border-t border-slate-100 gap-3">
+                        <button type="button" onclick="toggleModal('addEditCashbackModal')" class="px-6 py-2.5 rounded-xl border border-slate-200 text-slate-600 font-semibold hover:bg-slate-50 transition-colors">إلغاء</button>
+                        <button type="button" class="px-6 py-2.5 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700 shadow-md shadow-indigo-200 transition-all flex items-center gap-2">حفظ التغييرات <i class="fa-solid fa-check"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Slider Modal -->
+    <div id="addEditSliderModal" class="fixed inset-0 z-[100] hidden items-center justify-center overflow-y-auto bg-slate-900/50 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl w-full max-w-2xl m-4 shadow-2xl overflow-hidden transform transition-all">
+            <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50">
+                <h5 class="text-xl font-bold text-slate-800">وحدة السلايدر الإعلاني</h5>
+                <button type="button" onclick="toggleModal('addEditSliderModal')" class="w-8 h-8 flex items-center justify-center rounded-lg bg-white text-slate-400 hover:text-rose-500 hover:bg-rose-50 transition-all shadow-sm"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="p-6">
+                <form class="space-y-5">
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">صورة السلايدر (البانر) <span class="text-rose-500">*</span></label>
+                        <label class="flex flex-col items-center justify-center w-full h-32 border-2 border-indigo-200 border-dashed rounded-xl cursor-pointer bg-indigo-50/50 hover:bg-indigo-50 transition-colors">
+                            <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                <i class="fa-solid fa-cloud-arrow-up text-3xl text-indigo-400 mb-2"></i>
+                                <p class="mb-1 text-sm text-indigo-600 font-semibold">اضغط لرفع الصورة (أو اسحبها هنا)</p>
+                                <p class="text-xs text-slate-500">موصى به: 1200x400 بكسل</p>
+                            </div>
+                            <input type="file" class="hidden" />
+                        </label>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">العنوان أو الوصف (للتنظيم)</label>
+                        <input type="text" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none">
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">رابط التوجيه (Target Link)</label>
+                            <input type="url" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-left" dir="ltr" placeholder="https://...">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">الحالة</label>
+                            <select class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none bg-white">
+                                <option value="active">نشط (يعرض الآن)</option>
+                                <option value="inactive">مخفي</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="flex justify-end pt-6 mt-6 border-t border-slate-100 gap-3">
+                        <button type="button" onclick="toggleModal('addEditSliderModal')" class="px-6 py-2.5 rounded-xl border border-slate-200 text-slate-600 font-semibold hover:bg-slate-50 transition-colors">إلغاء</button>
+                        <button type="button" class="px-6 py-2.5 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700 shadow-md shadow-indigo-200 transition-all flex items-center gap-2">نشر السلايدر <i class="fa-solid fa-upload"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Store Category Slider Modal -->
+    <div id="addEditStoreCatSliderModal" class="fixed inset-0 z-[100] hidden items-center justify-center overflow-y-auto bg-slate-900/50 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl w-full max-w-2xl m-4 shadow-2xl overflow-hidden transform transition-all">
+            <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50">
+                <h5 class="text-xl font-bold text-slate-800">تصنيف متجر مميز بالشاشة الرئيسية</h5>
+                <button type="button" onclick="toggleModal('addEditStoreCatSliderModal')" class="w-8 h-8 flex items-center justify-center rounded-lg bg-white text-slate-400 hover:text-rose-500 hover:bg-rose-50 transition-all shadow-sm"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="p-6">
+                <form class="space-y-5">
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">صورة العرض <span class="text-rose-500">*</span></label>
+                        <label class="flex flex-col items-center justify-center w-full h-32 border-2 border-indigo-200 border-dashed rounded-xl cursor-pointer bg-indigo-50/50 hover:bg-indigo-50 transition-colors">
+                            <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                <i class="fa-solid fa-image text-3xl text-indigo-400 mb-2"></i>
+                                <p class="mb-1 text-sm text-indigo-600 font-semibold">اضغط لرفع الصورة (أو اسحبها هنا)</p>
+                            </div>
+                            <input type="file" class="hidden" />
+                        </label>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">العنوان النصي (توضيحي)</label>
+                            <input type="text" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">القسم الوجهة (تصنيف المتاجر) <span class="text-rose-500">*</span></label>
+                            <select class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none bg-white">
+                                <option>المطاعم</option>
+                                <option>الكافيهات</option>
+                                <option>البقالة</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="flex justify-end pt-6 mt-6 border-t border-slate-100 gap-3">
+                        <button type="button" onclick="toggleModal('addEditStoreCatSliderModal')" class="px-6 py-2.5 rounded-xl border border-slate-200 text-slate-600 font-semibold hover:bg-slate-50 transition-colors">إلغاء</button>
+                        <button type="button" class="px-6 py-2.5 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700 shadow-md shadow-indigo-200 transition-all flex items-center gap-2">حفظ ونشر <i class="fa-solid fa-check"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Page Modal -->
+    <div id="addEditPageModal" class="fixed inset-0 z-[100] hidden items-center justify-center overflow-y-auto bg-slate-900/50 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl w-full max-w-4xl m-4 shadow-2xl overflow-hidden transform transition-all h-[90vh] flex flex-col">
+            <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50 shrink-0">
+                <h5 class="text-xl font-bold text-slate-800">محرر الصفحات (Pages)</h5>
+                <button type="button" onclick="toggleModal('addEditPageModal')" class="w-8 h-8 flex items-center justify-center rounded-lg bg-white text-slate-400 hover:text-rose-500 hover:bg-rose-50 transition-all shadow-sm"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="p-6 overflow-y-auto custom-scrollbar flex-1">
+                <form class="space-y-5 h-full flex flex-col">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 shrink-0">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">عنوان الصفحة <span class="text-rose-500">*</span></label>
+                            <input type="text" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none" placeholder="أسئلة شائعة، سياسة الاستخدام..">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">رابط الصفحة (Slug) <span class="text-rose-500">*</span></label>
+                            <input type="text" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-left" dir="ltr" placeholder="terms-and-conditions">
+                        </div>
+                    </div>
+                    <div class="flex-1 min-h-[300px] flex flex-col">
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">محتوى الصفحة <span class="text-rose-500">*</span></label>
+                        <textarea class="w-full flex-1 p-4 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none resize-none custom-scrollbar" placeholder="اكتب محتوى الصفحة هنا (دعم لـ HTML الأساسي)"></textarea>
+                    </div>
+                    <div class="shrink-0 flex justify-end pt-6 mt-2 border-t border-slate-100 gap-3">
+                        <button type="button" onclick="toggleModal('addEditPageModal')" class="px-6 py-2.5 rounded-xl border border-slate-200 text-slate-600 font-semibold hover:bg-slate-50 transition-colors">إلغاء</button>
+                        <button type="button" class="px-6 py-2.5 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700 shadow-md shadow-indigo-200 transition-all flex items-center gap-2">نشر الصفحة <i class="fa-solid fa-globe"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Modal -->
+    <div id="addEditNotificationModal" class="fixed inset-0 z-[100] hidden items-center justify-center overflow-y-auto bg-slate-900/50 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl w-full max-w-2xl m-4 shadow-2xl overflow-hidden transform transition-all">
+            <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50">
+                <h5 class="text-xl font-bold text-slate-800">إرسال إشعار جديد (Push)</h5>
+                <button type="button" onclick="toggleModal('addEditNotificationModal')" class="w-8 h-8 flex items-center justify-center rounded-lg bg-white text-slate-400 hover:text-rose-500 hover:bg-rose-50 transition-all shadow-sm"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="p-6">
+                <form class="space-y-5">
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">عنوان الإشعار <span class="text-rose-500">*</span></label>
+                        <input type="text" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">الرسالة النصية <span class="text-rose-500">*</span></label>
+                        <textarea class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none resize-none h-24" required></textarea>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">الجمهور المستهدف <span class="text-rose-500">*</span></label>
+                            <select class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none bg-white">
+                                <option>جميع المستخدمين</option>
+                                <option>العملاء فقط</option>
+                                <option>أصحاب المتاجر</option>
+                                <option>عمال التوصيل</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">موعد الإرسال <span class="text-rose-500">*</span></label>
+                            <input type="datetime-local" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-left" dir="ltr">
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center pt-6 mt-6 border-t border-slate-100">
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" class="w-5 h-5 rounded text-indigo-600 rounded-md border-slate-300 focus:ring-indigo-500">
+                            <span class="text-sm font-semibold text-slate-700">تضمين صورة مصغرة</span>
+                        </label>
+                        <div class="flex gap-3">
+                            <button type="button" onclick="toggleModal('addEditNotificationModal')" class="px-6 py-2.5 rounded-xl border border-slate-200 text-slate-600 font-semibold hover:bg-slate-50 transition-colors">إلغاء</button>
+                            <button type="button" class="px-6 py-2.5 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700 shadow-md shadow-indigo-200 transition-all flex items-center gap-2">إرسال الإشعار <i class="fa-solid fa-paper-plane"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

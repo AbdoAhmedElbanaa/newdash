@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "user": {
+      "name": "أحمد محمد",
+      "phone": "0543128999",
+      "avatar": "https://ui-avatars.com/api/?name=AM&background=4f46e5&color=fff"
+    },
+    "order_id": "#ORD-8921",
+    "amount_earned": 15.50,
+    "total_balance": 145.20,
+    "status": "completed",
+    "date": "2026-03-24T14:30:00Z"
+  },
+  {
+    "id": 2,
+    "user": {
+      "name": "سارة علي",
+      "phone": "0554123888",
+      "avatar": "https://ui-avatars.com/api/?name=SA&background=10b981&color=fff"
+    },
+    "order_id": "#ORD-8915",
+    "amount_earned": 5.00,
+    "total_balance": 25.00,
+    "status": "completed",
+    "date": "2026-03-24T11:15:00Z"
+  },
+  {
+    "id": 3,
+    "user": {
+      "name": "خالد عبدالله",
+      "phone": "0569874112",
+      "avatar": "https://ui-avatars.com/api/?name=KA&background=f59e0b&color=fff"
+    },
+    "order_id": "#ORD-8902",
+    "amount_earned": 32.40,
+    "total_balance": 32.40,
+    "status": "pending",
+    "date": "2026-03-23T19:45:00Z"
+  },
+  {
+    "id": 4,
+    "user": {
+      "name": "فهد الدوسري",
+      "phone": "0511223344",
+      "avatar": "https://ui-avatars.com/api/?name=FD&background=ec4899&color=fff"
+    },
+    "order_id": "#ORD-8890",
+    "amount_earned": 10.00,
+    "total_balance": 110.00,
+    "status": "completed",
+    "date": "2026-03-22T08:20:00Z"
+  },
+  {
+    "id": 5,
+    "user": {
+      "name": "نورة زيد",
+      "phone": "0599887766",
+      "avatar": "https://ui-avatars.com/api/?name=NZ&background=8b5cf6&color=fff"
+    },
+    "order_id": "#ORD-8877",
+    "amount_earned": 12.75,
+    "total_balance": 0.00,
+    "status": "rejected",
+    "date": "2026-03-21T16:10:00Z"
+  }
+]

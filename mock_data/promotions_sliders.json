@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "image": "https://images.unsplash.com/photo-1550547660-d9450f859349?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    "title": "عرض البرجر المزدوج",
+    "target": "صفحة مطعم برجر راش",
+    "status": "active"
+  },
+  {
+    "id": 2,
+    "image": "https://images.unsplash.com/photo-1544148103-0773bf10d330?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    "title": "خصم 50% على البيتزا",
+    "target": "صفحة العروض الترويجية",
+    "status": "active"
+  },
+  {
+    "id": 3,
+    "image": "https://images.unsplash.com/photo-1615814521404-510eebe9d21c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    "title": "توصيل مجاني لطلبات الإفطار",
+    "target": "قائمة الإفطار",
+    "status": "inactive"
+  }
+]

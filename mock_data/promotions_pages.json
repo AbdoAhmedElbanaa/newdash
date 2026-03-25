@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "title": "الشروط والأحكام",
+    "slug": "terms-and-conditions",
+    "views": 15420,
+    "status": "published"
+  },
+  {
+    "id": 2,
+    "title": "سياسة الاسترجاع ورضا العملاء",
+    "slug": "refund-policy",
+    "views": 8345,
+    "status": "published"
+  },
+  {
+    "id": 3,
+    "title": "عن تطبيق مونتانا",
+    "slug": "about-us",
+    "views": 4512,
+    "status": "published"
+  },
+  {
+    "id": 4,
+    "title": "تحديثات الإصدار الجديد 2.0",
+    "slug": "app-update-2-0",
+    "views": 0,
+    "status": "draft"
+  }
+]
