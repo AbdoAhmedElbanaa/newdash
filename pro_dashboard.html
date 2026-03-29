@@ -1709,14 +1709,14 @@
                             </a>
                         </div>
                         <div id="product-actions-addons" class="product-subtab-actions hidden flex items-center gap-2">
-                            <button type="button" onclick="toggleModal('addNewAddonModal')"
+                            <button type="button" onclick="toggleModal('addEditAddonModal')"
                                 class="px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 shadow-lg shadow-indigo-100 transition-all flex items-center gap-2">
                                 <i class="fa-solid fa-plus-circle"></i> إضافة إضافة
                             </button>
                         </div>
                         <div id="product-actions-addoncategories"
                             class="product-subtab-actions hidden flex items-center gap-2">
-                            <button type="button" onclick="toggleModal('addNewAddonCatModal')"
+                            <button type="button" onclick="toggleModal('addEditAddonCatModal')"
                                 class="px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 shadow-lg shadow-indigo-100 transition-all flex items-center gap-2">
                                 <i class="fa-solid fa-folder-plus"></i> إضافة فئة
                             </button>
@@ -2506,13 +2506,13 @@
             </div>
 
             <!-- Addon Categories Modal -->
-            <div id="addNewAddonCatModal"
+            <div id="addEditAddonCatModal"
                 class="fixed inset-0 z-50 hidden items-center justify-center overflow-y-auto bg-slate-900/50 backdrop-blur-sm">
                 <div
                     class="bg-white rounded-2xl w-full max-w-2xl m-4 shadow-2xl overflow-hidden transform transition-all">
                     <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50">
-                        <h5 class="text-xl font-bold text-slate-800">إضافة فئة إضافية جديدة</h5>
-                        <button type="button" onclick="toggleModal('addNewAddonCatModal')"
+                        <h5 class="text-xl font-bold text-slate-800 modal-title">إضافة / تعديل فئة إضافية</h5>
+                        <button type="button" onclick="toggleModal('addEditAddonCatModal')"
                             class="text-slate-400 hover:text-rose-500 transition-colors">
                             <i class="fa-solid fa-xmark text-xl"></i>
                         </button>
@@ -2546,7 +2546,7 @@
                                 </div>
                             </div>
                             <div class="flex justify-end pt-6 border-t border-slate-100 gap-3">
-                                <button type="button" onclick="toggleModal('addNewAddonCatModal')"
+                                <button type="button" onclick="toggleModal('addEditAddonCatModal')"
                                     class="px-6 py-2.5 rounded-xl border border-slate-200 text-slate-600 font-semibold hover:bg-slate-50 transition-colors">إلغاء</button>
                                 <button type="submit"
                                     class="px-6 py-2.5 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 shadow-md shadow-blue-200 transition-all flex items-center gap-2"><i
@@ -2559,13 +2559,13 @@
 
 
             <!-- Addons Modal -->
-            <div id="addNewAddonModal"
+            <div id="addEditAddonModal"
                 class="fixed inset-0 z-50 hidden items-center justify-center overflow-y-auto bg-slate-900/50 backdrop-blur-sm">
                 <div
                     class="bg-white rounded-2xl w-full max-w-2xl m-4 shadow-2xl overflow-hidden transform transition-all">
                     <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50">
-                        <h5 class="text-xl font-bold text-slate-800">إضافة إضافة جديدة</h5>
-                        <button type="button" onclick="toggleModal('addNewAddonModal')"
+                        <h5 class="text-xl font-bold text-slate-800 modal-title">إضافة / تعديل الإضافة</h5>
+                        <button type="button" onclick="toggleModal('addEditAddonModal')"
                             class="text-slate-400 hover:text-rose-500 transition-colors">
                             <i class="fa-solid fa-xmark text-xl"></i>
                         </button>
@@ -2596,7 +2596,7 @@
                                 </select>
                             </div>
                             <div class="flex justify-end pt-6 border-t border-slate-100 gap-3">
-                                <button type="button" onclick="toggleModal('addNewAddonModal')"
+                                <button type="button" onclick="toggleModal('addEditAddonModal')"
                                     class="px-6 py-2.5 rounded-xl border border-slate-200 text-slate-600 font-semibold hover:bg-slate-50 transition-colors">إلغاء</button>
                                 <button type="submit"
                                     class="px-6 py-2.5 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 shadow-md shadow-blue-200 transition-all flex items-center gap-2"><i
@@ -11518,6 +11518,484 @@
             </div>
         </div>
     </div>
+
+    <!-- GENERAL DASHBOARD MODALS (FOR ALL SECTIONS) -->
+
+    <!-- Edit/Save Confirmation Modal -->
+    <div id="editConfirmModal" class="fixed inset-0 z-[200] hidden items-center justify-center bg-slate-900/60 backdrop-blur-sm transition-opacity duration-300">
+        <div class="bg-white rounded-2xl w-full max-w-sm m-4 shadow-2xl overflow-hidden p-8 text-center bg-gradient-to-br from-white to-emerald-50/30 transform transition-all scale-95 opacity-0">
+            <div class="w-20 h-20 bg-emerald-100 text-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6 text-4xl shadow-lg shadow-emerald-100/50">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-slate-800 mb-2">تأكيد الحفظ</h3>
+            <p class="text-slate-500 mb-8 font-medium">هل أنت متأكد من حفظ التعديلات الجديدة لهذه البيانات؟</p>
+            <div class="flex flex-col gap-3">
+                <button type="button" onclick="toggleModal('editConfirmModal'); showSuccessToast('تم الحفظ بنجاح!')" class="w-full py-3.5 bg-gradient-to-l from-emerald-500 to-emerald-400 text-white rounded-xl shadow-lg shadow-emerald-200 hover:from-emerald-600 hover:to-emerald-500 hover:-translate-y-0.5 transition-all font-bold text-lg">
+                    نعم، احفظ التعديلات
+                </button>
+                <button type="button" onclick="toggleModal('editConfirmModal')" class="w-full py-3.5 bg-white border-2 border-slate-200 text-slate-600 rounded-xl hover:bg-slate-50 hover:border-slate-300 transition-all font-bold text-lg">
+                    إلغاء ومراجعة
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Store Modal -->
+    <div id="addEditStoreModal" class="fixed inset-0 z-[100] hidden items-center justify-center overflow-y-auto bg-slate-900/50 backdrop-blur-md transition-opacity duration-300">
+        <div class="bg-white rounded-3xl w-full max-w-4xl m-4 shadow-2xl overflow-hidden transform transition-all scale-95 opacity-0 flex flex-col max-h-[90vh]">
+            <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50 shrink-0">
+                <h5 class="text-xl font-bold text-slate-800 modal-title">إضافة / تعديل متجر</h5>
+                <button type="button" onclick="toggleModal('addEditStoreModal')" class="w-8 h-8 flex items-center justify-center rounded-lg bg-white text-slate-400 hover:text-rose-500 hover:bg-rose-50 transition-all shadow-sm border border-slate-200"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="p-6 overflow-y-auto custom-scrollbar flex-1 bg-white">
+                <form class="space-y-6">
+                    <!-- Image Upload -->
+                    <div class="flex items-center gap-6 p-4 bg-slate-50/50 rounded-2xl border border-slate-100">
+                        <div class="relative w-28 h-28 rounded-2xl border-2 border-dashed border-indigo-200 bg-white flex flex-col items-center justify-center cursor-pointer hover:border-indigo-400 hover:bg-indigo-50 transition-all group">
+                            <i class="fa-solid fa-camera text-3xl text-indigo-300 group-hover:text-indigo-500 transition-colors mb-2"></i>
+                            <span class="text-[10px] text-indigo-500 font-bold bg-indigo-50 px-2 py-1 rounded">شعار المتجر</span>
+                            <input type="file" class="absolute inset-0 opacity-0 cursor-pointer">
+                        </div>
+                        <div class="flex-1">
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">اسم المتجر <span class="text-rose-500">*</span></label>
+                            <input type="text" class="w-full px-5 py-3.5 rounded-xl border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 outline-none placeholder-slate-400 bg-slate-50 focus:bg-white transition-all" placeholder="مثال: مطعم البيك">
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">التصنيف <span class="text-rose-500">*</span></label>
+                            <div class="relative">
+                                <select class="w-full px-5 py-3.5 rounded-xl border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 outline-none bg-slate-50 focus:bg-white transition-all appearance-none">
+                                    <option>المطاعم</option>
+                                    <option>مقاهي ومشروبات</option>
+                                    <option>مخابز وحلويات</option>
+                                    <option>أسواق متكاملة</option>
+                                </select>
+                                <i class="fa-solid fa-chevron-down absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none text-sm"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">رقم الهاتف <span class="text-rose-500">*</span></label>
+                            <div class="relative">
+                                <span class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 font-bold text-sm" dir="ltr">+966</span>
+                                <input type="tel" class="w-full pr-16 pl-4 py-3.5 rounded-xl border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 outline-none text-left bg-slate-50 focus:bg-white transition-all font-mono" dir="ltr" placeholder="50 000 0000">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">رسوم التوصيل الأساسية (ر.س)</label>
+                            <input type="number" class="w-full px-5 py-3.5 rounded-xl border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 outline-none bg-slate-50 focus:bg-white transition-all" placeholder="10.00" step="0.5">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">الحد الأدنى للطلب (ر.س)</label>
+                            <input type="number" class="w-full px-5 py-3.5 rounded-xl border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 outline-none bg-slate-50 focus:bg-white transition-all" placeholder="25.00" step="1">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">موقع المتجر في الخريطة <span class="text-rose-500">*</span></label>
+                        <div class="relative group">
+                            <input type="text" class="w-full pr-14 pl-4 py-3.5 rounded-xl border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 outline-none bg-slate-50 focus:bg-white transition-all" placeholder="ابحث في الخريطة أو اكتب العنوان الدقيق...">
+                            <button type="button" class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white border border-slate-200 text-indigo-500 rounded-lg hover:bg-indigo-50 hover:border-indigo-200 transition-colors shadow-sm group-focus-within:border-indigo-500 group-focus-within:bg-indigo-50">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="p-6 border-t border-slate-100 bg-slate-50 shrink-0 flex justify-end gap-3 rounded-b-3xl">
+                <button type="button" onclick="toggleModal('addEditStoreModal')" class="px-6 py-3 rounded-xl border border-slate-200 bg-white text-slate-600 font-bold hover:bg-slate-100 hover:text-slate-800 transition-colors shadow-sm">إلغاء النافذة</button>
+                <button type="button" onclick="showEditConfirmModal()" class="px-8 py-3 rounded-xl bg-gradient-to-l from-indigo-600 to-indigo-500 text-white font-bold hover:from-indigo-700 hover:to-indigo-600 shadow-lg shadow-indigo-200 hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center gap-2">
+                    حفظ بيانات المتجر <i class="fa-solid fa-check-circle"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Product Modal -->
+    <div id="addEditProductModal" class="fixed inset-0 z-[100] hidden items-center justify-center overflow-y-auto bg-slate-900/50 backdrop-blur-md transition-opacity duration-300">
+        <div class="bg-white rounded-3xl w-full max-w-3xl m-4 shadow-2xl overflow-hidden transform transition-all scale-95 opacity-0 flex flex-col max-h-[90vh]">
+            <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50 shrink-0">
+                <h5 class="text-xl font-bold text-slate-800">إضافة / تعديل الصنف (المنتج)</h5>
+                <button type="button" onclick="toggleModal('addEditProductModal')" class="w-8 h-8 flex items-center justify-center rounded-lg bg-white text-slate-400 hover:text-rose-500 hover:bg-rose-50 transition-all shadow-sm border border-slate-200"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="p-6 overflow-y-auto custom-scrollbar flex-1 bg-white">
+                <form class="space-y-6">
+                    <div class="flex flex-col items-center justify-center w-full h-40 border-2 border-indigo-200 border-dashed rounded-2xl cursor-pointer bg-slate-50 hover:bg-indigo-50/50 hover:border-indigo-400 transition-colors mb-6 group relative overflow-hidden">
+                        <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                            <i class="fa-regular fa-image text-4xl text-slate-300 group-hover:text-indigo-500 transition-colors mb-2"></i>
+                            <p class="mb-1 text-sm text-slate-500 font-semibold group-hover:text-indigo-600">اضغط لرفع صورة المنتج الأوليّة</p>
+                            <p class="text-xs text-slate-400">JPG, PNG, WebP (Max 2MB)</p>
+                        </div>
+                        <input type="file" class="hidden" />
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">اسم الصنف <span class="text-rose-500">*</span></label>
+                            <input type="text" class="w-full px-5 py-3.5 rounded-xl border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 outline-none bg-slate-50 focus:bg-white transition-all" placeholder="مثال: وجبة دجاج بالزبدة الهندي">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">القسم الوجهة (Store) <span class="text-rose-500">*</span></label>
+                            <div class="relative">
+                                <select class="w-full px-5 py-3.5 rounded-xl border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 outline-none bg-slate-50 focus:bg-white transition-all appearance-none">
+                                    <option>اختر المتجر التابع له المنتج</option>
+                                    <option>مطعم ماهاراجا</option>
+                                    <option>مطعم الطازج</option>
+                                </select>
+                                <i class="fa-solid fa-store absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none text-sm opacity-50"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">السعر (ر.س) <span class="text-rose-500">*</span></label>
+                            <div class="relative">
+                                <input type="number" class="w-full px-5 py-3.5 rounded-xl border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 outline-none bg-slate-50 focus:bg-white transition-all font-mono text-lg font-bold text-slate-800" placeholder="0.00">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2 text-rose-500">السعر بعد الخصم (إن وجد)</label>
+                            <input type="number" class="w-full px-5 py-3.5 rounded-xl border border-rose-200 focus:border-rose-500 focus:ring-2 focus:ring-rose-100 outline-none bg-rose-50/30 focus:bg-white transition-all font-mono text-lg font-bold text-rose-600 placeholder-rose-300/50" placeholder="0.00">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">المخزون المتوفر</label>
+                            <input type="number" class="w-full px-5 py-3.5 rounded-xl border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 outline-none bg-slate-50 focus:bg-white transition-all" placeholder="-1 لعدد غير محدود" value="-1">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">شرح أو وصف موجز للصنف</label>
+                        <textarea class="w-full px-5 py-4 rounded-xl border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 outline-none resize-none h-28 bg-slate-50 focus:bg-white transition-all" placeholder="اكتب وصفاً جذاباً للصنف يجذب العملاء لطلبه..."></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="p-6 border-t border-slate-100 bg-slate-50 shrink-0 flex justify-end gap-3 rounded-b-3xl">
+                <button type="button" onclick="toggleModal('addEditProductModal')" class="px-6 py-3 rounded-xl border border-slate-200 bg-white text-slate-600 font-bold hover:bg-slate-100 transition-colors shadow-sm">تجاهل وإلغاء</button>
+                <button type="button" onclick="showEditConfirmModal()" class="px-8 py-3 rounded-xl bg-gradient-to-l from-indigo-600 to-indigo-500 text-white font-bold hover:from-indigo-700 hover:to-indigo-600 shadow-lg shadow-indigo-200 hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center gap-2">
+                    نشر وتحديث المنتج <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit User Modal -->
+    <div id="addEditUserModal" class="fixed inset-0 z-[100] hidden items-center justify-center overflow-y-auto bg-slate-900/50 backdrop-blur-md transition-opacity duration-300">
+        <div class="bg-white rounded-3xl w-full max-w-2xl m-4 shadow-2xl overflow-hidden transform transition-all scale-95 opacity-0">
+            <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50">
+                <h5 class="text-xl font-bold text-slate-800">إضافة / تعديل مستخدم بالنظام</h5>
+                <button type="button" onclick="toggleModal('addEditUserModal')" class="w-8 h-8 flex items-center justify-center rounded-lg bg-white text-slate-400 hover:text-rose-500 hover:bg-rose-50 transition-all shadow-sm border border-slate-200"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="p-6 bg-white">
+                <form class="space-y-6">
+                    <div class="flex items-center gap-4 mb-2">
+                        <div class="w-16 h-16 rounded-full bg-slate-100 border-2 border-dashed border-slate-300 flex items-center justify-center text-slate-400 hover:border-indigo-400 hover:text-indigo-500 cursor-pointer transition-colors relative overflow-hidden group">
+                            <i class="fa-solid fa-user-plus text-xl group-hover:scale-110 transition-transform"></i>
+                            <input type="file" class="absolute inset-0 opacity-0 cursor-pointer">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-700 text-sm">الصورة الشخصية (Avatar)</h4>
+                            <p class="text-xs text-slate-500">موصى به: صورة مربعة صغيرة</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">الاسم الكامل <span class="text-rose-500">*</span></label>
+                            <div class="relative">
+                                <i class="fa-regular fa-id-badge absolute right-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                                <input type="text" class="w-full pr-12 pl-4 py-3.5 rounded-xl border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 outline-none bg-slate-50 focus:bg-white transition-all" required placeholder="سمير أحمد">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">رقم الهاتف <span class="text-rose-500">*</span></label>
+                            <div class="relative">
+                                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-bold text-sm" dir="ltr">+966</span>
+                                <input type="tel" class="w-full pl-16 pr-4 py-3.5 rounded-xl border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 outline-none text-left bg-slate-50 focus:bg-white transition-all font-mono" dir="ltr" required placeholder="5X XXX XXXX">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">البريد الإلكتروني</label>
+                            <div class="relative">
+                                <i class="fa-regular fa-envelope absolute right-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                                <input type="email" class="w-full pr-12 pl-4 py-3.5 rounded-xl border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 outline-none text-left bg-slate-50 focus:bg-white transition-all" dir="ltr" placeholder="user@example.com">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">الدور / الصلاحيات <span class="text-rose-500">*</span></label>
+                            <div class="relative">
+                                <select class="w-full px-5 py-3.5 rounded-xl border border-slate-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 outline-none bg-slate-50 focus:bg-white transition-all appearance-none font-bold text-slate-700">
+                                    <option>عميل عادي (Customer)</option>
+                                    <option>مدير نظام (Admin)</option>
+                                    <option>صاحب متجر (Store Owner)</option>
+                                    <option>مندوب توصيل (Driver)</option>
+                                </select>
+                                <i class="fa-solid fa-shield-halved absolute left-4 top-1/2 -translate-y-1/2 text-indigo-400 pointer-events-none"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">حالة الحساب</label>
+                        <div class="flex items-center gap-4 bg-slate-50 p-2 rounded-xl border border-slate-100">
+                            <label class="flex-1 flex items-center justify-center gap-2 cursor-pointer relative">
+                                <input type="radio" name="account_status" value="active" class="peer sr-only" checked>
+                                <div class="w-full py-2.5 rounded-lg text-center font-bold text-sm text-slate-500 peer-checked:bg-emerald-50 peer-checked:text-emerald-600 peer-checked:shadow-sm transition-all border border-transparent peer-checked:border-emerald-100">
+                                    <i class="fa-solid fa-check-circle mr-1"></i> نشط
+                                </div>
+                            </label>
+                            <label class="flex-1 flex items-center justify-center gap-2 cursor-pointer relative">
+                                <input type="radio" name="account_status" value="blocked" class="peer sr-only">
+                                <div class="w-full py-2.5 rounded-lg text-center font-bold text-sm text-slate-500 peer-checked:bg-rose-50 peer-checked:text-rose-600 peer-checked:shadow-sm transition-all border border-transparent peer-checked:border-rose-100">
+                                    <i class="fa-solid fa-ban mr-1"></i> محظور
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="p-6 border-t border-slate-100 bg-slate-50 flex justify-end gap-3 rounded-b-3xl">
+                <button type="button" onclick="toggleModal('addEditUserModal')" class="px-6 py-3 rounded-xl border border-slate-200 bg-white text-slate-600 font-bold hover:bg-slate-100 transition-colors shadow-sm">إلغاء النافذة</button>
+                <button type="button" onclick="showEditConfirmModal()" class="px-8 py-3 rounded-xl bg-gradient-to-l from-indigo-600 to-indigo-500 text-white font-bold hover:from-indigo-700 hover:to-indigo-600 shadow-lg shadow-indigo-200 hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center gap-2">
+                    تأكيد المستخدم <i class="fa-solid fa-user-check"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="deleteConfirmModal" class="fixed inset-0 z-[200] hidden items-center justify-center bg-slate-900/60 backdrop-blur-sm transition-opacity duration-300">
+        <div class="bg-white rounded-2xl w-full max-w-sm m-4 shadow-2xl overflow-hidden p-8 text-center bg-gradient-to-br from-white to-rose-50/30 transform transition-all scale-95 opacity-0">
+            <div class="w-20 h-20 bg-rose-100 text-rose-500 rounded-full flex items-center justify-center mx-auto mb-6 text-4xl shadow-lg shadow-rose-100/50">
+                <i class="fa-solid fa-trash-can"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-slate-800 mb-2">تأكيد الحذف</h3>
+            <p class="text-slate-500 mb-8 font-medium">هل أنت متأكد من رغبتك في حذف هذا العنصر؟ لن تتمكن من التراجع عن هذا الإجراء.</p>
+            <div class="flex flex-col gap-3">
+                <button type="button" onclick="toggleModal('deleteConfirmModal'); showSuccessToast('تم الحذف بنجاح!')" class="w-full py-3.5 bg-gradient-to-l from-rose-500 to-rose-400 text-white rounded-xl shadow-lg shadow-rose-200 hover:from-rose-600 hover:to-rose-500 hover:-translate-y-0.5 transition-all font-bold text-lg">
+                    نعم، احذف نهائياً
+                </button>
+                <button type="button" onclick="toggleModal('deleteConfirmModal')" class="w-full py-3.5 bg-white border-2 border-slate-200 text-slate-600 rounded-xl hover:bg-slate-50 hover:border-slate-300 transition-all font-bold text-lg">
+                    إلغاء التراجع
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Details Modal (e.g. Orders, Transactions) -->
+    <div id="viewDetailsModal" class="fixed inset-0 z-[100] hidden items-center justify-center overflow-y-auto bg-slate-900/50 backdrop-blur-md transition-opacity duration-300">
+        <div class="bg-white rounded-3xl w-full max-w-2xl m-4 shadow-2xl overflow-hidden transform transition-all scale-95 opacity-0">
+            <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50">
+                <h5 class="text-xl font-bold text-slate-800 flex items-center gap-3">
+                    <div class="w-10 h-10 bg-indigo-100 text-indigo-500 flex items-center justify-center rounded-lg shadow-sm">
+                        <i class="fa-solid fa-file-invoice"></i>
+                    </div>
+                    تفاصيل السجل
+                </h5>
+                <button type="button" onclick="toggleModal('viewDetailsModal')" class="w-8 h-8 flex items-center justify-center rounded-lg bg-white text-slate-400 hover:text-rose-500 hover:bg-rose-50 transition-all shadow-sm border border-slate-200"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="p-6 bg-white space-y-6">
+                <!-- Mock Header Details -->
+                <div class="flex flex-col md:flex-row gap-4 items-center bg-slate-50 border border-slate-100 p-4 rounded-xl">
+                    <div class="text-center md:text-right flex-1">
+                        <p class="text-xs text-slate-400 font-bold mb-1">رقم المرجع (ID)</p>
+                        <h4 class="text-lg font-bold text-slate-800 font-mono">#REF-847291</h4>
+                    </div>
+                    <div class="h-10 w-px bg-slate-200 hidden md:block"></div>
+                    <div class="text-center md:text-right flex-1">
+                        <p class="text-xs text-slate-400 font-bold mb-1">التاريخ والوقت</p>
+                        <h4 class="text-sm font-bold text-slate-700 dir-ltr">2026-03-29 14:30 PM</h4>
+                    </div>
+                    <div class="h-10 w-px bg-slate-200 hidden md:block"></div>
+                    <div class="text-center md:text-right flex-1">
+                        <p class="text-xs text-slate-400 font-bold mb-1">الحالة</p>
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-600 font-bold text-xs"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> مكتمل (Completed)</span>
+                    </div>
+                </div>
+
+                <!-- Mock Key-Value Data Rows -->
+                <div class="space-y-3">
+                    <div class="flex justify-between items-center p-3 rounded-lg border border-slate-100 hover:bg-slate-50 transition-colors">
+                        <span class="text-sm font-semibold text-slate-500">العميل المرتبط</span>
+                        <span class="text-sm font-bold text-slate-800">أحمد محمد عبد الله</span>
+                    </div>
+                    <div class="flex justify-between items-center p-3 rounded-lg border border-slate-100 hover:bg-slate-50 transition-colors">
+                        <span class="text-sm font-semibold text-slate-500">المتجر أو الكيان</span>
+                        <span class="text-sm font-bold text-indigo-600">مطعم ركن السعادة</span>
+                    </div>
+                    <div class="flex justify-between items-center p-3 rounded-lg border border-slate-100 hover:bg-slate-50 transition-colors">
+                        <span class="text-sm font-semibold text-slate-500">طريقة الدفع</span>
+                        <span class="text-sm font-bold text-slate-800 inline-flex items-center gap-2"><i class="fa-brands fa-apple text-lg"></i> أبل باي</span>
+                    </div>
+                    <div class="flex justify-between items-center p-4 rounded-xl border-2 border-slate-100 bg-slate-50 mt-4">
+                        <span class="text-base font-bold text-slate-600">المبلغ الإجمالي</span>
+                        <span class="text-xl font-black text-emerald-600 font-mono">245.50 ر.س</span>
+                    </div>
+                </div>
+            </div>
+            <div class="p-6 border-t border-slate-100 bg-slate-50 flex justify-end gap-3 rounded-b-3xl">
+                <button type="button" onclick="toggleModal('viewDetailsModal')" class="px-6 py-3 rounded-xl border border-slate-200 bg-white text-slate-600 font-bold hover:bg-slate-100 transition-colors shadow-sm">إغلاق النافذة</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script to handle all UI modals specifically including animations and fake confirm triggers -->
+    <script>
+        // Modal functionality with smooth Tailwind animations
+        window.toggleModal = function(modalId) {
+            const el = document.getElementById(modalId);
+            if (!el) return;
+            
+            const content = el.querySelector('div.transform');
+            
+            if (el.classList.contains('hidden')) {
+                // Show modal
+                el.classList.remove('hidden');
+                el.classList.add('flex');
+                
+                // Slight delay to allow display flex to apply before opacity/scale transition
+                requestAnimationFrame(() => {
+                    el.classList.remove('opacity-0');
+                    if(content) {
+                        content.classList.remove('scale-95', 'opacity-0');
+                        content.classList.add('scale-100', 'opacity-100');
+                    }
+                });
+            } else {
+                // Hide modal (reverse animation)
+                el.classList.add('opacity-0');
+                if(content) {
+                    content.classList.remove('scale-100', 'opacity-100');
+                    content.classList.add('scale-95', 'opacity-0');
+                }
+                
+                // Wait for transition duration before setting display:none
+                setTimeout(() => {
+                    if (el.classList.contains('opacity-0')) {
+                        el.classList.add('hidden');
+                        el.classList.remove('flex');
+                    }
+                }, 300);
+            }
+        };
+
+        window.showEditConfirmModal = function() {
+            toggleModal('editConfirmModal');
+        };
+
+        window.showDeleteConfirmModal = function() {
+            toggleModal('deleteConfirmModal');
+        };
+
+        // Little Toast notification simulation for realistic UX
+        window.showSuccessToast = function(message) {
+            const toast = document.createElement('div');
+            toast.className = 'fixed top-10 right-1/2 translate-x-1/2 z-[1000] bg-emerald-500 text-white px-6 py-3 rounded-xl shadow-2xl flex items-center gap-3 font-bold transform -translate-y-20 opacity-0 transition-all duration-500 border border-emerald-400/50';
+            toast.innerHTML = `<i class="fa-solid fa-circle-check text-xl"></i> <span>${message}</span>`;
+            document.body.appendChild(toast);
+            
+            requestAnimationFrame(() => {
+                toast.classList.remove('-translate-y-20', 'opacity-0');
+                toast.classList.add('translate-y-0', 'opacity-100');
+            });
+            
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('-translate-y-20', 'opacity-0');
+                setTimeout(() => toast.remove(), 500);
+            }, 3000);
+        };
+
+        // Close modal on outside click (Backdrop)
+        document.addEventListener('DOMContentLoaded', () => {
+            const modals = document.querySelectorAll('[id$="Modal"]');
+            modals.forEach(modal => {
+                modal.addEventListener('click', (e) => {
+                    // Check if clicked the wrapper and not inside
+                    if (e.target === modal) {
+                        toggleModal(modal.id);
+                    }
+                });
+            });
+        });
+
+        // Initialize table actions to use the modales globally
+        function initGlobalTableActions() {
+            // Bind all edit buttons anywhere
+            document.querySelectorAll('.fa-pen').forEach(icon => {
+                const btn = icon.closest('button');
+                if(btn && !btn.hasAttribute('onclick')) {
+                    // Try to guess which context we are in based on closest section
+                    const sectionId = btn.closest('.tab-content')?.id;
+                    const subTabId = btn.closest('.product-subtab-content')?.id;
+                    
+                    if(sectionId === 'tab-stores') {
+                        btn.setAttribute('onclick', "toggleModal('addEditStoreModal')");
+                    }
+                    else if(sectionId === 'tab-products') {
+                        if (subTabId === 'product-content-items') {
+                            btn.setAttribute('onclick', "toggleModal('addEditProductModal')");
+                        } else if (subTabId === 'product-content-itemcategories') {
+                            btn.setAttribute('onclick', "toggleModal('editItemCategoryModal')");
+                        } else if (subTabId === 'product-content-addons') {
+                            btn.setAttribute('onclick', "toggleModal('addEditAddonModal')");
+                        } else if (subTabId === 'product-content-addoncategories') {
+                            btn.setAttribute('onclick', "toggleModal('addEditAddonCatModal')");
+                        } else {
+                            btn.setAttribute('onclick', "toggleModal('addEditProductModal')");
+                        }
+                    }
+                    else if(sectionId === 'tab-users') {
+                        btn.setAttribute('onclick', "toggleModal('addEditUserModal')");
+                    }
+                    else {
+                        btn.setAttribute('onclick', "showEditConfirmModal()"); // Default
+                    }
+                }
+            });
+            
+            // Bind all delete buttons anywhere
+            document.querySelectorAll('.fa-trash, .fa-trash-can').forEach(icon => {
+                const btn = icon.closest('button');
+                if(btn && !btn.hasAttribute('onclick')) {
+                    btn.setAttribute('onclick', "showDeleteConfirmModal()");
+                }
+            });
+
+            // Bind all view buttons anywhere
+            document.querySelectorAll('.fa-eye, .fa-file-arrow-down, .fa-file-invoice, .fa-list').forEach(icon => {
+                const btn = icon.closest('button');
+                if(btn && !btn.hasAttribute('onclick')) {
+                    btn.setAttribute('onclick', "toggleModal('viewDetailsModal')");
+                }
+            });
+
+            // Bind all "Add" buttons dynamically by sniffing text
+            document.querySelectorAll('button').forEach(btn => {
+                const text = btn.innerText.trim();
+                if(text.includes('إضافة') || text.includes('اضافة')) {
+                    if(!btn.hasAttribute('onclick')) {
+                        if(text.includes('متجر')) btn.setAttribute('onclick', "toggleModal('addEditStoreModal')");
+                        else if(text.includes('منتج') || text.includes('صنف') || text.includes('عنصر')) btn.setAttribute('onclick', "toggleModal('addEditProductModal')");
+                        else if(text.includes('مستخدم') || text.includes('عميل')) btn.setAttribute('onclick', "toggleModal('addEditUserModal')");
+                        // Fallback generic modal opening if none match exactly
+                        else btn.setAttribute('onclick', "toggleModal('editConfirmModal')"); // using confirm as a fallback mock
+                    }
+                }
+            });
+        }
+        
+        // Ensure this runs and re-runs when DOM changes or Datatables redraw
+        setTimeout(initGlobalTableActions, 1500); 
+        $(document).on('draw.dt', function() {
+            initGlobalTableActions();
+        });
+    </script>
 </body>
 
 </html>
