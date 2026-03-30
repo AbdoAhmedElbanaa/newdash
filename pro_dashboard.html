@@ -1365,7 +1365,33 @@
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-slate-100">
-                                <!-- DataTables will populate this -->
+                                <!-- Dummy row for demonstration -->
+                                <tr class="hover:bg-slate-50 transition-colors group">
+                                    <td class="p-4 text-center font-medium">#1024</td>
+                                    <td class="p-4 text-center">
+                                        <img src="https://ui-avatars.com/api/?name=H&background=6366f1&color=fff" class="w-10 h-10 rounded-xl mx-auto shadow-sm">
+                                    </td>
+                                    <td class="p-4 font-bold text-slate-800">حى السلامة</td>
+                                    <td class="p-4 text-slate-500">Al Salama</td>
+                                    <td class="p-4 text-slate-500">AlSalama Store</td>
+                                    <td class="p-4 text-center text-slate-500">2024-01-15</td>
+                                    <td class="p-4 text-center">
+                                        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-700">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> متوفر
+                                        </span>
+                                    </td>
+                                    <td class="p-4 text-center text-slate-500">منذ يومين</td>
+                                    <td class="p-4 text-center">
+                                        <div class="flex items-center justify-center gap-2">
+                                            <a href="stores/edit/index.html?id=2" class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center hover:bg-indigo-600 hover:text-white transition-all shadow-sm" title="تعديل شامل">
+                                                <i class="fa-solid fa-pen-to-square text-sm"></i>
+                                            </a>
+                                            <button class="w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center hover:bg-rose-600 hover:text-white transition-all shadow-sm">
+                                                <i class="fa-solid fa-trash-can text-sm"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -10073,11 +10099,11 @@
                             sortable: false,
                             searchable: false,
                             className: 'text-center',
-                            render: function (data) {
+                            render: function (data, type, row) {
                                 return `
                                 <div class="flex items-center justify-center gap-2">
-                                    <button class="w-9 h-9 rounded-xl bg-slate-50 text-slate-400 hover:bg-slate-100 hover:text-indigo-600 transition-all flex items-center justify-center border border-slate-100" title="تعديل"><i class="fa-solid fa-pen-to-square"></i></button>
-                                    <button class="w-9 h-9 rounded-xl bg-slate-50 text-slate-400 hover:bg-rose-50 hover:text-rose-600 transition-all flex items-center justify-center border border-slate-100" title="حذف"><i class="fa-solid fa-trash-can"></i></button>
+                                    <a href="stores/edit/index.html?id=${row.id || 2}" class="w-9 h-9 rounded-xl bg-slate-50 text-slate-400 hover:bg-slate-100 hover:text-indigo-600 transition-all flex items-center justify-center border border-slate-100" title="تعديل شامل"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <button class="w-9 h-9 rounded-xl bg-slate-50 text-slate-400 hover:bg-rose-50 hover:text-rose-600 transition-all flex items-center justify-center border border-slate-100" title="حذف" onclick="showDeleteConfirmModal()"><i class="fa-solid fa-trash-can"></i></button>
                                 </div>`;
                             }
                         },
