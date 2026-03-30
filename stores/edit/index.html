@@ -159,919 +159,145 @@
                     <input type="hidden" name="_token" value="xxxx">
                     <input type="hidden" name="id" value="2">
 
-                    
-
-                                        <div class="edit-tab-content active" id="generalSettings">
-                                            <h3 class="text-slate-800 text-lg font-bold mb-4 border-b border-slate-100 pb-2">
-                                                General Settings
-                                            </h3>
-                                            <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                                <label class="block text-sm font-semibold text-slate-700 mb-2"><span
-                                                        class="text-rose-500">*</span>Store Name:</label>
-                                                <div class="col-span-2">
-                                                    <input value="حى السلامة" type="text"
-                                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all " name="name"
-                                                        placeholder="Store Name" required>
-                                                </div>
-                                            </div>
-                                            <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                                <label class="block text-sm font-semibold text-slate-700 mb-2"></span>Store Owner:</label>
-                                                <div class="col-span-2">
-                                                    <select class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all select-search" name="user_id"
-                                                        placeholder="Store Owner">
-                                                        <option value="">Select</option>
-                                                        <option value="36">Alhamdaniah Store</option>
-                                                        <option value="54">Alsafa Store</option>
-                                                        <option value="55">Alsamer Store</option>
-                                                        <option value="56">Alrehab Store</option>
-                                                        <option value="57">Alsanabel Store</option>
-                                                        <option value="58">AlWaha Store</option>
-                                                        <option value="59">Alsulaimaniyah Store</option>
-                                                        <option value="60">AlNuzha Store</option>
-                                                        <option selected value="61">AlSalama Store</option>
-                                                        <option value="62">Alyagoot Store</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                                <label class="block text-sm font-semibold text-slate-700 mb-2"><span
-                                                        class="text-rose-500">*</span>Description:</label>
-                                                <div class="col-span-2">
-                                                    <input value="حى السلامة" type="text"
-                                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all " name="description"
-                                                        placeholder="Store Short Description" required>
-                                                </div>
-                                            </div>
-                                            <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                                <label class="block text-sm font-semibold text-slate-700 mb-2">Image:</label>
-                                                <div class="col-span-2">
-                                                    <img src="https://montana-sa.amir-adel.com/admin/assets/img/restaurants/176426650405i7ZH1TzQ.jpg"
-                                                        alt="Image" width="160" style="border-radius: 0.275rem;">
-                                                    <img class="slider-preview-image hidden"
-                                                        style="border-radius: 0.275rem;" />
-                                                    <div class="uploader">
-                                                        <input type="hidden" name="old_image"
-                                                            value="/assets/img/restaurants/176426650405i7ZH1TzQ.jpg">
-                                                        <input type="file" class="premium-input-uniform" name="image"
-                                                            accept="image/x-png,image/gif,image/jpeg"
-                                                            onchange="readURL(this);">
-                                                        <span class="help-text text-slate-500 text-sm mt-1">Image dimension
-                                                            160x117</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                                <label class="block text-sm font-semibold text-slate-700 mb-2">Short Name <span
-                                                        class="text-rose-500">*</span></label>
-                                                <div class="col-span-2">
-                                                    <input type="text" value="SAL"
-                                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all  short_name"
-                                                        name="short_name" placeholder="Short Name" required>
-                                                </div>
-                                            </div>
-                                            <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                                <label class="block text-sm font-semibold text-slate-700 mb-2">Location key <span
-                                                        class="text-rose-500">*</span></label>
-                                                <div class="col-span-2">
-                                                    <input type="text" value="POS-SAL"
-                                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all  location_key"
-                                                        name="location_key" placeholder="Location key" required>
-                                                </div>
-                                            </div>
-
-                                            <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                                <label class="block text-sm font-semibold text-slate-700 mb-2">Store Charge (Packing/Extra)
-                                                    :</label>
-                                                <div class="col-span-2">
-                                                    <input value="0.00" type="text"
-                                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all  restaurant_charges"
-                                                        name="restaurant_charges"
-                                                        placeholder="admin.Store Charge in ر.س">
-                                                </div>
-                                            </div>
-
-                                            <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                                <label class="block text-sm font-semibold text-slate-700 mb-2">Min Order Price <i
-                                                        class="icon-question3 ml-1" data-popup="tooltip"
-                                                        title="Set the value as 0 if not required"
-                                                        data-placement="top"></i></label>
-                                                <div class="col-span-2">
-                                                    <input value="0.00" type="text"
-                                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all  min_order_price"
-                                                        name="min_order_price"
-                                                        placeholder="Min Cart Value before discount and tax ر.س"
-                                                        required="required">
-                                                </div>
-                                            </div>
-
-                                            <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                                <label class="block text-sm font-semibold text-slate-700 mb-2">Store Categories: </label>
-                                                <div class="col-span-2">
-                                                    <select multiple="multiple"
-                                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all selectRestaurantCategory" data-fouc
-                                                        name="restaurant_category_restaurant[]">
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                            <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                                <label class="block text-sm font-semibold text-slate-700 mb-2"><span
-                                                        class="text-rose-500">*</span>Store URL</label>
-                                                <div class="col-span-2">
-                                                    <input value="h-alslam-jd-ghvbrhemioun0jy" type="text"
-                                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all " name="store_url"
-                                                        placeholder="Store URL" required>
-                                                    <p onclick="copyURL()" class="text-slate-500 text-sm mt-1">
-                                                        https://montana-sa.amir-adel.com/stores/<strong><span
-                                                                id="storeURL">h-alslam-jd-ghvbrhemioun0jy</span></strong>
-                                                    </p>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-
-                                        <div class="edit-tab-content" id="metaDataSettings">
-                                            <h3 class="text-slate-800 text-lg font-bold mb-4 border-b border-slate-100 pb-2">
-                                                Meta Settings
-                                            </h3>
-                                            <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                                <label class="block text-sm font-semibold text-slate-700 mb-2"><span
-                                                        class="text-rose-500">*</span>Full Address:</label>
-                                                <div class="col-span-2">
-                                                    <input value="حى السلامة" type="text"
-                                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all " name="address"
-                                                        placeholder="Full Address of Store" required>
-                                                </div>
-                                            </div>
-                                            <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                                <label class="block text-sm font-semibold text-slate-700 mb-2" data-popup="tooltip"
-                                                    title="Pincode / Postcode / Zip Code of Store"
-                                                    data-placement="bottom">Pincode:</label>
-                                                <div class="col-span-2">
-                                                    <input value="" type="text" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all "
-                                                        name="pincode"
-                                                        placeholder="Pincode / Postcode / Zip Code of Store">
-                                                </div>
-                                            </div>
-                                            <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                                <label class="block text-sm font-semibold text-slate-700 mb-2">Land Mark:</label>
-                                                <div class="col-span-2">
-                                                    <input value="حى السلامة" type="text"
-                                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all " name="landmark"
-                                                        placeholder="Any Near Landmark">
-                                                </div>
-                                            </div>
-                                            <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                                <label class="block text-sm font-semibold text-slate-700 mb-2"><span
-                                                        class="text-rose-500">*</span>Rating:</label>
-                                                <div class="col-span-2">
-                                                    <input value="5" type="text"
-                                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all  rating" name="rating"
-                                                        placeholder="Rating from 1-5" required>
-                                                </div>
-                                            </div>
-                                            <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                                <label class="block text-sm font-semibold text-slate-700 mb-2"><span
-                                                        class="text-rose-500">*</span>Approx Delivery Time:</label>
-                                                <div class="col-span-2">
-                                                    <input value="15" type="text"
-                                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all  delivery_time"
-                                                        name="delivery_time" placeholder="Time in Minutes" required>
-                                                </div>
-                                            </div>
-                                            <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                                <label class="block text-sm font-semibold text-slate-700 mb-2"><span
-                                                        class="text-rose-500">*</span>Approx Price for Two:</label>
-                                                <div class="col-span-2">
-                                                    <input value="15" type="text"
-                                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all  price_range"
-                                                        name="price_range"
-                                                        placeholder="Approx Price for 2 People in ر.س" required>
-                                                </div>
-                                            </div>
-                                            <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                                <label class="block text-sm font-semibold text-slate-700 mb-2">Certificate/License Code:</label>
-                                                <div class="col-span-2">
-                                                    <input value="" type="text" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all "
-                                                        name="certificate"
-                                                        placeholder="Certificate Code or License Code">
-                                                </div>
-                                            </div>
-                                            <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                                <label class="block text-sm font-semibold text-slate-700 mb-2">addmin.Custom Store Message (Home
-                                                    Page)
-                                                </label>
-                                                <div class="col-span-2">
-                                                    <textarea class="summernote-editor" name="custom_message_on_list"
-                                                        placeholder="Custom Store Message (Home Page) - Leave empty to hide"
-                                                        rows="6"></textarea>
-                                                    <span class="small">This will be displayed on the Homepage (Custom
-                                                        HTML can be used)</span>
-                                                </div>
-                                            </div>
-                                            <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                                <label class="block text-sm font-semibold text-slate-700 mb-2">admin.Custom Store Message (Items
-                                                    Page)
-                                                </label>
-                                                <div class="col-span-2">
-                                                    <textarea class="summernote-editor" name="custom_message"
-                                                        placeholder="Custom Store Message (Items Page) - Leave empty to hide"
-                                                        rows="6"></textarea>
-                                                    <span class="small">This will be displayed above search bar on Item
-                                                        Listing page (Custom HTML can be used)
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="edit-tab-content" id="operationAreaSettings">
-                                            <h3 class="text-slate-800 text-lg font-bold mb-4 border-b border-slate-100 pb-2">
-                                                Operation Area Settings
-                                            </h3>
-
-                                            <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                                <label class="block text-sm font-semibold text-slate-700 mb-2">Zone</label>
-                                                <div class="col-span-2">
-                                                    <select name="zone_id" class="select-zone" required>
-                                                        <option value="1">Alhamdaniah</option>
-                                                        <option value="2">Alsafa</option>
-                                                        <option value="3">Alsamer</option>
-                                                        <option value="4">Alrehab</option>
-                                                        <option value="5">Alsanabel</option>
-                                                        <option value="6">AlWaha</option>
-                                                        <option value="7">Alsulaimaniyah</option>
-                                                        <option value="8">AlNuzha</option>
-                                                        <option value="9" selected>Al Salama</option>
-                                                        <option value="10">Alyagoot</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <hr>
-
-                                            <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                                <label class="block text-sm font-semibold text-slate-700 mb-2">Latitude:</label>
-                                                <div class="col-span-2">
-                                                    <input type="text"
-                                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all  gllpLatitude latitude"
-                                                        value="21.583988075423967" name="latitude"
-                                                        placeholder="Latitude of the Store" required="required">
-                                                </div>
-                                            </div>
-                                            <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                                <label class="block text-sm font-semibold text-slate-700 mb-2">Longitude:</label>
-                                                <div class="col-span-2">
-                                                    <input type="text"
-                                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all  gllpLongitude longitude"
-                                                        value="39.15741511526268" name="longitude"
-                                                        placeholder="Longitude of the Store" required="required">
-                                                </div>
-                                            </div>
-                                            <span class="text-slate-500 text-sm mt-1">You can use services like: <a
-                                                    href="https://www.mapcoordinates.net/en"
-                                                    target="_blank">https://www.mapcoordinates.net/en</a></span>
-                                            <br>
-                                            <mark>You have not set <a
-                                                    href="https://montana-sa.amir-adel.com/admin/public/admin/settings?#mapSettings"
-                                                    target="_blank">admin.Google Map API Key (with no IP/HTTP
-                                                    Restriction)</a></mark><br>
-                                            <mark>Kindly configure that to access Google Maps to select Store&#039;s Geo
-                                                Location (Latitude/Longitude)</mark>
-                                            <br> If you enter an invalid Latitude/Longitude the map system might crash
-                                            with a white screen.
-                                            <div
-                                                style="padding: 25px; margin-top: 2rem; border-radius: 0.5rem; border: 1px solid #dedede">
-                                                <h3>Radius Wise Area</h3>
-                                                <hr class="my-2" style="border-color: rgba(224, 224, 224, 59%)">
-                                                <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                                    <label class="block text-sm font-semibold text-slate-700 mb-2">Delivery Radius in
-                                                        Km:</label>
-                                                    <div class="col-span-2">
-                                                        <input type="text" value="10"
-                                                            class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all  delivery_radius"
-                                                            name="delivery_radius"
-                                                            placeholder="Delivery Radius in KM (If left blank, delivery radius will be set to 10 KM)">
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-                                            <!-- Delivery Area Pro Module -->
-                                            <!-- END Delivery Area Pro Module -->
-                                        </div>
-
-                                        <div class="edit-tab-content" id="deliverySettings">
-                                            <h3 class="text-slate-800 text-lg font-bold mb-4 border-b border-slate-100 pb-2">
-                                                Delivery Settings
-                                            </h3>
-                                            <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                                <label class="block text-sm font-semibold text-slate-700 mb-2"><span
-                                                        class="text-rose-500">*</span>Delivery Type:</label>
-                                                <div class="col-span-2">
-                                                    <select class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all select" name="delivery_type" required>
-                                                        <option value="1" class="text-capitalize" selected="selected">
-                                                            Delivery</option>
-                                                        <option value="2" class="text-capitalize">Self Pickup</option>
-                                                        <option value="3" class="text-capitalize">Both Delivery &amp;
-                                                            Self Pickup</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                                <label class="block text-sm font-semibold text-slate-700 mb-2"><span
-                                                        class="text-rose-500">*</span>Delivery Charge Type:</label>
-                                                <div class="col-span-2">
-                                                    <select class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all select" name="delivery_charge_type"
-                                                        required>
-                                                        <option value="FIXED" selected="selected"
-                                                            class="text-capitalize">Fixed Charge</option>
-                                                        <option value="DYNAMIC" class="text-capitalize">Dynamic Charge
-                                                        </option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="grid md:grid-cols-3 gap-4 mb-6 items-center" id="deliveryCharge">
-                                                <label class="block text-sm font-semibold text-slate-700 mb-2">Delivery Charge:</label>
-                                                <div class="col-span-2">
-                                                    <input value="19.00" type="text"
-                                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all  delivery_charges"
-                                                        name="delivery_charges" placeholder="Delivery Charge in ر.س">
-                                                </div>
-                                            </div>
-                                            <div id="dynamicChargeDiv">
-                                                <div class="form-group">
-                                                    <div class="col-lg-12 row p-0">
-                                                        <div class="col-lg-3">
-                                                            <label class="col-lg-12 col-form-label p-0 pb-1">Base
-                                                                Delivery Charge:</label>
-                                                            <input value="" type="text"
-                                                                class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all  base_delivery_charge"
-                                                                name="base_delivery_charge" placeholder="In ر.س">
-                                                        </div>
-                                                        <div class="col-lg-3">
-                                                            <label class="col-lg-12 col-form-label p-0 pb-1">Base
-                                                                Delivery Distance:</label>
-                                                            <input value="" type="text"
-                                                                class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all  base_delivery_distance"
-                                                                name="base_delivery_distance"
-                                                                placeholder="In Kilometer (KM)">
-                                                        </div>
-                                                        <div class="col-lg-3">
-                                                            <label class="col-lg-12 col-form-label p-0 pb-1">Extra
-                                                                Delivery Charge:</label>
-                                                            <input value="" type="text"
-                                                                class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all  extra_delivery_charge"
-                                                                name="extra_delivery_charge" placeholder="In ر.س">
-                                                        </div>
-                                                        <div class="col-lg-3">
-                                                            <label class="col-lg-12 col-form-label p-0 pb-1">Extra
-                                                                Delivery Distance:</label>
-                                                            <input value="" type="text"
-                                                                class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all  extra_delivery_distance"
-                                                                name="extra_delivery_distance"
-                                                                placeholder="In Kilometer (KM)">
-                                                        </div>
-                                                    </div>
-                                                    <p class="help-text mt-2 mb-0 text-slate-500 text-sm mt-1"> Base delivery charges
-                                                        will be applied to the base delivery distance. And for every
-                                                        extra delivery distance, extra delivery charge will be
-                                                        applied.</span>
-                                                </div>
-                                            </div>
-
-                                            <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                                <label class="block text-sm font-semibold text-slate-700 mb-2">Free delivery on/above
-                                                    subtotal:</label>
-                                                <div class="col-span-2">
-                                                    <input value="0" type="text"
-                                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all  free_delivery_subtotal"
-                                                        name="free_delivery_subtotal"
-                                                        placeholder="Free delivery on/above subtotal ر.س">
-                                                    <p class="help-text mt-2 mb-0 text-slate-500 text-sm mt-1">Set it to 0 if not
-                                                        required.</span>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="edit-tab-content" id="extraSettings">
-                                            <h3 class="text-slate-800 text-lg font-bold mb-4 border-b border-slate-100 pb-2">
-                                                Extras
-                                            </h3>
-                                            <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                                <label class="block text-sm font-semibold text-slate-700 mb-2">Is Pure Veg?</label>
-                                                <div class="col-span-2">
-                                                    <div class="checkbox checkbox-switchery mt-2">
-                                                        <label>
-                                                            <input value="true" type="checkbox"
-                                                                class="switchery-primary" checked="checked"
-                                                                name="is_pureveg">
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                                <label class="block text-sm font-semibold text-slate-700 mb-2">Is Featured?</label>
-                                                <div class="col-span-2">
-                                                    <div class="checkbox checkbox-switchery mt-2">
-                                                        <label>
-                                                            <input value="true" type="checkbox"
-                                                                class="switchery-primary" checked="checked"
-                                                                name="is_featured">
-                                                        </label>
-                                                    </div>
-                                                    <button class="btn btn-sm btn-default bg-light"
-                                                        id="customFeaturedBadgeBtn">Custom name for Featured
-                                                        Badge</button>
-                                                </div>
-                                            </div>
-
-
-                                            <div class="form-group row  hidden " id="customFeaturedBadgeInput">
-                                                <label class="block text-sm font-semibold text-slate-700 mb-2">Custom name for Featured
-                                                    Badge</label>
-                                                <div class="col-span-2">
-                                                    <input value="" type="text" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all "
-                                                        name="custom_featured_name">
-                                                    <mark>Leave empty to fallback to the default</mark>
-                                                </div>
-                                            </div>
-                                            <script>
-                                                $(function () {
-                                                    $('#customFeaturedBadgeBtn').click(function (event) {
-                                                        $(this).remove();
-                                                        $('#customFeaturedBadgeInput').removeClass('hidden');
-                                                    });
-                                                });
-                                            </script>
-
-                                            <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                                <label class="block text-sm font-semibold text-slate-700 mb-2">Auto Accept Order</label>
-                                                <div class="col-span-2">
-                                                    <div class="checkbox checkbox-switchery mt-2">
-                                                        <label>
-                                                            <input value="true" type="checkbox"
-                                                                class="switchery-primary" checked="checked"
-                                                                name="auto_acceptable">
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                                <label class="block text-sm font-semibold text-slate-700 mb-2">Auto Assign Order To
-                                                    Delivery</label>
-                                                <div class="col-span-2">
-                                                    <div class="checkbox checkbox-switchery mt-2">
-                                                        <label>
-                                                            <input value="true" type="checkbox"
-                                                                class="switchery-primary" name="asign_to_delivery">
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                                <label class="block text-sm font-semibold text-slate-700 mb-2">SMS Notification for New
-                                                    Orders</label>
-                                                <div class="col-span-2">
-                                                    <div class="checkbox checkbox-switchery mt-2">
-                                                        <label>
-                                                            <input value="true" type="checkbox"
-                                                                class="switchery-primary" name="is_notifiable">
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                                <label class="block text-sm font-semibold text-slate-700 mb-2">Automatic Scheduling</label>
-                                                <div class="col-span-2">
-                                                    <div class="checkbox checkbox-switchery mt-2">
-                                                        <label>
-                                                            <input value="true" type="checkbox"
-                                                                class="switchery-primary" checked="checked"
-                                                                name="is_schedulable">
-                                                        </label>
-                                                    </div>
-                                                    Learn more about Automatic Scheduling (Open/Close) time <a
-                                                        href="https://docs.foodomaa.com/configurations/store-scheduling-open-close-times"
-                                                        target="_blank"> here</a>
-                                                </div>
-                                            </div>
-                                            <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                                <label class="block text-sm font-semibold text-slate-700 mb-2">admin.Order
-                                                    Scheduling:<br>(future orders)</label>
-                                                <div class="col-span-2">
-                                                    <div class="checkbox checkbox-switchery mt-2">
-                                                        <label>
-                                                            <input value="true" type="checkbox"
-                                                                class="switchery-primary"
-                                                                name="accept_scheduled_orders">
-                                                        </label>
-                                                    </div>
-                                                    Enabling this will allow customers to schedule their orders for
-                                                    future based on the store&#039;s open/close time.
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="edit-tab-content" id="actionSettings">
-                                            <h3 class="text-slate-800 text-lg font-bold mb-4 border-b border-slate-100 pb-2">
-                                                Action Settings
-                                            </h3>
-                                            <div class="text-left">
-                                                <div class="btn-group btn-group-justified" style="width: 300px">
-                                                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/stores/pending-acceptance/accept/2"
-                                                        class="btn btn-danger btn-labeled btn-labeled-left mr-2"
-                                                        data-popup="tooltip"
-                                                        title="The restaurant won't show up on customer's screen"
-                                                        data-placement="bottom">
-                                                        <b><i class="icon-exclamation"></i></b>
-                                                        Deactivate
-                                                    </a>
-                                                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/store/disable/2"
-                                                        class="btn btn-danger btn-labeled btn-labeled-left mr-2"
-                                                        data-popup="tooltip"
-                                                        title="Users won't be able to place order from this Store if Disabled"
-                                                        data-placement="bottom">
-                                                        <b><i class="icon-switch2"></i></b>
-                                                        Close
-                                                    </a>
-                                                </div>
-                                                <p class="mt-2 text-slate-500 text-sm mt-1">Manual intervention on Open/Close will
-                                                    disable Automatic Scheduling if it was previosuly enabled.</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="edit-tab-content" id="paymentGatewaySettings">
-                                            <h3 class="text-slate-800 text-lg font-bold mb-4 border-b border-slate-100 pb-2">
-                                                Payment Gateways
-                                            </h3>
-
-                                            <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                                <label class="col-lg-4 col-form-label">Select Payment Gateways</label>
-                                                <div class="col-lg-8">
-                                                    <select multiple="multiple" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all select"
-                                                        name="store_payment_gateways[]">
-                                                        <option value="1" class="text-capitalize">
-                                                            COD
-                                                        </option>
-                                                        <option value="11" class="text-capitalize" selected>
-                                                            myfatoorah
-                                                        </option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="edit-tab-content" id="commissionSettings">
-                                            <h3 class="text-slate-800 text-lg font-bold mb-4 border-b border-slate-100 pb-2">
-                                                Commission Settings
-                                            </h3>
-                                            <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                                <label class="block text-sm font-semibold text-slate-700 mb-2"><span
-                                                        class="text-rose-500">*</span>Commission Rate %:</label>
-                                                <div class="col-span-2">
-                                                    <input value="0.00" type="text"
-                                                        class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all  commission_rate"
-                                                        name="commission_rate" placeholder="Commission Rate %" required>
-                                                <div id="scheduleSettings" class="edit-tab-content">
-                <div class="col-md-12">
-                    <div class="glass-panel p-6 rounded-3xl mt-6">
-                        <div >
-                            <form action="https://montana-sa.amir-adel.com/admin/public/admin/store/schedule/save"
-                                method="POST" enctype="multipart/form-data">
-                                <h3 class="text-slate-800 text-lg font-bold mb-4 border-b border-slate-100 pb-2">
-                                    <i class="icon-alarm mr-2"></i> Store Scheduling Times
-                                </h3>
-                                <div class="form-group row mb-0">
-                                    <div class="col-lg-4">
-                                        <h3>Monday</h3>
-                                    </div>
-                                </div>
-                                <!-- Checks if there is any schedule data -->
-                                <!-- If yes Then Loop Each Data as Time SLots -->
-                                <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                    <div class="col-lg-5">
-                                        <label class="col-form-label">Opening Time</label>
-                                        <input type="time" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all " value="13:01"
-                                            name="monday[]" required>
-                                    </div>
-                                    <div class="col-lg-5">
-                                        <label class="col-form-label"></span>Closing Time</label>
-                                        <input type="time" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all " value="17:45"
-                                            name="monday[]" required>
-                                    </div>
-                                    <div class="col-lg-2" day="monday">
-                                        <label class="col-form-label text-center" style="width: 43px;"></span><i
-                                                class="icon-circle-down2"></i></label><br>
-                                        <button class="remove btn btn-danger" data-popup="tooltip"
-                                            data-placement="right" title="Remove Time Slot">
-                                            <i class="icon-cross2"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                    <div class="col-lg-5">
-                                        <label class="col-form-label">Opening Time</label>
-                                        <input type="time" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all " value="21:30"
-                                            name="monday[]" required>
-                                    </div>
-                                    <div class="col-lg-5">
-                                        <label class="col-form-label"></span>Closing Time</label>
-                                        <input type="time" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all " value="23:59"
-                                            name="monday[]" required>
-                                    </div>
-                                    <div class="col-lg-2" day="monday">
-                                        <label class="col-form-label text-center" style="width: 43px;"></span><i
-                                                class="icon-circle-down2"></i></label><br>
-                                        <button class="remove btn btn-danger" data-popup="tooltip"
-                                            data-placement="right" title="Remove Time Slot">
-                                            <i class="icon-cross2"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div id="monday" class="timeSlots">
-                                </div>
-                                <a href="javascript:void(0)" onclick="add(this)" data-day="monday"
-                                    class="px-5 py-2.5 bg-slate-600 text-white rounded-xl shadow-lg shadow-slate-200 hover:bg-slate-700 transition-all text-sm font-bold flex items-center gap-2 btn-labeled btn-labeled-left mr-2"> <b><i
-                                            class="icon-plus22"></i></b>Add Slot</a>
-                                <hr>
-                                <div class="form-group row mb-0">
-                                    <div class="col-lg-4">
-                                        <h3>Tuesday</h3>
-                                    </div>
-                                </div>
-                                <!-- Checks if there is any schedule data -->
-                                <!-- If yes Then Loop Each Data as Time SLots -->
-                                <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                    <div class="col-lg-5">
-                                        <label class="col-form-label">Opening Time</label>
-                                        <input type="time" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all " value="00:00"
-                                            name="tuesday[]" required>
-                                    </div>
-                                    <div class="col-lg-5">
-                                        <label class="col-form-label"></span>Closing Time</label>
-                                        <input type="time" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all " value="02:15"
-                                            name="tuesday[]" required>
-                                    </div>
-                                    <div class="col-lg-2" day="tuesday">
-                                        <label class="col-form-label text-center" style="width: 43px;"></span><i
-                                                class="icon-circle-down2"></i></label><br>
-                                        <button class="remove btn btn-danger" data-popup="tooltip"
-                                            data-placement="right" title="Remove Time Slot">
-                                            <i class="icon-cross2"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                    <div class="col-lg-5">
-                                        <label class="col-form-label">Opening Time</label>
-                                        <input type="time" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all " value="13:30"
-                                            name="tuesday[]" required>
-                                    </div>
-                                    <div class="col-lg-5">
-                                        <label class="col-form-label"></span>Closing Time</label>
-                                        <input type="time" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all " value="17:45"
-                                            name="tuesday[]" required>
-                                    </div>
-                                    <div class="col-lg-2" day="tuesday">
-                                        <label class="col-form-label text-center" style="width: 43px;"></span><i
-                                                class="icon-circle-down2"></i></label><br>
-                                        <button class="remove btn btn-danger" data-popup="tooltip"
-                                            data-placement="right" title="Remove Time Slot">
-                                            <i class="icon-cross2"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                    <div class="col-lg-5">
-                                        <label class="col-form-label">Opening Time</label>
-                                        <input type="time" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all " value="21:30"
-                                            name="tuesday[]" required>
-                                    </div>
-                                    <div class="col-lg-5">
-                                        <label class="col-form-label"></span>Closing Time</label>
-                                        <input type="time" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all " value="23:59"
-                                            name="tuesday[]" required>
-                                    </div>
-                                    <div class="col-lg-2" day="tuesday">
-                                        <label class="col-form-label text-center" style="width: 43px;"></span><i
-                                                class="icon-circle-down2"></i></label><br>
-                                        <button class="remove btn btn-danger" data-popup="tooltip"
-                                            data-placement="right" title="Remove Time Slot">
-                                            <i class="icon-cross2"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div id="tuesday" class="timeSlots">
-                                </div>
-                                <a href="javascript:void(0)" onclick="add(this)" data-day="tuesday"
-                                    class="px-5 py-2.5 bg-slate-600 text-white rounded-xl shadow-lg shadow-slate-200 hover:bg-slate-700 transition-all text-sm font-bold flex items-center gap-2 btn-labeled btn-labeled-left mr-2"> <b><i
-                                            class="icon-plus22"></i></b>Add Slot</a>
-                                <hr>
-                                <div class="form-group row mb-0">
-                                    <div class="col-lg-4">
-                                        <h3>Wednesday</h3>
-                                    </div>
-                                </div>
-                                <!-- Checks if there is any schedule data -->
-                                <!-- If yes Then Loop Each Data as Time SLots -->
-                                <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                    <div class="col-lg-5">
-                                        <label class="col-form-label">Opening Time</label>
-                                        <input type="time" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all " value="00:00"
-                                            name="wednesday[]" required>
-                                    </div>
-                                    <div class="col-lg-5">
-                                        <label class="col-form-label"></span>Closing Time</label>
-                                        <input type="time" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all " value="02:15"
-                                            name="wednesday[]" required>
-                                    </div>
-                                    <div class="col-lg-2" day="wednesday">
-                                        <label class="col-form-label text-center" style="width: 43px;"></span><i
-                                                class="icon-circle-down2"></i></label><br>
-                                        <button class="remove btn btn-danger" data-popup="tooltip"
-                                            data-placement="right" title="Remove Time Slot">
-                                            <i class="icon-cross2"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                    <div class="col-lg-5">
-                                        <label class="col-form-label">Opening Time</label>
-                                        <input type="time" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all " value="13:30"
-                                            name="wednesday[]" required>
-                                    </div>
-                                    <div class="col-lg-5">
-                                        <label class="col-form-label"></span>Closing Time</label>
-                                        <input type="time" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all " value="05:45"
-                                            name="wednesday[]" required>
-                                    </div>
-                                    <div class="col-lg-2" day="wednesday">
-                                        <label class="col-form-label text-center" style="width: 43px;"></span><i
-                                                class="icon-circle-down2"></i></label><br>
-                                        <button class="remove btn btn-danger" data-popup="tooltip"
-                                            data-placement="right" title="Remove Time Slot">
-                                            <i class="icon-cross2"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                    <div class="col-lg-5">
-                                        <label class="col-form-label">Opening Time</label>
-                                        <input type="time" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all " value="21:30"
-                                            name="wednesday[]" required>
-                                    </div>
-                                    <div class="col-lg-5">
-                                        <label class="col-form-label"></span>Closing Time</label>
-                                        <input type="time" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all " value="23:59"
-                                            name="wednesday[]" required>
-                                    </div>
-                                    <div class="col-lg-2" day="wednesday">
-                                        <label class="col-form-label text-center" style="width: 43px;"></span><i
-                                                class="icon-circle-down2"></i></label><br>
-                                        <button class="remove btn btn-danger" data-popup="tooltip"
-                                            data-placement="right" title="Remove Time Slot">
-                                            <i class="icon-cross2"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div id="wednesday" class="timeSlots">
-                                </div>
-                                <a href="javascript:void(0)" onclick="add(this)" data-day="wednesday"
-                                    class="px-5 py-2.5 bg-slate-600 text-white rounded-xl shadow-lg shadow-slate-200 hover:bg-slate-700 transition-all text-sm font-bold flex items-center gap-2 btn-labeled btn-labeled-left mr-2"> <b><i
-                                            class="icon-plus22"></i></b>Add Slot</a>
-                                <hr>
-                                <div class="form-group row mb-0">
-                                    <div class="col-lg-4">
-                                        <h3>Thursday</h3>
-                                    </div>
-                                </div>
-                                <!-- Checks if there is any schedule data -->
-                                <div id="thursday" class="timeSlots">
-                                </div>
-                                <a href="javascript:void(0)" onclick="add(this)" data-day="thursday"
-                                    class="px-5 py-2.5 bg-slate-600 text-white rounded-xl shadow-lg shadow-slate-200 hover:bg-slate-700 transition-all text-sm font-bold flex items-center gap-2 btn-labeled btn-labeled-left mr-2"> <b><i
-                                            class="icon-plus22"></i></b>Add Slot</a>
-                                <hr>
-                                <div class="form-group row mb-0">
-                                    <div class="col-lg-4">
-                                        <h3>Friday</h3>
-                                    </div>
-                                </div>
-                                <!-- Checks if there is any schedule data -->
-                                <!-- If yes Then Loop Each Data as Time SLots -->
-                                <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                    <div class="col-lg-5">
-                                        <label class="col-form-label">Opening Time</label>
-                                        <input type="time" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all " value="18:25"
-                                            name="friday[]" required>
-                                    </div>
-                                    <div class="col-lg-5">
-                                        <label class="col-form-label"></span>Closing Time</label>
-                                        <input type="time" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all " value="23:25"
-                                            name="friday[]" required>
-                                    </div>
-                                    <div class="col-lg-2" day="friday">
-                                        <label class="col-form-label text-center" style="width: 43px;"></span><i
-                                                class="icon-circle-down2"></i></label><br>
-                                        <button class="remove btn btn-danger" data-popup="tooltip"
-                                            data-placement="right" title="Remove Time Slot">
-                                            <i class="icon-cross2"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div id="friday" class="timeSlots">
-                                </div>
-                                <a href="javascript:void(0)" onclick="add(this)" data-day="friday"
-                                    class="px-5 py-2.5 bg-slate-600 text-white rounded-xl shadow-lg shadow-slate-200 hover:bg-slate-700 transition-all text-sm font-bold flex items-center gap-2 btn-labeled btn-labeled-left mr-2"> <b><i
-                                            class="icon-plus22"></i></b>Add Slot</a>
-                                <hr>
-                                <div class="form-group row mb-0">
-                                    <div class="col-lg-4">
-                                        <h3>Saturday</h3>
-                                    </div>
-                                </div>
-                                <!-- Checks if there is any schedule data -->
-                                <!-- If yes Then Loop Each Data as Time SLots -->
-                                <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                    <div class="col-lg-5">
-                                        <label class="col-form-label">Opening Time</label>
-                                        <input type="time" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all " value="15:02"
-                                            name="saturday[]" required>
-                                    </div>
-                                    <div class="col-lg-5">
-                                        <label class="col-form-label"></span>Closing Time</label>
-                                        <input type="time" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all " value="21:30"
-                                            name="saturday[]" required>
-                                    </div>
-                                    <div class="col-lg-2" day="saturday">
-                                        <label class="col-form-label text-center" style="width: 43px;"></span><i
-                                                class="icon-circle-down2"></i></label><br>
-                                        <button class="remove btn btn-danger" data-popup="tooltip"
-                                            data-placement="right" title="Remove Time Slot">
-                                            <i class="icon-cross2"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div id="saturday" class="timeSlots">
-                                </div>
-                                <a href="javascript:void(0)" onclick="add(this)" data-day="saturday"
-                                    class="px-5 py-2.5 bg-slate-600 text-white rounded-xl shadow-lg shadow-slate-200 hover:bg-slate-700 transition-all text-sm font-bold flex items-center gap-2 btn-labeled btn-labeled-left mr-2"> <b><i
-                                            class="icon-plus22"></i></b>Add Slot</a>
-                                <hr>
-                                <div class="form-group row mb-0">
-                                    <div class="col-lg-4">
-                                        <h3>Sunday</h3>
-                                    </div>
-                                </div>
-                                <!-- Checks if there is any schedule data -->
-                                <!-- If yes Then Loop Each Data as Time SLots -->
-                                <div class="grid md:grid-cols-3 gap-4 mb-6 items-center">
-                                    <div class="col-lg-5">
-                                        <label class="col-form-label">Opening Time</label>
-                                        <input type="time" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all " value="10:00"
-                                            name="sunday[]" required>
-                                    </div>
-                                    <div class="col-lg-5">
-                                        <label class="col-form-label"></span>Closing Time</label>
-                                        <input type="time" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all " value="23:45"
-                                            name="sunday[]" required>
-                                    </div>
-                                    <div class="col-lg-2" day="sunday">
-                                        <label class="col-form-label text-center" style="width: 43px;"></span><i
-                                                class="icon-circle-down2"></i></label><br>
-                                        <button class="remove btn btn-danger" data-popup="tooltip"
-                                            data-placement="right" title="Remove Time Slot">
-                                            <i class="icon-cross2"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div id="sunday" class="timeSlots">
-                                </div>
-                                <a href="javascript:void(0)" onclick="add(this)" data-day="sunday"
-                                    class="px-5 py-2.5 bg-slate-600 text-white rounded-xl shadow-lg shadow-slate-200 hover:bg-slate-700 transition-all text-sm font-bold flex items-center gap-2 btn-labeled btn-labeled-left mr-2"> <b><i
-                                            class="icon-plus22"></i></b>Add Slot</a>
-                                <hr>
-                                <input type="text" name="restaurant_id" hidden value="2">
-                                <input type="hidden" name="_token" value="tFWvgrn81Yr12TNISLyVW0qtbqBqJ0RPg7RZtLOj">
-                                <div class="text-right">
-                                    <button type="submit" class="px-5 py-2.5 bg-indigo-600 text-white rounded-xl shadow-lg shadow-indigo-200 hover:bg-indigo-700 transition-all text-sm font-bold flex items-center gap-2 btn-labeled btn-labeled-left btn-lg"
-                                        data-popup="tooltip"
-                                        title="Make sure the Closing Time is always greater than the Opening Time for all the entries"
-                                        data-placement="bottom">
-                                        <b><i class="icon-alarm ml-1"></i></b>
-                                        Update Scheduling Data
-                                    </button>
-                                </div>
-                            </form>
+                    <!-- Tab: General Settings -->
+                    <div id="generalSettings" class="edit-tab-content active">
+                        <div class="mb-6 border-b border-slate-100 pb-2">
+                            <h6 class="text-slate-800 font-bold text-lg"><i class="fa-solid fa-store text-indigo-500 mr-2 ml-2"></i> البيانات الأساسية</h3>
+                            <p class="text-sm text-slate-500 mt-1">المعلومات العامة وتفاصيل التواصل للمتجر</p>
                         </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">اسم المتجر <span class="text-rose-500">*</span></label>
+                                <input type="text" name="name" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all" value="حى السلامة" required>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">مالك المتجر</label>
+                                <select name="user_id" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all select2-simple">
+                                    <option value="">اختر المالك</option>
+                                    <option value="60">AlNuzha Store</option>
+                                    <option value="61" selected>AlSalama Store</option>
+                                    <option value="62">Alyagoot Store</option>
+                                </select>
+                            </div>
+                            
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">الوصف التفصيلي</label>
+                                <textarea name="description" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all summernote-editor">حى السلامة</textarea>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">رقم الهاتف (الأساسي)</label>
+                                <input type="text" name="phone" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all" value="0123456789">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">رقم الهاتف (بديل)</label>
+                                <input type="text" name="alt_phone" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all">
+                            </div>
+
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">البريد الإلكتروني للإشعارات</label>
+                                <input type="email" name="email" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all" placeholder="test@montana.sa">
+                            </div>
+
+                            <!-- Images -->
+                            <div class="md:col-span-2 mt-4">
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">صورة المتجر الرئيسية (160x117)</label>
+                                <div class="flex items-center gap-4">
+                                    <img src="https://montana-sa.amir-adel.com/admin/assets/img/restaurants/176426650405i7ZH1TzQ.jpg" class="w-24 h-24 object-cover rounded-xl border border-slate-200 shadow-sm" id="mainImagePreview">
+                                    <div class="flex-1 relative">
+                                        <input type="file" name="image" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" onchange="previewImg(this, 'mainImagePreview')">
+                                        <div class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all flex items-center justify-center border-dashed border-2 hover:bg-slate-100 transition-colors text-slate-500 py-6">
+                                            <i class="fa-solid fa-cloud-arrow-up text-2xl mr-3 ml-3 text-indigo-400"></i> اضغط هنا لرفع صورة جديدة
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">رابط المتجر (URL Slug) <span class="text-rose-500">*</span></label>
+                                <div class="flex items-center">
+                                    <span class="bg-slate-100 border border-l-0 border-slate-200 rounded-r-xl px-4 py-2.5 text-slate-500 text-sm" dir="ltr">https://.../store/</span>
+                                    <input type="text" name="store_url" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all rounded-r-none border-l-0" value="alsalama-store" dir="ltr" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab: Meta Data -->
+                    <div id="metaDataSettings" class="edit-tab-content">
+                        <div class="mb-6 border-b border-slate-100 pb-2">
+                            <h6 class="text-slate-800 font-bold text-lg"><i class="fa-solid fa-tags text-indigo-500 mr-2 ml-2"></i> بيانات الميتا (SEO)</h3>
+                        </div>
+                        <div class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Meta Title (عنوان الميتا) <span class="text-slate-400 font-normal text-xs ml-2">يظهر في علامات التبويب ومحركات البحث</span></label>
+                                <input type="text" name="meta_title" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all" placeholder="عنوان المتجر لتحسين محركات البحث">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Meta Description (وصف الميتا المقتضب)</label>
+                                <textarea name="meta_description" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all h-24" placeholder="وصف قصير للمتجر لمحركات البحث"></textarea>
+                            </div>
+                            <div class="flex items-center justify-between p-4 rounded-xl border border-slate-200 bg-white">
+                                <div>
+                                    <p class="font-bold text-slate-700">تحديث تلقائي للميتا</p>
+                                    <p class="text-xs text-slate-500">جلب بيانات الميتا بشكل تلقائي من المتجر</p>
+                                </div>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" name="auto_meta" class="sr-only peer" checked>
+                                    <div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-[100%] peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-indigo-600"></div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab: Operation Area & Zone -->
+                    <div id="operationAreaSettings" class="edit-tab-content">
+                        <div class="mb-6 border-b border-slate-100 pb-2">
+                            <h6 class="text-slate-800 font-bold text-lg"><i class="fa-solid fa-map-location-dot text-indigo-500 mr-2 ml-2"></i> المنطقة والمنطقة التشغيلية</h3>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">المنطقة (Zone)</label>
+                                <select class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all select2-simple" name="zone_id">
+                                    <option value="1">Alhamdaniah</option>
+                                    <option value="9" selected>Al Salama</option>
+                                    <option value="10">Alyagoot</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">خط العرض (Latitude)</label>
+                                <input type="text" name="latitude" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all" value="21.611183188569502">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">خط الطول (Longitude)</label>
+                                <input type="text" name="longitude" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all" value="39.15589047120739">
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">عنوان المتجر بالكامل</label>
+                                <input type="text" name="address" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all" value="Al Salama">
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">نطاق التوصيل الجغرافي (Radius in Km)</label>
+                                <input type="number" name="delivery_radius" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-500 outline-none text-sm bg-slate-50 transition-all" value="5">
+                            </div>
+                            <div class="md:col-span-2">
+                                <div class="bg-slate-200 w-full h-[300px] rounded-xl flex items-center justify-center text-slate-500 font-bold border-2 border-slate-300">
+                                    <i class="fa-solid fa-map mr-2 ml-2"></i> خرائط جوجل (Google Maps Widget)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </form>
         </div>
     </main>
 
     <script>
+        // Tab switching logic
         function openEditTab(tabId) {
             document.querySelectorAll('.edit-tab-content').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('.edit-tab-btn').forEach(el => el.classList.remove('active'));
@@ -1080,38 +306,20 @@
             event.currentTarget.classList.add('active');
         }
 
+        // Preview images
         function previewImg(input, imgId) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
                 reader.onload = function(e) {
-                    var el = document.getElementById(imgId) || document.querySelector('.slider-preview-image');
-                    if(el) { el.src = e.target.result; el.classList.remove('hidden'); }
+                    document.getElementById(imgId).src = e.target.result;
                 }
                 reader.readAsDataURL(input.files[0]);
             }
         }
 
         $(document).ready(function() {
-            $('.select2-simple, .select, .select-zone').select2();
+            $('.select2-simple').select2({ minimumResultsForSearch: 10 });
             $('.summernote-editor').summernote({ height: 200 });
-            
-            if (Array.prototype.forEach) {
-                var elems = Array.prototype.slice.call(document.querySelectorAll('.switchery-primary'));
-                elems.forEach(function (html) {
-                    new Switchery(html, { color: '#4f46e5' });
-                });
-            }
-            
-            $("[name='delivery_charge_type']").change(function() {
-                if($(this).val() == "FIXED") {
-                    $('#dynamicChargeDiv').addClass('hidden');
-                    $('#deliveryCharge').removeClass('hidden');
-                } else {
-                    $('#deliveryCharge').addClass('hidden');
-                    $('#dynamicChargeDiv').removeClass('hidden');
-                }
-            });
-            $('#dynamicChargeDiv').addClass('hidden');
         });
     </script>
 </body>
