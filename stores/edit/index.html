@@ -1215,6 +1215,21 @@
                                 console.warn("Summernote failed to initialize:", e);
                                 }
 
+                                 // Initialize Select2 premium
+                                 try {
+                                     if ($.fn.select2) {
+                                         $('select').select2({
+                                             dir: 'rtl',
+                                             width: '100%',
+                                             dropdownAutoWidth: true
+                                         });
+                                         // Hide our manual chevrons when select2 is active
+                                         $('.relative i.fa-chevron-down').addClass('hidden');
+                                     }
+                                 } catch (e) {
+                                     console.warn("Select2 failed to initialize:", e);
+                                 }
+
                                 // Initialize toggle on load
                                 toggleChargeType();
                                 toggleFeaturedInput();
