@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>تعديل الصنف | لوحة التحكم</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Icons & Fonts -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" />
+    <link href="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/css/icons/summernote/summernote.css" rel="stylesheet" type="text/css">
+
+    <!-- Core JS -->
+    <script src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/main/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+    <script src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/forms/selects/select2.min.js"></script>
+    <script src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/forms/styling/uniform.min.js"></script>
+    <script src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/forms/styling/switchery.min.js"></script>
+    <script src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/editors/summernote/summernote.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { 'cairo': ['Cairo', 'sans-serif'] },
+                    colors: {
+                        indigo: { 50: '#eef2ff', 100: '#e0e7ff', 200: '#c7d2fe', 300: '#a5b4fc', 400: '#818cf8', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca', 800: '#3730a3', 900: '#312e81' },
+                        emerald: { 50: '#ecfdf5', 100: '#d1fae5', 200: '#a7f3d0', 300: '#6ee7b7', 400: '#34d399', 500: '#10b981', 600: '#059669', 700: '#047857', 800: '#065f46', 900: '#064e3b' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Cairo', sans-serif; background-color: #f8fafc; min-height: 100vh; margin: 0; display: flex; flex-direction: column; }
+        .glass-panel { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05); }
+        .glass-sidebar { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: white; }
+        .nav-item.active { background: linear-gradient(90deg, rgba(79, 70, 229, 0.1), transparent); border-right: 3px solid #4f46e5; color: white !important; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .edit-tab-btn.active { background-color: rgba(79, 70, 229, 0.1); border-right: 3px solid #4f46e5; font-weight: 700; color: #4f46e5; }
+        .edit-tab-content { display: none; animation: fadeIn 0.3s ease-in-out; }
+        .edit-tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+        .select2-container--default .select2-selection--multiple { border-radius: 0.75rem; border-color: #e2e8f0; padding: 4px; background: white; }
+        .select2-container--default .select2-selection--multiple .select2-selection__choice { background-color: #6366f1 !important; border: none !important; color: white !important; border-radius: 0.5rem !important; padding: 2px 10px !important; }
+    </style>
+</head>
+
+<body class="flex flex-row overflow-hidden h-screen font-cairo">
+
+    <!-- Sidebar -->
+    <aside class="glass-sidebar w-72 shrink-0 hidden lg:flex flex-col z-20">
+        <div class="h-20 flex items-center justify-center border-b border-slate-700/50">
+            <h1 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-emerald-400">
+                <i class="fa-solid fa-gem mx-2"></i> MONTANA
+            </h1>
+        </div>
+        <div class="p-6 flex items-center gap-4">
+            <img src="https://ui-avatars.com/api/?name=Admin&background=4f46e5&color=fff" class="w-12 h-12 rounded-xl shadow-lg border-2 border-indigo-500/30">
+            <div>
+                <h3 class="font-bold text-slate-100">مدير النظام</h3>
+                <p class="text-[10px] text-emerald-400 font-bold"><i class="fa-solid fa-circle text-[8px] mx-1"></i> متصل حالياً</p>
+            </div>
+        </div>
+        <nav class="flex-1 overflow-y-auto custom-scrollbar p-4 space-y-2">
+            <a href="../../pro_dashboard.html" class="flex items-center gap-3 px-4 py-3 text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all">
+                <i class="fa-solid fa-house w-5"></i>
+                <span class="font-bold text-sm">الرئيسية</span>
+            </a>
+            <div class="pt-4 pb-2 px-4">
+                <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">إدارة الأصناف</p>
+            </div>
+            <a href="#" class="nav-item active flex items-center gap-3 px-4 py-3 text-white bg-indigo-600/10 rounded-xl transition-all border-r-4 border-indigo-500">
+                <i class="fa-solid fa-pen-to-square w-5"></i>
+                <span class="font-bold text-sm">تعديل صنف</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Content Area -->
+    <main class="flex-1 flex flex-col min-w-0 bg-slate-50 relative overflow-hidden">
+        
+        <!-- Header -->
+        <header class="h-20 glass-panel border-b border-slate-200 px-8 flex justify-between items-center z-10 shrink-0">
+            <div class="flex items-center gap-4">
+                <div class="lg:hidden p-2 text-slate-600 cursor-pointer"><i class="fa-solid fa-bars text-xl"></i></div>
+                <h2 class="text-xl font-extrabold text-slate-800 flex items-center gap-3">
+                    تعديل الصنف: <span class="bg-indigo-50 text-indigo-600 px-4 py-1 rounded-xl border border-indigo-100 shadow-sm">Graduation cake</span>
+                </h2>
+            </div>
+            <div class="flex items-center gap-3">
+                <button type="submit" form="itemMainForm" class="px-6 py-2.5 bg-indigo-600 text-white rounded-xl shadow-lg shadow-indigo-100 hover:bg-indigo-700 transition-all font-bold flex items-center gap-2">
+                    <i class="fa-solid fa-check"></i> حفظ الصنف
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Form Scrollable Area -->
+        <div class="flex-1 overflow-y-auto custom-scrollbar p-6 lg:p-10">
+            <form id="itemMainForm" action="https://montana-sa.amir-adel.com/admin/public/admin/item/edit/save" method="POST" enctype="multipart/form-data" class="max-w-6xl mx-auto flex flex-col lg:flex-row gap-8 pb-10">
+                <input type="hidden" name="_token" value="lsVFpTosoezx8uVFZzUCNj71po3yrYiUSKT89Avx">
+                <input type="hidden" name="id" value="170">
+
+                <!-- Left Tabs Column -->
+                <div class="w-full lg:w-72 flex flex-col gap-6 shrink-0">
+                    <div class="glass-panel p-4 rounded-[2rem] space-y-1">
+                        <p class="text-[10px] font-bold text-slate-400 uppercase px-4 mb-4 mt-2">التنقل السريع</p>
+                        <button type="button" onclick="openEditTab('basic', event)" class="edit-tab-btn active w-full flex items-center gap-3 px-4 py-4 rounded-2xl text-slate-600 hover:bg-slate-50 transition-all text-sm font-bold">
+                            <i class="fa-solid fa-id-card w-5 text-center"></i> البيانات الأساسية
+                        </button>
+                        <button type="button" onclick="openEditTab('prices', event)" class="edit-tab-btn w-full flex items-center gap-3 px-4 py-4 rounded-2xl text-slate-600 hover:bg-slate-50 transition-all text-sm font-bold">
+                            <i class="fa-solid fa-tag w-5 text-center"></i> الأسعار والكمية
+                        </button>
+                        <button type="button" onclick="openEditTab('addons', event)" class="edit-tab-btn w-full flex items-center gap-3 px-4 py-4 rounded-2xl text-slate-600 hover:bg-slate-50 transition-all text-sm font-bold">
+                            <i class="fa-solid fa-plus-circle w-5 text-center"></i> الإضافات والمميزات
+                        </button>
+                        <button type="button" onclick="openEditTab('nutrition', event)" class="edit-tab-btn w-full flex items-center gap-3 px-4 py-4 rounded-2xl text-slate-600 hover:bg-slate-50 transition-all text-sm font-bold">
+                            <i class="fa-solid fa-bolt w-5 text-center"></i> القيم الغذائية
+                        </button>
+                        <button type="button" onclick="openEditTab('seo', event)" class="edit-tab-btn w-full flex items-center gap-3 px-4 py-4 rounded-2xl text-slate-600 hover:bg-slate-50 transition-all text-sm font-bold">
+                            <i class="fa-solid fa-search w-5 text-center"></i> تهيئة البحث
+                        </button>
+                    </div>
+
+                    <!-- Side Image Card -->
+                    <div class="glass-panel p-6 rounded-[2rem] bg-indigo-50/20 border-indigo-100">
+                        <h4 class="text-xs font-black text-indigo-700 uppercase mb-4 tracking-tighter">صورة المنتج</h4>
+                        <div class="relative group aspect-square rounded-3xl overflow-hidden shadow-inner bg-slate-100 border-4 border-white">
+                            <img id="mainPreview" src="https://montana-sa.amir-adel.com/admin/assets/img/items/placeholder.png" class="w-full h-full object-cover transition-transform group-hover:scale-110">
+                            <label class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center cursor-pointer">
+                                <i class="fa-solid fa-camera text-white text-2xl"></i>
+                                <input type="file" name="image" class="hidden" onchange="previewImg(this, 'mainPreview')">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Content Column -->
+                <div class="flex-1 min-w-0">
+                    
+                    <!-- Tab: Basic -->
+                    <div id="basic" class="edit-tab-content active space-y-6">
+                        <div class="glass-panel p-8 rounded-[2.5rem] relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-32 h-32 bg-indigo-500/5 rounded-full -mr-16 -mt-16"></div>
+                            <h3 class="text-xl font-black text-slate-800 mb-8 flex items-center gap-3">
+                                <i class="fa-solid fa-circle-info text-indigo-500"></i> معلومات الصنف
+                            </h3>
+                            
+                            <!-- Lang Picker -->
+                            <div class="flex gap-2 p-1.5 bg-slate-100/50 rounded-2xl w-fit mb-8">
+                                <button type="button" onclick="setLang('ar', this)" class="lang-btn-v2 active px-6 py-2 rounded-xl text-sm font-extrabold bg-white text-indigo-600 shadow-sm border border-indigo-100">العربية</button>
+                                <button type="button" onclick="setLang('en', this)" class="lang-btn-v2 px-6 py-2 rounded-xl text-sm font-extrabold text-slate-500 hover:text-slate-800">English</button>
+                            </div>
+
+                            <div id="ar-fields" class="space-y-6">
+                                <div>
+                                    <label class="block text-sm font-extrabold text-slate-700 mb-2">اسم الصنف بالعربية</label>
+                                    <input type="text" name="name_ar" value="كيكة تخرج1" class="w-full px-6 py-4 rounded-2xl border border-slate-200 focus:border-indigo-500 outline-none transition-all shadow-sm font-bold bg-white/50 text-lg">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-extrabold text-slate-700 mb-2">وصف الصنف بالعربية</label>
+                                    <textarea name="desc_ar" class="modern-editor"></textarea>
+                                </div>
+                            </div>
+
+                            <div id="en-fields" class="space-y-6 hidden">
+                                <div>
+                                    <label class="block text-sm font-extrabold text-slate-700 mb-2">Item Name (English)</label>
+                                    <input type="text" name="name" value="Graduation cake" class="w-full px-6 py-4 rounded-2xl border border-slate-200 focus:border-indigo-500 outline-none transition-all shadow-sm font-bold bg-white/50 text-lg" dir="ltr">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-extrabold text-slate-700 mb-2">Item Description (English)</label>
+                                    <textarea name="desc" class="modern-editor"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+                                <div>
+                                    <label class="block text-sm font-extrabold text-slate-700 mb-2">تصنيف الصنف</label>
+                                    <select name="item_category_id" class="w-full px-6 py-4 rounded-2xl border border-slate-200 bg-white font-bold outline-none cursor-pointer">
+                                        <option value="3">التورته</option>
+                                        <option value="12" selected>تخرج أو نجاح</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-extrabold text-slate-700 mb-2">الرقم التعريفي (SKU)</label>
+                                    <input type="text" name="sku" value="SKU-90012" class="w-full px-6 py-4 rounded-2xl border border-slate-200 bg-white font-mono font-bold uppercase tracking-wider outline-none" dir="ltr">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab: Prices -->
+                    <div id="prices" class="edit-tab-content space-y-6">
+                        <div class="glass-panel p-8 rounded-[2.5rem]">
+                            <h3 class="text-xl font-black text-slate-800 mb-8 flex items-center gap-3">
+                                <i class="fa-solid fa-coins text-emerald-500"></i> التسعير والمخزون
+                            </h3>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                                <div class="bg-indigo-50/30 p-6 rounded-3xl border border-indigo-100">
+                                    <label class="block text-xs font-black text-indigo-600 mb-3 uppercase">سعر البيع الحالي</label>
+                                    <div class="flex items-center gap-3">
+                                        <input type="text" name="price" value="300.00" class="w-full bg-transparent border-none p-0 focus:ring-0 text-2xl font-black text-slate-800">
+                                        <span class="text-xs font-bold text-slate-400">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="bg-rose-50/30 p-6 rounded-3xl border border-rose-100 opacity-60">
+                                    <label class="block text-xs font-black text-rose-600 mb-3 uppercase">السعر الأساسي (شطب)</label>
+                                    <div class="flex items-center gap-3">
+                                        <input type="text" name="old_price" value="0.00" class="w-full bg-transparent border-none p-0 focus:ring-0 text-xl font-bold text-rose-800 line-through">
+                                        <span class="text-xs font-bold text-slate-400">ر.س</span>
+                                    </div>
+                                </div>
+                                <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200">
+                                    <label class="block text-xs font-black text-slate-600 mb-3 uppercase">وحدة القياس</label>
+                                    <select name="price_type" class="w-full bg-transparent border-none p-0 focus:ring-0 font-bold text-slate-800">
+                                        <option value="piece" selected>بالقطعة</option>
+                                        <option value="one_kilo">بالكيلو</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="bg-white/40 border border-slate-200 p-8 rounded-[2rem]">
+                                <h4 class="font-black text-slate-800 text-sm mb-6 flex items-center gap-2">
+                                    <i class="fa-solid fa-shop text-indigo-500"></i> رصيد المخزون في الفروع
+                                </h4>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    <!-- Simple card style for stock rows -->
+                                    <div class="flex items-center p-4 bg-white rounded-2xl shadow-sm border border-slate-100 group transition-all hover:border-indigo-300">
+                                        <div class="flex-1">
+                                            <p class="text-[10px] font-black text-slate-400 mb-1 leading-none uppercase">حي السلامة</p>
+                                            <input type="number" name="stock[2]" value="0" class="w-full border-none p-0 focus:ring-0 text-base font-black text-slate-700">
+                                        </div>
+                                        <div class="w-10 h-10 bg-slate-50 rounded-xl flex items-center justify-center font-bold text-xs text-slate-300">#2</div>
+                                    </div>
+                                    <div class="flex items-center p-4 bg-white rounded-2xl shadow-sm border border-slate-100 group transition-all hover:border-indigo-300">
+                                        <div class="flex-1">
+                                            <p class="text-[10px] font-black text-slate-400 mb-1 leading-none uppercase">حي الصفا</p>
+                                            <input type="number" name="stock[3]" value="0" class="w-full border-none p-0 focus:ring-0 text-base font-black text-slate-700">
+                                        </div>
+                                        <div class="w-10 h-10 bg-slate-50 rounded-xl flex items-center justify-center font-bold text-xs text-slate-300">#3</div>
+                                    </div>
+                                    <div class="flex items-center p-4 bg-white/50 rounded-2xl border border-dashed border-slate-200 italic text-[10px] font-bold text-slate-400 text-center justify-center">رصيد باقي الفروع سيظهر هنا...</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab: Addons -->
+                    <div id="addons" class="edit-tab-content space-y-6">
+                        <div class="glass-panel p-8 rounded-[2.5rem]">
+                            <h3 class="text-xl font-black text-slate-800 mb-8 flex items-center gap-3">
+                                <i class="fa-solid fa-puzzle-piece text-amber-500"></i> تخصيص الإضافات
+                            </h3>
+                            <div class="mb-10">
+                                <label class="block text-sm font-extrabold text-slate-700 mb-4">تصنيفات الإضافات المرتبطة</label>
+                                <select multiple="multiple" name="addon_category_item[]" class="modern-select2 w-full">
+                                    <option value="1">درجة الطعم</option>
+                                    <option value="3">عدد الأشخاص</option>
+                                    <option value="11">الحشوة الخارجية</option>
+                                </select>
+                            </div>
+                            
+                            <hr class="border-slate-100 my-10">
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <label class="p-6 rounded-3xl border-2 border-slate-100 bg-white flex flex-col gap-4 cursor-pointer hover:border-indigo-200 transition-all group">
+                                    <div class="flex justify-between items-center w-full">
+                                        <div class="w-10 h-10 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center"><i class="fa-solid fa-star"></i></div>
+                                        <input type="checkbox" name="is_recommended" value="true" class="w-5 h-5 rounded-md border-slate-300 text-indigo-600 focus:ring-indigo-500">
+                                    </div>
+                                    <div>
+                                        <h4 class="font-black text-slate-800 text-sm">موصى به</h4>
+                                        <p class="text-[10px] text-slate-400 font-bold leading-tight">يظهر في القسم الرئيسي للأصناف المختارة</p>
+                                    </div>
+                                </label>
+                                <label class="p-6 rounded-3xl border-2 border-slate-100 bg-white flex flex-col gap-4 cursor-pointer hover:border-amber-200 transition-all group">
+                                    <div class="flex justify-between items-center w-full">
+                                        <div class="w-10 h-10 bg-amber-50 text-amber-600 rounded-xl flex items-center justify-center"><i class="fa-solid fa-fire"></i></div>
+                                        <input type="checkbox" name="is_popular" value="true" class="w-5 h-5 rounded-md border-slate-300 text-amber-600 focus:ring-amber-500">
+                                    </div>
+                                    <div>
+                                        <h4 class="font-black text-slate-800 text-sm">الأكثر طلباً</h4>
+                                        <p class="text-[10px] text-slate-400 font-bold leading-tight">يتم تمييز الصنف بعبارة "شائع"</p>
+                                    </div>
+                                </label>
+                                <label class="p-6 rounded-3xl border-2 border-slate-100 bg-white flex flex-col gap-4 cursor-pointer hover:border-slate-300 transition-all group">
+                                    <div class="flex justify-between items-center w-full">
+                                        <div class="w-10 h-10 bg-slate-100 text-slate-800 rounded-xl flex items-center justify-center"><i class="fa-solid fa-burst"></i></div>
+                                        <input type="checkbox" name="is_new" value="true" class="w-5 h-5 rounded-md border-slate-300 text-slate-800 focus:ring-slate-800">
+                                    </div>
+                                    <div>
+                                        <h4 class="font-black text-slate-800 text-sm">صنف جديد</h4>
+                                        <p class="text-[10px] text-slate-400 font-bold leading-tight">إضافة علامة "جديد" على بطاقة الصنف</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab: Nutrition -->
+                    <div id="nutrition" class="edit-tab-content space-y-6">
+                        <div class="glass-panel p-8 rounded-[2.5rem]">
+                             <h3 class="text-xl font-black text-slate-800 mb-8 flex items-center gap-3">
+                                <i class="fa-solid fa-heart-pulse text-rose-500"></i> المكونات والحقائق الغذائية
+                            </h3>
+                            <div class="flex flex-wrap gap-4 mb-10">
+                                <label class="flex items-center gap-3 px-6 py-3 rounded-2xl bg-slate-100 border-2 border-transparent cursor-pointer transition-all peer-checked:bg-emerald-50 border-emerald-500">
+                                    <input type="radio" name="is_veg" value="veg" class="hidden peer">
+                                    <i class="fa-solid fa-leaf text-emerald-500"></i> <span class="font-bold text-sm">نباتي (Veg)</span>
+                                </label>
+                                <label class="flex items-center gap-3 px-6 py-3 rounded-2xl bg-slate-100 border-2 border-transparent cursor-pointer transition-all">
+                                    <input type="radio" name="is_veg" value="nonveg" class="hidden" checked>
+                                    <i class="fa-solid fa-drumstick-bite text-rose-500"></i> <span class="font-bold text-sm">غير نباتي</span>
+                                </label>
+                            </div>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 bg-slate-50/50 p-8 rounded-[2rem]">
+                                <div>
+                                    <label class="text-[10px] font-black text-slate-500 mb-1 ml-1 block">السعرات (Calories)</label>
+                                    <input type="text" name="calories" placeholder="0" class="w-full bg-white border border-slate-200 px-4 py-3 rounded-xl font-bold">
+                                </div>
+                                <div>
+                                    <label class="text-[10px] font-black text-slate-500 mb-1 ml-1 block">البروتين (Protein)</label>
+                                    <input type="text" name="protein" placeholder="0" class="w-full bg-white border border-slate-200 px-4 py-3 rounded-xl font-bold">
+                                </div>
+                                <div>
+                                    <label class="text-[10px] font-black text-slate-500 mb-1 ml-1 block">الدهون الكلية (Total Fat)</label>
+                                    <input type="text" name="fats" placeholder="0" class="w-full bg-white border border-slate-200 px-4 py-3 rounded-xl font-bold">
+                                </div>
+                                <div>
+                                    <label class="text-[10px] font-black text-slate-500 mb-1 ml-1 block">دهون مشبعة (Sat. Fat)</label>
+                                    <input type="text" name="saturated_fat" placeholder="0" class="w-full bg-white border border-slate-200 px-4 py-3 rounded-xl font-bold">
+                                </div>
+                                <div>
+                                    <label class="text-[10px] font-black text-slate-500 mb-1 ml-1 block">دهون متحولة (Trans Fat)</label>
+                                    <input type="text" name="trans_fat" placeholder="0" class="w-full bg-white border border-slate-200 px-4 py-3 rounded-xl font-bold">
+                                </div>
+                                <div>
+                                    <label class="text-[10px] font-black text-slate-500 mb-1 ml-1 block">كوليسترول (Cholesterol)</label>
+                                    <input type="text" name="cholesterol" placeholder="0" class="w-full bg-white border border-slate-200 px-4 py-3 rounded-xl font-bold">
+                                </div>
+                                <div>
+                                    <label class="text-[10px] font-black text-slate-500 mb-1 ml-1 block">صوديوم (Sodium)</label>
+                                    <input type="text" name="sodium" placeholder="0" class="w-full bg-white border border-slate-200 px-4 py-3 rounded-xl font-bold">
+                                </div>
+                                <div>
+                                    <label class="text-[10px] font-black text-slate-500 mb-1 ml-1 block">بوتاسيوم (Potassium)</label>
+                                    <input type="text" name="potassium" placeholder="0" class="w-full bg-white border border-slate-200 px-4 py-3 rounded-xl font-bold">
+                                </div>
+                                <div>
+                                    <label class="text-[10px] font-black text-slate-500 mb-1 ml-1 block">كربوهيدرات (Carbs)</label>
+                                    <input type="text" name="carbohydrates" placeholder="0" class="w-full bg-white border border-slate-200 px-4 py-3 rounded-xl font-bold">
+                                </div>
+                                <div>
+                                    <label class="text-[10px] font-black text-slate-500 mb-1 ml-1 block">ألياف (Dietary Fiber)</label>
+                                    <input type="text" name="dietary_fiber" placeholder="0" class="w-full bg-white border border-slate-200 px-4 py-3 rounded-xl font-bold">
+                                </div>
+                                <div>
+                                    <label class="text-[10px] font-black text-slate-500 mb-1 ml-1 block">سكريات (Sugars)</label>
+                                    <input type="text" name="sugars" placeholder="0" class="w-full bg-white border border-slate-200 px-4 py-3 rounded-xl font-bold">
+                                </div>
+                                <div>
+                                    <label class="text-[10px] font-black text-slate-500 mb-1 ml-1 block">سكر مكرر (Ref. Sugars)</label>
+                                    <input type="text" name="refined_sugars" placeholder="0" class="w-full bg-white border border-slate-200 px-4 py-3 rounded-xl font-bold">
+                                </div>
+                                <div>
+                                    <label class="text-[10px] font-black text-slate-500 mb-1 ml-1 block">فيتامين د (Vitamin D)</label>
+                                    <input type="text" name="vitamin_d" placeholder="0" class="w-full bg-white border border-slate-200 px-4 py-3 rounded-xl font-bold">
+                                </div>
+                                <div>
+                                    <label class="text-[10px] font-black text-slate-500 mb-1 ml-1 block">كالسيوم (Calcium)</label>
+                                    <input type="text" name="calcium" placeholder="0" class="w-full bg-white border border-slate-200 px-4 py-3 rounded-xl font-bold">
+                                </div>
+                                <div>
+                                    <label class="text-[10px] font-black text-slate-500 mb-1 ml-1 block">حديد (Iron)</label>
+                                    <input type="text" name="iron" placeholder="0" class="w-full bg-white border border-slate-200 px-4 py-3 rounded-xl font-bold">
+                                </div>
+                                <div>
+                                    <label class="text-[10px] font-black text-slate-500 mb-1 ml-1 block">ساعات المشي (Caffeine/Exp)</label>
+                                    <input type="text" name="caffeine" placeholder="0" class="w-full bg-white border border-slate-200 px-4 py-3 rounded-xl font-bold">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab: SEO -->
+                    <div id="seo" class="edit-tab-content space-y-6">
+                        <div class="glass-panel p-8 rounded-[2.5rem]">
+                            <h3 class="text-xl font-black text-slate-800 mb-8 flex items-center gap-3">
+                                <i class="fa-solid fa-globe text-sky-500"></i> إعدادات محركات البحث
+                            </h3>
+                            <div class="space-y-6">
+                                <div>
+                                    <label class="block text-sm font-extrabold text-slate-700 mb-2">عنوان الصفحة (Meta Title)</label>
+                                    <input type="text" name="meta_title" value="كيكة التخرج" class="w-full px-6 py-4 rounded-2xl border border-slate-200 font-bold bg-white outline-none focus:border-sky-500">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-extrabold text-slate-700 mb-2">الرابط المخصص (Slug)</label>
+                                    <input type="text" name="slug" value="graduation-cake" class="w-full px-6 py-4 rounded-2xl border border-slate-200 font-bold bg-white text-slate-500 outline-none" dir="ltr">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-extrabold text-slate-700 mb-2">وصف الصفحة (Meta Description)</label>
+                                    <textarea name="meta_description" class="modern-editor"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        function openEditTab(id, e) {
+            $('.edit-tab-content').hide().removeClass('active');
+            $('#' + id).fadeIn().addClass('active');
+            $('.edit-tab-btn').removeClass('active');
+            $(e.currentTarget).addClass('active');
+        }
+
+        function setLang(lang, btn) {
+            $('.lang-btn-v2').removeClass('active bg-white text-indigo-600 shadow-sm border border-indigo-100').addClass('text-slate-500 hover:text-slate-800');
+            $(btn).addClass('active bg-white text-indigo-600 shadow-sm border border-indigo-100').removeClass('text-slate-500');
+            if(lang === 'ar') { $('#ar-fields').show(); $('#en-fields').hide(); }
+            else { $('#ar-fields').hide(); $('#en-fields').show(); }
+        }
+
+        function previewImg(input, target) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) { $('#' + target).attr('src', e.target.result); }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $(document).ready(function() {
+            if ($.fn.summernote) {
+                $('.modern-editor').summernote({
+                    height: 150,
+                    toolbar: [ ['style', ['bold', 'italic', 'underline']], ['para', ['ul', 'ol', 'paragraph']], ['insert', ['link']] ]
+                });
+            }
+            if ($.fn.select2) {
+                $('.modern-select2').select2({ placeholder: 'اختر المجموعات المرتبطة', dir: 'rtl' });
+            }
+        });
+    </script>
+</body>
+</html>

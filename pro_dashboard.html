@@ -10319,7 +10319,13 @@
                         sortable: false,
                         className: 'text-center',
                         render: function () {
-                            return `<div class="flex items-center justify-center gap-2"><button class="w-8 h-8 rounded-lg bg-slate-50 text-slate-400 hover:bg-slate-100 hover:text-indigo-600 transition-all flex items-center justify-center border border-slate-100"><i class="fa-solid fa-pen"></i></button><button class="w-8 h-8 rounded-lg bg-slate-50 text-slate-400 hover:bg-rose-50 hover:text-rose-600 transition-all flex items-center justify-center border border-slate-100"><i class="fa-solid fa-trash"></i></button></div>`;
+                            return `<div class="flex items-center justify-center gap-2">
+                                <a href="item/edit/modern_index.html" class="px-3 py-1.5 h-8 rounded-lg bg-indigo-50 text-indigo-600 hover:bg-indigo-600 hover:text-white transition-all flex items-center gap-2 border border-indigo-100 text-[10px] font-bold whitespace-nowrap" title="التعديل الشامل">
+                                    <i class="fa-solid fa-wand-magic-sparkles"></i> التعديل الشامل
+                                </a>
+                                <button class="w-8 h-8 rounded-lg bg-slate-50 text-slate-400 hover:bg-slate-100 hover:text-indigo-600 transition-all flex items-center justify-center border border-slate-100"><i class="fa-solid fa-pen"></i></button>
+                                <button class="w-8 h-8 rounded-lg bg-slate-50 text-slate-400 hover:bg-rose-50 hover:text-rose-600 transition-all flex items-center justify-center border border-slate-100"><i class="fa-solid fa-trash"></i></button>
+                            </div>`;
                         }
                     }
                 ],

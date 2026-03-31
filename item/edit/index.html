@@ -1,0 +1,1637 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="lsVFpTosoezx8uVFZzUCNj71po3yrYiUSKT89Avx">
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/images/favicons/favicon-16x16.png">
+    <title> Edit Item - Dashboard
+    </title>
+    <!-- Global stylesheets -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet"
+        type="text/css">
+    <link href="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/css/icons/icomoon/styles.min.css"
+        rel="stylesheet" type="text/css">
+    <link href="https://montana-sa.amir-adel.com/admin/assets/backend/css/bootstrap.min.css?v=3.5.0-BUILD-02"
+        rel="stylesheet" type="text/css">
+    <link href="https://montana-sa.amir-adel.com/admin/assets/backend/css/combined.min.css?v=3.5.0-BUILD-02"
+        rel="stylesheet" type="text/css">
+    <link href="https://montana-sa.amir-adel.com/admin/assets/backend/css/layout.min.css?v=3.5.0-BUILD-02"
+        rel="stylesheet" type="text/css">
+    <link href="https://montana-sa.amir-adel.com/admin/assets/backend/css/components.min.css?v=3.5.0-BUILD-02"
+        rel="stylesheet" type="text/css">
+    <link href="https://montana-sa.amir-adel.com/admin/assets/backend/css/colors.min.css" rel="stylesheet"
+        type="text/css">
+    <link href="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/css/extras/animate.min.css"
+        rel="stylesheet" type="text/css">
+    <link href="https://montana-sa.amir-adel.com/admin/assets/backend/css/backend-custom.css?v=3.5.0-BUILD-02"
+        rel="stylesheet" type="text/css">
+    <link type="text/css" href="https://montana-sa.amir-adel.com/admin/assets/backend/css/OverlayScrollbars.min.css"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.9.0/css/ol.css">
+    <!-- /global stylesheets -->
+
+
+    <!-- Core JS files -->
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/main/jquery.min.js">
+        </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.10.2/Sortable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-sortablejs@latest/jquery-sortable.js"></script>
+
+
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/js/jquery.overlayScrollbars.min.js">
+        </script>
+
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets//js/plugins/ui/moment/moment.min.js">
+        </script>
+
+
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/main/bootstrap.bundle.min.js">
+        </script>
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/loaders/blockui.min.js">
+        </script>
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/ui/slinky.min.js">
+        </script>
+    <!-- /core JS files -->
+    <!-- Theme JS files -->
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/ui/sticky.min.js">
+        </script>
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/buttons/spin.min.js">
+        </script>
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/buttons/ladda.min.js">
+        </script>
+
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/notifications/jgrowl.min.js">
+        </script>
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/forms/selects/select2.min.js">
+        </script>
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/forms/styling/uniform.min.js">
+        </script>
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/forms/styling/switchery.min.js">
+        </script>
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/pickers/color/spectrum.js">
+        </script>
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/editors/summernote/summernote.js">
+        </script>
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/pickers/daterangepicker.js">
+        </script>
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/uploaders/dropzone.min.js">
+        </script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106310733-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'UA-106310733-1'); gtag('evaluation', window.location.hostname);
+    </script>
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/tables/datatables/datatables.min.js">
+        </script>
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/tables/datatables/extensions/fixed_columns.min.js">
+        </script>
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/tables/datatables/extensions/col_reorder.min.js">
+        </script>
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/tables/datatables/extensions/buttons.min.js">
+        </script>
+
+
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/visualization/echarts/echarts.js"
+        defer></script>
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/visualization/d3/d3.min.js">
+        </script>
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/visualization/d3/d3_tooltip.js">
+        </script>
+
+    <script type="text/javascript" src="https://montana-sa.amir-adel.com/admin/assets/backend/js/app.js">
+    </script>
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/js/navbar-sticky.js"></script>
+    <script type="text/javascript" src="https://montana-sa.amir-adel.com/admin/assets/backend/js/printThis.js">
+    </script>
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/js/jquery-alphanum.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.js"></script>
+    <script type="text/javascript"
+        src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/plugins/pickers/daterangepicker.js">
+        </script>
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.9.0/build/ol.js"></script>
+
+    <!-- /theme JS files -->
+    <style>
+        #nprogress .bar {
+            background: #fff !important;
+        }
+
+        #nprogress .peg {
+            box-shadow: 0 0 10px #fff, 0 0 5px #fff;
+        }
+
+        #nprogress .spinner-icon {
+            border-top-color: #fff;
+            border-left-color: #fff;
+        }
+    </style>
+
+    <style>
+        #settings &gt;
+        ul &gt;
+
+        li {
+            text-align: center;
+        }
+
+        #settings &gt;
+        ul &gt;
+
+        li+li {
+            margin-left: .6rem;
+        }
+
+        #settings &gt;
+        ul &gt;
+        li &gt;
+
+        a {
+            display: grid;
+        }
+    </style>
+
+</head>
+
+<body>
+    <link href="/assets/css/amir.css" rel="stylesheet" type="text/css">
+
+    <style>
+        #dark-nav .dropdown-item.active {
+            background-color: #0a4368;
+        }
+
+        .extra-menu {
+            min-width: 500px
+        }
+
+        @media screen and (max-width:767px) {
+            .extra-menu {
+                min-width: auto
+            }
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+            margin-top: 0;
+        }
+
+        /* MG CODE */
+        #mg-nav {
+            flex-wrap: nowrap;
+            background: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 300;
+        }
+
+        #mg-nav>div:first-child {
+            justify-content: space-between;
+        }
+
+        #mg-nav>ul {
+            position: fixed;
+            background: #fff;
+            gap: 0.3rem;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1;
+            transform: translateY(100%);
+            transition: 0.3s ease-out;
+        }
+
+        #mg-nav>ul.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0%);
+        }
+
+        #mg-nav li>a {
+            color: #0b4368;
+            border-radius: 4px;
+            padding: 0.6rem 1.2rem;
+            /*justify-content: center;*/
+        }
+
+        #mg-nav li:not(.dropdown-user).active>a {
+            background: #0b4368;
+            color: #fff;
+        }
+
+        #mg-nav li:not(.dropdown-user):has(div) {
+            border-bottom: 1px solid #eee;
+        }
+
+        #mg-nav li:not(.dropdown-user).active>a,
+        #mg-nav li:hover>a {
+            color: #fff;
+            background-color: #0b4368;
+        }
+
+        #mg-nav li:not(.dropdown-user):has(div).active>a {
+            background-color: #ffcd00;
+        }
+
+        #mg-nav li:not(.dropdown-user):has(div)>div {
+            border-left: 1px solid #eee;
+            max-height: 0;
+            --margin-y: 0;
+            margin: var(--margin-y) 2rem;
+            overflow: hidden;
+            transition: 0.3s ease-out;
+        }
+
+        #mg-nav li:not(.dropdown-user).active>div {
+            max-height: var(--sh, 25vh);
+            --margin-y: 0.3rem;
+            /*overflow: auto;*/
+        }
+
+        #mg-nav a.dropdown-toggle::after {
+            margin-left: auto;
+        }
+
+        #mg-nav ul.active+.dismisser {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #0002;
+        }
+
+        #mg-nav .dropdown-item:hover {
+            background-color: #0001;
+        }
+
+        #mg-nav .dropdown-item.active {
+            background-color: #0b4368;
+        }
+
+
+        body>.page-content {
+            border-top: 1px solid #eee;
+            border-left: 1px solid #ddd;
+        }
+
+        .dashboard-display,
+        .dashboard-block-movable>div {
+            border: 1px solid #eee;
+        }
+
+        @media (min-width: 1407px) {
+            body {
+                display: grid;
+                grid-template-columns: 300px calc(-315px + 100vw);
+                grid-template-rows: max-content 1fr;
+            }
+
+            .navbar-dark .navbar-nav-link {
+                color: #18181B !important;
+            }
+
+            #dark-nav {
+                background-color: #fff;
+                border-left: 1px solid #ddd;
+            }
+
+            #mg-nav {
+                grid-row: 1 / span 2;
+                background: transparent;
+                display: flex;
+                flex-direction: column;
+                justify-content: start;
+                gap: 1.5rem;
+                max-height: 100vh;
+            }
+
+            #mg-nav>div:first-child {
+                background: transparent;
+            }
+
+            #mg-nav>div:first-child>button {
+                display: none;
+            }
+
+            #mg-nav>ul {
+                height: -webkit-fill-available;
+                position: static;
+                transform: none;
+                opacity: 1;
+                visibility: visible;
+                background: transparent;
+                padding: 0 !important;
+                max-width: 100%;
+            }
+
+            #mg-nav li:not(.dropdown-user) {
+                border-bottom: 1px solid #eee;
+            }
+
+            #mg-nav .li.active>a {
+                background-color: #0b4368;
+            }
+        }
+    </style>
+
+
+    <div id="dark-nav" class="navbar navbar-expand-md m-xl-0">
+        <div class="d-lg-flex d-none">
+            <button class="navbar-toggler dropdown-toggle" type="button" data-toggle="collapse"
+                data-target="#navbar-mobile">
+                <span>admin</span>
+
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" id="navbar-mobile">
+
+                <a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown" style="color: #184369">
+                    <span><i class="icon-earth"></i></span>
+                </a>
+                <div class="dropdown-menu">
+                    <a href="https://montana-sa.amir-adel.com/admin/public/locale/ar" class="dropdown-item "
+                        style="text-transform: uppercase;"> ar</a>
+                    <a href="https://montana-sa.amir-adel.com/admin/public/locale/en" class="dropdown-item  active "
+                        style="text-transform: uppercase;"> en</a>
+                </div>
+
+                <a href="https://montana-sa.amir-adel.com/admin/public/auth/logout" class="dropdown-item"><i
+                        class="icon-switch2"></i>
+                    Logout</a>
+
+            </div>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item nav-zone-selection">
+                    <select name="nav_select_zone" class="nav-select-zone">
+                        <option value="0"> All Zones
+                        </option>
+                        <option value="1">
+                            Alhamdaniah</option>
+                        <option value="2">
+                            Alsafa</option>
+                        <option value="3">
+                            Alsamer</option>
+                        <option value="4">
+                            Alrehab</option>
+                        <option value="5">
+                            Alsanabel</option>
+                        <option value="6">
+                            AlWaha</option>
+                        <option value="7">
+                            Alsulaimaniyah</option>
+                        <option value="8">
+                            AlNuzha</option>
+                        <option value="9">
+                            Al Salama</option>
+                        <option value="10">
+                            Alyagoot</option>
+                    </select>
+                </li>
+
+                <script>
+                    $('.nav-select-zone').select2();
+                    $('select[name="nav_select_zone"]').on('change', (event) => {
+                        let url = "https://montana-sa.amir-adel.com/admin/public/change-zone-scope/" + event.target.value;
+                        //delete datatable filters
+                        var savedDatatables = findLocalItems("DataTables_");
+                        if (savedDatatables.length > 0) {
+                            console.log("Cleaning keys");
+                            $.each(savedDatatables, function (indexInArray, valueOfElement) {
+                                localStorage.removeItem(valueOfElement.key);
+                            });
+                        }
+                        setTimeout(() => {
+                            window.location.href = url;
+                        }, 500);
+                    });
+                </script>
+
+                <li class="nav-item dropdown-user">
+                    <a href="#" class="navbar-nav-link d-flex align-items-center dropdown-toggle" data-toggle="dropdown"
+                        style="color: #184369">
+                        <span><i class="icon-earth mx-2"></i></span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a href="https://montana-sa.amir-adel.com/admin/public/locale/ar" class="dropdown-item "
+                            style="text-transform: uppercase;"> ar</a>
+                        <a href="https://montana-sa.amir-adel.com/admin/public/locale/en" class="dropdown-item  active "
+                            style="text-transform: uppercase;"> en</a>
+                    </div>
+                </li>
+
+
+
+                <li class="nav-item dropdown-user">
+                    <a href="#" class="navbar-nav-link d-flex align-items-center dropdown-toggle" data-toggle="dropdown"
+                        style="color: #184369">
+                        <span>admin</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a href="https://montana-sa.amir-adel.com/admin/public/profile" class="dropdown-item"><i
+                                class="icon-users2"></i>
+                            profile</a>
+                        <a href="https://montana-sa.amir-adel.com/admin/public/auth/logout" class="dropdown-item"><i
+                                class="icon-switch2"></i>
+                            Logout</a>
+
+                    </div>
+                </li>
+
+
+
+            </ul>
+        </div>
+    </div>
+
+
+    <div id="mg-nav" class="navbar py-2" style="">
+        <div class="d-flex w-100">
+            <a href="https://montana-sa.amir-adel.com/admin/public"
+                style="height: 48px;flex-grow: 1;text-align: center;">
+                <img src="https://montana-sa.amir-adel.com/admin/assets/home/logo.svg"
+                    style="max-height: 48px; margin: 0 auto;" alt="logo" />
+            </a>
+            <button type="button" class="btn navbar-brand-md">
+                <i class="icon-unfold mr-2"></i>
+                Navigation
+            </button>
+        </div>
+
+        <ul class="d-flex flex-column list-unstyled m-0 p-3 px-md-5">
+            <li class="nav-item">
+                <a href="https://montana-sa.amir-adel.com/admin/public/admin/dashboard" class="navbar-nav-link">
+                    <i class="icon-equalizer mr-2"></i>
+                    Dashboard
+                    <!--<img src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/images/dashboard-logo.png"-->
+                    <!--    alt="Dashboard">-->
+                </a>
+
+            </li>
+
+            <li class="nav-item">
+                <a href="https://montana-sa.amir-adel.com/admin/public/admin/stores" class="navbar-nav-link ">
+                    <i class="icon-store2 mr-2"></i>
+                    Stores
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="navbar-nav-link  dropdown-toggle">
+                    <i class="icon-stack-star mr-2"></i>
+                    Items &amp; Menu
+                </a>
+                <div class="">
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/addoncategories"
+                        class="dropdown-item ">
+                        <i class="icon-tree6 mr-2"></i>
+                        Addon Categories
+                    </a>
+
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/addons" class="dropdown-item ">
+                        <i class="icon-list2 mr-2"></i>
+                        Addons
+                    </a>
+
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/itemcategories" class="dropdown-item ">
+                        <i class="icon-grid52 mr-2"></i>
+                        Menu Categories
+                    </a>
+
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/items" class="dropdown-item ">
+                        <i class="icon-grid mr-2"></i>
+                        Items
+                    </a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="navbar-nav-link dropdown-toggle  ">
+                    <i class="icon-users2 mr-2"></i>
+                    Users
+                </a>
+
+                <div class="">
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/users" class="dropdown-item "> <i
+                            class="icon-users4 mr-2"></i> All Users</a>
+
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/customers" class="dropdown-item "> <i
+                            class="icon-user mr-2"></i> Customers</a>
+
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/manage-store-owners"
+                        class="dropdown-item "> <i class="icon-user-tie mr-2"></i> Store Owners</a>
+
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/manage-delivery-guys"
+                        class="dropdown-item "> <i class="icon-truck mr-2"></i> Delivery Guys</a>
+
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/staffs" class="dropdown-item "> <i
+                            class="icon-collaboration mr-2"></i> Staff</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a href="https://montana-sa.amir-adel.com/admin/public/admin/orders" class="navbar-nav-link ">
+                    <i class="icon-basket mr-2"></i>
+                    Orders
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="navbar-nav-link dropdown-toggle  ">
+                    <i class="icon-percent mr-2"></i>
+                    Promotions
+                </a>
+                <div class="">
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/sliders" class="dropdown-item ">
+                        <i class="icon-image2 mr-2"></i>
+                        Promo Sliders
+                    </a>
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/store-category-slider"
+                        class="dropdown-item ">
+                        <i class="icon-grid52 mr-2"></i>
+                        Store Category Slider
+                    </a>
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/coupons" class="dropdown-item ">
+                        <i class="icon-price-tags2 mr-2"></i>
+                        Coupons
+                    </a>
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/cash-back" class="dropdown-item ">
+                        <i class="icon-price-tags2 mr-2"></i>
+                        Cash back
+                    </a>
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/pages" class="dropdown-item ">
+                        <i class="icon-files-empty mr-2"></i>
+                        Pages
+                    </a>
+
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/notifications" class="dropdown-item ">
+                        <i class="icon-bubble-dots4 mr-2"></i>
+                        Send Push Notifications
+                    </a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="navbar-nav-link dropdown-toggle  ">
+                    <i class="icon-books mr-2"></i>
+                    Transactions
+                </a>
+                <div class="">
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/store-payouts" class="dropdown-item ">
+                        <i class="icon-piggy-bank mr-2"></i>
+                        Store Payouts
+                    </a>
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/delivery-collections"
+                        class="dropdown-item ">
+                        <i class="icon-cash3 mr-2"></i>
+                        Delivery Collections
+                    </a>
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/delivery-collection-logs"
+                        class="dropdown-item ">
+                        <i class="icon-database-time2 mr-2"></i>
+                        Delivery Collection Logs
+                    </a>
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/wallet/transactions"
+                        class="dropdown-item ">
+                        <i class="icon-transmission mr-2"></i>
+                        Wallet Transactions
+                    </a>
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/reports/top-items"
+                        class="dropdown-item ">
+                        <i class="icon-graph mr-2"></i>
+                        Reports
+                    </a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a href="https://montana-sa.amir-adel.com/admin/public/admin/modules" class="navbar-nav-link ">
+                    <i class="icon-stars mr-2"></i>
+                    Modules
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="navbar-nav-link dropdown-toggle ">
+                    <i class="icon-briefcase mr-2"></i>
+                    Job List
+                </a>
+
+                <div>
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/jobs" class="dropdown-item  ">
+                        <i class="icon-user-tie mr-2"></i>
+                        Jobs
+                    </a>
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/applay-job" class="dropdown-item  ">
+                        <i class="icon-vcard mr-2"></i>
+                        Apply Jobs
+                    </a>
+                </div>
+            </li>
+            <!--<li class="nav-item">-->
+            <!--            <a href="https://montana-sa.amir-adel.com/admin/public/admin/applay-job"-->
+            <!--                class="navbar-nav-link ">-->
+            <!--                <i class="icon-basket mr-2"></i>-->
+            <!--                admin.-->
+            <!--            </a>-->
+            <!--        </li>-->
+
+
+            <li class="nav-item">
+                <a class="navbar-nav-link dropdown-toggle  ">
+                    <i class="icon-cog3 mr-2"></i>
+                    Settings
+                </a>
+                <div class="">
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/zones" class="dropdown-item ">
+                        <i class="icon-location4 mr-2"></i>
+                        Zones <span
+                            class="badge badge-flat border-grey-800 text-danger text-capitalize ml-1 float-right">NEW</span>
+                    </a>
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/popular-geo-locations"
+                        class="dropdown-item ">
+                        <i class="icon-location3 mr-2"></i>
+                        Popular Geo Locations
+                    </a>
+                    <hr class="my-2">
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/settings?#generalSettings"
+                        class="dropdown-item ">
+                        <i class="icon-gear mr-2"></i>
+                        All Settings
+                    </a>
+                    <hr class="my-2">
+                    <a href="https://montana-sa.amir-adel.com/admin/public/admin/store/schedule" class="dropdown-item ">
+                        <i class="icon-gear mr-2"></i>
+                        Restaurant schedule
+                    </a>
+                </div>
+            </li>
+
+
+            <!-- MG ===========-->
+            <li class="dropdown-user nav-item position-relative mt-3 mt-xl-auto">
+                <a href="#" data-toggle="dropdown" class="navbar-nav-link d-flex align-items-center dropdown-toggle"
+                    style="border-radius: 6px; border: 1px solid #eee; text-transform: capitalize; gap: 1rem;">
+
+                    <i class="icon-user" style="font-size: large;"></i>
+
+                    <div class="d-flex flex-column" style="font-size: smaller; line-height: 1.4;">
+                        <span class="p-0" style="font-weight: bolder;">admin</span>
+                        <span class="p-0 text-muted">admin@montana.sa</span>
+                    </div>
+                </a>
+                <div class="dropdown-menu" style="left: 1rem;right: 1rem;top: unset;bottom: 100%;">
+                    <a href="https://montana-sa.amir-adel.com/admin/public/profile" class="dropdown-item"><i
+                            class="icon-users2"></i>
+                        profile</a>
+                    <a href="https://montana-sa.amir-adel.com/admin/public/auth/logout" class="dropdown-item"><i
+                            class="icon-switch2"></i>
+                        Logout</a>
+                </div>
+            </li>
+
+            <li class="dropdown-user nav-item position-relative d-xl-none" style="margin-top: auto">
+                <a href="#" data-toggle="dropdown" class="navbar-nav-link d-flex align-items-center dropdown-toggle"
+                    style="border-radius: 6px; border: 1px solid #eee; text-transform: capitalize; gap: 1rem;">
+
+                    <span><i class="icon-earth"></i></span>
+
+                    <div class="d-flex flex-column" style="font-size: smaller; line-height: 1.4;">
+                        <span class="p-0" style="font-weight: bolder;">Languages</span>
+                        <span class="p-0 text-muted">en</span>
+                    </div>
+                </a>
+                <div class="dropdown-menu" style="left: 1rem;right: 1rem;top: unset;bottom: 100%;">
+                    <a href="https://montana-sa.amir-adel.com/admin/public/locale/ar" class="dropdown-item "
+                        style="text-transform: uppercase;"> ar</a>
+                    <a href="https://montana-sa.amir-adel.com/admin/public/locale/en" class="dropdown-item  active "
+                        style="text-transform: uppercase;"> en</a>
+                </div>
+            </li>
+            <!---->
+        </ul>
+
+        <div class="dismisser position-fixed"></div>
+    </div>
+
+
+
+    <script>
+        const body = document.body;
+        const navbar = document.getElementById("mg-nav"),
+            navList = navbar.querySelector("ul"),
+            dismisser = navbar.querySelector(".dismisser"),
+            toggleBtn = navbar.querySelector("button");
+
+
+        dismisser.onclick = () => navList.classList.remove("active");
+        toggleBtn.onclick = () => navList.classList.toggle("active");
+
+        try {
+            navbar.querySelector("li:has(.navbar-nav-link.active)").classList.add("active");
+        } catch { }
+
+
+
+        navbar.querySelectorAll("li").forEach(btn => {
+            const dropdownList = btn.querySelector("div");
+
+            dropdownList && dropdownList.style.setProperty("--sh", dropdownList.scrollHeight + "px");
+
+            btn.addEventListener("click", () => {
+                const wasActive = dropdownList && btn.classList.contains("active");
+                navbar.querySelectorAll("li.active").forEach(li => li.classList.remove("active"));
+                wasActive || btn.classList.add("active");
+            }, true)
+        })
+
+        window.addEventListener("DOMContentLoaded", () => {
+            document.querySelector(".page-content").classList.remove("container");
+        })
+    </script>
+
+    <script type="text/text">
+
+const body = document.body,
+    navbarParent = document.querySelector(".navbar-sticky");
+
+  
+    
+    if (window.innerWidth <= 1407) navbarParent.classList.remove("d-none");
+    
+
+window.addEventListener("DOMContentLoaded", ()=> {
+    const targetLink = document.querySelector("#navbar-navigation li:has(.navbar-nav-link.active)");
+    targetLink && targetLink.classList.add("active");
+
+    const headNavbar = document.querySelector("#dark-nav"),
+        navbar = document.getElementById("navbar-navigation"),
+        navLogo = navbar.querySelector(".nav-logo"),
+        pageContent = document.querySelector(".page-content"),
+        pageTitle = document.querySelector(".page-content h3"),
+        titlePlaceholder = document.getElementById("page-title");
+        
+        pageContent.classList.remove("container");
+        
+    if (window.innerWidth < 1407) return;
+        headNavbar.style = "background: #fff; border-left: 1px solid #ddd";
+        
+        if (pageTitle && titlePlaceholder) {
+            titlePlaceholder.textContent = pageTitle.textContent;
+            pageTitle.textContent = "";
+        }
+        
+        navLogo && navLogo.classList.remove("d-none");
+        
+        
+        headNavbar.style.gridColumnStart = 2;
+        document.querySelectorAll("#navbar-navigation > ul > .dropdown > .dropdown-menu").forEach(e=> (e.className = "_dropdown-menu"));
+        body.replaceChild(navbar, navbarParent);
+        Object.assign(body.style, {display: 'grid', gridTemplateColumns: '250px calc(-265px + 100vw)', gridTemplateRows: 'max-content 1fr'});
+        
+        navbar.className = "align-items-start collapse d-flex flex-column m-0 navbar-collapse p-2"
+        Object.assign(navbar.style, {
+            position: 'sticky',
+            top: '0px',
+            gridRow: '1 / span 2',
+            gap: "1rem"
+        });
+        
+        // 2024/9/23
+        function removeActive (){
+        const activeLis = document.querySelectorAll("#navbar-navigation .nav-item");
+            Array.from(activeLis).forEach(a => a.classList.remove("active"));
+        }
+        
+        navbar.querySelectorAll("ul > li").forEach(li => {
+          const hr = document.createElement("hr"),
+            dropdownMenu = li.querySelector("._dropdown-menu");
+            
+            li.after(hr);
+            
+            if (dropdownMenu) {
+                li.after(dropdownMenu);
+                dropdownMenu.style = "--SH:" + dropdownMenu.scrollHeight +"px;"
+                li.addEventListener("click", ()=> {
+                    const isActive = li.classList.contains("active");
+                    removeActive();
+                    isActive || li.classList.add("active");
+                });
+            }
+            
+        })
+});
+</script>
+
+    <div class="page-content container pt-0">
+        <div class="content-wrapper">
+
+
+            <div class="page-header">
+                <div class="page-header-content header-elements-md-inline">
+                    <div class="d-flex justify-content-between page-title w-100">
+                        <h4 class="text-dark">
+                            <span class="font-weight-bold mr-2">Editing</span>
+                            <i class="icon-circle-right2 mr-2"></i>
+                            <span class="font-weight-bold mr-2"> Graduation cake </span>
+
+
+                        </h4>
+
+                        <button type="submit" class="btn btn-primary" form="item-details">
+                            UPDATE
+                            <i class="icon-database-insert ml-1"></i>
+                        </button>
+
+                        <!--<a href="#" class="header-elements-toggle text-default"><i class="icon-more"></i></a>-->
+                    </div>
+                </div>
+            </div>
+
+            <div class="content">
+                <style>
+                    #item-details {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 1rem;
+                        align-items: start;
+                    }
+
+                    @media screen and (min-width: 992px) {
+                        #item-details {
+                            display: grid;
+                            grid-template-columns: 7fr 5fr;
+                        }
+                    }
+
+                    label.font-weight-bold {
+                        color: var(--dark);
+                    }
+
+                    .select2-selection--multiple .select2-selection__choice {
+                        background: #0b4368;
+                    }
+                </style>
+
+                <form id="item-details" action="https://montana-sa.amir-adel.com/admin/public/admin/item/edit/save"
+                    method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="_token" value="lsVFpTosoezx8uVFZzUCNj71po3yrYiUSKT89Avx">
+                    <div class="card m-0" style="grid-row-end: span 3;">
+                        <label class="card-header font-weight-bold h3">
+                            Item Details
+                        </label>
+
+                        <div class="card-body">
+                            <input type="hidden" name="_token" value="lsVFpTosoezx8uVFZzUCNj71po3yrYiUSKT89Avx">
+                            <!--<legend class="font-weight-semibold text-dark text-uppercase font-size-sm">-->
+                            <!--<i class="icon-address-book mr-2"></i>-->
+                            <!--    <div class="text-right">-->
+                            <!--        <div class="btn-group btn-group-justified" style="width: 150px">-->
+                            <!--            -->
+                            <!--        </div>-->
+                            <!--    </div>-->
+                            <!--</legend>-->
+                            <input type="hidden" name="id" value="170">
+
+                            <!--    MG CODE     -->
+                            <div id="item-lang">
+                                <div class="d-inline-flex"
+                                    style="--primary: #004567; color: var(--primary); border-bottom: 1px solid var(--secondary);">
+                                    <button class="btn" type="button" data-target-lang="en"
+                                        style="color: currentcolor; border-radius: 0; border-bottom: 1px solid currentcolor;">English
+                                        (EN)</button>
+                                    <button class="btn" type="button" data-target-lang="ar"
+                                        style="color: currentcolor; border-radius: 0;">العربية (AR)</button>
+                                </div>
+
+                                <div class="form-group" lang="en">
+                                    <label class="col-form-label font-weight-bold"><span
+                                            class="text-danger">*</span>Item Name:</label>
+                                    <div class="">
+                                        <input value="Graduation cake" type="text" class="form-control form-control-lg"
+                                            name="name" placeholder="Item Name" required>
+                                    </div>
+
+                                    <br />
+
+                                    <label class="col-form-label font-weight-bold">Item Description:</label>
+                                    <div class="">
+                                        <textarea class="summernote-editor" name="desc" placeholder="Item Description"
+                                            rows="6"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="form-group d-none" lang="ar">
+                                    <label class="col-form-label"><span class="text-danger"></span>Item Name Ar:</label>
+                                    <div class="">
+                                        <input value="كيكة تخرج1" type="text" class="form-control form-control-lg"
+                                            name="name_ar" placeholder="Item Name Ar">
+                                    </div>
+
+                                    <br />
+
+                                    <label class="col-form-label font-weight-bold">Item Description Ar:</label>
+                                    <div class="">
+                                        <textarea class="summernote-editor" name="desc_ar"
+                                            placeholder="Item Description Ar" rows="6"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <script>
+                                const btns = document.querySelectorAll("#item-lang button.btn"),
+                                    divs = document.querySelectorAll("#item-lang div[lang]");
+
+                                btns.forEach(b => {
+                                    const targetLang = b.getAttribute("data-target-lang"),
+                                        targetDiv = document.querySelector("#item-lang div[lang='" + targetLang + "']");
+                                    b.addEventListener("click", (e) => {
+                                        e.preventDefault();
+                                        btns.forEach(b => b.style.border = "none");
+                                        divs.forEach(d => d.classList.add("d-none"));
+                                        targetDiv.classList.remove("d-none");
+                                        b.style.borderBottom = "1px solid currentcolor";
+                                    })
+                                })
+
+                            </script>
+                            <!--    MG CODE     -->
+                            <hr>
+
+
+
+                            <div class="form-group row" style="display: none;" id="discountedTwoPrice">
+                                <div class="col-lg-6">
+                                    <label class="col-form-label font-weight-bold">Mark Price:</label>
+                                    <input type="text" class="form-control form-control-lg price" name="old_price"
+                                        placeholder="Item Price in ر.س" value="0.00">
+                                </div>
+                                <div class="col-lg-6">
+                                    <label class="col-form-label font-weight-bold"><span
+                                            class="text-danger">*</span>Selling Price:</label>
+                                    <input type="text" class="form-control form-control-lg price" name="price"
+                                        placeholder="Item Price in ر.س" id="newSP" value="300.00">
+                                </div>
+                            </div>
+
+                            <div class="form-group row" id="singlePrice">
+                                <label class="col-lg-3 col-form-label font-weight-bold"><span
+                                        class="text-danger">*</span>Price:</label>
+                                <div class="col-lg-5">
+                                    <input type="text" class="form-control form-control-lg price" name="price"
+                                        placeholder="Item Price in ر.س" required id="oldSP" value="300.00">
+                                </div>
+                                <div class="col-lg-4">
+                                    <button type="button" class="btn btn-secondary btn-labeled btn-labeled-left mr-2"
+                                        id="addDiscountedPrice">
+                                        <b><i class="icon-percent"></i></b>
+                                        Add Dicounted Price
+                                    </button>
+                                </div>
+                            </div>
+
+                            <script>
+                                $('#addDiscountedPrice').click(function (event) {
+                                    let price = $('#oldSP').val();
+                                    $('#newSP').val(price).attr('required', 'required');;
+                                    $('#singlePrice').remove();
+                                    $('#discountedTwoPrice').show();
+                                });
+                            </script>
+
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label font-weight-bold"><span
+                                        class="text-danger">*</span>Price type:</label>
+                                <div class="col-lg-9">
+                                    <select class="form-control select" name="price_type" required>
+
+                                        <option value="piece" selected class="text-capitalize">Piece</option>
+                                        <option value="one_kilo" class="text-capitalize">One Kilo</option>
+                                        <option value="quarter_kilo" class="text-capitalize">Quarter Kilo</option>
+                                        <option value="half_kilo" class="text-capitalize">Half Kilo</option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label font-weight-bold"><span
+                                        class="text-danger">*</span>SKU:</label>
+                                <div class="col-lg-9">
+
+                                    <input type="text" class="form-control form-control-lg" name="sku" placeholder="SKU"
+                                        value="SKU-90012">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label font-weight-bold"><span
+                                        class="text-danger">*</span>Item&#039;s Category:</label>
+                                <div class="col-lg-9">
+                                    <select class="form-control select" name="item_category_id" required>
+                                        <option value="3" class="text-capitalize">التورته</option>
+                                        <option value="4" class="text-capitalize">البيتيفور</option>
+                                        <option value="5" class="text-capitalize">المعجنات</option>
+                                        <option value="6" class="text-capitalize">آخرى</option>
+                                        <option value="7" class="text-capitalize">الجاتوه</option>
+                                        <option value="8" class="text-capitalize">الطلبات الخاصة</option>
+                                        <option value="9" class="text-capitalize">هدية لأطفالك</option>
+                                        <option value="10" class="text-capitalize">مناسبات الزفاف</option>
+                                        <option value="11" class="text-capitalize">يوم الميلاد</option>
+                                        <option value="12" class="text-capitalize" selected="selected">تخرج أو نجاح
+                                        </option>
+                                        <option value="13" class="text-capitalize">الحجز المبكر</option>
+                                        <option value="14" class="text-capitalize">اليوم الوطني</option>
+                                        <option value="15" class="text-capitalize">مناسبات عامة</option>
+                                        <option value="16" class="text-capitalize">مناسبات رياضية</option>
+                                        <option value="17" class="text-capitalize">مناسبات أعياد</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label font-weight-bold">Addons Category:</label>
+                                <div class="col-lg-9">
+
+                                    <select multiple="multiple" class="form-control addonCategorySelect" data-fouc
+                                        name="addon_category_item[]">
+                                        <option value="1" class="text-capitalize">
+                                            Cake </option>
+                                        <option value="3" class="text-capitalize">
+                                            عدد الاشخاص </option>
+                                        <option value="5" class="text-capitalize">
+                                            مربع </option>
+                                        <option value="6" class="text-capitalize">
+                                            الحشوة - مربع </option>
+                                        <option value="7" class="text-capitalize">
+                                            عدد المجسمات - مربع </option>
+                                        <option value="8" class="text-capitalize">
+                                            إضافة صورة على التورتة - مربع </option>
+                                        <option value="9" class="text-capitalize">
+                                            مستطيل </option>
+                                        <option value="10" class="text-capitalize">
+                                            الحشوة - مستطيل </option>
+                                        <option value="11" class="text-capitalize">
+                                            دائري </option>
+                                        <option value="12" class="text-capitalize">
+                                            الحشوة - دائري </option>
+                                        <option value="13" class="text-capitalize">
+                                            الشكل الخارجي - مربع </option>
+                                        <option value="14" class="text-capitalize">
+                                            الشكل الخارجي - المستطيل </option>
+                                        <option value="15" class="text-capitalize">
+                                            الشكل الخارجي - دائري </option>
+                                        <option value="16" class="text-capitalize">
+                                            عدد المجسمات - مستطيل </option>
+                                        <option value="17" class="text-capitalize">
+                                            إضافة صورة على التورتة - مستطيل </option>
+                                        <option value="18" class="text-capitalize">
+                                            إضافة صورة على التورتة - دائري </option>
+                                        <option value="19" class="text-capitalize">
+                                            عدد المجسمات - دائري </option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label font-weight-bold">Is Recommended?</label>
+                                <div class="col-lg-9">
+                                    <div class="checkbox checkbox-switchery mt-2">
+                                        <label>
+                                            <input value="true" type="checkbox"
+                                                class="switchery-primary recommendeditem" name="is_recommended">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label font-weight-bold">Is Popular?</label>
+                                <div class="col-lg-9">
+                                    <div class="checkbox checkbox-switchery mt-2">
+                                        <label>
+                                            <input value="true" type="checkbox" class="switchery-primary popularitem"
+                                                name="is_popular">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label font-weight-bold">Is New?</label>
+                                <div class="col-lg-9">
+                                    <div class="checkbox checkbox-switchery mt-2">
+                                        <label>
+                                            <input value="true" type="checkbox" class="switchery-primary newitem"
+                                                name="is_new">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label font-weight-bold">Veg/Non-Veg: </label>
+                                <div class="col-lg-9 d-flex align-items-center">
+                                    <label class="radio-inline mr-2">
+                                        <input type="radio" name="is_veg" value="veg">
+                                        Veg
+                                    </label>
+
+                                    <label class="radio-inline mr-2">
+                                        <input type="radio" checked="checked" name="is_veg" value="nonveg">
+                                        Non-Veg
+                                    </label>
+
+                                    <label class="radio-inline mr-2">
+                                        <input type="radio" checked="checked" name="is_veg" value="none">
+                                        None
+                                    </label>
+                                </div>
+                            </div>
+
+                            <hr />
+                            <label class="w-100 mb-1 font-weight-bold">
+                                <span class="text-danger">*</span>Item&#039;s Restaurant:
+                            </label>
+                            <div class="form-group">
+                                <select class="form-control select select2" name="restaurant_id[]" id="restaurantSelect"
+                                    required multiple>
+                                    <option value="all">Select All</option>
+                                    <option value="2" class="text-capitalize" selected>حى السلامة</option>
+                                    <option value="3" class="text-capitalize" selected>حي الصفا</option>
+                                    <option value="4" class="text-capitalize" selected>حي النزهة</option>
+                                    <option value="5" class="text-capitalize" selected>حي السليمانية</option>
+                                    <option value="6" class="text-capitalize" selected>حي السامر</option>
+                                    <option value="7" class="text-capitalize" selected>حي الحمدانية</option>
+                                    <option value="8" class="text-capitalize" selected>حي الياقوت</option>
+                                    <option value="9" class="text-capitalize" selected>حي السنابل</option>
+                                    <option value="10" class="text-capitalize" selected>حي الرحاب</option>
+                                    <option value="11" class="text-capitalize" selected>حي الواحة</option>
+                                </select>
+                            </div>
+
+                            <label class="w-100 col-form-label mb-1 font-weight-bold"><span
+                                    class="text-danger">*</span>Stock per restaurant:</label>
+                            <div class="row">
+                                <div id="restaurantStockContainer"
+                                    class="align-items-center d-flex flex-wrap justify-content-center"
+                                    style="row-gap: 1rem;">
+
+                                    <div class="stock-row m-0 col-12 col-lg-4 col-md-6 input-group" style=""
+                                        data-id="2">
+
+                                        <input type="number" class="form-control" name="stock[2]" min="0" value="0" />
+
+                                        <span class="input-group-text">
+                                            حى السلامة
+                                        </span>
+
+                                    </div>
+
+                                    <div class="stock-row m-0 col-12 col-lg-4 col-md-6 input-group" style=""
+                                        data-id="3">
+
+                                        <input type="number" class="form-control" name="stock[3]" min="0" value="0" />
+
+                                        <span class="input-group-text">
+                                            حي الصفا
+                                        </span>
+
+                                    </div>
+
+                                    <div class="stock-row m-0 col-12 col-lg-4 col-md-6 input-group" style=""
+                                        data-id="4">
+
+                                        <input type="number" class="form-control" name="stock[4]" min="0" value="0" />
+
+                                        <span class="input-group-text">
+                                            حي النزهة
+                                        </span>
+
+                                    </div>
+
+                                    <div class="stock-row m-0 col-12 col-lg-4 col-md-6 input-group" style=""
+                                        data-id="5">
+
+                                        <input type="number" class="form-control" name="stock[5]" min="0" value="0" />
+
+                                        <span class="input-group-text">
+                                            حي السليمانية
+                                        </span>
+
+                                    </div>
+
+                                    <div class="stock-row m-0 col-12 col-lg-4 col-md-6 input-group" style=""
+                                        data-id="6">
+
+                                        <input type="number" class="form-control" name="stock[6]" min="0" value="0" />
+
+                                        <span class="input-group-text">
+                                            حي السامر
+                                        </span>
+
+                                    </div>
+
+                                    <div class="stock-row m-0 col-12 col-lg-4 col-md-6 input-group" style=""
+                                        data-id="7">
+
+                                        <input type="number" class="form-control" name="stock[7]" min="0" value="0" />
+
+                                        <span class="input-group-text">
+                                            حي الحمدانية
+                                        </span>
+
+                                    </div>
+
+                                    <div class="stock-row m-0 col-12 col-lg-4 col-md-6 input-group" style=""
+                                        data-id="8">
+
+                                        <input type="number" class="form-control" name="stock[8]" min="0" value="0" />
+
+                                        <span class="input-group-text">
+                                            حي الياقوت
+                                        </span>
+
+                                    </div>
+
+                                    <div class="stock-row m-0 col-12 col-lg-4 col-md-6 input-group" style=""
+                                        data-id="9">
+
+                                        <input type="number" class="form-control" name="stock[9]" min="0" value="0" />
+
+                                        <span class="input-group-text">
+                                            حي السنابل
+                                        </span>
+
+                                    </div>
+
+                                    <div class="stock-row m-0 col-12 col-lg-4 col-md-6 input-group" style=""
+                                        data-id="10">
+
+                                        <input type="number" class="form-control" name="stock[10]" min="0" value="0" />
+
+                                        <span class="input-group-text">
+                                            حي الرحاب
+                                        </span>
+
+                                    </div>
+
+                                    <div class="stock-row m-0 col-12 col-lg-4 col-md-6 input-group" style=""
+                                        data-id="11">
+
+                                        <input type="number" class="form-control" name="stock[11]" min="0" value="0" />
+
+                                        <span class="input-group-text">
+                                            حي الواحة
+                                        </span>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <hr />
+
+                            <label class="w-100 col-form-label font-weight-bold">Nutrition Facts:</label>
+                            <div class="row" style="row-gap: 1rem">
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control form-control-lg" name="calories" value=""
+                                        placeholder="Calories">
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control form-control-lg" name="fats" value=""
+                                        placeholder="Fats">
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control form-control-lg" name="saturated_fat"
+                                        value="" placeholder="Saturated Fat">
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control form-control-lg" name="trans_fat" value=""
+                                        placeholder="Trans Fat">
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control form-control-lg" name="cholesterol" value=""
+                                        placeholder="Cholesterol">
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control form-control-lg" name="sodium" value=""
+                                        placeholder="Sodium">
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control form-control-lg" name="potassium" value=""
+                                        placeholder="Potassium">
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control form-control-lg" name="carbohydrates"
+                                        value="" placeholder="Carbohydrates">
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control form-control-lg" name="dietary_fiber"
+                                        value="" placeholder="Dietary Fiber">
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control form-control-lg" name="sugars" value=""
+                                        placeholder="Sugars">
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control form-control-lg" name="refined_sugars"
+                                        value="" placeholder="Refined Sugars">
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control form-control-lg" name="protein" value=""
+                                        placeholder="Protein">
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control form-control-lg" name="vitamin_d" value=""
+                                        placeholder="Vitamin D">
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control form-control-lg" name="calcium" value=""
+                                        placeholder="Calcium">
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control form-control-lg" name="iron" value=""
+                                        placeholder="Iron">
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control form-control-lg" name="caffeine" value="30"
+                                        placeholder="minutes of walking">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card m-0 order-first order-lg-0" style="grid-column-start: 2;">
+                        <label class="card-header font-weight-bold h3">Image</label>
+                        <div class="card-body">
+                            <div class="img-container"
+                                style="overflow: hidden;border: 1px solid #eee;border-radius: 6px;background: #fafafa;">
+                                <img id="slider-preview-image" src="https://montana-sa.amir-adel.com/admin" alt="Image"
+                                    class="card-img slider-preview-image hidden"
+                                    style="max-height: 200px; object-fit: contain;" />
+                            </div>
+                            <!--<img id="slider-preview-image" class="slider-preview-image hidden" style="border-radius: 0.275rem;" />-->
+                        </div>
+
+
+                        <div class="card-footer">
+                            <input type="hidden" name="old_image" value="" />
+                            <input type="file" id="new-item-image" class="hidden" name="image"
+                                accept="image/x-png,image/gif,image/jpeg" onchange="readURL(this);" />
+
+                            <div class="uploader"
+                                style="display: grid; grid-template-columns: 1fr auto auto; gap: 0.75rem">
+                                <span class="help-text text-muted mt-1_ d-block" style="align-self: center;">Image
+                                    dimension 1000x1000</span>
+
+                                <label for="new-item-image" class="btn btn-outline-info m-0">
+                                    <i class="icon-upload"></i>
+                                </label>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card m-0" style="grid-column-start: 2;">
+                        <h3 class="card-header font-weight-bold">
+                            SEO Section
+                        </h3>
+
+                        <div class="card-body">
+                            <label class="w-100 mb-3 font-weight-bold">
+                                <span class="mb-1 d-block">
+                                    Meta title:
+                                </span>
+
+                                <input type="text" class="form-control form-control-lg" name="meta_title"
+                                    placeholder="Meta title" value="كيكة التخرج" />
+                            </label>
+
+                            <label class="w-100 mb-3 font-weight-bold">
+                                <span class="mb-1 d-block">
+                                    Meta URL:
+                                </span>
+
+                                <input type="text" class="form-control form-control-lg" name="slug"
+                                    placeholder="Meta URL" value="كيكة التخرج">
+                            </label>
+
+                            <label class="w-100 mb-3 font-weight-bold">
+                                <span class="mb-1 d-block">
+                                    Meta Description
+                                </span>
+                                <textarea class="summernote-editor" name="meta_description"
+                                    placeholder="Meta Description" rows="6"></textarea>
+                            </label>
+
+
+                            <label class="mb-1 font-weight-bold">Meta image:</label>
+                            <div class="w-100" style="display: grid; grid-template-columns: 1fr auto; gap: 0 1rem;">
+                                <input type="file" class="form-control-lg form-control-uniform flex-1" name="meta_image"
+                                    accept="image/x-png,image/gif,image/jpeg"
+                                    onchange="readURL(this,'slider-preview-image-1');">
+
+                                <a href="https://montana-sa.amir-adel.com/admin/public/admin/item/remove-meta-image/170"
+                                    onClick="confirm('Are you sure?')"
+                                    class="align-items-center btn btn-outline-danger d-flex">
+                                    <i class="icon-trash"></i>
+                                </a>
+
+                                <span class="help-text text-muted mt-1">Image dimension 486x355</span>
+                            </div>
+
+                            <!--<img class=" hidden" />-->
+                            <!--if($item->meta_image) endif-->
+                            <div style="border: 1px solid #eee; background: #fafafa; border-radius: 6px;">
+                                <img id="slider-preview-image-1" class="card-img"
+                                    style="max-height: 200px; object-fit: contain;"
+                                    src="https://montana-sa.amir-adel.com/admin/assets/img/items/1766318607HzeSpW2S3i.jpg"
+                                    alt="Image" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <script>
+                $(document).ready(function () {
+
+                    $('#restaurantSelect').on('change', function () {
+
+                        let selected = $(this).val() || [];
+                        if (selected.includes('all')) {
+                            let allValues = $('#restaurantSelect option')
+                                .not('[value="all"]')
+                                .map(function () {
+                                    return $(this).val();
+                                }).get();
+
+                            $('#restaurantSelect').val(allValues).trigger('change');
+                            return;
+                        }
+
+                        $('.stock-row').each(function () {
+
+                            let id = $(this).data('id').toString();
+
+                            if (selected.includes(id)) {
+                                $(this).show();
+                            } else {
+                                $(this).hide();
+                            }
+
+                        });
+
+                    });
+
+                });
+                function readURL(input) {
+                    if (input.files && input.files[0]) {
+                        let reader = new FileReader();
+                        reader.onload = function (e) {
+                            $('.slider-preview-image')
+                                .removeClass('hidden')
+                                .attr('src', e.target.result)
+                            // .width(120)
+                            // .height(120);
+                        };
+                        reader.readAsDataURL(input.files[0]);
+                        debugger;
+                    }
+                }
+                $(function () {
+                    $('.summernote-editor').summernote({
+                        height: 200,
+                        popover: {
+                            image: [],
+                            link: [],
+                            air: []
+                        }
+                    });
+
+                    $('.select').select2();
+                    $('.addonCategorySelect').select2({
+                        closeOnSelect: false
+                    })
+
+                    var recommendeditem = document.querySelector('.recommendeditem');
+                    new Switchery(recommendeditem, { color: '#f44336' });
+
+                    var popularitem = document.querySelector('.popularitem');
+                    new Switchery(popularitem, { color: '#8360c3' });
+
+                    var newitem = document.querySelector('.newitem');
+                    new Switchery(newitem, { color: '#333' });
+
+
+                    $('.form-control-uniform').uniform();
+                    $('.price').numeric({ allowThouSep: false, maxDecimalPlaces: 2 });
+                });
+
+                $(document).on('click', '.btn-getstock', function () {
+
+                    let itemId = $(this).data('item');
+                    let restaurantId = $(this).data('restaurant');
+                    let btn = $(this);
+                    $.ajax({
+                        url: "https://montana-sa.amir-adel.com/admin/public/stock-item",
+                        type: "POST",
+                        data: {
+                            _token: $('meta[name="csrf-token"]').attr('content'),
+                            item_id: itemId,
+                            restaurant_id: restaurantId
+                        },
+                        beforeSend: function () {
+                            btn.prop('disabled', true).text('جاري التحميل...');
+                        },
+                        success: function (response) {
+                            // console.log(response);
+                            if (response.success) {
+                                btn.prev('input').val(response.data);
+                            } else {
+                                alert('فشل جلب المخزون');
+                            }
+                        },
+                        error: function () {
+                            alert('حدث خطأ');
+                        },
+                        complete: function () {
+                            btn.prop('disabled', false).text(btn.data('name'));
+                        }
+                    });
+
+                });
+            </script>
+        </div>
+    </div>
+    <script>
+        NProgress.configure({ showSpinner: true, minimum: 0.2 });
+        NProgress.start();
+        window.onload = function () { NProgress.done(); }
+    </script>
+    <script>
+        function findLocalItems(query) {
+            var i, results = [];
+            for (i in localStorage) {
+                if (localStorage.hasOwnProperty(i)) {
+                    if (i.match(query) || (!query && typeof i === 'string')) {
+                        value = JSON.parse(localStorage.getItem(i));
+                        results.push({ key: i, val: value });
+                    }
+                }
+            }
+            return results;
+        }
+        $(function () {
+            $('form').submit(function () {
+                $(this).find(':input[type=submit]').prop('disabled', true);
+            });
+            $('.note-codable').on('blur', function () {
+                var codeviewHtml = $(this).val();
+                var $summernoteTextarea = $(this).closest('.note-editor').siblings('textarea');
+                $summernoteTextarea.val(codeviewHtml);
+            });
+        });
+    </script>
+</body>
+
+</html>
