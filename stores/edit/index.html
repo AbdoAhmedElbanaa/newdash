@@ -12,6 +12,37 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" />
     <link href="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/css/icons/summernote/summernote.css"
         rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <style>
+        /* Custom Select2 Premium Styles */
+        .select2-container--default .select2-selection--single {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.75rem;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            padding: 0 0.5rem;
+        }
+        .select2-container--default .select2-selection--single .select2-selection__rendered {
+            color: #334155;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+        .select2-container--default .select2-selection--single .select2-selection__arrow {
+            height: 42px;
+            top: 1px;
+            left: 10px; /* Arabic dir */
+            right: auto;
+        }
+        .select2-dropdown {
+            border-radius: 1rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            z-index: 9999;
+        }
+    </style>
 
     <!-- Core JS -->
     <script src="https://montana-sa.amir-adel.com/admin/assets/backend/global_assets/js/main/jquery.min.js"></script>
@@ -1116,19 +1147,27 @@
                         <div class="mt-8 bg-sky-50 p-6 rounded-2xl border border-sky-100 flex gap-4">
                             <i class="fa-solid fa-circle-info text-sky-500 text-lg"></i>
                             <div>
-                                document.querySelectorAll('.edit-tab-content').forEach(el =>
-                                el.classList.remove('active'));
-                                document.querySelectorAll('.edit-tab-btn').forEach(el => el.classList.remove('active'));
+                                <h4 class="font-bold text-sky-900 text-sm">مراجعة البيانات</h4>
+                                <p class="text-xs text-sky-700 leading-relaxed mt-1 italic font-bold">
+                                    يرجى مراجعة كافة التبويبات قبل الحفظ للتأكد من اكتمال جميع البيانات المطلوبة للمتجر.
+                                </p>
+                            </div>
+                        </div>
 
-                                const targetTab = document.getElementById(tabId);
-                                if (targetTab) {
+                        <script>
+                        function openEditTab(tabId, event) {
+                            document.querySelectorAll('.edit-tab-content').forEach(el => el.classList.remove('active'));
+                            document.querySelectorAll('.edit-tab-btn').forEach(el => el.classList.remove('active'));
+
+                            const targetTab = document.getElementById(tabId);
+                            if (targetTab) {
                                 targetTab.classList.add('active');
-                                }
+                            }
 
-                                if (event && event.currentTarget) {
+                            if (event && event.currentTarget) {
                                 event.currentTarget.classList.add('active');
-                                }
-                                }
+                            }
+                        }
 
                                 // Preview images
                                 function previewImg(input, imgId) {
