@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="Sm9U15cXGByWEVk3feyzgM6VsxPnLs8W6fILDhYS">
+    <title>تسجيل مندوب توصيل — مونتانا</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: { extend: { fontFamily: { sans: ['Cairo', 'sans-serif'] }, colors: { primary: '#4f46e5', secondary: '#10b981', dark: '#0f172a' } } }
+        }
+    </script>
+    <style>
+        *{box-sizing:border-box}
+        body{font-family:'Cairo',sans-serif;min-height:100svh;overflow-x:hidden}
+        .bg-animated{background:linear-gradient(135deg,#0f172a 0%,#042f2e 30%,#0f172a 60%,#1e1b4b 100%);background-size:400% 400%;animation:gs 12s ease infinite}
+        @keyframes gs{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+        .orb{position:fixed;border-radius:50%;filter:blur(80px);opacity:.25;pointer-events:none}
+        .orb-1{width:500px;height:500px;background:radial-gradient(circle,#10b981,transparent 70%);top:-150px;right:-150px;animation:fo1 10s ease-in-out infinite}
+        .orb-2{width:400px;height:400px;background:radial-gradient(circle,#4f46e5,transparent 70%);bottom:-100px;left:-100px;animation:fo2 14s ease-in-out infinite}
+        .orb-3{width:300px;height:300px;background:radial-gradient(circle,#34d399,transparent 70%);top:50%;left:30%;animation:fo3 9s ease-in-out infinite}
+        @keyframes fo1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-80px,60px) scale(1.15)}}
+        @keyframes fo2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(60px,-80px) scale(1.1)}}
+        @keyframes fo3{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(-40px,-30px) scale(1.2)}66%{transform:translate(40px,20px) scale(.9)}}
+        .grid-overlay{background-image:radial-gradient(circle,rgba(255,255,255,.04) 1px,transparent 1px);background-size:28px 28px;position:fixed;inset:0;pointer-events:none}
+        .glass-card{background:rgba(15,23,42,.7);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);border:1px solid rgba(255,255,255,.08);box-shadow:0 32px 80px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.04) inset}
+        .glass-input{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#e2e8f0;transition:all .25s}
+        .glass-input::placeholder{color:#64748b}
+        .glass-input:focus{background:rgba(16,185,129,.06);border-color:rgba(52,211,153,.5);box-shadow:0 0 0 4px rgba(16,185,129,.1);outline:none}
+        .btn-pg{background:linear-gradient(135deg,#059669 0%,#10b981 100%);box-shadow:0 8px 24px rgba(16,185,129,.4);transition:all .3s cubic-bezier(.4,0,.2,1)}
+        .btn-pg:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(16,185,129,.55);background:linear-gradient(135deg,#047857 0%,#059669 100%)}
+        .btn-pg:active{transform:translateY(0)}
+        .btn-pg:disabled{opacity:.65;transform:none;cursor:not-allowed}
+        .btn-og{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);color:#94a3b8;transition:all .25s}
+        .btn-og:hover{background:rgba(16,185,129,.1);border-color:rgba(52,211,153,.3);color:#6ee7b7}
+        .brand-icon{width:64px;height:64px;background:linear-gradient(135deg,#059669,#10b981);border-radius:18px;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 32px rgba(16,185,129,.45);animation:fl 6s ease-in-out infinite}
+        @keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+        .divider-line{flex:1;height:1px;background:rgba(255,255,255,.08)}
+        @keyframes fiu{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+        .fade-in-up{animation:fiu .7s ease-out forwards}
+        .fade-in-up-d{animation:fiu .7s ease-out .15s forwards;opacity:0}
+        .side-stat{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:1rem;padding:1rem 1.25rem;display:flex;align-items:center;gap:.875rem;backdrop-filter:blur(12px)}
+        .pass-toggle{position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:#475569;cursor:pointer;transition:color .2s}
+        .pass-toggle:hover{color:#34d399}
+        .feature-tag{background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.2);color:#6ee7b7;border-radius:9999px;padding:.35rem .85rem;font-size:.7rem;font-weight:700;display:inline-flex;align-items:center;gap:.35rem}
+        .delivery-badge{background:linear-gradient(135deg,rgba(16,185,129,.15),rgba(52,211,153,.08));border:1px solid rgba(16,185,129,.2);border-radius:1rem;padding:.75rem 1rem;display:flex;align-items:center;gap:.75rem}
+        ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:#334155;border-radius:10px}
+        @media(max-width:1023px){.side-panel{display:none}.reg-wrap{max-width:480px;margin:auto}}
+    </style>
+</head>
+<body class="bg-animated relative flex items-center justify-center min-h-screen p-4">
+    <div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div><div class="grid-overlay"></div>
+
+    <div class="relative z-10 w-full max-w-6xl mx-auto flex items-center gap-8 lg:gap-16 fade-in-up">
+        <!-- LEFT: Branding -->
+        <div class="side-panel hidden lg:flex flex-col flex-1 gap-8 text-white">
+            <div class="flex items-center gap-4">
+                <div class="brand-icon"><i class="fa-solid fa-gem text-white text-2xl"></i></div>
+                <div>
+                    <h1 class="text-3xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-cyan-400 leading-tight">MONTANA</h1>
+                    <p class="text-slate-400 text-sm font-semibold tracking-wider">شبكة التوصيل الذكية</p>
+                </div>
+            </div>
+            <div>
+                <h2 class="text-4xl font-bold leading-snug text-slate-100">انضم كمندوب<br><span class="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-cyan-400">وحقّق دخلاً ممتازاً</span></h2>
+                <p class="mt-4 text-slate-400 text-lg leading-relaxed max-w-sm">سجّل كمندوب توصيل واحصل على طلبات فورية مع نظام تتبع متقدم ودعم مستمر.</p>
+            </div>
+            <div class="flex flex-wrap gap-2">
+                <span class="feature-tag"><i class="fa-solid fa-location-dot"></i> تتبع مباشر</span>
+                <span class="feature-tag"><i class="fa-solid fa-wallet"></i> دفع فوري</span>
+                <span class="feature-tag"><i class="fa-solid fa-clock"></i> مواعيد مرنة</span>
+                <span class="feature-tag"><i class="fa-solid fa-star"></i> مكافآت أسبوعية</span>
+            </div>
+
+            <!-- Delivery perks -->
+            <div class="flex flex-col gap-3">
+                <div class="delivery-badge">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg shrink-0"><i class="fa-solid fa-motorcycle"></i></div>
+                    <div><div class="text-white font-bold text-sm">+300 مندوب نشط</div><div class="text-slate-400 text-xs">يعملون على المنصة حالياً</div></div>
+                </div>
+                <div class="delivery-badge">
+                    <div class="w-10 h-10 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-lg shrink-0"><i class="fa-solid fa-route"></i></div>
+                    <div><div class="text-white font-bold text-sm">+50,000 طلب</div><div class="text-slate-400 text-xs">تم تسليمها بنجاح</div></div>
+                </div>
+                <div class="delivery-badge">
+                    <div class="w-10 h-10 rounded-xl bg-violet-500/20 text-violet-400 flex items-center justify-center text-lg shrink-0"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                    <div><div class="text-white font-bold text-sm">متوسط 250 ر.س</div><div class="text-slate-400 text-xs">دخل يومي للمندوب</div></div>
+                </div>
+            </div>
+            <p class="text-slate-600 text-xs">© 2025 Montana Platform — جميع الحقوق محفوظة</p>
+        </div>
+
+        <!-- RIGHT: Registration Card -->
+        <div class="reg-wrap w-full lg:w-auto lg:min-w-[460px] lg:max-w-[520px] fade-in-up-d">
+            <div class="glass-card rounded-3xl p-8 lg:p-10">
+                <div class="text-center mb-6">
+                    <div class="flex lg:hidden justify-center mb-5">
+                        <div class="brand-icon" style="width:52px;height:52px;border-radius:16px"><i class="fa-solid fa-gem text-white text-xl"></i></div>
+                    </div>
+                    <div class="flex justify-center mb-4">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 border border-emerald-500/20 flex items-center justify-center">
+                            <i class="fa-solid fa-motorcycle text-emerald-400 text-xl"></i>
+                        </div>
+                    </div>
+                    <h2 class="text-2xl font-extrabold text-slate-100 mb-1">تسجيل مندوب توصيل</h2>
+                    <p class="text-slate-400 text-sm">سجّل حسابك وابدأ استقبال الطلبات</p>
+                </div>
+
+                <form action="https://montana-sa.amir-adel.com/admin/public/auth/register" method="POST" id="regForm" class="space-y-4" onsubmit="handleRegSubmit(event)">
+                    <input type="hidden" name="_token" value="Sm9U15cXGByWEVk3feyzgM6VsxPnLs8W6fILDhYS">
+                    <input type="hidden" name="role" id="roleValue" value="DELIVERY">
+
+                    <div class="space-y-1.5">
+                        <label for="regName" class="block text-sm font-semibold text-slate-300">الاسم الكامل</label>
+                        <div class="relative">
+                            <i class="fa-solid fa-user absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm"></i>
+                            <input id="regName" type="text" name="name" placeholder="أدخل اسمك الكامل" required class="glass-input w-full py-3 pr-10 pl-4 rounded-xl text-sm font-medium">
+                        </div>
+                    </div>
+
+                    <div class="space-y-1.5">
+                        <label for="regEmail" class="block text-sm font-semibold text-slate-300">البريد الإلكتروني</label>
+                        <div class="relative">
+                            <i class="fa-solid fa-envelope absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm"></i>
+                            <input id="regEmail" type="email" name="email" placeholder="example@email.com" required class="glass-input w-full py-3 pr-10 pl-4 rounded-xl text-sm font-medium">
+                        </div>
+                    </div>
+
+                    <div class="space-y-1.5">
+                        <label for="regPhone" class="block text-sm font-semibold text-slate-300">رقم الهاتف</label>
+                        <div class="relative">
+                            <i class="fa-solid fa-phone absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm"></i>
+                            <input id="regPhone" type="number" name="phone" min="8" placeholder="05XXXXXXXX" required class="glass-input w-full py-3 pr-10 pl-4 rounded-xl text-sm font-medium">
+                        </div>
+                    </div>
+
+                    <div class="space-y-1.5">
+                        <label for="regPassword" class="block text-sm font-semibold text-slate-300">كلمة المرور</label>
+                        <div class="relative">
+                            <i class="fa-solid fa-lock absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm"></i>
+                            <input id="regPassword" type="password" name="password" placeholder="••••••••" required class="glass-input w-full py-3 pr-10 pl-10 rounded-xl text-sm font-medium">
+                            <button type="button" class="pass-toggle" onclick="togglePw()"><i id="pwIcon" class="fa-solid fa-eye text-sm"></i></button>
+                        </div>
+                        <div class="flex gap-1 mt-1"><div id="s1" class="h-1 flex-1 rounded-full bg-white/5 transition-all"></div><div id="s2" class="h-1 flex-1 rounded-full bg-white/5 transition-all"></div><div id="s3" class="h-1 flex-1 rounded-full bg-white/5 transition-all"></div><div id="s4" class="h-1 flex-1 rounded-full bg-white/5 transition-all"></div></div>
+                        <p id="sT" class="text-[11px] text-slate-600 mt-0.5 font-semibold"></p>
+                    </div>
+
+                    <div class="space-y-1.5">
+                        <label class="block text-sm font-semibold text-slate-300">رمز التحقق</label>
+                        <div class="flex gap-3 items-center">
+                            <div class="rounded-xl overflow-hidden border border-white/10 shrink-0"><img src="https://montana-sa.amir-adel.com/admin/public/captcha/flat?z2LCOvkK" alt="captcha" class="h-11"></div>
+                            <div class="relative flex-1">
+                                <i class="fa-solid fa-keyboard absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 text-sm"></i>
+                                <input type="text" name="captcha" placeholder="أدخل الرمز" required class="glass-input w-full py-3 pr-9 pl-4 rounded-xl text-sm font-medium">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-2.5 pt-1">
+                        <input type="checkbox" id="agreeTerms" required class="mt-1 cursor-pointer accent-emerald-500 w-4 h-4">
+                        <label for="agreeTerms" class="text-xs text-slate-400 cursor-pointer leading-relaxed">بتسجيلك، أنت توافق على <a href="#" class="text-emerald-400 hover:underline">شروط الاستخدام</a> و <a href="#" class="text-emerald-400 hover:underline">سياسة الخصوصية</a></label>
+                    </div>
+
+                    <button type="submit" id="regBtn" class="btn-pg w-full py-3.5 rounded-xl text-white font-bold text-sm flex items-center justify-center gap-2.5 mt-2">
+                        <span id="regBtnT">تسجيل كمندوب توصيل</span>
+                        <i id="regBtnI" class="fa-solid fa-arrow-left text-sm"></i>
+                        <i id="regBtnS" class="fa-solid fa-circle-notch fa-spin hidden text-sm"></i>
+                    </button>
+                </form>
+
+                <div class="flex items-center gap-3 my-5">
+                    <div class="divider-line"></div>
+                    <span class="text-xs text-slate-600 font-bold whitespace-nowrap">لديك حساب بالفعل؟</span>
+                    <div class="divider-line"></div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <a href="index.html" class="btn-og flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-semibold"><i class="fa-solid fa-right-to-bracket text-indigo-400"></i>تسجيل الدخول</a>
+                    <a href="store-registration.html" class="btn-og flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-semibold"><i class="fa-solid fa-store text-indigo-400"></i>تسجيل متجر</a>
+                </div>
+
+                <p class="text-center text-slate-600 text-xs mt-5">© 2025 Montana — جميع الحقوق محفوظة</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function togglePw(){const i=document.getElementById('regPassword'),c=document.getElementById('pwIcon');if(i.type==='password'){i.type='text';c.className='fa-solid fa-eye-slash text-sm'}else{i.type='password';c.className='fa-solid fa-eye text-sm'}}
+        document.getElementById('regPassword').addEventListener('input',function(){const v=this.value;let sc=0;if(v.length>=6)sc++;if(v.length>=10)sc++;if(/[A-Z]/.test(v)&&/[a-z]/.test(v))sc++;if(/[^A-Za-z0-9]/.test(v))sc++;const cl=['','#ef4444','#f59e0b','#3b82f6','#10b981'],lb=['','ضعيفة','متوسطة','جيدة','قوية جداً'];for(let i=1;i<=4;i++){document.getElementById('s'+i).style.background=i<=sc?cl[sc]:'rgba(255,255,255,0.05)'}const t=document.getElementById('sT');t.textContent=v.length>0?(lb[sc]||''):'';t.style.color=cl[sc]||''});
+        function handleRegSubmit(e){const b=document.getElementById('regBtn');b.disabled=true;document.getElementById('regBtnT').textContent='جارٍ إنشاء الحساب...';document.getElementById('regBtnI').classList.add('hidden');document.getElementById('regBtnS').classList.remove('hidden')}
+    </script>
+</body>
+</html>
