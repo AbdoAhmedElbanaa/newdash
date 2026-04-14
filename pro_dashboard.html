@@ -703,17 +703,33 @@
                     onclick="toggleSidebar()">
                     <i class="fa-solid fa-bars text-xl"></i>
                 </button>
-                <div class="relative hidden md:block">
+                <div class="relative hidden md:block group z-50">
                     <i class="fa-solid fa-search absolute right-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
-                    <input type="text" placeholder="البحث الشامل..."
-                        class="pl-4 pr-10 py-2.5 rounded-xl border border-slate-200 bg-slate-100/50 focus:bg-white focus:ring-2 focus:ring-indigo-400 focus:border-transparent outline-none w-64 md:w-80 transition-all text-sm">
+                    <input type="text" placeholder="البحث المباشر (Live Search)..." onfocus="toggleLiveSearch(true)" onblur="setTimeout(() => toggleLiveSearch(false), 200)"
+                        class="pl-4 pr-10 py-2.5 rounded-xl border border-slate-200 bg-slate-100/50 focus:bg-white focus:ring-2 focus:ring-indigo-400 focus:border-transparent outline-none w-64 md:w-80 transition-all text-sm font-semibold">
+                    <!-- Live Search Dropdown -->
+                    <div id="liveSearchDropdown" class="hidden absolute top-full mt-2 right-0 w-full glass-panel rounded-2xl shadow-xl border border-slate-200 overflow-hidden transform transition-all duration-200 origin-top text-right">
+                        <div class="p-3">
+                            <div class="text-[10px] font-bold text-slate-400 mb-2 px-2 uppercase tracking-wider">عمليات البحث الأخيرة</div>
+                            <div class="space-y-1">
+                                <a href="#" class="block px-3 py-2 text-sm font-semibold text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-colors border border-transparent"><i class="fa-solid fa-clock-rotate-left ml-2 text-slate-400 text-xs"></i> فاتورة #INV-293</a>
+                                <a href="#" class="block px-3 py-2 text-sm font-semibold text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-colors border border-transparent"><i class="fa-solid fa-clock-rotate-left ml-2 text-slate-400 text-xs"></i> إعدادات المزامنة</a>
+                            </div>
+                            <div class="border-t border-slate-100 my-2"></div>
+                            <div class="text-[10px] font-bold text-slate-400 mb-2 px-2 uppercase tracking-wider">نتائج مقترحة</div>
+                            <div class="space-y-1">
+                                <a href="#" class="flex border border-transparent items-center gap-3 px-3 py-2 text-sm font-semibold text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-colors"><div class="w-8 h-8 rounded bg-emerald-100 text-emerald-600 flex justify-center items-center shrink-0"><i class="fa-solid fa-store"></i></div> متجر الرياض الرئيسي</a>
+                                <a href="#" class="flex border border-transparent items-center gap-3 px-3 py-2 text-sm font-semibold text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-colors"><div class="w-8 h-8 rounded bg-blue-100 text-blue-600 flex justify-center items-center shrink-0"><i class="fa-solid fa-box-open"></i></div> منتج: قهوة برازيلية</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="flex items-center gap-3 md:gap-5">
                 <div class="relative">
-                    <button id="notificationBtn" class="relative p-2 text-slate-500 hover:text-indigo-600 transition-colors" onclick="toggleNotifications()">
-                        <i class="fa-regular fa-bell text-lg md:text-xl"></i>
-                        <span class="absolute top-1 right-1 w-2 h-2 md:w-2.5 md:h-2.5 bg-red-500 rounded-full border-2 border-white"></span>
+                    <button id="notificationBtn" class="relative w-10 h-10 flex items-center justify-center rounded-full border border-slate-200 text-slate-500 hover:text-indigo-600 hover:border-indigo-300 bg-white/70 hover:bg-indigo-50 transition-all shadow-sm hover:shadow" onclick="toggleNotifications()">
+                        <i class="fa-regular fa-bell text-lg"></i>
+                        <span class="absolute top-0 right-0 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-white"></span>
                     </button>
                     <!-- Notification Dropdown -->
                     <div id="notificationDropdown" class="hidden absolute top-full mt-3 left-0 w-80 md:w-96 glass-panel rounded-2xl shadow-xl border border-slate-200 z-50 overflow-hidden transform transition-all duration-200 origin-top text-right">
@@ -771,22 +787,72 @@
                         </div>
                     </div>
                 </div>
-                <button class="relative p-2 text-slate-500 hover:text-indigo-600 transition-colors">
-                    <i class="fa-regular fa-envelope text-lg md:text-xl"></i>
+                <button class="relative w-10 h-10 flex items-center justify-center rounded-full border border-slate-200 text-slate-500 hover:text-emerald-600 hover:border-emerald-300 bg-white/70 hover:bg-emerald-50 transition-all shadow-sm hover:shadow">
+                    <i class="fa-regular fa-envelope text-lg"></i>
                 </button>
+                <!-- Language Selector -->
+                <div class="relative">
+                    <button class="relative w-10 h-10 flex items-center justify-center rounded-full border border-slate-200 text-slate-500 hover:text-blue-600 hover:border-blue-300 bg-white/70 hover:bg-blue-50 transition-all shadow-sm hover:shadow font-bold font-sans" onclick="toggleLanguage()">
+                        <i class="fa-solid fa-globe text-lg hidden md:block"></i>
+                        <span class="md:hidden text-xs">AR</span>
+                    </button>
+                    <!-- Lang Dropdown -->
+                    <div id="languageDropdown" class="hidden absolute top-full mt-3 left-1/2 -translate-x-1/2 w-32 glass-panel rounded-2xl shadow-xl border border-slate-200 z-50 overflow-hidden transform transition-all duration-200 origin-top text-right p-2">
+                        <button class="w-full flex items-center justify-between px-3 py-2 text-sm font-bold text-indigo-600 bg-indigo-50 rounded-lg transition-colors border border-transparent">
+                            <span>العربية</span> <span class="bg-indigo-100 text-indigo-600 text-[10px] px-1.5 rounded">AR</span>
+                        </button>
+                        <button class="w-full flex items-center justify-between px-3 py-2 text-sm font-bold text-slate-500 hover:bg-slate-50 hover:text-slate-800 rounded-lg transition-colors mt-1 border border-transparent">
+                            <span>English</span> <span class="bg-slate-100 text-slate-500 text-[10px] px-1.5 rounded">EN</span>
+                        </button>
+                    </div>
+                </div>
+
                 <!-- Dark mode toggle -->
                 <button id="themeToggleButton"
-                    class="relative p-2 rounded-full border border-slate-200 text-slate-500 hover:text-amber-400 hover:border-amber-300 bg-white/70 hover:bg-amber-50 transition-colors flex items-center justify-center"
+                    class="relative w-10 h-10 flex items-center justify-center rounded-full border border-slate-200 text-slate-500 hover:text-amber-500 hover:border-amber-300 bg-white/70 hover:bg-amber-50 transition-all shadow-sm hover:shadow"
                     type="button" onclick="toggleTheme()">
-                    <i class="fa-solid fa-moon text-base md:text-lg icon-moon"></i>
-                    <i class="fa-solid fa-sun text-base md:text-lg icon-sun hidden"></i>
+                    <i class="fa-solid fa-moon text-lg icon-moon"></i>
+                    <i class="fa-solid fa-sun text-lg icon-sun hidden"></i>
                 </button>
-                <div class="h-6 md:h-8 w-px bg-slate-200 mx-1 md:mx-2"></div>
-                <button
-                    class="flex items-center gap-2 text-xs md:text-sm font-semibold text-slate-600 hover:text-slate-900">
-                    <span>خروج</span>
-                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                </button>
+                <div class="h-6 md:h-8 w-px bg-slate-200 mx-1 md:mx-2 hidden md:block"></div>
+                
+                <!-- User Profile Dropdown -->
+                <div class="relative">
+                    <button class="flex items-center gap-2 md:gap-3 px-1 md:px-3 py-1.5 rounded-xl hover:bg-slate-100 transition-colors border border-transparent group" onclick="toggleProfileMenu()" id="profileBtn">
+                        <img src="https://ui-avatars.com/api/?name=Admin&background=4f46e5&color=fff" class="w-8 h-8 md:w-10 md:h-10 rounded-xl shadow-sm border border-slate-200 group-hover:border-indigo-300 transition-colors" alt="Avatar">
+                        <div class="hidden md:block text-right">
+                            <h4 class="text-xs font-bold text-slate-800 leading-none mb-1">عبدالرحمن</h4>
+                            <span class="text-[10px] text-slate-500 font-semibold block leading-none">مدير النظام</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 hidden md:block group-hover:text-indigo-600 transition-colors"></i>
+                    </button>
+                    <!-- Profile Dropdown -->
+                    <div id="profileDropdown" class="hidden absolute top-full mt-3 left-0 min-w-56 glass-panel rounded-2xl shadow-xl border border-slate-200 z-50 overflow-hidden transform transition-all duration-200 origin-top-left text-right">
+                        <div class="p-4 border-b border-slate-100 flex justify-start items-center gap-3 bg-slate-50">
+                            <img src="https://ui-avatars.com/api/?name=Admin&background=4f46e5&color=fff" class="w-12 h-12 rounded-xl shadow-sm border border-slate-200">
+                            <div>
+                                <h4 class="text-sm font-bold text-slate-800 leading-none mb-1.5">أهلاً، عبدالرحمن</h4>
+                                <span class="text-[10px] text-emerald-600 font-bold bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100"><i class="fa-solid fa-shield text-[10px] ml-0.5"></i> مدير النظام</span>
+                            </div>
+                        </div>
+                        <div class="p-2 space-y-1">
+                            <button class="w-full flex items-center justify-start gap-3 px-3 py-2.5 text-sm font-bold text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-colors border border-transparent">
+                                <i class="fa-regular fa-user text-slate-400 w-4 text-center"></i> الملف الشخصي
+                            </button>
+                            <button class="w-full flex items-center justify-start gap-3 px-3 py-2.5 text-sm font-bold text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-colors border border-transparent">
+                                <i class="fa-solid fa-shield-halved text-slate-400 w-4 text-center"></i> الأمان والخصوصية
+                            </button>
+                            <button onclick="window.location.href='odoo/index.html'" class="w-full flex items-center justify-start gap-3 px-3 py-2.5 text-sm font-bold text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-colors border border-transparent">
+                                <i class="fa-solid fa-server text-slate-400 w-4 text-center"></i> إعدادات المزامنة
+                            </button>
+                        </div>
+                        <div class="border-t border-slate-100 p-2">
+                            <button onclick="window.location.href='login/index.html'" class="w-full flex items-center justify-start gap-3 px-3 py-2.5 text-sm font-bold text-red-600 hover:bg-red-50 hover:border-red-100 rounded-lg transition-colors border border-transparent">
+                                <i class="fa-solid fa-arrow-right-from-bracket w-4 text-center"></i> تسجيل الخروج
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </header>
 
@@ -12139,17 +12205,68 @@
 
         // Toggle Notifications Dropdown
         function toggleNotifications() {
+            closeAllHeaderDropdowns('notificationDropdown');
             const dropdown = document.getElementById('notificationDropdown');
             dropdown.classList.toggle('hidden');
         }
 
-        // Close dropdown when clicking outside
+        // Toggle Language Dropdown
+        function toggleLanguage() {
+            closeAllHeaderDropdowns('languageDropdown');
+            const dropdown = document.getElementById('languageDropdown');
+            dropdown.classList.toggle('hidden');
+        }
+
+        // Toggle Profile Dropdown
+        function toggleProfileMenu() {
+            closeAllHeaderDropdowns('profileDropdown');
+            const dropdown = document.getElementById('profileDropdown');
+            dropdown.classList.toggle('hidden');
+        }
+
+        // Toggle Live Search
+        function toggleLiveSearch(forceState) {
+            const dropdown = document.getElementById('liveSearchDropdown');
+            if (forceState === true) {
+                dropdown.classList.remove('hidden');
+            } else if (forceState === false) {
+                dropdown.classList.add('hidden');
+            } else {
+                dropdown.classList.toggle('hidden');
+            }
+        }
+
+        function closeAllHeaderDropdowns(exceptId) {
+            ['notificationDropdown', 'languageDropdown', 'profileDropdown'].forEach(id => {
+                if(id !== exceptId) {
+                    const el = document.getElementById(id);
+                    if(el) el.classList.add('hidden');
+                }
+            });
+        }
+
+        // Close dropdowns when clicking outside
         document.addEventListener('click', function(event) {
-            const dropdown = document.getElementById('notificationDropdown');
-            const btn = document.getElementById('notificationBtn');
-            if (!dropdown.classList.contains('hidden')) {
-                if (!dropdown.contains(event.target) && !btn.contains(event.target)) {
-                    dropdown.classList.add('hidden');
+            const notifDropdown = document.getElementById('notificationDropdown');
+            const notifBtn = document.getElementById('notificationBtn');
+            const profileDropdown = document.getElementById('profileDropdown');
+            const profileBtn = document.getElementById('profileBtn');
+            const langDropdown = document.getElementById('languageDropdown');
+
+            if (notifDropdown && !notifDropdown.classList.contains('hidden')) {
+                if (!notifDropdown.contains(event.target) && !notifBtn?.contains(event.target)) {
+                    notifDropdown.classList.add('hidden');
+                }
+            }
+            if (profileDropdown && !profileDropdown.classList.contains('hidden')) {
+                if (!profileDropdown.contains(event.target) && !profileBtn?.contains(event.target)) {
+                    profileDropdown.classList.add('hidden');
+                }
+            }
+            if (langDropdown && !langDropdown.classList.contains('hidden')) {
+                // simple outside click logic for lang
+                if(!event.target.closest('[onclick="toggleLanguage()"]') && !langDropdown.contains(event.target)) {
+                    langDropdown.classList.add('hidden');
                 }
             }
         });
