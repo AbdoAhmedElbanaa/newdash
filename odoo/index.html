@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تكامل Odoo | مونتانا</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- DataTables Premium Dependencies -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    
+    <!-- SweetAlert2 for premium alerts -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Cairo', 'sans-serif'] },
+                    colors: {
+                        primary: '#4f46e5',
+                        secondary: '#10b981',
+                        dark: '#0f172a',
+                        glass: 'rgba(255, 255, 255, 0.1)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Cairo', sans-serif; background-color: #ffffff; min-height: 100svh; }
+        
+        /* Glassmorphism Classes */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+        }
+        .glass-sidebar {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: white;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Dark Mode Transitions */
+        body { transition: background-color 0.3s, color 0.3s; }
+        .glass-panel { transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s; }
+        
+        .dark-mode body { background-color: #020617; color: #e5e7eb; }
+        .dark-mode .glass-panel {
+            background: rgba(15, 23, 42, 0.96);
+            border-color: rgba(148, 163, 184, 0.2);
+            box-shadow: 0 16px 45px rgba(0, 0, 0, 0.4);
+        }
+        .dark-mode .bg-white { background-color: rgba(15, 23, 42, 0.6) !important; border-color: rgba(148, 163, 184, 0.2) !important; color: #fff !important; }
+        .dark-mode .text-slate-800 { color: #f1f5f9 !important; }
+        .dark-mode .text-slate-700 { color: #e2e8f0 !important; }
+        .dark-mode .text-slate-600 { color: #cbd5e1 !important; }
+        .dark-mode .text-slate-500 { color: #94a3b8 !important; }
+        
+        .dark-mode input, .dark-mode select { background-color: rgba(15, 23, 42, 0.8) !important; color: #f1f5f9; border-color: rgba(148, 163, 184, 0.3); }
+
+        /* Enhanced Dark Mode Overrides for Tailwind Components */
+        .dark-mode .bg-slate-50 { background-color: rgba(15, 23, 42, 0.8) !important; color: #f1f5f9 !important; }
+        .dark-mode .bg-slate-100 { background-color: rgba(30, 41, 59, 0.8) !important; color: #f1f5f9 !important; }
+        
+        .dark-mode .border-slate-200, .dark-mode .border-slate-300, .dark-mode .border-slate-100 { border-color: #334155 !important; }
+        
+        /* Pastel Colors Mapping */
+        .dark-mode .bg-indigo-50, .dark-mode .bg-indigo-100 { background-color: rgba(79, 70, 229, 0.15) !important; border-color: rgba(79, 70, 229, 0.3) !important; }
+        .dark-mode .text-indigo-600, .dark-mode .text-indigo-500 { color: #818cf8 !important; }
+        
+        .dark-mode .bg-emerald-50, .dark-mode .bg-emerald-100 { background-color: rgba(16, 185, 129, 0.15) !important; border-color: rgba(16, 185, 129, 0.3) !important; }
+        .dark-mode .text-emerald-600, .dark-mode .text-emerald-500 { color: #34d399 !important; }
+        
+        .dark-mode .bg-blue-50, .dark-mode .bg-blue-100 { background-color: rgba(59, 130, 246, 0.15) !important; border-color: rgba(59, 130, 246, 0.3) !important; }
+        .dark-mode .text-blue-600, .dark-mode .text-blue-500 { color: #60a5fa !important; }
+        
+        .dark-mode .bg-amber-50, .dark-mode .bg-amber-100 { background-color: rgba(245, 158, 11, 0.15) !important; border-color: rgba(245, 158, 11, 0.3) !important; }
+        .dark-mode .text-amber-600, .dark-mode .text-amber-500 { color: #fbbf24 !important; }
+        
+        .dark-mode .bg-rose-50, .dark-mode .bg-rose-100 { background-color: rgba(225, 29, 72, 0.15) !important; border-color: rgba(225, 29, 72, 0.3) !important; }
+        .dark-mode .text-rose-600, .dark-mode .text-rose-500 { color: #fb7185 !important; }
+        
+        /* Hover Effects Mapping */
+        .dark-mode .hover\:bg-white:hover { background-color: rgba(30, 41, 59, 0.9) !important; border-color: rgba(148, 163, 184, 0.3) !important; }
+        .dark-mode .hover\:bg-white\/80:hover { background-color: rgba(30, 41, 59, 0.8) !important; border-color: rgba(148, 163, 184, 0.3) !important; }
+        .dark-mode .hover\:bg-slate-50:hover { background-color: rgba(30, 41, 59, 0.8) !important; }
+        .dark-mode .bg-white\/40, .dark-mode .bg-white\/50 { background-color: rgba(15, 23, 42, 0.4) !important; border-color: rgba(148, 163, 184, 0.1) !important; color: #f1f5f9 !important; }
+        
+        .dark-mode header, .dark-mode aside { border-color: rgba(255, 255, 255, 0.05) !important; }
+
+        /* Sidebar Item Focus */
+        .nav-item.active {
+            background: linear-gradient(90deg, rgba(79, 70, 229, 0.1), transparent);
+            border-right: 3px solid #4f46e5;
+            color: #818cf8;
+        }
+
+        /* Switch Toggle Styling */
+        .toggle-switch {
+            position: relative; width: 44px; height: 24px; appearance: none;
+            background: #cbd5e1; border-radius: 999px; outline: none; cursor: pointer;
+            transition: all 0.3s;
+        }
+        .toggle-switch::after {
+            content: ''; position: absolute; top: 2px; left: 2px; width: 20px; height: 20px;
+            background: white; border-radius: 50%; transition: all 0.3s; box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .toggle-switch:checked { background: #10b981; }
+        .toggle-switch:checked::after { transform: translateX(20px); }
+
+        /* Custom Scrollbar */
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .dark-mode .custom-scrollbar::-webkit-scrollbar-thumb { background: #475569; }
+
+        /* Premium DataTable */
+        .dataTables_wrapper .dataTables_filter input {
+            padding: 0.5rem 1rem; border-radius: 0.75rem; border: 1px solid rgba(226, 232, 240, 0.8);
+            outline: none; transition: all 0.2s; min-width: 200px;
+        }
+        .dataTables_wrapper .dataTables_filter input:focus { border-color: #4f46e5; box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.08); }
+        table.dataTable thead th { border-bottom: 2px solid #e2e8f0 !important; color: #64748b; font-weight: 700; }
+        .dark-mode table.dataTable thead th { border-bottom-color: #334155 !important; color: #94a3b8; }
+        table.dataTable tbody td { padding: 1.25rem 1rem !important; vertical-align: middle !important; border-bottom: 1px solid #f1f5f9 !important; }
+        .dark-mode table.dataTable tbody td { border-bottom-color: #1e293b !important; color: #cbd5e1; }
+        table.dataTable tbody tr:hover { background-color: rgba(79, 70, 229, 0.02) !important; }
+        .dark-mode table.dataTable tbody tr:hover { background-color: rgba(79, 70, 229, 0.1) !important; }
+        
+        /* Status Badges */
+        .badge { padding: 0.35rem 0.75rem; border-radius: 8px; font-size: 0.75rem; font-weight: 700; display: inline-flex; align-items: center; gap: 0.35rem; white-space: nowrap; }
+        .badge-success { background: #d1fae5; color: #059669; }
+        .badge-warning { background: #fef3c7; color: #d97706; }
+        .badge-danger { background: #fee2e2; color: #dc2626; }
+        .dark-mode .badge-success { background: rgba(5, 150, 105, 0.2); color: #34d399; }
+        .dark-mode .badge-warning { background: rgba(217, 119, 6, 0.2); color: #fbbf24; }
+        .dark-mode .badge-danger { background: rgba(220, 38, 38, 0.2); color: #f87171; }
+    </style>
+</head>
+
+<body class="flex h-screen overflow-hidden text-slate-800">
+
+    <!-- Sidebar -->
+    <aside id="sidebar" class="glass-sidebar w-72 flex flex-col transition-all duration-300 z-20 fixed md:relative inset-y-0 left-0 transform -translate-x-full md:translate-x-0 md:flex">
+        <div class="h-20 flex items-center justify-center border-b border-slate-700/50">
+            <h1 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-emerald-400">
+                <i class="fa-solid fa-gem mr-2"></i> MONTANA
+            </h1>
+        </div>
+
+        <div class="p-6 flex items-center gap-4 border-b border-slate-700/50">
+            <img src="https://ui-avatars.com/api/?name=Admin&background=4f46e5&color=fff" class="w-12 h-12 rounded-xl shadow-lg border-2 border-indigo-500/30" alt="Admin Avatar">
+            <div>
+                <h3 class="font-bold text-slate-100">مدير النظام</h3>
+                <p class="text-xs text-emerald-400"><i class="fa-solid fa-circle text-[8px] mr-1"></i> متصل حالياً</p>
+            </div>
+        </div>
+
+        <nav class="flex-1 overflow-y-auto custom-scrollbar p-4 space-y-2">
+            <button onclick="window.location.href='../pro_dashboard.html'" class="nav-item w-full flex items-center gap-3 px-4 py-3 text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all border border-transparent">
+                <i class="fa-solid fa-chart-pie w-5"></i>
+                <span class="font-semibold text-sm">الرئيسية (Dashboard)</span>
+            </button>
+            <div class="pt-4 pb-2 px-4 text-xs font-bold text-slate-500 uppercase tracking-wider">الإعدادات والتكامل</div>
+            <button class="nav-item active w-full flex items-center gap-3 px-4 py-3 text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all border border-transparent">
+                <i class="fa-solid fa-server w-5"></i>
+                <span class="font-semibold text-sm">تكامل Odoo</span>
+            </button>
+            <button onclick="window.location.href='../pro_dashboard.html?tab=settings'" class="nav-item w-full flex items-center gap-3 px-4 py-3 text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all border border-transparent">
+                <i class="fa-solid fa-gear w-5"></i>
+                <span class="font-semibold text-sm">إعدادات النظام العامة</span>
+            </button>
+        </nav>
+    </aside>
+
+    <!-- Sidebar Overlay for Mobile -->
+    <div id="sidebarOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-10 hidden md:hidden" onclick="toggleSidebar()"></div>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col relative overflow-hidden transition-colors duration-300">
+        <!-- Top Header -->
+        <header class="h-16 md:h-20 glass-panel border-b border-slate-200 px-4 md:px-8 flex justify-between items-center z-10 shadow-sm shrink-0">
+            <div class="flex items-center gap-4">
+                <button id="sidebarToggle" class="md:hidden p-2 text-slate-500 hover:text-indigo-600 transition-colors" onclick="toggleSidebar()">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+                <div class="relative hidden md:block">
+                    <i class="fa-solid fa-search absolute right-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                    <input type="text" placeholder="البحث في العمليات..."
+                           class="pl-4 pr-10 py-2.5 rounded-xl border border-slate-200 bg-slate-100/50 focus:bg-white focus:ring-2 focus:ring-indigo-400 focus:border-transparent outline-none w-64 md:w-80 transition-all text-sm">
+                </div>
+            </div>
+            <div class="flex items-center gap-3 md:gap-5">
+                <button class="relative p-2 text-slate-500 hover:text-indigo-600 transition-colors">
+                    <i class="fa-regular fa-bell text-lg md:text-xl"></i>
+                    <span class="absolute top-1 right-1 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-white"></span>
+                </button>
+                <!-- Dark mode toggle -->
+                <button id="themeToggleButton" class="relative p-2 rounded-full border border-slate-200 text-slate-500 hover:text-amber-400 hover:border-amber-300 bg-white/70 hover:bg-amber-50 transition-colors flex items-center justify-center" onclick="toggleTheme()">
+                    <i class="fa-solid fa-moon text-lg icon-moon"></i>
+                    <i class="fa-solid fa-sun text-lg icon-sun hidden"></i>
+                </button>
+                <div class="h-8 w-px bg-slate-200 mx-2"></div>
+                <button class="flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-slate-900">
+                    <span>خروج</span>
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Scrollable Content Area -->
+        <div class="flex-1 overflow-y-auto custom-scrollbar p-4 md:p-8">
+            
+            <div class="section-header flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4">
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-slate-800 mb-2 drop-shadow-sm">
+                        <i class="fa-solid fa-server text-indigo-500 mr-2"></i> تكامل نظام إدارة الموارد (Odoo ERP)
+                    </h2>
+                    <p class="text-slate-500 text-sm font-medium">مراقبة الاتصال وإدارة مزامنة الكيانات بين متجرك ونظام Odoo.</p>
+                </div>
+                <button onclick="syncAll()" class="px-6 py-3 bg-gradient-to-r from-indigo-600 to-indigo-500 text-white rounded-xl shadow-lg shadow-indigo-200 hover:shadow-indigo-300 hover:-translate-y-0.5 transition-all text-sm font-bold flex items-center gap-2">
+                    <i class="fa-solid fa-rotate sync-icon"></i> مزامنة الكل الآن
+                </button>
+            </div>
+
+            <!-- Status Widgets -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <!-- Status -->
+                <div class="glass-panel p-6 rounded-2xl relative overflow-hidden group hover:shadow-xl transition-all">
+                    <div class="absolute -right-4 -top-4 w-24 h-24 bg-emerald-500/10 rounded-full blur-2xl"></div>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-slate-500 text-sm font-bold uppercase tracking-wider mb-2">حالة الاتصال</p>
+                            <h3 class="text-2xl font-bold text-slate-800 flex items-center gap-2" id="conn-status-text">
+                                متصل
+                                <span class="flex h-3 w-3 relative">
+                                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                  <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                                </span>
+                            </h3>
+                        </div>
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl shadow-inner border border-emerald-100">
+                            <i class="fa-solid fa-plug-circle-check"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Last Sync -->
+                <div class="glass-panel p-6 rounded-2xl relative overflow-hidden group hover:shadow-xl transition-all">
+                    <div class="absolute -right-4 -top-4 w-24 h-24 bg-blue-500/10 rounded-full blur-2xl"></div>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-slate-500 text-sm font-bold uppercase tracking-wider mb-2">آخر عملية مزامنة ناجحة</p>
+                            <h3 class="text-xl font-bold text-slate-800 direction-ltr text-right">Today, 09:12 AM</h3>
+                        </div>
+                        <div class="w-14 h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl shadow-inner border border-blue-100">
+                            <i class="fa-solid fa-clock-rotate-left"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Processed Data -->
+                <div class="glass-panel p-6 rounded-2xl relative overflow-hidden group hover:shadow-xl transition-all">
+                    <div class="absolute -right-4 -top-4 w-24 h-24 bg-indigo-500/10 rounded-full blur-2xl"></div>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-slate-500 text-sm font-bold uppercase tracking-wider mb-2">إجمالي السجلات المتزامنة</p>
+                            <h3 class="text-3xl font-black text-slate-800">4,892</h3>
+                        </div>
+                        <div class="w-14 h-14 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-2xl shadow-inner border border-indigo-100">
+                            <i class="fa-solid fa-database"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Configuration & Modules Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8">
+                
+                <!-- Left Details: Odoo API Config -->
+                <div class="lg:col-span-5 flex flex-col gap-6">
+                    <div class="glass-panel rounded-2xl overflow-hidden border border-slate-200">
+                        <div class="bg-white/50 border-b border-slate-200 px-6 py-4 flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-sliders"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-800">بيانات وتكوين الاتصال</h3>
+                        </div>
+                        <div class="p-6 space-y-5">
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-1">رابط الخادم (Server URL) <span class="text-red-500">*</span></label>
+                                <input type="url" value="https://montana.odoo.com" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-indigo-400 outline-none transition-all text-left" dir="ltr" placeholder="https://your-odoo-instance.com">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-1">اسم قاعدة البيانات (Database) <span class="text-red-500">*</span></label>
+                                <input type="text" value="montana_production_v15" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-indigo-400 outline-none transition-all text-left" dir="ltr">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-1">اسم المستخدم / البريد الإلكتروني <span class="text-red-500">*</span></label>
+                                <input type="text" value="admin@montana-sa.com" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-indigo-400 outline-none transition-all text-left" dir="ltr">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-slate-700 mb-1">كلمة المرور / API Key <span class="text-red-500">*</span></label>
+                                <div class="relative">
+                                    <input type="password" value="*******************" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-indigo-400 outline-none transition-all text-left pr-10" dir="ltr">
+                                    <button type="button" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-indigo-600">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <hr class="border-slate-200">
+                            
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <button type="button" onclick="testConnection()" class="flex-1 px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition-all border border-slate-300 flex justify-center items-center gap-2">
+                                    <i class="fa-solid fa-wifi"></i> اختبار الاتصال
+                                </button>
+                                <button type="button" class="flex-1 px-4 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-xl transition-all shadow-md shadow-emerald-200 flex justify-center items-center gap-2">
+                                    <i class="fa-solid fa-save"></i> حفظ الإعدادات
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Environment Stats -->
+                    <div class="glass-panel rounded-2xl p-5 border border-slate-200">
+                        <h4 class="text-sm font-bold text-slate-800 mb-4 border-b border-slate-100 pb-2">تفاصيل بيئة Odoo</h4>
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between items-center text-slate-600">
+                                <span>إصدار أودو (Version)</span>
+                                <span class="font-bold text-slate-800 badge bg-slate-100 border border-slate-200">Odoo 16.0 Enterprise</span>
+                            </div>
+                            <div class="flex justify-between items-center text-slate-600">
+                                <span>حالة السيرفر (Latency)</span>
+                                <span class="font-bold text-emerald-600">45ms</span>
+                            </div>
+                            <div class="flex justify-between items-center text-slate-600">
+                                <span>بروتوكول الربط</span>
+                                <span class="font-bold text-slate-800">XML-RPC</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Details: Sync Modules Hub -->
+                <div class="lg:col-span-7">
+                    <div class="glass-panel rounded-2xl overflow-hidden border border-slate-200 h-full flex flex-col">
+                        <div class="bg-white/50 border-b border-slate-200 px-6 py-4 flex justify-between items-center">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center text-lg">
+                                    <i class="fa-solid fa-layer-group"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold text-slate-800">كيانات المزامنة (Modules)</h3>
+                                    <p class="text-xs text-slate-500 font-semibold">تحكم في ما يتم مزامنته تلقائياً بين النظامين.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-4 flex-1">
+                            
+                            <!-- Module: Products -->
+                            <div class="border border-slate-200 rounded-xl p-4 bg-white/40 hover:bg-white/80 transition-all hover:border-indigo-300 group">
+                                <div class="flex justify-between items-start mb-4">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-lg bg-indigo-50 text-indigo-600 flex justify-center items-center text-xl">
+                                            <i class="fa-solid fa-boxes-stacked"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-slate-800 text-base">المنتجات (Products)</h4>
+                                            <p class="text-xs text-slate-500">مزامنة الأصناف، الأسعار، الصور</p>
+                                        </div>
+                                    </div>
+                                    <label class="relative inline-flex items-center cursor-pointer mt-1">
+                                      <input type="checkbox" value="" class="sr-only peer" checked>
+                                      <div class="toggle-switch peer"></div>
+                                    </label>
+                                </div>
+                                <div class="flex items-center justify-between mt-auto">
+                                    <div class="text-xs text-slate-500 font-semibold">
+                                        <i class="fa-regular fa-clock mr-1"></i> كل ساعة
+                                    </div>
+                                    <button class="text-indigo-600 hover:text-indigo-800 text-sm font-bold flex items-center gap-1 opacity-0 group-hover:opacity-100 -translate-y-2 group-hover:translate-y-0 transition-all bg-indigo-50 px-3 py-1.5 rounded-lg">
+                                        <i class="fa-solid fa-play text-xs"></i> مزامنة
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Module: Customers -->
+                            <div class="border border-slate-200 rounded-xl p-4 bg-white/40 hover:bg-white/80 transition-all hover:border-indigo-300 group">
+                                <div class="flex justify-between items-start mb-4">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-600 flex justify-center items-center text-xl">
+                                            <i class="fa-solid fa-users"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-slate-800 text-base">العملاء (Customers)</h4>
+                                            <p class="text-xs text-slate-500">استيراد وتصدير بيانات العملاء</p>
+                                        </div>
+                                    </div>
+                                    <label class="relative inline-flex items-center cursor-pointer mt-1">
+                                      <input type="checkbox" value="" class="sr-only peer" checked>
+                                      <div class="toggle-switch peer"></div>
+                                    </label>
+                                </div>
+                                <div class="flex items-center justify-between mt-auto">
+                                    <div class="text-xs text-slate-500 font-semibold">
+                                        <i class="fa-regular fa-clock mr-1"></i> فوري (Webhooks)
+                                    </div>
+                                    <button class="text-indigo-600 hover:text-indigo-800 text-sm font-bold flex items-center gap-1 opacity-0 group-hover:opacity-100 -translate-y-2 group-hover:translate-y-0 transition-all bg-indigo-50 px-3 py-1.5 rounded-lg">
+                                        <i class="fa-solid fa-play text-xs"></i> مزامنة
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Module: Inventory -->
+                            <div class="border border-slate-200 rounded-xl p-4 bg-white/40 hover:bg-white/80 transition-all hover:border-indigo-300 group">
+                                <div class="flex justify-between items-start mb-4">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-lg bg-amber-50 text-amber-600 flex justify-center items-center text-xl">
+                                            <i class="fa-solid fa-cubes"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-slate-800 text-base">المخزون (Inventory)</h4>
+                                            <p class="text-xs text-slate-500">الكميات المتاحة والحركات</p>
+                                        </div>
+                                    </div>
+                                    <label class="relative inline-flex items-center cursor-pointer mt-1">
+                                      <input type="checkbox" value="" class="sr-only peer" checked>
+                                      <div class="toggle-switch peer"></div>
+                                    </label>
+                                </div>
+                                <div class="flex items-center justify-between mt-auto">
+                                    <div class="text-xs text-slate-500 font-semibold">
+                                        <i class="fa-regular fa-clock mr-1"></i> كل 15 دقيقة
+                                    </div>
+                                    <button class="text-indigo-600 hover:text-indigo-800 text-sm font-bold flex items-center gap-1 opacity-0 group-hover:opacity-100 -translate-y-2 group-hover:translate-y-0 transition-all bg-indigo-50 px-3 py-1.5 rounded-lg">
+                                        <i class="fa-solid fa-play text-xs"></i> مزامنة
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Module: Orders & Invoices -->
+                            <div class="border border-slate-200 rounded-xl p-4 bg-white/40 hover:bg-white/80 transition-all hover:border-indigo-300 group">
+                                <div class="flex justify-between items-start mb-4">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-lg bg-rose-50 text-rose-600 flex justify-center items-center text-xl">
+                                            <i class="fa-solid fa-file-invoice-dollar"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-slate-800 text-base">الطلبات (Orders)</h4>
+                                            <p class="text-xs text-slate-500">إرسال الطلبات كمسودات (Quotation)</p>
+                                        </div>
+                                    </div>
+                                    <label class="relative inline-flex items-center cursor-pointer mt-1">
+                                      <input type="checkbox" value="" class="sr-only peer" checked>
+                                      <div class="toggle-switch peer"></div>
+                                    </label>
+                                </div>
+                                <div class="flex items-center justify-between mt-auto">
+                                    <div class="text-xs text-slate-500 font-semibold">
+                                        <i class="fa-regular fa-clock mr-1"></i> فوري (Webhooks)
+                                    </div>
+                                    <button class="text-indigo-600 hover:text-indigo-800 text-sm font-bold flex items-center gap-1 opacity-0 group-hover:opacity-100 -translate-y-2 group-hover:translate-y-0 transition-all bg-indigo-50 px-3 py-1.5 rounded-lg">
+                                        <i class="fa-solid fa-play text-xs"></i> مزامنة
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Module: Categories Setup -->
+                            <div class="border border-slate-200 rounded-xl p-4 bg-white/40 hover:bg-white/80 transition-all hover:border-indigo-300 group md:col-span-2">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-lg bg-slate-100 text-slate-600 flex justify-center items-center text-xl">
+                                            <i class="fa-solid fa-sitemap"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-slate-800 text-base">مطابقة التصنيفات (Mapping)</h4>
+                                            <p class="text-xs text-slate-500">ربط فئات المتاجر ومقاسات المنتجات بقاعدة بيانات أودو.</p>
+                                        </div>
+                                    </div>
+                                    <button class="px-4 py-2 border border-slate-300 hover:bg-slate-100 text-slate-700 font-bold rounded-lg text-sm transition-all flex items-center gap-2">
+                                        إدارة الربط <i class="fa-solid fa-arrow-left text-xs"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Flow Analytics Chart -->
+            <div class="glass-panel p-6 rounded-2xl border border-slate-200 shadow-sm mb-8">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 border-b border-slate-100 pb-4 gap-4">
+                    <h3 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                        <i class="fa-solid fa-chart-column text-indigo-500"></i> تحليلات تدفق البيانات اللحظي (Data Flow)
+                    </h3>
+                    <div class="flex items-center p-1 bg-slate-100 rounded-lg shrink-0">
+                        <button class="px-4 py-1.5 bg-white text-indigo-600 shadow-sm rounded-md text-xs font-bold transition-all">اليوم</button>
+                        <button class="px-4 py-1.5 text-slate-500 hover:text-indigo-600 rounded-md text-xs font-bold transition-all">هذا الأسبوع</button>
+                    </div>
+                </div>
+                
+                <div class="h-56 flex items-end gap-2 md:gap-4 pt-2">
+                    <!-- Simulate Bar Chart with GSAP-like or basic css bars -->
+                    <!-- Bar 1 -->
+                    <div class="flex-1 flex flex-col items-center gap-2 group cursor-pointer h-full justify-end relative">
+                        <div class="absolute -top-8 bg-slate-800 text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">120 Syncs</div>
+                        <div class="w-full max-w-[40px] bg-indigo-100 rounded-t-md overflow-hidden flex items-end h-full">
+                            <div class="w-full bg-indigo-400 group-hover:bg-indigo-500 transition-all rounded-t-sm" style="height: 35%"></div>
+                        </div>
+                        <span class="text-[10px] text-slate-400 font-bold uppercase">12am</span>
+                    </div>
+                    <!-- Bar 2 -->
+                    <div class="flex-1 flex flex-col items-center gap-2 group cursor-pointer h-full justify-end relative">
+                        <div class="absolute -top-8 bg-slate-800 text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">450 Syncs</div>
+                        <div class="w-full max-w-[40px] bg-indigo-100 rounded-t-md overflow-hidden flex items-end h-full">
+                            <div class="w-full bg-indigo-400 group-hover:bg-indigo-500 transition-all rounded-t-sm" style="height: 65%"></div>
+                        </div>
+                        <span class="text-[10px] text-slate-400 font-bold uppercase">4am</span>
+                    </div>
+                    <!-- Bar 3 -->
+                    <div class="flex-1 flex flex-col items-center gap-2 group cursor-pointer h-full justify-end relative">
+                        <div class="absolute -top-8 bg-slate-800 text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">820 Syncs</div>
+                        <div class="w-full max-w-[40px] bg-emerald-100 rounded-t-md overflow-hidden flex items-end h-full">
+                            <div class="w-full bg-emerald-400 group-hover:bg-emerald-500 transition-all rounded-t-sm relative" style="height: 85%"></div>
+                        </div>
+                        <span class="text-[10px] text-slate-400 font-bold uppercase">8am</span>
+                    </div>
+                    <!-- Bar 4 (Peak) -->
+                    <div class="flex-1 flex flex-col items-center gap-2 group cursor-pointer h-full justify-end relative">
+                        <div class="absolute -top-8 bg-slate-800 text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">1254 Syncs</div>
+                        <div class="w-full max-w-[40px] bg-indigo-100 rounded-t-md overflow-hidden flex items-end h-full">
+                            <div class="w-full bg-indigo-500 group-hover:bg-indigo-600 transition-all rounded-t-sm" style="height: 100%"></div>
+                        </div>
+                        <span class="text-[10px] text-indigo-600 font-black uppercase tracking-wider">12pm</span>
+                    </div>
+                    <!-- Bar 5 -->
+                    <div class="flex-1 flex flex-col items-center gap-2 group cursor-pointer h-full justify-end relative">
+                        <div class="absolute -top-8 bg-slate-800 text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">940 Syncs</div>
+                        <div class="w-full max-w-[40px] bg-indigo-100 rounded-t-md overflow-hidden flex items-end h-full">
+                            <div class="w-full bg-indigo-400 group-hover:bg-indigo-500 transition-all rounded-t-sm" style="height: 75%"></div>
+                        </div>
+                        <span class="text-[10px] text-slate-400 font-bold uppercase">4pm</span>
+                    </div>
+                    <!-- Bar 6 -->
+                    <div class="flex-1 flex flex-col items-center gap-2 group cursor-pointer h-full justify-end relative">
+                        <div class="absolute -top-8 bg-slate-800 text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">312 Syncs</div>
+                        <div class="w-full max-w-[40px] bg-indigo-100 rounded-t-md overflow-hidden flex items-end h-full">
+                            <div class="w-full bg-indigo-400 group-hover:bg-indigo-500 transition-all rounded-t-sm" style="height: 45%"></div>
+                        </div>
+                        <span class="text-[10px] text-slate-400 font-bold uppercase">8pm</span>
+                    </div>
+                    <!-- Bar 7 -->
+                    <div class="flex-1 flex flex-col items-center gap-2 group cursor-pointer h-full justify-end relative">
+                        <div class="absolute -top-8 bg-slate-800 text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">142 Syncs</div>
+                        <div class="w-full max-w-[40px] bg-indigo-100 rounded-t-md overflow-hidden flex items-end h-full">
+                            <div class="w-full flex flex-col justify-end h-full">
+                                <div class="w-full bg-indigo-400 group-hover:bg-indigo-500 transition-all rounded-t-sm" style="height: 15%"></div>
+                            </div>
+                        </div>
+                        <span class="text-[10px] text-slate-400 font-bold uppercase">Now</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sync Logs DataTable -->
+            <div class="glass-panel p-6 rounded-2xl border border-slate-200 shadow-sm mb-8">
+
+                <div class="flex justify-between items-center mb-6 border-b border-slate-100 pb-4">
+                    <h3 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                        <i class="fa-solid fa-clipboard-list text-indigo-500"></i> سجل العمليات الأخيرة (Sync History)
+                    </h3>
+                    <button class="text-slate-500 hover:text-indigo-600 text-sm font-bold transition-colors">
+                        <i class="fa-solid fa-filter"></i> تصفية السجلات
+                    </button>
+                </div>
+                
+                <div class="overflow-x-auto tab-scroller">
+                    <table id="syncLogsTable" class="w-full whitespace-nowrap lg:whitespace-normal display">
+                        <thead>
+                            <tr class="bg-slate-50 text-right">
+                                <th class="text-slate-500 font-bold py-3 px-4 rounded-r-xl">رقم العملية</th>
+                                <th class="text-slate-500 font-bold py-3 px-4">الكيان (Entity)</th>
+                                <th class="text-slate-500 font-bold py-3 px-4">التاريخ والوقت</th>
+                                <th class="text-slate-500 font-bold py-3 px-4">السجلات المُعالجة</th>
+                                <th class="text-slate-500 font-bold py-3 px-4 text-center">الحالة</th>
+                                <th class="text-slate-500 font-bold py-3 px-4 rounded-l-xl text-center">إجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="group">
+                                <td class="font-bold text-indigo-600">#SYNC-8930</td>
+                                <td>
+                                    <div class="flex items-center gap-2 font-bold text-slate-700">
+                                        <i class="fa-solid fa-file-invoice-dollar text-rose-500"></i> الطلبات (Orders)
+                                    </div>
+                                </td>
+                                <td class="text-slate-500 text-sm">2026-04-14 09:12 AM</td>
+                                <td><span class="font-bold pb-1 border-b border-dashed border-slate-300">12</span> طلب جديد</td>
+                                <td class="text-center"><span class="badge badge-success"><i class="fa-solid fa-check-circle"></i> نجاح</span></td>
+                                <td class="text-center">
+                                    <button class="p-2 text-slate-400 hover:text-indigo-600 transition-colors bg-white rounded-lg shadow-sm border border-slate-100" title="عرض التفاصيل">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="group">
+                                <td class="font-bold text-indigo-600">#SYNC-8929</td>
+                                <td>
+                                    <div class="flex items-center gap-2 font-bold text-slate-700">
+                                        <i class="fa-solid fa-boxes-stacked text-indigo-500"></i> المنتجات (Products)
+                                    </div>
+                                </td>
+                                <td class="text-slate-500 text-sm">2026-04-14 08:00 AM</td>
+                                <td><span class="font-bold pb-1 border-b border-dashed border-slate-300">340</span> منتج مُحدث</td>
+                                <td class="text-center"><span class="badge badge-success"><i class="fa-solid fa-check-circle"></i> نجاح</span></td>
+                                <td class="text-center">
+                                    <button class="p-2 text-slate-400 hover:text-indigo-600 transition-colors bg-white rounded-lg shadow-sm border border-slate-100" title="عرض التفاصيل">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="group bg-red-50/50">
+                                <td class="font-bold text-indigo-600">#SYNC-8928</td>
+                                <td>
+                                    <div class="flex items-center gap-2 font-bold text-slate-700">
+                                        <i class="fa-solid fa-cubes text-amber-500"></i> المخزون (Inventory)
+                                    </div>
+                                </td>
+                                <td class="text-slate-500 text-sm">2026-04-14 07:45 AM</td>
+                                <td><span class="font-bold pb-1 border-b border-dashed border-slate-300">0</span> سجل</td>
+                                <td class="text-center"><span class="badge badge-danger"><i class="fa-solid fa-circle-exclamation"></i> خطأ بالاتصال</span></td>
+                                <td class="text-center">
+                                    <button class="btn-error-details p-2 text-red-500 hover:text-white hover:bg-red-500 transition-colors bg-white rounded-lg shadow-sm border border-red-100" title="سجل الأخطاء">
+                                        <i class="fa-solid fa-bug"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="group">
+                                <td class="font-bold text-indigo-600">#SYNC-8927</td>
+                                <td>
+                                    <div class="flex items-center gap-2 font-bold text-slate-700">
+                                        <i class="fa-solid fa-users text-emerald-500"></i> العملاء (Customers)
+                                    </div>
+                                </td>
+                                <td class="text-slate-500 text-sm">2026-04-13 11:30 PM</td>
+                                <td><span class="font-bold pb-1 border-b border-dashed border-slate-300">4</span> عملاء جدد</td>
+                                <td class="text-center"><span class="badge badge-success"><i class="fa-solid fa-check-circle"></i> نجاح</span></td>
+                                <td class="text-center">
+                                    <button class="p-2 text-slate-400 hover:text-indigo-600 transition-colors bg-white rounded-lg shadow-sm border border-slate-100" title="عرض التفاصيل">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Footer spacer -->
+            <div class="h-10"></div>
+        </div>
+    </main>
+
+    <script>
+        // Initialize DataTable
+        $(document).ready(function() {
+            $('#syncLogsTable').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.13.6/i18n/ar.json",
+                    "search": "",
+                    "searchPlaceholder": "البحث في السجلات..."
+                },
+                "pageLength": 5,
+                "lengthChange": false,
+                "ordering": false,
+                "info": true,
+                "dom": '<"flex flex-col md:flex-row justify-between items-center bg-white p-4 rounded-xl shadow-sm mb-4 border border-slate-100"<"flex items-center"f><"flex items-center"p>>rt<"flex justify-between items-center pt-4"i>'
+            });
+            
+            // Adjust DataTable styles for dark mode compatibility (basic injection)
+            $('.dataTables_filter input').addClass('bg-slate-50 dark:bg-slate-800 text-sm');
+        });
+
+        // Theme Toggle Functionality
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+            const isDark = document.documentElement.classList.contains('dark');
+            document.body.parentElement.classList.toggle('dark-mode', isDark);
+            
+            // Toggle Icons
+            document.querySelector('.icon-moon').classList.toggle('hidden', isDark);
+            document.querySelector('.icon-sun').classList.toggle('hidden', !isDark);
+            
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+
+        // Initialize Theme
+        const storedTheme = localStorage.getItem('theme');
+        if (storedTheme === 'dark' || (!storedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            document.body.parentElement.classList.add('dark-mode');
+            document.addEventListener("DOMContentLoaded", () => {
+                document.querySelector('.icon-moon').classList.add('hidden');
+                document.querySelector('.icon-sun').classList.remove('hidden');
+            });
+        }
+
+        // Sidebar Toggle for Mobile
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+        }
+
+        // Simulate Sync All action
+        function syncAll() {
+            const btn = document.querySelector('button[onclick="syncAll()"]');
+            const icon = btn.querySelector('.sync-icon');
+            
+            icon.classList.add('fa-spin');
+            btn.innerHTML = `<i class="fa-solid fa-rotate fa-spin sync-icon"></i> جاري المزامنة...`;
+            btn.classList.replace('from-indigo-600', 'from-amber-500');
+            btn.classList.replace('to-indigo-500', 'to-amber-400');
+            
+            Swal.fire({
+                title: 'جاري مزامنة النظام',
+                text: 'يرجى الانتظار حتى تكتمل عملية تبادل البيانات مع خوادم أودو.',
+                icon: 'info',
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true,
+                customClass: { popup: 'rounded-2xl glass-panel' }
+            }).then(() => {
+                icon.classList.remove('fa-spin');
+                btn.innerHTML = `<i class="fa-solid fa-rotate sync-icon"></i> مزامنة الكل الآن`;
+                btn.classList.replace('from-amber-500', 'from-indigo-600');
+                btn.classList.replace('to-amber-400', 'to-indigo-500');
+                
+                Swal.fire({
+                    title: 'تمت المزامنة بنجاح!',
+                    text: 'تم تحديث جميع الكيانات النشطة مع أودو بنجاح.',
+                    icon: 'success',
+                    confirmButtonText: 'حسناً',
+                    customClass: { 
+                        confirmButton: 'bg-emerald-500 text-white rounded-xl px-6 py-2 shadow-lg font-bold outline-none'
+                    }
+                });
+            });
+        }
+
+        // Simulate Test Connection
+        function testConnection() {
+            Swal.fire({
+                title: 'جاري فحص الاتصال',
+                html: 'نتصل الآن بالخادم <b>https://montana.odoo.com</b>...',
+                allowOutsideClick: false,
+                didOpen: () => { Swal.showLoading() },
+                customClass: { popup: 'rounded-2xl glass-panel' }
+            });
+
+            setTimeout(() => {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'الاتصال ناجح!',
+                    text: 'تم التحقق من بيانات الدخول بنجاح مع قاعدة البيانات montana_production_v15.',
+                    confirmButtonText: 'موافق',
+                    customClass: { 
+                        confirmButton: 'bg-indigo-600 text-white rounded-xl px-6 py-2 shadow-lg font-bold outline-none'
+                    }
+                });
+            }, 1500);
+        }
+
+        // Error Details view
+        $(document).on('click', '.btn-error-details', function() {
+            Swal.fire({
+                icon: 'error',
+                title: 'تفاصيل الخطأ (#SYNC-8928)',
+                html: `<div class="bg-red-50 p-4 rounded-xl text-right text-sm border border-red-200 mt-4 h-32 overflow-y-auto" dir="ltr" style="text-align:left;">
+                        <code>
+                        XML-RPC Error: Connection Refused.<br>
+                        Traceback (most recent call last):<br>
+                        File "odoo/models.py", line 42, in execute_kw<br>
+                        xmlrpc.client.Fault: &lt;Fault 1: 'Traceback (most recent call last):\nConnection to host failed'&gt;
+                        </code>
+                       </div>`,
+                confirmButtonText: 'إغلاق',
+                customClass: {
+                    popup: 'rounded-2xl',
+                    confirmButton: 'bg-slate-200 text-slate-800 rounded-xl px-6 py-2 font-bold'
+                }
+            });
+        });
+    </script>
+</body>
+</html>
